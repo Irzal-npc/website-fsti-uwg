@@ -515,44 +515,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Accordion Peminatan/Konsentrasi (tertutup default, keyboard accessible)
-    const concHeaders = document.querySelectorAll('.conc-header');
-    if (concHeaders.length) {
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const openConc = (card, header) => {
-            const body = card.querySelector('.concentration-body-card');
-            card.classList.add('open'); header.setAttribute('aria-expanded', 'true');
-            if (!body) return;
-            clearTimeout(card._concTimer);
-            if (reduceMotion) { body.style.maxHeight = ''; return; }
-            body.style.maxHeight = ''; const full = body.offsetHeight;
-            body.style.maxHeight = '0px'; void body.offsetHeight; body.style.maxHeight = full + 'px';
-            card._concTimer = setTimeout(() => { if (card.classList.contains('open')) body.style.maxHeight = ''; }, 450);
-        };
-        const closeConc = (card, header) => {
-            const body = card.querySelector('.concentration-body-card');
-            header.setAttribute('aria-expanded', 'false'); clearTimeout(card._concTimer);
-            if (!body || reduceMotion) { card.classList.remove('open'); if (body) body.style.maxHeight = ''; return; }
-            body.style.maxHeight = body.offsetHeight + 'px'; void body.offsetHeight;
-            card.classList.remove('open'); body.style.maxHeight = '0px';
-        };
-        concHeaders.forEach((header, idx) => {
-            const card = header.closest('.concentration-card'); if (!card) return;
-            const body = card.querySelector('.concentration-body-card');
-            const bodyId = body ? (body.id || `conc-body-${idx}`) : null;
-            if (body && !body.id) body.id = bodyId;
-            header.setAttribute('role', 'button'); header.setAttribute('tabindex', '0');
-            header.setAttribute('aria-expanded', card.classList.contains('open') ? 'true' : 'false');
-            if (bodyId) header.setAttribute('aria-controls', bodyId);
-            const toggle = () => {
-                document.querySelectorAll('.concentration-card.open').forEach(c => { if (c !== card) { const h = c.querySelector('.conc-header'); if (h) closeConc(c, h); } });
-                if (card.classList.contains('open')) closeConc(card, header); else openConc(card, header);
-            };
-            header.addEventListener('click', toggle);
-            header.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
-        });
-    }
-
     // console.log('FSTI UWG Website Loaded Successfully');
 
 });
