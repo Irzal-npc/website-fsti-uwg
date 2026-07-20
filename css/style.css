@@ -740,6 +740,95 @@ button:focus-visible .detail-arrow,
     }
 }
 
+/* Modal Category Badge — truncate teks panjang agar tidak melipat/overflow mobile */
+#modal-category {
+    max-width: 280px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-flex;
+}
+
+@media (max-width: 480px) {
+    #modal-category {
+        max-width: 220px;
+    }
+}
+
+/* ==========================================================================
+   TESTIMONIAL CAROUSEL — CSS Scroll Snap (Native Smooth)
+   ========================================================================== */
+.testimonial-track {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* scroll-padding: ruang di kiri/kanan agar slide pertama/terakhir snap ke center */
+    scroll-padding-left: 50%;
+    scroll-padding-right: 50%;
+}
+
+.testimonial-slide {
+    scroll-snap-align: center;
+    scroll-snap-stop: normal;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Pagination Dots */
+#testimonial-pagination button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #D1D5DB;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+#testimonial-pagination button[aria-selected="true"] {
+    background: #F18602;
+    transform: scale(1.25);
+}
+#testimonial-pagination button:focus-visible {
+    outline: 3px solid rgba(241, 134, 2, .5);
+    outline-offset: 3px;
+}
+
+/* Nav Buttons */
+.testimonial-nav button {
+    transition: all 0.2s ease;
+}
+.testimonial-nav button:hover {
+    background: #FFF9F2;
+    border-color: #F18602;
+    color: #F18602;
+}
+.testimonial-nav button:active {
+    transform: scale(0.92);
+}
+.testimonial-nav button:focus-visible {
+    outline: 3px solid rgba(241, 134, 2, .5);
+    outline-offset: 3px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .testimonial-track {
+        scroll-behavior: auto !important;
+    }
+    .testimonial-nav button {
+        transition: none !important;
+    }
+    #testimonial-pagination button {
+        transition: none !important;
+    }
+}
+
 /* ==========================================================================
    INTERACTIVE HOVER AFFORDANCE FOR CLICKABLE PHOTOS (data-modal="true")
    ========================================================================== */

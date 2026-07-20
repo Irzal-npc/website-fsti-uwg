@@ -502,12 +502,16 @@
         <div id="image-modal-panel" class="modal-content relative bg-white rounded-[28px] border-2 border-gray-200 shadow-2xl w-full max-w-[880px] max-h-[92vh] sm:max-h-[88vh] flex flex-col overflow-hidden my-auto transform transition-all duration-300 scale-95 opacity-0">
             
             <!-- Modal Header Top Bar -->
-            <div class="relative px-12 py-3.5 sm:px-14 sm:py-4 bg-white border-b border-gray-200 flex items-center justify-center text-center flex-shrink-0">
-                <div class="flex flex-col items-center min-w-0">
+            <div class="px-12 py-3.5 sm:px-14 sm:py-4 bg-white border-b border-gray-200 flex items-center gap-4 flex-shrink-0">
+                <!-- Left spacer (keeps caption centered) -->
+                <div class="w-9 flex-shrink-0" aria-hidden="true"></div>
+                <!-- Center: caption & category -->
+                <div class="flex-1 flex flex-col items-center text-center min-w-0">
                     <span id="modal-category" class="inline-flex px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#D97200] bg-[#FFF9F2] border border-[#F18602]/30 rounded-full mb-1.5">Fasilitas</span>
-                    <h3 id="modal-caption" class="text-base sm:text-lg font-extrabold text-[#1A1026] leading-snug"></h3>
+                    <h3 id="modal-caption" class="text-base sm:text-lg font-extrabold text-[#1A1026] leading-snug truncate"></h3>
                 </div>
-                <button id="modal-close" type="button" class="absolute right-4 top-0 bottom-0 my-auto flex-shrink-0 w-9 h-9 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-500 hover:bg-[#F18602] hover:border-[#F18602] hover:text-white active:scale-[0.98] transition-all cursor-pointer" aria-label="Tutup modal">
+                <!-- Right: close button -->
+                <button id="modal-close" type="button" class="flex-shrink-0 w-9 h-9 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-500 hover:bg-[#F18602] hover:border-[#F18602] hover:text-white active:scale-[0.98] transition-all cursor-pointer" aria-label="Tutup modal">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
