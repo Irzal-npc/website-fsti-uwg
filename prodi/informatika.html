@@ -1019,22 +1019,5 @@
   <script src="../js/lucide.min.js"></script>
   <script src="../js/script.js">
   </script>
- 
-<script>
-(function(){
-    document.querySelectorAll('.conc-header').forEach(function(header){
-        header.addEventListener('click', function(){
-            var clicked = header.closest('.concentration-card');
-            // Close all other cards first
-            document.querySelectorAll('.concentration-card.open').forEach(function(card){
-                if (card !== clicked) card.classList.remove('open');
-            });
-            // Toggle clicked card
-            if (clicked) clicked.classList.toggle('open');
-        });
-    });
-})();
-</script>
-
 </body>
 </html>

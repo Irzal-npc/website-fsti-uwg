@@ -4,6 +4,23 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-20] - Perbaikan Accordion Peminatan/Konsentrasi Prodi (Informatika & Bisnis Digital)
+
+#### Diperbaiki (Bug: Semua Card Langsung Terbuka)
+- **Akar masalah**: aturan CSS `.concentration-body-card { display: block !important; }` di `css/style.css` memaksa seluruh isi kartu konsentrasi selalu tampil, sehingga mekanisme accordion JS (toggle class `.open`) tidak berfungsi.
+- **Perilaku kini sesuai aslinya**: setiap card peminatan **tertutup secara default** dan hanya expand ketika header card ditekan; menekan card lain menutup card yang sedang terbuka (single-open accordion).
+- **Isyarat visual**: ikon chevron kini berputar 180° saat card terbuka, border kartu menyala oranye saat aktif, dan konten terbuka dengan animasi halus (menghormati `prefers-reduced-motion`).
+
+#### Diubah (Perapihan)
+- **JS accordion dipusatkan ke `js/script.js`**: menghapus blok inline script duplikat di `prodi/informatika.html` dan `prodi/bisnis-digital.html`; controller kini tunggal & konsisten.
+- **Aksesibilitas accordion**: header card berperan sebagai tombol keyboard (`role="button"`, `tabindex="0"`, bisa ditekan Enter/Space) dengan `aria-expanded` dan `aria-controls` untuk screen reader.
+- **Pembersihan CSS dead-code**: menghapus aturan lama berbasis `<details>/<summary>` yang sudah tidak dipakai markup, dan memperbaiki selector highlight terbuka dari `[open]` (atribut) menjadi `.open` (class yang benar).
+
+#### Ditingkatkan
+- **PWA**: bump `CACHE_NAME` → `fsti-uwg-cache-v2026.10` agar pengunjung lama otomatis menerima perbaikan ini (bukan file cache versi lama).
+
+---
+
 ### [2026-07-20] - Revisi: Perbaikan Bug & Kualitas Halaman (Tentang, Direktori Dosen, Alumni, PMB, Pusat Unduhan)
 
 #### Diperbaiki (Bug HTML Tidak Valid)

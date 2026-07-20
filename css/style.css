@@ -129,18 +129,11 @@ h1, h2, h3, h4, h5, h6 {
 .content-list ol { padding-left: 1.25rem; color: #4B5563; font-size: .875rem; line-height: 1.6; list-style: decimal; }
 .content-list li + li { margin-top: .75rem; }
 
-.concentration-card { border: 2px solid #e5e7eb; border-radius: 28px; background: #fff; overflow: hidden; }
-.concentration-card[open] { border-color: rgba(241, 134, 2, .5); }
-.concentration-card summary { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .75rem; padding: 1.25rem 1.5rem; cursor: pointer; list-style: none; }
-.concentration-card summary::-webkit-details-marker { display: none; }
-.concentration-card summary span { color: #D97200; font-size: .75rem; font-weight: 800; }
-.concentration-card summary strong { color: #1A1026; }
-.concentration-card summary small { color: #6B7280; font-size: .75rem; }
-.concentration-body { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; padding: 0 1.5rem 1.5rem; }
+.concentration-card { border: 2px solid #e5e7eb; border-radius: 28px; background: #fff; overflow: hidden; transition: border-color 0.2s ease; }
+.concentration-card.open { border-color: rgba(241, 134, 2, .5); }
 .concentration-body div { padding: 1rem; border-radius: 1rem; background: #FFF9F2; }
 .concentration-body h4 { color: #5B2A7E; font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .5rem; }
 .concentration-body p { color: #4B5563; font-size: .8125rem; line-height: 1.6; }
-@media (max-width: 767px) { .concentration-card summary { grid-template-columns: auto 1fr; } .concentration-card summary small { grid-column: 2; } .concentration-body { grid-template-columns: 1fr; } }
 
 .vmts-accordion { overflow: hidden; border: 2px solid #e5e7eb; border-radius: 1.25rem; background: #fff; }
 .vmts-accordion[open] { border-color: rgba(91, 42, 126, .35); }
@@ -627,12 +620,36 @@ button:focus-visible .detail-arrow,
     visibility: visible;
 }
 
-/* Peminatan Informatika: card layout, bukan accordion */
+/* Peminatan/Konsentrasi: accordion — isi kartu tertutup default & terbuka saat ditekan */
+.conc-header {
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.conc-toggle-icon {
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+}
+.concentration-card.open .conc-toggle-icon {
+    transform: rotate(180deg);
+}
 .concentration-body-card {
-    display: block !important;
+    display: none;
     padding-top: 1rem;
     border-top: 1px solid #f3f4f6;
     margin-top: 1rem;
+}
+.concentration-card.open .concentration-body-card {
+    display: block;
+    animation: concExpand 0.3s ease;
+}
+@keyframes concExpand {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .concentration-card.open .concentration-body-card { animation: none; }
+    .conc-toggle-icon { transition: none; }
 }
 .concentration-body-card > div {
     margin-bottom: 1rem;

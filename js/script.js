@@ -113,6 +113,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ============================================================
+    // Accordion Peminatan/Konsentrasi (Prodi Informatika & Bisnis Digital)
+    // Default tertutup; expand hanya saat header card ditekan.
+    // Mendukung keyboard (Enter/Space) & screen reader (aria-expanded).
+    // ============================================================
+    const concHeaders = document.querySelectorAll('.conc-header');
+    concHeaders.forEach((header, idx) => {
+        const card = header.closest('.concentration-card');
+        if (!card) return;
+        const body = card.querySelector('.concentration-body-card');
+        const bodyId = body ? (body.id || `conc-body-${idx}`) : null;
+        if (body && !body.id) body.id = bodyId;
+
+        // Atribut aksesibilitas: header berperilaku seperti tombol
+        header.setAttribute('role', 'button');
+        header.setAttribute('tabindex', '0');
+        header.setAttribute('aria-expanded', card.classList.contains('open') ? 'true' : 'false');
+        if (bodyId) header.setAttribute('aria-controls', bodyId);
+
+        const toggleConc = () => {
+            document.querySelectorAll('.concentration-card.open').forEach((c) => {
+                if (c !== card) {
+                    c.classList.remove('open');
+                    const h = c.querySelector('.conc-header');
+                    if (h) h.setAttribute('aria-expanded', 'false');
+                }
+            });
+            const nowOpen = card.classList.toggle('open');
+            header.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
+        };
+
+        header.addEventListener('click', toggleConc);
+        header.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleConc();
+            }
+        });
+    });
+
     document.addEventListener('click', (e) => {
         document.querySelectorAll('header .group.open').forEach(group => {
             if (!group.contains(e.target)) {
