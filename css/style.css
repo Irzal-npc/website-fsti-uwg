@@ -223,13 +223,15 @@ svg {
     max-width: 100%;
 }
 
-#galeri-scroll {
+#galeri-scroll,
+#testimonial-carousel-container {
     width: 100%;
     max-width: 100%;
     overflow: hidden;
 }
 
-#galeri-track {
+#galeri-track,
+#testimonial-track {
     max-width: none;
 }
 
@@ -365,6 +367,12 @@ body button:active {
     transform: scale(.98) !important;
 }
 
+body #btn-prev:active,
+body #btn-next:active {
+    background-color: #F18602 !important;
+    border-color: #F18602 !important;
+    color: #ffffff !important;
+}
 
 body .cta-alumni:active {
     background-color: transparent !important;
@@ -395,6 +403,23 @@ body button:not(:has(.detail-arrow)) svg {
     background-color: #3D1A55 !important;
     border-color: #3D1A55 !important;
     color: #fff !important;
+}
+
+/* Navigasi testimoni: tombol putih, ikon orange */
+.home-page #btn-prev,
+.home-page #btn-next {
+    background-color: #ffffff !important;
+    border-color: #e5e7eb !important;
+    color: #F18602 !important;
+}
+
+.home-page #btn-prev:hover,
+.home-page #btn-next:hover,
+.home-page #btn-prev:active,
+.home-page #btn-next:active {
+    background-color: #F18602 !important;
+    border-color: #F18602 !important;
+    color: #ffffff !important;
 }
 
 /* Identitas testimoni: jabatan dan instansi dipisah */
