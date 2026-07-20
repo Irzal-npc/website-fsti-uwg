@@ -27,7 +27,7 @@ window.FSTI_ALUMNI = [
  },
  {
   "id": 3,
-  "name": "Ismail Akbar, S.Kom.",
+  "name": "Ismail Akbar",
   "jabatan": "Kepala Unit Pengembangan Sistem dan Teknologi Informasi",
   "instansi": "Universitas Widya Gama",
   "tahunMasuk": "2014",
@@ -53,7 +53,7 @@ window.FSTI_ALUMNI = [
  },
  {
   "id": 5,
-  "name": "Hesti Sholikah. S.Kom., MM",
+  "name": "Hesti Sholikah",
   "jabatan": "Analis SDM Aparatur Ahli Pertama",
   "instansi": "Sekretariat Daerah Kab. TTU",
   "tahunMasuk": "2013",
@@ -170,7 +170,7 @@ window.FSTI_ALUMNI = [
  },
  {
   "id": 14,
-  "name": "Ir. Kuncahyo Setyo Nugroho, S.Kom., M.Kom.",
+  "name": "Kuncahyo Setyo Nugroho",
   "jabatan": "AI Research Associate & NVIDIA Certified Instructor",
   "instansi": "BINUS University & NVIDIA Deep Learning Institute",
   "tahunMasuk": "2013",
