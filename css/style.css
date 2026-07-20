@@ -689,7 +689,7 @@ button:focus-visible .detail-arrow,
 }
 
 /* ==========================================================================
-   IMAGE MODAL UNIVERSAL — Desain Stacked Horizontal (Optimized for Landscape)
+   IMAGE MODAL UNIVERSAL — Desain Premium dengan Aksen Orange & Ungu
    ========================================================================== */
 
 #image-modal {
@@ -702,9 +702,21 @@ button:focus-visible .detail-arrow,
     margin: 0 1rem;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-    border: 1px solid #e5e7eb;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
+    border: 2px solid #e5e7eb;
     background: #ffffff;
+}
+
+/* Garis Oranye di atas modal (brand accent) */
+#image-modal .modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #F18602, #D97200);
+    z-index: 1;
 }
 
 /* Gambar */
@@ -714,6 +726,8 @@ button:focus-visible .detail-arrow,
     object-fit: contain;
     background: #f8fafc;
     display: block;
+    position: relative;
+    z-index: 2;
 }
 
 /* Caption Area */
@@ -721,21 +735,35 @@ button:focus-visible .detail-arrow,
     padding: 1.5rem 2rem;
     background: #ffffff;
     border-top: 1px solid #e5e7eb;
+    position: relative;
+    z-index: 3;
+}
+
+/* Garis oranye tipis di atas caption */
+#image-modal .modal-caption-area::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 2rem;
+    width: 40px;
+    height: 3px;
+    background: #F18602;
+    border-radius: 3px;
 }
 
 #image-modal .modal-caption {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: #5B2A7E;
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.4rem;
     line-height: 1.35;
+    padding-top: 0.5rem;
 }
 
 #image-modal .modal-desc {
     color: #475569;
     font-size: 0.95rem;
     line-height: 1.55;
-    margin-bottom: 0.5rem;
 }
 
 /* Navigasi */
@@ -766,9 +794,9 @@ button:focus-visible .detail-arrow,
 }
 
 #image-modal .modal-nav button:hover {
-    background: #5B2A7E;
+    background: #F18602;
     color: white;
-    border-color: #5B2A7E;
+    border-color: #F18602;
     transform: translateY(-1px);
 }
 
@@ -811,9 +839,9 @@ button:focus-visible .detail-arrow,
 }
 
 #image-modal .modal-close:hover {
-    background: #5B2A7E;
+    background: #F18602;
     color: white;
-    border-color: #5B2A7E;
+    border-color: #F18602;
 }
 
 /* Responsive */
@@ -837,6 +865,6 @@ button:focus-visible .detail-arrow,
     }
     
     #image-modal .modal-caption {
-        font-size: 1.05rem;
+        font-size: 1.1rem;
     }
 }
