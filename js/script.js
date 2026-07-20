@@ -614,16 +614,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Hitung aspect ratio gambar secara dinamis
                     const width = modalImage.naturalWidth || 1;
                     const height = modalImage.naturalHeight || 1;
-                    const isPortrait = height > width;
+                    const aspectRatio = width / height;
 
                     if (modalPanel) {
-                        if (isPortrait) {
-                            // Foto Tegak/Portrait: Perkecil lebar modal menjadi 460px agar pas membungkus foto secara presisi
-                            modalPanel.style.maxWidth = '460px';
-                        } else {
-                            // Foto Mendatar/Landscape: Gunakan ukuran default wide 880px
-                            modalPanel.style.maxWidth = '880px';
-                        }
+                        // Ambil tinggi layar saat ini
+                        const viewportHeight = window.innerHeight;
+                        // Gambar dibatasi max-height 58vh di CSS (0.58 * viewportHeight)
+                        const maxImgHeightPx = viewportHeight * 0.58;
+                        
+                        // Hitung lebar ideal agar modal pas membungkus lebar gambar yang proporsional
+                        // Tambahkan 40px sebagai kompensasi padding/border kiri kanan
+                        let idealWidth = (maxImgHeightPx * aspectRatio) + 40;
+                        
+                        // Batasi lebar ideal di rentang yang estetis (min 340px agar header & nav tidak terpotong, max 880px untuk desktop)
+                        let finalWidth = Math.max(340, Math.min(880, idealWidth));
+                        
+                        modalPanel.style.maxWidth = `${finalWidth}px`;
                     }
                 };
                 // Fallback jika gambar sudah tersimpan dalam cache browser
