@@ -390,8 +390,11 @@
         function dosenPhoto(d, sizeClass) {
             const size = sizeClass || 'w-20 h-20';
             if (d.foto) {
-                const fullFoto = d.foto.replace('.webp', '-full.webp').replace('.jpg', '-full.jpg').replace('.png', '-full.png');
-                const desc = d.role ? `${d.role} • ${d.prodiLabel}` : `${d.jabatan || 'Dosen'} • ${d.prodiLabel}`;
+                const fullFoto = d.foto; // PERBAIKAN: Gunakan d.foto asli karena file -full.webp tidak ada di folder assets
+                const title = (d.jabatan && d.jabatan.toLowerCase() !== 'dosen') ? d.jabatan : (d.role || 'Dosen');
+                const jabfungText = d.jabfung ? ` (${d.jabfung})` : '';
+                const expertiseText = d.expertise ? ` | Keahlian: ${d.expertise}` : '';
+                const desc = `${title}${jabfungText} • S1 ${d.prodiLabel}${expertiseText}`;
                 return `<img src="${esc(d.foto)}" alt="${esc(d.name)}" data-modal="true" data-modal-image="${fullFoto}" data-modal-caption="${esc(d.name)}" data-modal-desc="${desc}" data-group="dosen" class="${size} flex-shrink-0 rounded-[20px] border border-gray-200 ring-2 ring-[#F18602]/20 object-cover cursor-pointer hover:opacity-90 transition-all" width="120" height="120" loading="lazy">`;
             }
             return `<div class="${size} flex-shrink-0 rounded-[20px] border border-gray-200 ring-2 ring-[#F18602]/20 bg-[#FFF9F2] flex items-center justify-center" aria-hidden="true"><span class="font-extrabold text-[#5B2A7E] text-xl">${esc(initials(d.name))}</span></div>`;
