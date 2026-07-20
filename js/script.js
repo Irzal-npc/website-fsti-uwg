@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnNext = document.getElementById('btn-next');
     const pagination = document.getElementById('testimonial-pagination');
 
-    if (track && btnPrev && btnNext && pagination) {
+    if (track && pagination) {
         const slides = Array.from(track.querySelectorAll('[role="group"][aria-roledescription="slide"]'));
         const totalSlides = slides.length;
         let currentIndex = 0;
@@ -295,9 +295,9 @@ document.addEventListener('DOMContentLoaded', () => {
             updateDots(index);
         }
 
-        // Navigation buttons
-        btnNext.addEventListener('click', () => goToSlide(currentIndex + 1));
-        btnPrev.addEventListener('click', () => goToSlide(currentIndex - 1));
+        // Navigation tetap tersedia lewat swipe, scroll, keyboard, dan pagination dots.
+        if (btnNext) btnNext.addEventListener('click', () => goToSlide(currentIndex + 1));
+        if (btnPrev) btnPrev.addEventListener('click', () => goToSlide(currentIndex - 1));
 
         // Keyboard navigation
         track.addEventListener('keydown', (e) => {
