@@ -552,6 +552,25 @@ article:hover {
     border-color: #e5e7eb !important;
 }
 
+/* Kartu yang memiliki tautan (<a>) di dalamnya tidak boleh memiliki efek hover pada kartu itu sendiri.
+   Hanya link di dalam card yang boleh memiliki hover effect. */
+.program-card:has(a):hover,
+.dosen-card:has(a):hover,
+.testimonial-card:has(a):hover,
+.info-card:has(a):hover,
+.kpt-card:has(a):hover,
+.content-list:has(a):hover,
+article:has(a):hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.concentration-card:has(a):hover {
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: #e5e7eb !important;
+}
+
 /* Mikro-interaksi panah tautan (arrow shift):
    simbol > / ikon panah di dalam tautan/tombol bergeser 4px (0.2s) saat dikursor maupun diswipe/disentuh di HP (:active). */
 /* Hover & Active pada Tombol Burger Menu Mobile (#menu-btn) */
