@@ -159,7 +159,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = document.querySelector(href);
             if (target) {
                 e.preventDefault();
-                
+
+                // ✅ AKSESIBILITAS: Skip-to-Content — pindahkan fokus langsung ke konten utama
+                // tanpa animasi scroll panjang agar pengguna keyboard/screen reader efisien
+                if (this.classList.contains('skip-link')) {
+                    target.setAttribute('tabindex', '-1');
+                    target.focus({ preventScroll: true });
+                    const hdrH = document.querySelector('header')?.offsetHeight || 80;
+                    window.scrollTo(0, target.getBoundingClientRect().top + window.pageYOffset - hdrH + 8);
+                    return;
+                }
+
                 // ✅ OPTIMASI RIWAYAT BROWSER (Back/Forward History Sync):
                 // Catat perubahan hash di dalam window.history agar tombol Back/Forward browser bekerja presisi
                 if (window.location.hash !== href) {

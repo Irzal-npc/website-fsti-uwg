@@ -2,7 +2,16 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Alumni - FSTI UWG Malang.">
+    <meta name="description" content="Direktori dan cerita inspiratif alumni Fakultas Sains dan Teknologi Informasi (FSTI) Universitas Widya Gama Malang yang berkarya di industri, pendidikan, riset, dan kewirausahaan.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Alumni - FSTI UWG Malang">
+    <meta property="og:description" content="Direktori dan cerita inspiratif alumni Fakultas Sains dan Teknologi Informasi (FSTI) Universitas Widya Gama Malang yang berkarya di industri, pendidikan, riset, dan kewirausahaan.">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:image" content="assets/images/logo-final.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alumni - FSTI UWG Malang">
+    <meta name="twitter:description" content="Direktori dan cerita inspiratif alumni Fakultas Sains dan Teknologi Informasi (FSTI) Universitas Widya Gama Malang yang berkarya di industri, pendidikan, riset, dan kewirausahaan.">
+    <meta name="twitter:image" content="assets/images/logo-final.webp">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alumni - FSTI UWG Malang</title>
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
@@ -13,6 +22,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-white overflow-x-hidden">
+    <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
 <div id="fsti-asset-guard" class="fixed inset-0 z-[99999] bg-white flex items-center justify-center transition-opacity duration-300">
     <div id="fsti-guard-loader" class="flex flex-col items-center gap-4">
         <div class="w-10 h-10 border-4 border-orange-100 border-t-[#F18602] rounded-full animate-spin"></div>
@@ -83,7 +93,7 @@
                     </div>
                 </div>
 
-                <a href="alumni.html" class="py-5 text-fsti-orange">Alumni</a>
+                <a href="alumni.html" class="py-5 text-fsti-orange" aria-current="page">Alumni</a>
 
                 <a href="pmb.html" class="py-5 hover:text-[#F18602] transition-colors">PMB</a>
             </div>
@@ -137,12 +147,12 @@
                 </div>
             </div>
 
-            <a href="alumni.html" class="block py-3 px-2 font-medium text-fsti-orange border-t border-gray-100">Alumni</a>
+            <a href="alumni.html" class="block py-3 px-2 font-medium text-fsti-orange border-t border-gray-100" aria-current="page">Alumni</a>
 
             <a href="pmb.html" class="block py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602] border-t border-gray-100">PMB</a>
         </div>
     </header>
-    <section class="relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#1A1026]">
+    <section id="main-content" tabindex="-1" class="relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#1A1026]">
         <div class="absolute inset-0 z-0 pointer-events-none">
             <div class="absolute inset-0 bg-[#5B2A7E]"></div>
             <div class="absolute inset-0 opacity-[0.12]" style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 40px 40px;"></div>
@@ -257,7 +267,7 @@
                 <div class="testimonial-identity">
                     ${fotoHtml}
                     <div>
-                        <h3 class="font-bold text-[#1A1026] text-sm leading-snug">${esc(d.name)}</h4>
+                        <h3 class="font-bold text-[#1A1026] text-sm leading-snug">${esc(d.name)}</h3>
                         <p class="text-[11px] text-[#5B2A7E] font-bold" title="${esc(d.jabatan || 'Alumni FSTI')}">${esc(jabatan)}</p>
                         <p class="text-[11px] text-gray-500" title="${esc(d.instansi || 'FSTI UWG Malang')}">${esc(instansi)}</p>
                         ${lulusBadge}
