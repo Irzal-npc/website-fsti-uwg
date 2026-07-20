@@ -4,6 +4,14 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-20] - Perbaikan Navigasi Modal Foto Universal (Simbol Simpel `<` & `>`)
+- Menyesuaikan tombol navigasi Foto Sebelumnya (`#modal-prev`) dan Foto Berikutnya (`#modal-next`) pada *Image Modal Universal* di seluruh 7 halaman web (`index.html`, `tentang.html`, `direktori-dosen.html`, `alumni.html`, `prodi/*.html`).
+- Mengganti teks `Sebelumnya` / `Berikutnya` + ikon lucide chevron menjadi simbol ringkas dan bersih `&lt;` (`<`) dan `&gt;` (`>`).
+- Tombol dibuat presisi berukuran simetris (`w-9 h-9 sm:w-10 sm:h-10 rounded-xl`) dengan teks bold ungu yang memiliki respons hover/active taktil.
+- Memperbarui versi cache PWA PWA Service Worker menjadi `v2026.11`.
+
+---
+
 ### [2026-07-20] - Penyempurnaan Card Peminatan: Isi Lebih Rapi + Animasi Buka/Tutup Halus
 - Isi card beraksen dan label bertitik yang lebih rapi.
 - Chevron chip sebagai penanda interaksi.
