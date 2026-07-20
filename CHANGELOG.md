@@ -4,6 +4,13 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-20] - Penyempurnaan Card Peminatan: Isi Lebih Rapi + Animasi Buka/Tutup Halus
+- Isi card beraksen dan label bertitik yang lebih rapi.
+- Chevron chip sebagai penanda interaksi.
+- Animasi buka/tutup dua arah via `max-height` JS.
+- Dukungan keyboard, screen reader, dan `prefers-reduced-motion`.
+- Penghapusan dead-code CSS accordion serta bump cache PWA.
+
 ### [2026-07-20] - Revisi: Perbaikan Bug & Kualitas Halaman (Tentang, Direktori Dosen, Alumni, PMB, Pusat Unduhan)
 
 #### Diperbaiki (Bug HTML Tidak Valid)
