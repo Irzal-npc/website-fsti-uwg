@@ -555,4 +555,139 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // console.log('FSTI UWG Website Loaded Successfully');
 
+    // =====================================================
+    // IMAGE MODAL UNIVERSAL (Semua Foto dengan Caption)
+    // =====================================================
+    const imageModal = document.getElementById('image-modal');
+    
+    if (imageModal) {
+        const modalImage = document.getElementById('modal-image');
+        const modalCaption = document.getElementById('modal-caption');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalClose = document.getElementById('modal-close');
+        const modalPrev = document.getElementById('modal-prev');
+        const modalNext = document.getElementById('modal-next');
+        const modalCounter = document.getElementById('modal-counter');
+        const modalNav = document.getElementById('modal-nav');
+
+        let currentGroup = '';
+        let currentIndex = 0;
+        let currentGroupImages = [];
+
+        // Fungsi untuk membuka modal
+        const openImageModal = (imgElement) => {
+            const fullSrc = imgElement.getAttribute('data-modal-image') || imgElement.src;
+            const caption = imgElement.getAttribute('data-modal-caption') || '';
+            const desc = imgElement.getAttribute('data-modal-desc') || '';
+            const group = imgElement.getAttribute('data-group') || 'lainnya';
+
+            modalImage.src = fullSrc;
+            modalCaption.textContent = caption;
+            modalDesc.textContent = desc;
+
+            // Simpan group dan index
+            currentGroup = group;
+            currentGroupImages = Array.from(
+                document.querySelectorAll(`img[data-modal="true"][data-group="${group}"]`)
+            );
+
+            currentIndex = currentGroupImages.indexOf(imgElement);
+
+            // Tampilkan / sembunyikan navigasi
+            const showNav = currentGroupImages.length > 1;
+            if (modalNav) modalNav.style.display = showNav ? 'flex' : 'none';
+            if (modalCounter) modalCounter.textContent = showNav ? `${currentIndex + 1} / ${currentGroupImages.length}` : '';
+
+            // Tampilkan modal
+            imageModal.classList.remove('hidden');
+            imageModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        };
+
+        // Fungsi menutup modal
+        const closeImageModal = () => {
+            imageModal.classList.remove('flex');
+            imageModal.classList.add('hidden');
+            document.body.style.overflow = '';
+            modalImage.src = '';
+        };
+
+        // Navigasi Prev
+        const goToPrev = () => {
+            if (!currentGroupImages.length) return;
+            currentIndex = (currentIndex - 1 + currentGroupImages.length) % currentGroupImages.length;
+            const prevImg = currentGroupImages[currentIndex];
+            
+            const fullSrc = prevImg.getAttribute('data-modal-image') || prevImg.src;
+            const caption = prevImg.getAttribute('data-modal-caption') || '';
+            const desc = prevImg.getAttribute('data-modal-desc') || '';
+
+            modalImage.src = fullSrc;
+            modalCaption.textContent = caption;
+            modalDesc.textContent = desc;
+
+            if (modalCounter) modalCounter.textContent = `${currentIndex + 1} / ${currentGroupImages.length}`;
+        };
+
+        // Navigasi Next
+        const goToNext = () => {
+            if (!currentGroupImages.length) return;
+            currentIndex = (currentIndex + 1) % currentGroupImages.length;
+            const nextImg = currentGroupImages[currentIndex];
+
+            const fullSrc = nextImg.getAttribute('data-modal-image') || nextImg.src;
+            const caption = nextImg.getAttribute('data-modal-caption') || '';
+            const desc = nextImg.getAttribute('data-modal-desc') || '';
+
+            modalImage.src = fullSrc;
+            modalCaption.textContent = caption;
+            modalDesc.textContent = desc;
+
+            if (modalCounter) modalCounter.textContent = `${currentIndex + 1} / ${currentGroupImages.length}`;
+        };
+
+        // Event Delegation untuk semua gambar dengan data-modal
+        document.addEventListener('click', (e) => {
+            const target = e.target;
+            
+            // Klik pada gambar yang punya data-modal="true"
+            if (target.tagName === 'IMG' && target.hasAttribute('data-modal') && target.getAttribute('data-modal') === 'true') {
+                e.preventDefault();
+                openImageModal(target);
+            }
+        });
+
+        // Tombol Close
+        if (modalClose) {
+            modalClose.addEventListener('click', closeImageModal);
+        }
+
+        // Klik di luar modal untuk close
+        imageModal.addEventListener('click', (e) => {
+            if (e.target === imageModal) {
+                closeImageModal();
+            }
+        });
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (!imageModal.classList.contains('flex')) return;
+
+            if (e.key === 'Escape') {
+                closeImageModal();
+            } else if (e.key === 'ArrowLeft' && modalPrev) {
+                goToPrev();
+            } else if (e.key === 'ArrowRight' && modalNext) {
+                goToNext();
+            }
+        });
+
+        // Tombol Prev & Next
+        if (modalPrev) modalPrev.addEventListener('click', goToPrev);
+        if (modalNext) modalNext.addEventListener('click', goToNext);
+
+        // Optional: Preload gambar saat hover (bisa dihapus jika tidak diperlukan)
+        // console.log('%c[Image Modal] Universal Image Modal initialized successfully', 'color:#10b981');
+    }
+
 });
