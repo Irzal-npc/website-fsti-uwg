@@ -622,9 +622,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         // Gambar dibatasi max-height 58vh di CSS (0.58 * viewportHeight)
                         const maxImgHeightPx = viewportHeight * 0.58;
                         
-                        // Hitung lebar ideal agar modal pas membungkus lebar gambar yang proporsional
-                        // Tambahkan 40px sebagai kompensasi padding/border kiri kanan
-                        let idealWidth = (maxImgHeightPx * aspectRatio) + 40;
+                        // Hitung lebar ideal agar modal pas membungkus lebar gambar yang proporsional secara presisi tanpa sisa kiri/kanan
+                        let idealWidth = maxImgHeightPx * aspectRatio;
                         
                         // Batasi lebar ideal di rentang yang estetis (min 340px agar header & nav tidak terpotong, max 880px untuk desktop)
                         let finalWidth = Math.max(340, Math.min(880, idealWidth));

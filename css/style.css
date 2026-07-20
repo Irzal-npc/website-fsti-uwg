@@ -712,9 +712,9 @@ button:focus-visible .detail-arrow,
     z-index: 20;
 }
 
-/* Modal Image Element — Restriced with calc to prevent any border/shadow clipping */
+/* Modal Image Element — Allowed to touch borders perfectly for a custom-tailored card frame look */
 #image-modal img#modal-image {
-    max-width: calc(100% - 24px);
+    max-width: 100%;
     max-height: 58vh; /* Capped at 58% of viewport height to guarantee no screen overflow */
     width: auto;
     height: auto;
@@ -727,7 +727,7 @@ button:focus-visible .detail-arrow,
 
 @media (min-width: 640px) {
     #image-modal img#modal-image {
-        max-width: calc(100% - 40px);
+        max-width: 100%;
         max-height: 58vh;
     }
 }
