@@ -256,7 +256,7 @@
         function cardHtml(d){
             const inisial = (d.name||'A').split(',')[0].trim().split(/\s+/).slice(0,2).map(w=>w.charAt(0)).join('').toUpperCase();
             const fotoHtml = d.foto
-                ? `<img src="${esc(d.foto)}" alt="${esc(d.name)}" class="w-14 h-14 rounded-full border-2 border-[#F18602] p-0.5 object-cover" width="56" height="56" loading="lazy" fetchpriority="low" decoding="async">`
+                ? `<img src="${esc(d.foto)}" alt="${esc(d.name)}" data-modal="true" data-modal-image="${esc(d.foto)}" data-modal-caption="${esc(d.name)}" data-modal-desc="${esc(d.jabatan || 'Alumni FSTI')} di ${esc(d.instansi || 'FSTI UWG')} - Alumni S1 Informatika FSTI UWG" data-group="alumni" class="w-14 h-14 rounded-full border-2 border-[#F18602] p-0.5 object-cover cursor-pointer hover:opacity-90 transition-all" width="56" height="56" loading="lazy" fetchpriority="low" decoding="async">`
                 : `<div class="w-14 h-14 rounded-full border-2 border-[#F18602] p-0.5 flex items-center justify-center bg-[#FFF9F2]"><span class="font-extrabold text-[#5B2A7E] text-sm">${esc(inisial)}</span></div>`;
             const shortTesti = esc(shortText(d.testimoni || 'Belum ada testimoni.', 160));
             const jabatan = shortText(d.jabatan || 'Alumni FSTI', 58);
@@ -320,7 +320,7 @@
             if (panel) panel.scrollTop = 0;
             if (modal) modal.scrollTop = 0;
             const fotoHtml = d.foto
-                ? `<img src="${esc(d.foto)}" alt="${esc(d.name)}" class="w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0 rounded-full border-2 border-[#F18602] p-0.5 object-cover" width="120" height="120" loading="lazy" fetchpriority="low" decoding="async">`
+                ? `<img src="${esc(d.foto)}" alt="${esc(d.name)}" data-modal="true" data-modal-image="${esc(d.foto)}" data-modal-caption="${esc(d.name)}" data-modal-desc="${esc(d.jabatan || 'Alumni FSTI')} di ${esc(d.instansi || 'FSTI UWG')} - Alumni S1 Informatika FSTI UWG" data-group="alumni" class="w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0 rounded-full border-2 border-[#F18602] p-0.5 object-cover cursor-pointer hover:opacity-90 transition-all" width="120" height="120" loading="lazy" fetchpriority="low" decoding="async">`
                 : `<div class="w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0 rounded-full border-2 border-[#F18602] p-0.5 bg-[#FFF9F2] flex items-center justify-center"><span class="font-extrabold text-[#5B2A7E] text-xl">${esc((d.name||'A').split(',')[0].trim().split(/\s+/).slice(0,2).map(w=>w.charAt(0)).join('').toUpperCase())}</span></div>`;
             const jabatanText = d.jabatan || 'Alumni FSTI';
             const instansiText = d.instansi || '';
