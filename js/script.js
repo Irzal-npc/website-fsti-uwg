@@ -283,13 +283,14 @@ document.addEventListener('DOMContentLoaded', () => {
             currentIndex = index;
             const slide = slides[index];
             if (slide) {
-                // Hitung posisi scroll agar slide center di viewport
                 const slideRect = slide.getBoundingClientRect();
                 const trackRect = track.getBoundingClientRect();
                 const slideCenter = slideRect.left + slideRect.width / 2;
-                const trackCenter = trackRect.left + track.clientWidth / 2;
+                const trackCenter = trackRect.left + trackRect.width / 2;
                 const offset = slideCenter - trackCenter;
-                track.scrollBy({ left: offset, behavior: 'smooth' });
+                const targetScrollLeft = track.scrollLeft + offset;
+                
+                track.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
             }
             updateDots(index);
         }
@@ -309,29 +310,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Sync dots on manual scroll (debounced) - pakai IntersectionObserver untuk akurasi
-        const slideObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-                    const slideIndex = slides.indexOf(entry.target);
-                    if (slideIndex !== -1 && slideIndex !== currentIndex) {
-                        currentIndex = slideIndex;
-                        updateDots(currentIndex);
-                    }
+        // Sync dots on manual scroll / swipe or smooth scroll using requestAnimationFrame for accuracy & performance
+        function syncDots() {
+            const trackRect = track.getBoundingClientRect();
+            const trackCenter = trackRect.left + trackRect.width / 2;
+            let closestIndex = currentIndex;
+            let minDistance = Infinity;
+
+            slides.forEach((slide, index) => {
+                const slideRect = slide.getBoundingClientRect();
+                const slideCenter = slideRect.left + slideRect.width / 2;
+                const distance = Math.abs(slideCenter - trackCenter);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestIndex = index;
                 }
             });
-        }, {
-            root: track,
-            threshold: [0.5],
-            rootMargin: '0px'
-        });
 
-        slides.forEach(slide => slideObserver.observe(slide));
+            if (currentIndex !== closestIndex) {
+                currentIndex = closestIndex;
+                updateDots(currentIndex);
+            }
+        }
 
-        // Touch swipe: let native scroll-snap handle it, just sync dots via IntersectionObserver
-        // No need for custom drag logic — browser does it natively
+        let isScrolling = false;
+        track.addEventListener('scroll', () => {
+            if (!isScrolling) {
+                window.requestAnimationFrame(() => {
+                    syncDots();
+                    isScrolling = false;
+                });
+                isScrolling = true;
+            }
+        }, { passive: true });
     }
     // Accordion Peminatan/Konsentrasi (tertutup default, keyboard accessible)
+    const concHeaders = document.querySelectorAll('.concentration-card .conc-header');
     if (concHeaders.length) {
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const openConc = (card, header) => {
