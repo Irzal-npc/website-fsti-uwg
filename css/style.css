@@ -739,3 +739,22 @@ button:focus-visible .detail-arrow,
         max-height: 88vh;
     }
 }
+
+/* ==========================================================================
+   INTERACTIVE HOVER AFFORDANCE FOR CLICKABLE PHOTOS (data-modal="true")
+   ========================================================================== */
+img[data-modal="true"] {
+    cursor: pointer !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease, box-shadow 0.35s ease !important;
+}
+
+img[data-modal="true"]:hover {
+    transform: scale(1.03) !important;
+    filter: brightness(0.96) !important;
+    box-shadow: 0 10px 20px -5px rgba(26, 16, 38, 0.15) !important;
+}
+
+img[data-modal="true"]:active {
+    transform: scale(0.98) !important;
+    filter: brightness(0.92) !important;
+}
