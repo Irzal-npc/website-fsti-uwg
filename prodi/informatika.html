@@ -569,7 +569,7 @@
     </h3>
     <div class="grid grid-cols-1 gap-5 reveal reveal-fade-up items-stretch">
      <article class="concentration-card flex flex-col h-full">
-      <div class="conc-header flex items-center gap-3 mb-5">
+      <div class="conc-header flex items-center gap-3">
        <span class="inline-flex w-10 h-10 rounded-xl bg-[#FFF9F2] text-[#D97200] items-center justify-center text-xs font-extrabold">
         01
        </span>
@@ -627,7 +627,7 @@
       </div>
      </article>
      <article class="concentration-card flex flex-col h-full">
-      <div class="conc-header flex items-center gap-3 mb-5">
+      <div class="conc-header flex items-center gap-3">
        <span class="inline-flex w-10 h-10 rounded-xl bg-[#FFF9F2] text-[#D97200] items-center justify-center text-xs font-extrabold">
         02
        </span>
@@ -684,7 +684,7 @@
       </div>
      </article>
      <article class="concentration-card flex flex-col h-full">
-      <div class="conc-header flex items-center gap-3 mb-5">
+      <div class="conc-header flex items-center gap-3">
        <span class="inline-flex w-10 h-10 rounded-xl bg-[#FFF9F2] text-[#D97200] items-center justify-center text-xs font-extrabold">
         03
        </span>
@@ -1020,21 +1020,5 @@
   <script src="../js/script.js">
   </script>
  
-<script>
-(function(){
-    document.querySelectorAll('.conc-header').forEach(function(header){
-        header.addEventListener('click', function(){
-            var clicked = header.closest('.concentration-card');
-            // Close all other cards first
-            document.querySelectorAll('.concentration-card.open').forEach(function(card){
-                if (card !== clicked) card.classList.remove('open');
-            });
-            // Toggle clicked card
-            if (clicked) clicked.classList.toggle('open');
-        });
-    });
-})();
-</script>
-
 </body>
 </html>

@@ -129,18 +129,12 @@ h1, h2, h3, h4, h5, h6 {
 .content-list ol { padding-left: 1.25rem; color: #4B5563; font-size: .875rem; line-height: 1.6; list-style: decimal; }
 .content-list li + li { margin-top: .75rem; }
 
-.concentration-card { border: 2px solid #e5e7eb; border-radius: 28px; background: #fff; overflow: hidden; }
-.concentration-card[open] { border-color: rgba(241, 134, 2, .5); }
-.concentration-card summary { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .75rem; padding: 1.25rem 1.5rem; cursor: pointer; list-style: none; }
-.concentration-card summary::-webkit-details-marker { display: none; }
-.concentration-card summary span { color: #D97200; font-size: .75rem; font-weight: 800; }
-.concentration-card summary strong { color: #1A1026; }
-.concentration-card summary small { color: #6B7280; font-size: .75rem; }
-.concentration-body { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; padding: 0 1.5rem 1.5rem; }
-.concentration-body div { padding: 1rem; border-radius: 1rem; background: #FFF9F2; }
-.concentration-body h4 { color: #5B2A7E; font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .5rem; }
-.concentration-body p { color: #4B5563; font-size: .8125rem; line-height: 1.6; }
-@media (max-width: 767px) { .concentration-card summary { grid-template-columns: auto 1fr; } .concentration-card summary small { grid-column: 2; } .concentration-body { grid-template-columns: 1fr; } }
+.concentration-card {
+    border: 2px solid #e5e7eb; border-radius: 28px; background: #fff; overflow: hidden; padding: 1.4rem 1.5rem;
+    transition: border-color 0.2s ease, box-shadow 0.3s ease;
+}
+.concentration-card:hover { border-color: rgba(241, 134, 2, .35); }
+.concentration-card.open { border-color: rgba(241, 134, 2, .55); box-shadow: 0 18px 40px -22px rgba(91, 42, 126, .45); }
 
 .vmts-accordion { overflow: hidden; border: 2px solid #e5e7eb; border-radius: 1.25rem; background: #fff; }
 .vmts-accordion[open] { border-color: rgba(91, 42, 126, .35); }
@@ -627,33 +621,24 @@ button:focus-visible .detail-arrow,
     visibility: visible;
 }
 
-/* Peminatan Informatika: card layout, bukan accordion */
-.concentration-body-card {
-    display: block !important;
-    padding-top: 1rem;
-    border-top: 1px solid #f3f4f6;
-    margin-top: 1rem;
-}
-.concentration-body-card > div {
-    margin-bottom: 1rem;
-}
-.concentration-body-card > div:last-child {
-    margin-bottom: 0;
-}
-.concentration-body-card h4 {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: #5B2A7E;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.25rem;
-}
-.concentration-body-card p {
-    font-size: 0.875rem;
-    color: #4B5563;
-    line-height: 1.5;
-}
-
+/* ==========================================================================
+   Peminatan/Konsentrasi — accordion tertutup default, animasi dihitung JS
+   ========================================================================== */
+.conc-header { cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; border-radius: 0.75rem; }
+.conc-header:focus-visible { outline: 3px solid rgba(241, 134, 2, .5); outline-offset: 3px; }
+.conc-toggle-icon { flex-shrink: 0; border: 1.5px solid rgba(241, 134, 2, .4); border-radius: 9999px; padding: 5px; box-sizing: content-box; transition: transform .3s cubic-bezier(.4,0,.2,1), background-color .2s ease, border-color .2s ease, color .2s ease; }
+.conc-header:hover .conc-toggle-icon, .conc-header:focus-visible .conc-toggle-icon { border-color: #F18602; background-color: rgba(241,134,2,.08); }
+.concentration-card.open .conc-toggle-icon { transform: rotate(180deg); background-color: #F18602; border-color: #F18602; color: #fff; }
+.concentration-body-card { overflow: hidden; max-height: 0; padding-top: 0; margin-top: 0; border-top: 1px solid transparent; opacity: 0; visibility: hidden; transition: max-height .4s cubic-bezier(.4,0,.2,1), padding-top .4s cubic-bezier(.4,0,.2,1), margin-top .4s cubic-bezier(.4,0,.2,1), opacity .28s ease, border-color .28s ease, visibility 0s linear .4s; }
+.concentration-card.open .concentration-body-card { max-height: none; padding-top: 1.15rem; margin-top: 1.15rem; border-top-color: #f3f4f6; opacity: 1; visibility: visible; transition: max-height .4s cubic-bezier(.4,0,.2,1), padding-top .4s cubic-bezier(.4,0,.2,1), margin-top .4s cubic-bezier(.4,0,.2,1), opacity .28s ease, border-color .28s ease, visibility 0s linear 0s; }
+.concentration-body-card > div { position: relative; margin-bottom: .85rem; padding: .9rem 1.05rem; border-radius: .9rem; background: #FFF9F2; border-left: 3px solid #F18602; }
+.concentration-body-card > div:nth-child(2) { background: #F7F4FB; border-left-color: #5B2A7E; }
+.concentration-body-card > div:last-child { margin-bottom: 0; }
+.concentration-body-card h4 { display: flex; align-items: center; gap: .5rem; font-size: .72rem; font-weight: 800; color: #5B2A7E; text-transform: uppercase; letter-spacing: .07em; margin-bottom: .35rem; }
+.concentration-body-card h4::before { content: ""; flex-shrink: 0; width: .45rem; height: .45rem; border-radius: 9999px; background: #F18602; }
+.concentration-body-card > div:nth-child(2) h4::before { background: #5B2A7E; }
+.concentration-body-card p { font-size: .855rem; color: #4B5563; line-height: 1.65; }
+@media (prefers-reduced-motion: reduce) { .concentration-card, .conc-toggle-icon, .concentration-body-card { transition: none; } }
 /* ============================================================
    AKSESIBILITAS: Skip-to-Content Link (WCAG 2.4.1 Bypass Blocks)
    Hanya terlihat saat menerima fokus keyboard (Tab pertama).
