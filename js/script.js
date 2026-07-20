@@ -474,6 +474,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Fungsi untuk membuka modal
         const openImageModal = (imgElement) => {
+            // Jika pengguna membuka foto lain saat animasi penutupan berjalan,
+            // batalkan timer penutupan agar modal tetap dapat dipakai normal.
+            clearTimeout(imageModal._closeTimer);
+            window._imageModalClosing = false;
+
             // Simpan tombol pemicu untuk pemulihan fokus a11y
             window._lastImageModalTriggerBtn = document.activeElement;
 
@@ -508,6 +513,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Fungsi menutup modal
         const closeImageModal = (byPopState = false) => {
+            // Tombol X dan event popstate dapat terpanggil hampir bersamaan. Jangan
+            // menjalankan proses penutupan dua kali (yang sebelumnya membuat modal
+            // berkedip dan kadang menavigasikan halaman secara tidak terduga).
+            if (imageModal.getAttribute('aria-hidden') === 'true' && !imageModal.classList.contains('flex')) return;
+            if (window._imageModalClosing) return;
+            window._imageModalClosing = true;
+
             if (modalPanel) {
                 modalPanel.classList.remove('scale-100', 'opacity-100');
                 modalPanel.classList.add('scale-95', 'opacity-0');
@@ -520,11 +532,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             imageModal.setAttribute('aria-hidden', 'true');
 
-            setTimeout(() => {
+            clearTimeout(imageModal._closeTimer);
+            imageModal._closeTimer = setTimeout(() => {
                 imageModal.classList.remove('flex');
                 imageModal.classList.add('hidden');
                 document.body.style.overflow = '';
-                if (modalImage) modalImage.src = '';
+                if (modalImage) modalImage.removeAttribute('src');
+                window._imageModalClosing = false;
             }, 250);
 
             // Kembalikan fokus ke tombol pemicu awal jika ada
@@ -533,10 +547,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 window._lastImageModalTriggerBtn = null;
             }
 
-            // Kembalikan status history jika ditutup manual (bukan via tombol Back)
+            // Ada satu entry history tambahan saat modal dibuka. Tandai sudah
+            // ditangani sebelum history.back(), agar popstate tidak menutup
+            // modal untuk kedua kalinya.
             if (!byPopState && window._imageModalHistoryPushed) {
-                window.history.back();
                 window._imageModalHistoryPushed = false;
+                window.history.back();
             }
         };
 

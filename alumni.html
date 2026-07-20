@@ -416,6 +416,9 @@
         searchEl.addEventListener('input', applyFilter);
         modalClose.addEventListener('click', () => closeModal(false));
         window.addEventListener('popstate', (e) => {
+            // Penutupan modal foto juga memanggil history.back(). Abaikan event
+            // tersebut agar modal detail alumni di bawahnya tidak ikut tertutup.
+            if (window._imageModalClosing) return;
             if (window._alumniModalHistoryPushed || !modal.classList.contains('hidden')) {
                 closeModal(true);
             }
