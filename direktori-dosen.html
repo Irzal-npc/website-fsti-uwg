@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Direktori Dosen - FSTI UWG Malang.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direktori Dosen - FSTI UWG Malang</title>
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#5B2A7E">
+
+<script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-white overflow-x-hidden">
+<div id="fsti-asset-guard" class="fixed inset-0 z-[99999] bg-white flex items-center justify-center transition-opacity duration-300">
+    <div id="fsti-guard-loader" class="flex flex-col items-center gap-4">
+        <div class="w-10 h-10 border-4 border-orange-100 border-t-[#F18602] rounded-full animate-spin"></div>
+    </div>
+    <div id="fsti-guard-error" class="hidden text-center p-8 max-w-md mx-auto">
+        <div class="w-12 h-12 rounded-full bg-red-50 text-red-500 flex items-center justify-center mx-auto mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold text-[#1A1026] mb-2 font-sans">Sistem Tidak Tersedia</h3>
+        <p class="text-sm text-gray-500 leading-relaxed font-sans">Mohon maaf, halaman tidak dapat dimuat saat ini. Silakan coba kembali beberapa saat lagi.</p>
+    </div>
+</div>
+<script src="js/asset-guard.js"></script>
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-100 border-t-4 border-t-[#F18602]">
+        <nav class="container mx-auto px-4 md:px-6 py-0 flex justify-between items-center">
+            <a href="index.html" class="flex items-center p-2">
+                <img src="assets/images/logo-final.webp" alt="Logo UWG FSTI" class="h-7 sm:h-8 md:h-10 w-auto" width="160" height="40" loading="eager" fetchpriority="high" decoding="async">
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex space-x-6 xl:space-x-8 items-center font-medium text-fsti-purple text-sm xl:text-base">
+                <a href="index.html" class="py-5 hover:text-[#F18602] transition-colors">Beranda</a>
+
+                <div class="relative group">
+                    <button type="button" class="flex items-center py-5 hover:text-[#F18602] transition-colors">
+                        <span class="text-fsti-orange">Tentang Kami</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                    </button>
+                    <div class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white border-2 border-gray-200 rounded-xl shadow-lg py-2 min-w-[240px]">
+                            <a href="tentang.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">Profil Fakultas</a>
+                            <a href="tentang.html#sejarah" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Sejarah</a>
+                            <a href="tentang.html#visi-misi" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Visi, Misi & Tujuan</a>
+                            <a href="tentang.html#struktur" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Struktur Organisasi</a>
+
+                            <a href="tentang.html#pimpinan" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Kepemimpinan Fakultas</a>
+
+                            <a href="tentang.html#fasilitas" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Fasilitas Fakultas</a>
+                            <a href="direktori-dosen.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200] border-t border-gray-100 mt-1 pt-2">Direktori Dosen & Peneliti</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative group">
+                    <button type="button" class="flex items-center py-5 hover:text-[#F18602] transition-colors">
+                        Program Studi
+                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                    </button>
+                    <div class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white border-2 border-gray-200 rounded-xl shadow-lg py-2 min-w-[280px]">
+                            <a href="prodi/informatika.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">S1 Informatika</a>
+                            <a href="prodi/sistem-teknologi-informasi.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">S1 Sistem dan Teknologi Informasi</a>
+                            <a href="prodi/bisnis-digital.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">S1 Bisnis Digital</a>
+                        </div>
+                    </div>
+                </div>
+
+<div class="relative group">
+                    <button type="button" class="flex items-center py-5 hover:text-[#F18602] transition-colors">
+                        Akademik
+                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                    </button>
+                    <div class="absolute right-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white border-2 border-gray-200 rounded-xl shadow-lg py-2 min-w-[240px]">
+                            <a href="pusat-unduhan.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">Pusat Unduhan & Dokumen</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="alumni.html" class="py-5 hover:text-[#F18602] transition-colors">Alumni</a>
+
+                <a href="pmb.html" class="py-5 hover:text-[#F18602] transition-colors">PMB</a>
+            </div>
+
+            <button id="menu-btn" type="button" class="lg:hidden text-fsti-purple p-2 rounded-xl hover:bg-[#FFF9F2] hover:text-[#F18602] active:scale-[0.92] transition-all duration-200" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 px-4 py-3 max-h-[80vh] overflow-y-auto">
+            <a href="index.html" class="block py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]">Beranda</a>
+
+            <div class="border-t border-gray-100">
+                <button type="button" class="mobile-acc-btn w-full flex items-center justify-between py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]" data-acc="m-tentang">
+                    <span>Tentang Kami</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
+                </button>
+                <div id="m-tentang" class="hidden pl-4 pb-2 space-y-1">
+                    <a href="tentang.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">Profil Fakultas</a>
+                    <a href="tentang.html#sejarah" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Sejarah</a>
+                    <a href="tentang.html#visi-misi" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Visi, Misi & Tujuan</a>
+                    <a href="tentang.html#struktur" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Struktur Organisasi</a>
+
+                    <a href="tentang.html#pimpinan" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Kepemimpinan Fakultas</a>
+
+                    <a href="tentang.html#fasilitas" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Fasilitas Fakultas</a>
+                    <a href="direktori-dosen.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">Direktori Dosen & Peneliti</a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-100">
+                <button type="button" class="mobile-acc-btn w-full flex items-center justify-between py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]" data-acc="m-prodi">
+                    <span>Program Studi</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
+                </button>
+                <div id="m-prodi" class="hidden pl-4 pb-2 space-y-1">
+                    <a href="prodi/informatika.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">S1 Informatika</a>
+                    <a href="prodi/sistem-teknologi-informasi.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">S1 Sistem dan Teknologi Informasi</a>
+                    <a href="prodi/bisnis-digital.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">S1 Bisnis Digital</a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-100">
+                <button type="button" class="mobile-acc-btn w-full flex items-center justify-between py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]" data-acc="m-akademik">
+                    <span>Akademik</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
+                </button>
+                <div id="m-akademik" class="hidden pl-4 pb-2 space-y-1">
+                    <a href="pusat-unduhan.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">Pusat Unduhan & Dokumen</a>
+                </div>
+            </div>
+
+            <a href="alumni.html" class="block py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602] border-t border-gray-100">Alumni</a>
+
+            <a href="pmb.html" class="block py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602] border-t border-gray-100">PMB</a>
+        </div>
+    </header>
+    <!-- Internal Page Hero -->
+    <section class="internal-hero relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#1A1026]">
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div class="absolute inset-0 bg-[#5B2A7E]"></div>
+            <div class="absolute inset-0 opacity-[0.12]" style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 40px 40px;"></div>
+            <div class="absolute -top-[30%] -right-[15%] w-[55%] h-[80%] bg-[#F18602] rounded-full blur-[100px] opacity-20"></div>
+            <div class="absolute -bottom-[40%] -left-[10%] w-[40%] h-[60%] bg-[#F18602] rounded-full blur-[90px] opacity-10"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(26,16,38,0.45)_100%)]"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center reveal">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-5 tracking-tight leading-tight">Direktori Dosen dan Peneliti Fakultas Sains dan Teknologi Informasi</h1>
+                <p class="text-sm sm:text-base md:text-lg text-[#F18602] max-w-2xl mx-auto font-medium leading-relaxed">Temukan dosen dan peneliti berdasarkan nama, program studi, serta bidang keahlian di FSTI Universitas Widya Gama Malang.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Filter & Grid -->
+    <section class="relative py-16 md:py-20 bg-[#FFF9F2] overflow-hidden">
+        <!-- Dekorasi halus senada hero -->
+        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+            <div class="absolute -top-24 -right-24 w-80 h-80 bg-[#F18602] rounded-full blur-[120px] opacity-[0.08]"></div>
+            <div class="absolute -bottom-32 -left-24 w-96 h-96 bg-[#5B2A7E] rounded-full blur-[140px] opacity-[0.06]"></div>
+            <div class="absolute inset-0 opacity-[0.05]" style="background-image: radial-gradient(#F18602 1.5px, transparent 1.5px); background-size: 28px 28px;"></div>
+        </div>
+        <div class="relative container mx-auto px-6 max-w-6xl">
+            <!-- Judul seksi terpusat (standar README: eyebrow → H2 → garis) -->
+            <div class="text-center reveal mb-10">
+                <span class="inline-block text-[#D97200] text-xs font-bold uppercase tracking-[0.2em] mb-3">Direktori</span>
+                <h2 class="text-[#5B2A7E] text-3xl md:text-4xl font-extrabold mb-4">Tim Dosen &amp; Peneliti</h2>
+                <div class="w-20 h-1.5 bg-[#F18602] mx-auto rounded-full"></div>
+            </div>
+            <!-- Search + Filters -->
+            <div class="bg-white border border-gray-200 rounded-[20px] p-4 md:p-5 mb-8 reveal reveal-fade-up">
+                <div class="flex flex-col md:flex-row md:items-center gap-4">
+                    <div class="relative flex-1">
+                        <i data-lucide="search" class="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <input id="dosen-search" type="search" placeholder="Cari nama, keahlian, atau email…" class="w-full pl-12 pr-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#F18602] focus:outline-none text-sm text-[#1A1026]" />
+                    </div>
+                    <div id="dosen-filters" class="flex flex-wrap gap-2">
+                        <button type="button" data-filter="ALL" class="filter-chip px-4 py-2 rounded-full border-2 text-sm font-semibold transition-colors border-[#F18602] bg-[#FFF9F2] text-[#D97200]">Semua</button>
+                        <button type="button" data-filter="TI" class="filter-chip px-4 py-2 rounded-full border-2 text-sm font-semibold transition-colors border-gray-200 text-gray-600 hover:border-[#F18602]">TI</button>
+                        <button type="button" data-filter="STEI" class="filter-chip px-4 py-2 rounded-full border-2 text-sm font-semibold transition-colors border-gray-200 text-gray-600 hover:border-[#F18602]">STEI</button>
+                        <button type="button" data-filter="BD" class="filter-chip px-4 py-2 rounded-full border-2 text-sm font-semibold transition-colors border-gray-200 text-gray-600 hover:border-[#F18602]">Bisdig</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+                <p id="dosen-count" class="text-sm text-gray-500"></p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-[20px] px-4 py-2">
+                        <i data-lucide="users" class="w-4 h-4 text-[#5B2A7E]"></i>
+                        <span id="stat-total-dosen" class="text-sm font-extrabold text-[#1A1026]">0</span>
+                        <span class="text-xs text-gray-500 font-medium">Dosen &amp; Peneliti</span>
+                    </span>
+                    <span class="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-[20px] px-4 py-2">
+                        <i data-lucide="book-open" class="w-4 h-4 text-[#F18602]"></i>
+                        <span id="stat-total-karya" class="text-sm font-extrabold text-[#1A1026]">0</span>
+                        <span class="text-xs text-gray-500 font-medium">Karya Ilmiah</span>
+                    </span>
+                </div>
+            </div>
+
+            <div id="dosen-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal"></div>
+
+            <div id="dosen-empty" class="hidden text-center py-16 px-6 bg-white border-2 border-dashed border-[#F18602]/40 rounded-[28px]">
+                <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[#FFF9F2] border border-[#F18602]/30 flex items-center justify-center">
+                    <i data-lucide="search" class="w-8 h-8 text-[#F18602]"></i>
+                </div>
+                <p class="text-[#1A1026] font-bold mb-1">Tidak ada dosen yang cocok</p>
+                <p class="text-gray-500 text-sm">Coba kata kunci lain, atau pilih filter prodi berbeda untuk melihat semua dosen.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#1A1026] text-white pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Kolom 1: Profil -->
+                <div class="space-y-6">
+                    <div class="bg-white p-3 rounded-xl inline-block shadow-sm">
+                        <img src="assets/images/logo-final.webp" alt="Logo final" class="h-7 md:h-9 w-auto" width="160" height="40" loading="eager" fetchpriority="high" decoding="async">
+                    </div>
+                    <p class="text-purple-100 text-sm leading-relaxed">
+                        Kampus II Universitas Widya Gama Malang<br>
+                        Jl. Borobudur No.35, Malang, Jawa Timur<br>
+                        Lantai 4, Gedung FSTI
+                    </p>
+                    <div class="text-sm space-y-2">
+                        <p class="flex items-center"><i data-lucide="mail" class="w-4 h-4 mr-2 text-[#F18602]"></i> <a href="mailto:ruang.fsti@widyagama.ac.id" class="hover:text-[#F97316] transition-colors">ruang.fsti@widyagama.ac.id</a></p>
+                    </div>
+                    <div class="pt-3 border-t border-white/10 mt-4">
+                        <a href="https://widyagama.ac.id" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/15 text-purple-100 text-xs font-semibold hover:bg-white/15 hover:text-white hover:border-[#F18602]/50 active:scale-[0.98] transition-all">
+                            <i data-lucide="globe" class="w-3.5 h-3.5 text-[#F18602]"></i>
+                            <span>Web Utama UWG Malang</span>
+                            <i data-lucide="external-link" class="w-3 h-3 text-white/60 ml-0.5"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Kolom 2: Prodi & PMB -->
+                <div>
+                    <h3 class="font-bold text-lg mb-6 text-[#F97316] border-b-2 border-[#F97316]/20 pb-2">Program</h3>
+                    <ul class="space-y-4 text-purple-100/80 text-sm">
+                        <li><a href="prodi/informatika.html" class="hover:text-[#F97316] transition-colors">S1 Informatika</a></li>
+                        <li><a href="prodi/sistem-teknologi-informasi.html" class="hover:text-[#F97316] transition-colors">S1 Sistem dan Teknologi Informasi</a></li>
+                        <li><a href="prodi/bisnis-digital.html" class="hover:text-[#F97316] transition-colors">S1 Bisnis Digital</a></li>
+                        <li>
+                            <a href="pmb.html" class="inline-flex items-center px-3 py-1 rounded-md bg-[#F97316] text-white font-bold text-xs hover:bg-white hover:text-[#F97316] transition-all group shadow-lg shadow-orange-950/20">
+                                INFO PMB 2026
+                                <span class="ml-2 flex h-2 w-2">
+                                    <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-white opacity-75"></span>
+                                    <span class="relative inline-flex h-2 w-2 rounded-full bg-white"></span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Kolom 3: Layanan -->
+                <div>
+                    <h3 class="font-bold text-lg mb-6 text-[#F97316] border-b-2 border-[#F97316]/20 pb-2">Layanan</h3>
+                    <ul class="space-y-4 text-purple-100/80 text-sm">
+                        <li><a href="tentang.html" class="hover:text-[#F97316] transition-colors">Profil Fakultas</a></li>
+                        <li><a href="pusat-unduhan.html" class="hover:text-[#F97316] transition-colors">Pusat Unduhan</a></li>
+                        <li><a href="alumni.html" class="hover:text-[#F97316] transition-colors">Tracer Study Alumni</a></li>
+                        <li><a href="direktori-dosen.html" class="hover:text-[#F97316] transition-colors">Direktori Dosen</a></li>
+                    </ul>
+                </div>
+                <!-- Kolom 4: Sosmed -->
+                <div>
+                    <h3 class="font-bold text-lg mb-6 text-[#F97316] border-b-2 border-[#F97316]/20 pb-2">Media Sosial</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/fsti.uwg" target="_blank" rel="noopener" class="w-10 h-10 bg-[#F97316]/10 text-[#F97316] border border-[#F97316]/30 rounded-full flex items-center justify-center hover:bg-[#F97316] hover:text-white transition-all shadow-lg"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="https://www.tiktok.com/@fsti.uwg" target="_blank" rel="noopener" class="w-10 h-10 bg-[#F97316]/10 text-[#F97316] border border-[#F97316]/30 rounded-full flex items-center justify-center hover:bg-[#F97316] hover:text-white transition-all shadow-lg"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.16z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-xs text-purple-200">
+                <p>&copy; 2026 Fakultas Sains dan Teknologi Informasi - Universitas Widya Gama Malang. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Overlay Detail Dosen -->
+    <div id="dosen-modal" class="fixed inset-0 z-[100] hidden" aria-hidden="true">
+        <div id="dosen-modal-backdrop" class="absolute inset-0 bg-[#1A1026]/60"></div>
+        <div class="relative z-10 min-h-full flex items-end sm:items-center justify-center p-0 sm:p-6">
+            <div id="dosen-modal-panel" role="dialog" aria-modal="true" aria-labelledby="dosen-modal-title" class="w-full sm:max-w-3xl max-h-[92vh] overflow-y-auto bg-white rounded-t-[28px] sm:rounded-[28px] border-2 border-gray-200 shadow-2xl">
+                <div class="sticky top-0 z-10 bg-white border-b border-gray-100 rounded-t-[28px] overflow-hidden">
+                    <div class="h-1.5 bg-gradient-to-r from-[#F18602] to-[#5B2A7E]"></div>
+                    <div class="px-5 sm:px-6 py-4 flex items-start justify-between gap-3">
+                        <div class="min-w-0">
+                            <p class="text-[11px] font-bold uppercase tracking-widest text-[#D97200] mb-1">Profil Dosen</p>
+                        <h3 id="dosen-modal-title" class="font-bold text-[#1A1026] text-lg leading-snug"></h3>
+                        </div>
+                        <button type="button" id="dosen-modal-close" class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#F18602] hover:text-[#F18602] transition-colors" aria-label="Tutup">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="dosen-modal-body" class="px-5 sm:px-6 py-6"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/dosen-data.js"></script>
+    <script src="js/lucide.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+    (function () {
+        // Urutan peran: Dekan → Kaprodi → Dosen
+        function roleRank(d) {
+            const role = String(d.jabatan || '').toLowerCase();
+            if (role.includes('dekan')) return 0;
+            if (role.includes('kaprodi')) return 1;
+            return 2;
+        }
+
+        // Sortir utama: jabatan dulu, lalu nama A→Z (salinan array, data sumber tak diubah)
+        const data = [...(window.FSTI_DOSEN || [])].sort((a, b) =>
+            (roleRank(a) - roleRank(b)) || String(a.name || '').localeCompare(String(b.name || ''), 'id')
+        );
+        const grid = document.getElementById('dosen-grid');
+        const empty = document.getElementById('dosen-empty');
+        const countEl = document.getElementById('dosen-count');
+        const searchEl = document.getElementById('dosen-search');
+        const modal = document.getElementById('dosen-modal');
+        const modalBody = document.getElementById('dosen-modal-body');
+        const modalTitle = document.getElementById('dosen-modal-title');
+        const modalClose = document.getElementById('dosen-modal-close');
+        const modalBackdrop = document.getElementById('dosen-modal-backdrop');
+        let filter = 'ALL';
+
+        // Statistik ringkas (dihitung otomatis dari data agar selalu sinkron)
+        const statDosen = document.getElementById('stat-total-dosen');
+        const statKarya = document.getElementById('stat-total-karya');
+        if (statDosen) statDosen.textContent = data.length;
+        if (statKarya) {
+            statKarya.textContent = data.reduce((sum, d) => sum +
+                (Array.isArray(d.karya) ? d.karya.filter(k => k.judul && String(k.judul).trim() && k.link && String(k.link).trim()).length : 0), 0);
+        }
+
+        function esc(s) {
+            return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+        }
+
+        function prodiBadgeClass() {
+            return 'bg-purple-50 text-[#5B2A7E] border-purple-200';
+        }
+
+        function jabatanBadge(d) {
+            const role = String(d.jabatan || '').toLowerCase();
+            let badges = '';
+            if (role.includes('dekan')) {
+                badges = '<span class="inline-flex self-start items-center h-7 px-2.5 rounded-full bg-[#F18602] text-[11px] leading-none font-bold text-white">Dekan</span>';
+                badges += '<span class="inline-flex self-start items-center h-7 px-2.5 rounded-full bg-[#FFF9F2] border border-[#F18602]/30 text-[11px] leading-none font-bold text-[#D97200] ml-1.5">Dosen</span>';
+            } else if (role.includes('kaprodi')) {
+                badges = '<span class="inline-flex self-start items-center h-7 px-2.5 rounded-full bg-[#5B2A7E] text-[11px] leading-none font-bold text-white">Kaprodi</span>';
+                badges += '<span class="inline-flex self-start items-center h-7 px-2.5 rounded-full bg-[#FFF9F2] border border-[#F18602]/30 text-[11px] leading-none font-bold text-[#D97200] ml-1.5">Dosen</span>';
+            } else {
+                badges = '<span class="inline-flex self-start items-center h-7 px-2.5 rounded-full bg-[#FFF9F2] border border-[#F18602]/30 text-[11px] leading-none font-bold text-[#D97200]">Dosen</span>';
+            }
+            return badges;
+        }
+
+        // Ambil 2 huruf inisial dari nama (gelar di belakang koma diabaikan)
+        function initials(name) {
+            const clean = String(name || '').split(',')[0].trim();
+            const words = clean.split(/\s+/).filter(Boolean);
+            if (!words.length) return 'F';
+            return words.slice(0, 2).map(w => w.charAt(0)).join('').toUpperCase();
+        }
+
+        // Foto dosen dengan ring oranye tipis; fallback inisial berlatar krem
+        function dosenPhoto(d, sizeClass) {
+            const size = sizeClass || 'w-20 h-20';
+            if (d.foto) {
+                return `<img src="${esc(d.foto)}" alt="${esc(d.name)}" class="${size} flex-shrink-0 rounded-[20px] border border-gray-200 ring-2 ring-[#F18602]/20 object-cover" width="120" height="120" loading="lazy" fetchpriority="low" decoding="async">`;
+            }
+            return `<div class="${size} flex-shrink-0 rounded-[20px] border border-gray-200 ring-2 ring-[#F18602]/20 bg-[#FFF9F2] flex items-center justify-center" aria-hidden="true"><span class="font-extrabold text-[#5B2A7E] text-xl">${esc(initials(d.name))}</span></div>`;
+        }
+
+        // Badge role di modal: warna selaras kartu (Dekan oranye solid, Kaprodi ungu solid, Dosen krem-oranye)
+        function roleBadgeHtml(d) {
+            const label = d.role ? esc(d.role) : '';
+            if (!label) return '';
+            const role = String(d.jabatan || '').toLowerCase();
+            let cls;
+            if (role.includes('dekan')) {
+                cls = 'bg-[#F18602] border border-[#F18602] text-white';
+            } else if (role.includes('kaprodi') || role.includes('ketua program studi')) {
+                cls = 'bg-[#5B2A7E] border border-[#5B2A7E] text-white';
+            } else {
+                cls = 'bg-[#FFF9F2] border border-[#F18602]/30 text-[#D97200]';
+            }
+            let badge = `<span class="inline-block mb-3 px-2.5 py-0.5 rounded-full ${cls} text-[11px] font-bold">${label}</span>`;
+            if (role.includes('dekan') || role.includes('kaprodi') || role.includes('ketua program studi')) {
+                badge += `<span class="inline-block mb-3 ml-1.5 px-2.5 py-0.5 rounded-full bg-[#FFF9F2] border border-[#F18602]/30 text-[11px] font-bold text-[#D97200]">Dosen</span>`;
+            }
+            return badge;
+        }
+
+        function dash(v) {
+            return v && String(v).trim() ? esc(v) : '—';
+        }
+
+        function degreeRank(item) {
+            const t = String(item || '').toLowerCase().replace(/\s+/g, ' ').trim();
+            // Check highest first so mixed strings pick correct level.
+            // Rank: 1=S1, 2=S2, 3=S3. Avoid \b after trailing dots (S.T./M.T./Dr. break with \b).
+            const isS3 = /\b(s3|doktor|doctor)\b/.test(t)
+                || /\bph\.?\s*d\b/.test(t)
+                || /(^|[^a-z])dr\./.test(t)
+                || /(^|[^a-z])dr\b/.test(t);
+            if (isS3) return 3;
+
+            const isS2 = /\b(s2|magister|master)\b/.test(t)
+                || /(^|[^a-z])m\.?\s*(t|kom|pd|cs|si|m|sc|eng|stat|farm|kes)\.?\b/.test(t)
+                || /(^|[^a-z])m\.?\s*t\b/.test(t);
+            if (isS2) return 2;
+
+            const isS1 = /\b(s1|sarjana|diploma|d[34])\b/.test(t)
+                || /(^|[^a-z])s\.?\s*(t|kom|pd|s|si|e|sos|hut|tp|farm|kes|stat)\.?\b/.test(t)
+                || /(^|[^a-z])s\.?\s*t\b/.test(t);
+            if (isS1) return 1;
+
+            return 9;
+        }
+
+        function degreeLabel(rank) {
+            if (rank === 1) return 'S1';
+            if (rank === 2) return 'S2';
+            if (rank === 3) return 'S3';
+            return '—';
+        }
+
+        function formatPendidikan(text) {
+            if (!text || !String(text).trim()) return '—';
+            let parts = String(text)
+                .split(/\s*;\s*|\n+/)
+                .map(s => s.trim())
+                .filter(Boolean);
+            if (!parts.length) return '—';
+
+            // Sort ascending: S1 → S2 → S3/Ph.D (stable within same rank)
+            const ranked = parts
+                .map((item, idx) => ({ item, idx, rank: degreeRank(item) }))
+                .sort((a, b) => (a.rank - b.rank) || (a.idx - b.idx));
+
+            if (ranked.length === 1) {
+                const r = ranked[0];
+                const badge = r.rank < 9
+                    ? `<span class="inline-flex items-center px-2 py-0.5 mr-2 rounded-full border border-orange-100 bg-[#FFF9F2] text-[11px] font-bold text-[#D97200]">${degreeLabel(r.rank)}</span>`
+                    : '';
+                return `<p class="text-sm text-[#1A1026] leading-relaxed">${badge}${esc(r.item)}</p>`;
+            }
+            const items = ranked.map((r, i) => {
+                const badge = r.rank < 9 ? degreeLabel(r.rank) : String(i + 1);
+                return `<li class="flex gap-3 py-2.5 ${i < ranked.length - 1 ? 'border-b border-gray-100' : ''}">
+                    <span class="flex-shrink-0 min-w-[2rem] h-7 px-1.5 rounded-lg bg-[#FFF9F2] border border-[#F18602]/30 text-[#D97200] text-[11px] font-bold flex items-center justify-center">${badge}</span>
+                    <span class="text-sm text-[#1A1026] leading-relaxed pt-0.5">${esc(r.item)}</span>
+                </li>`;
+            }).join('');
+            return `<ol class="list-none m-0 p-0">${items}</ol>`;
+        }
+
+        function card(d) {
+            const tags = (d.tags || []).map(t =>
+                `<span class="inline-flex w-fit items-center h-7 px-2.5 rounded-full border border-gray-200 text-[11px] leading-none text-gray-600">${esc(t)}</span>`
+            ).join('');
+            const jabatan = jabatanBadge(d);
+            return `
+            <article class="dosen-card bg-white border border-gray-200 rounded-[28px] p-6 flex flex-col h-full text-left" data-prodi="${esc(d.prodi)}">
+                <div class="flex items-start gap-4 mb-4">
+                    ${dosenPhoto(d, 'w-20 h-20')}
+                    <div class="min-w-0">
+                        <h3 class="font-bold text-[#1A1026] leading-snug text-base">${esc(d.name)}</h3>
+                        <div class="mt-2">${jabatan}</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <span class="inline-flex items-center h-7 px-2.5 rounded-full border text-[11px] leading-none font-bold ${prodiBadgeClass(d.prodi)}">${esc(d.prodiLabel)}</span>
+                </div>
+                <div class="flex flex-wrap-reverse content-start items-center gap-1.5 mt-auto pt-4 mb-4 min-h-[3.5rem]">${tags}</div>
+                <div class="pt-3 border-t border-gray-100">
+                    <button type="button" data-id="${d.id}" class="dosen-detail-btn inline-flex items-center gap-1 font-bold text-xs text-[#5B2A7E] hover:text-[#F18602] transition-colors">Lihat detail profil <span class="detail-arrow">&gt;</span></button>
+                </div>
+            </article>`;
+        }
+
+        // Chips tag keahlian (gaya sama dengan kartu) — dipakai di baris Bidang Keahlian
+        function tagChips(d) {
+            const tags = d.tags || [];
+            if (!tags.length) return '';
+            return `<div class="flex flex-wrap content-start gap-1.5">${tags.map(t => `<span class="inline-flex w-fit items-center h-7 px-2.5 rounded-full border border-gray-200 text-[11px] leading-none text-gray-600">${esc(t)}</span>`).join('')}</div>`;
+        }
+
+        function row(label, valueHtml, full) {
+            return `<div class="py-3 border-b border-gray-100${full ? ' sm:col-span-2' : ''}">
+                <dt class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">${esc(label)}</dt>
+                <dd class="text-sm text-[#1A1026] leading-relaxed">${valueHtml}</dd>
+            </div>`;
+        }
+
+        function linkBtn(label, url) {
+            if (!url) return '';
+            return `<a href="${esc(url)}" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border-2 border-[#5B2A7E]/25 text-xs font-semibold text-[#5B2A7E] hover:border-[#F18602] hover:bg-[#FFF9F2] hover:text-[#F18602] transition-colors">${esc(label)}<i data-lucide="external-link" class="w-3 h-3"></i></a>`;
+        }
+
+        function openModal(d) {
+            window._lastTriggerBtn = document.activeElement;
+            // Reset scroll position ke atas (scrollTop = 0) agar modal tidak mengingat posisi guliran sebelumnya
+            const panel = document.getElementById('dosen-modal-panel');
+            if (panel) panel.scrollTop = 0;
+            if (modal) modal.scrollTop = 0;
+            modalTitle.textContent = d.name || 'Profil Dosen';
+            const links = [
+                linkBtn('Email', d.email ? ('mailto:' + d.email) : ''),
+                linkBtn('Google Scholar', d.scholar),
+                linkBtn('SINTA', d.sinta),
+                linkBtn('ORCID', d.orcid),
+                linkBtn('Scopus', d.scopus),
+                linkBtn('Garuda', d.garuda),
+                linkBtn('ResearchGate', d.researchgate),
+            ].filter(Boolean).join('');
+
+            const roleBadge = roleBadgeHtml(d);
+
+            const karya = Array.isArray(d.karya) ? d.karya : [];
+
+            function yearNum(y) {
+                const m = String(y || '').match(/(19|20)\d{2}/);
+                return m ? parseInt(m[0], 10) : 0;
+            }
+
+            function parseDatabases(dbRaw) {
+                const raw = String(dbRaw || '').trim();
+                if (!raw) return [];
+                const isUrl = (s) => {
+                    const x = String(s || '').trim().toLowerCase();
+                    return x.startsWith('http://') || x.startsWith('https://') || x.includes('scholar.google') || x.startsWith('www.');
+                };
+                if (isUrl(raw)) {
+                    const x = raw.toLowerCase();
+                    if (x.includes('scopus')) return ['Scopus'];
+                    if (x.includes('garuda') || x.includes('garba')) return ['Garuda'];
+                    if (x.includes('researchgate')) return ['ResearchGate'];
+                    if (x.includes('scholar.google') || x.includes('google')) return ['Google Scholar'];
+                    return [];
+                }
+                return raw.split(/\s*,\s*/).map(s => s.trim()).filter(s => s && !isUrl(s));
+            }
+
+            const works = karya
+                .filter(k => (k.judul && String(k.judul).trim()) && (k.link && String(k.link).trim()))
+                .map((k, idx) => ({
+                    ...k,
+                    _dbs: parseDatabases(k.db),
+                    _jenis: (k.jenis && String(k.jenis).trim()) || '',
+                    _y: yearNum(k.tahun),
+                    _idx: idx,
+                }))
+                .sort((a, b) => (b._y - a._y) || (a._idx - b._idx));
+
+            function renderKaryaItems(list) {
+                if (!list.length) {
+                    return `<p class="text-sm text-gray-500 py-4 px-1">Tidak ada karya yang cocok dengan filter.</p>`;
+                }
+                return list.map((k, i) => {
+                    const title = esc(k.judul || 'Tanpa judul');
+                    const hasLink = !!(k.link && String(k.link).trim());
+                    const titleHtml = hasLink
+                        ? `<a href="${esc(k.link)}" target="_blank" rel="noopener" class="font-semibold text-[#1A1026] hover:text-[#F18602] transition-colors leading-snug">${title}</a>`
+                        : `<span class="font-semibold text-[#1A1026] leading-snug">${title}</span>`;
+
+                    const badges = [];
+                    if (k.tahun && String(k.tahun).trim()) {
+                        badges.push(`<span class="inline-flex items-center px-2 py-0.5 rounded-full border border-gray-200 bg-gray-50 text-[11px] font-semibold text-gray-600">Tahun: ${esc(k.tahun)}</span>`);
+                    }
+                    if (k._jenis) {
+                        badges.push(`<span class="inline-flex items-center px-2 py-0.5 rounded-full border border-orange-100 bg-[#FFF9F2] text-[11px] font-semibold text-[#D97200]">${esc(k._jenis)}</span>`);
+                    }
+                    (k._dbs || []).forEach(db => {
+                        badges.push(`<span class="inline-flex items-center px-2 py-0.5 rounded-full border border-purple-100 bg-purple-50 text-[11px] font-semibold text-[#5B2A7E]">${esc(db)}</span>`);
+                    });
+                    return `<li class="border-2 border-gray-200 rounded-[20px] p-4">
+                        <div class="flex gap-3">
+                            <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#FFF9F2] border border-[#F18602]/30 text-[#D97200] text-[11px] font-bold flex items-center justify-center">${i + 1}</span>
+                            <div class="min-w-0 flex-1">
+                                ${titleHtml}
+                                ${badges.length ? `<div class="mt-2 flex flex-wrap gap-1.5">${badges.join('')}</div>` : ''}
+                            </div>
+                        </div>
+                    </li>`;
+                }).join('');
+            }
+
+            let karyaHtml = '';
+            let showKaryaSection = works.length > 0;
+            modalBody._karyaWorks = null;
+            modalBody._renderKaryaItems = null;
+            if (showKaryaSection) {
+                const jenisOrder = ['Penelitian', 'Pengabdian Masyarakat', 'Lainnya'];
+                const dbPriority = ['Scopus', 'Garuda', 'Google Scholar', 'ResearchGate', 'Lainnya'];
+                const jenisSet = [...new Set(works.map(w => w._jenis).filter(Boolean))].sort((a, b) => {
+                    const ia = jenisOrder.indexOf(a), ib = jenisOrder.indexOf(b);
+                    return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib) || a.localeCompare(b);
+                });
+                const dbSet = [...new Set(works.flatMap(w => w._dbs))].sort((a, b) => {
+                    const ia = dbPriority.indexOf(a), ib = dbPriority.indexOf(b);
+                    return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib) || a.localeCompare(b);
+                });
+
+                const jenisChips = ['Semua', ...jenisSet].map((j, i) => {
+                    const on = i === 0;
+                    return `<button type="button" data-karya-jenis="${esc(j)}" class="karya-filter-jenis px-3 py-1.5 rounded-full border-2 text-[11px] font-bold transition-colors ${on ? 'border-[#F18602] bg-[#FFF9F2] text-[#D97200]' : 'border-gray-200 text-gray-600 hover:border-[#F18602]'}">${esc(j)}</button>`;
+                }).join('');
+
+                const dbChips = ['Semua', ...dbSet].map((db, i) => {
+                    const on = i === 0;
+                    return `<button type="button" data-karya-db="${esc(db)}" class="karya-filter-db px-3 py-1.5 rounded-full border-2 text-[11px] font-bold transition-colors ${on ? 'border-[#F18602] bg-[#FFF9F2] text-[#D97200]' : 'border-gray-200 text-gray-600 hover:border-[#F18602]'}">${esc(db)}</button>`;
+                }).join('');
+
+                const filterBlock = (jenisSet.length || dbSet.length) ? `
+                    <div class="space-y-3 mb-4">
+                        ${jenisSet.length ? `<div>
+                            <p class="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-2">Jenis karya</p>
+                            <div class="flex flex-wrap gap-2">${jenisChips}</div>
+                        </div>` : ''}
+                        ${dbSet.length ? `<div>
+                            <p class="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-2">Database</p>
+                            <div class="flex flex-wrap gap-2">${dbChips}</div>
+                        </div>` : ''}
+                        <p id="karya-filter-count" class="text-xs text-gray-500">${works.length} dari ${works.length} karya · diurutkan tahun terbaru · klik judul untuk membuka tautan</p>
+                    </div>` : `<p class="text-xs text-gray-500 mb-4">${works.length} karya ilmiah · diurutkan tahun terbaru · klik judul untuk membuka tautan</p>`;
+
+                karyaHtml = `
+                    ${filterBlock}
+                    <ol id="karya-list-root" class="list-none m-0 p-0 space-y-3">${renderKaryaItems(works)}</ol>
+                `;
+
+                modalBody._karyaWorks = works;
+                modalBody._renderKaryaItems = renderKaryaItems;
+            }
+
+            modalBody.innerHTML = `
+                <!-- Bagian 1: Biodata -->
+                <section class="mb-8">
+                    <div class="flex items-center gap-2 mb-5">
+                        <span class="w-1.5 h-5 rounded-full bg-[#F18602]"></span>
+                        <h4 class="text-sm font-extrabold uppercase tracking-widest text-[#5B2A7E]">Biodata</h4>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5 mb-6 bg-[#FFF9F2] border border-gray-100 rounded-[20px] p-5">
+                        ${dosenPhoto(d, 'w-28 h-28')}
+                        <div class="text-center sm:text-left">
+                            ${roleBadge}
+                            <span class="inline-flex items-center h-7 px-2.5 rounded-full border text-[11px] leading-none font-bold ${prodiBadgeClass(d.prodi)}">${esc(d.prodiLabel)}</span>
+                            <p class="text-sm text-gray-600 mt-3 leading-relaxed">${esc(d.jabatan || 'Dosen FSTI')}</p>
+                        </div>
+                    </div>
+                    <dl class="grid sm:grid-cols-2 gap-x-6">
+                        ${row('Homebase', dash(d.homebase || d.prodiLabel))}
+                        ${row('Jabatan', dash(d.jabatan))}
+                        ${row('NIDN', dash(d.nidn))}
+                        ${row('NDP', dash(d.ndp))}
+                        ${row('NUPTK', dash(d.nuptk))}
+                        ${row('Email', d.email ? `<a class="font-semibold text-[#5B2A7E] hover:text-[#F18602]" href="mailto:${esc(d.email)}">${esc(d.email)}</a>` : '—')}
+                        ${row('Pendidikan Terakhir', formatPendidikan(d.pendidikan), true)}
+                        ${row('Bidang Keahlian / Minat Penelitian', tagChips(d) || dash(d.expertise), true)}
+                    </dl>
+                    <div class="mt-6">
+                        <p class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">Tautan Profil</p>
+                        <div class="flex flex-wrap gap-2">${links || '<span class="text-sm text-gray-400">Belum ada tautan</span>'}</div>
+                    </div>
+                </section>
+
+                ${showKaryaSection ? `
+                <!-- Bagian 2: Karya Ilmiah -->
+                <section class="pt-6 border-t-2 border-gray-100">
+                    <div class="flex items-center gap-2 mb-5">
+                        <span class="w-1.5 h-5 rounded-full bg-[#5B2A7E]"></span>
+                        <h4 class="text-sm font-extrabold uppercase tracking-widest text-[#5B2A7E]">Karya Ilmiah</h4>
+                    </div>
+                    ${karyaHtml}
+                </section>` : ''}
+            `;
+            clearTimeout(modal._closeTimer);
+            modal.classList.remove('hidden');
+            modal.setAttribute('aria-hidden', 'false');
+            if (panel) panel.scrollTop = 0;
+            document.body.classList.add('overflow-hidden');
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => modal.classList.add('dosen-modal-open'));
+            });
+            modalClose.focus();
+
+            // Filter karya ilmiah
+            if (modalBody._karyaWorks && modalBody._renderKaryaItems) {
+                let fJenis = 'Semua';
+                let fDb = 'Semua';
+                const worksAll = modalBody._karyaWorks;
+                const renderItems = modalBody._renderKaryaItems;
+                const listRoot = document.getElementById('karya-list-root');
+                const countEl = document.getElementById('karya-filter-count');
+
+                function applyKaryaFilter() {
+                    const filtered = worksAll.filter(w => {
+                        if (fJenis !== 'Semua' && w._jenis !== fJenis) return false;
+                        if (fDb !== 'Semua' && !(w._dbs || []).includes(fDb)) return false;
+                        return true;
+                    });
+                    if (listRoot) listRoot.innerHTML = renderItems(filtered);
+                    if (countEl) {
+                        countEl.textContent = `${filtered.length} dari ${worksAll.length} karya · diurutkan tahun terbaru · klik judul untuk membuka tautan`;
+                    }
+                }
+
+                document.querySelectorAll('.karya-filter-jenis').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        fJenis = btn.getAttribute('data-karya-jenis') || 'Semua';
+                        document.querySelectorAll('.karya-filter-jenis').forEach(b => {
+                            const on = b === btn;
+                            b.className = 'karya-filter-jenis px-3 py-1.5 rounded-full border-2 text-[11px] font-bold transition-colors ' +
+                                (on ? 'border-[#F18602] bg-[#FFF9F2] text-[#D97200]' : 'border-gray-200 text-gray-600 hover:border-[#F18602]');
+                        });
+                        applyKaryaFilter();
+                    });
+                });
+                document.querySelectorAll('.karya-filter-db').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        fDb = btn.getAttribute('data-karya-db') || 'Semua';
+                        document.querySelectorAll('.karya-filter-db').forEach(b => {
+                            const on = b === btn;
+                            b.className = 'karya-filter-db px-3 py-1.5 rounded-full border-2 text-[11px] font-bold transition-colors ' +
+                                (on ? 'border-[#F18602] bg-[#FFF9F2] text-[#D97200]' : 'border-gray-200 text-gray-600 hover:border-[#F18602]');
+                        });
+                        applyKaryaFilter();
+                    });
+                });
+            }
+        }
+
+        function closeModal(fromPopstate = false) {
+            if (modal.classList.contains('hidden')) return;
+            modal.classList.remove('dosen-modal-open');
+            if (document.activeElement && modal.contains(document.activeElement)) {
+                document.activeElement.blur();
+            }
+            if (window._lastTriggerBtn && window._lastTriggerBtn.focus) {
+                try { window._lastTriggerBtn.focus(); } catch(err){}
+            }
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('overflow-hidden');
+            clearTimeout(modal._closeTimer);
+            modal._closeTimer = setTimeout(() => { modal.classList.add('hidden'); const p = document.getElementById('dosen-modal-panel'); if (p) p.scrollTop = 0; if (modal) modal.scrollTop = 0; }, 260);
+            
+            if (window._dosenModalHistoryPushed && !fromPopstate) {
+                window._dosenModalHistoryPushed = false;
+                try { history.back(); } catch(err){}
+            } else {
+                window._dosenModalHistoryPushed = false;
+            }
+        }
+
+        function apply() {
+            const q = (searchEl.value || '').trim().toLowerCase();
+            const filtered = data.filter(d => {
+                if (filter !== 'ALL' && d.prodi !== filter) return false;
+                if (!q) return true;
+                const hay = [d.name, d.prodiLabel, d.homebase, d.expertise, d.email, d.jabatan, d.nidn, d.ndp, d.nuptk, d.role, d.pendidikan, ...(d.tags||[])].join(' ').toLowerCase();
+                return hay.includes(q);
+            });
+            countEl.textContent = `Menampilkan ${filtered.length} dari ${data.length} dosen`;
+            if (!filtered.length) {
+                grid.innerHTML = '';
+                empty.classList.remove('hidden');
+            } else {
+                empty.classList.add('hidden');
+                grid.innerHTML = filtered.map(card).join('');
+            }
+        }
+
+        grid.addEventListener('click', (e) => {
+            const detailBtn = e.target.closest('.dosen-detail-btn');
+            if (!detailBtn) return;
+            const id = Number(detailBtn.getAttribute('data-id'));
+            const d = data.find(x => Number(x.id) === id);
+            if (d) openModal(d);
+        });
+
+        modalClose.addEventListener('click', () => closeModal(false));
+        window.addEventListener('popstate', (e) => {
+            if (window._dosenModalHistoryPushed || !modal.classList.contains('hidden')) {
+                closeModal(true);
+            }
+        });
+        modalBackdrop.addEventListener('click', () => closeModal(false));
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(false);
+        });
+
+        document.querySelectorAll('.filter-chip').forEach(btn => {
+            btn.addEventListener('click', () => {
+                filter = btn.getAttribute('data-filter') || 'ALL';
+                document.querySelectorAll('.filter-chip').forEach(b => {
+                    const on = b === btn;
+                    b.classList.toggle('border-[#F18602]', on);
+                    b.classList.toggle('bg-[#FFF9F2]', on);
+                    b.classList.toggle('text-[#D97200]', on);
+                    b.classList.toggle('border-gray-200', !on);
+                    b.classList.toggle('text-gray-600', !on);
+                });
+                apply();
+            });
+        });
+
+        searchEl.addEventListener('input', apply);
+        apply();
+    })();
+    </script>
+</body>
+</html>

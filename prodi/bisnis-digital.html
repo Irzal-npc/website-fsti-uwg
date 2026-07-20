@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Program Studi S1 Bisnis Digital FSTI UWG Malang - fokus technology-driven digital business, akreditasi Baik, 148 SKS, dan 4 peminatan.">
+    <title>S1 Bisnis Digital - FSTI UWG Malang</title>
+    <link rel="icon" href="../assets/images/favicon.png" type="image/png">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#5B2A7E">
+
+<script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-white overflow-x-hidden prodi-page theme-bisdig">
+<div id="fsti-asset-guard" class="fixed inset-0 z-[99999] bg-white flex items-center justify-center transition-opacity duration-300">
+    <div id="fsti-guard-loader" class="flex flex-col items-center gap-4">
+        <div class="w-10 h-10 border-4 border-orange-100 border-t-[#F18602] rounded-full animate-spin"></div>
+    </div>
+    <div id="fsti-guard-error" class="hidden text-center p-8 max-w-md mx-auto">
+        <div class="w-12 h-12 rounded-full bg-red-50 text-red-500 flex items-center justify-center mx-auto mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold text-[#1A1026] mb-2 font-sans">Sistem Tidak Tersedia</h3>
+        <p class="text-sm text-gray-500 leading-relaxed font-sans">Mohon maaf, halaman tidak dapat dimuat saat ini. Silakan coba kembali beberapa saat lagi.</p>
+    </div>
+</div>
+<script src="../js/asset-guard.js"></script>
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-100 border-t-4 border-t-[#F18602]">
+        <nav class="container mx-auto px-4 md:px-6 py-0 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center p-2">
+                <img src="../assets/images/logo-final.webp" alt="Logo UWG FSTI" class="h-7 sm:h-8 md:h-10 w-auto" width="160" height="40" loading="eager" fetchpriority="high" decoding="async">
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex space-x-6 xl:space-x-8 items-center font-medium text-fsti-purple text-sm xl:text-base">
+                <a href="../index.html" class="py-5 hover:text-[#F18602] transition-colors">Beranda</a>
+
+                <div class="relative group">
+                    <button type="button" class="flex items-center py-5 hover:text-[#F18602] transition-colors">
+                        Tentang Kami
+                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                    </button>
+                    <div class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white border-2 border-gray-200 rounded-xl shadow-lg py-2 min-w-[240px]">
+                            <a href="../tentang.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">Profil Fakultas</a>
+                            <a href="../tentang.html#sejarah" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Sejarah</a>
+                            <a href="../tentang.html#visi-misi" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Visi, Misi & Tujuan</a>
+                            <a href="../tentang.html#struktur" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Struktur Organisasi</a>
+
+                            <a href="../tentang.html#pimpinan" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Kepemimpinan Fakultas</a>
+
+                            <a href="../tentang.html#fasilitas" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Fasilitas Fakultas</a>
+                            <a href="../direktori-dosen.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200] border-t border-gray-100 mt-1 pt-2">Direktori Dosen & Peneliti</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative group">
+                    <button type="button" class="flex items-center py-5 hover:text-[#F18602] transition-colors">
+                        <span class="text-fsti-orange">Program Studi</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                    </button>
+                    <div class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white border-2 border-gray-200 rounded-xl shadow-lg py-2 min-w-[280px]">
+                            <a href="informatika.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">S1 Informatika</a>
+                            <a href="sistem-teknologi-informasi.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">S1 Sistem dan Teknologi Informasi</a>
+                            <a href="bisnis-digital.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">S1 Bisnis Digital</a>
+                        </div>
+                    </div>
+                </div>
+
+<div class="relative group">
+                    <button type="button" class="flex items-center py-5 hover:text-[#F18602] transition-colors">
+                        Akademik
+                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                    </button>
+                    <div class="absolute right-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white border-2 border-gray-200 rounded-xl shadow-lg py-2 min-w-[240px]">
+                            <a href="../pusat-unduhan.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">Pusat Unduhan & Dokumen</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="../alumni.html" class="py-5 hover:text-[#F18602] transition-colors">Alumni</a>
+
+                <a href="../pmb.html" class="py-5 hover:text-[#F18602] transition-colors">PMB</a>
+            </div>
+
+            <button id="menu-btn" type="button" class="lg:hidden text-fsti-purple p-2 rounded-xl hover:bg-[#FFF9F2] hover:text-[#F18602] active:scale-[0.92] transition-all duration-200" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 px-4 py-3 max-h-[80vh] overflow-y-auto">
+            <a href="../index.html" class="block py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]">Beranda</a>
+
+            <div class="border-t border-gray-100">
+                <button type="button" class="mobile-acc-btn w-full flex items-center justify-between py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]" data-acc="m-tentang">
+                    <span>Tentang Kami</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
+                </button>
+                <div id="m-tentang" class="hidden pl-4 pb-2 space-y-1">
+                    <a href="../tentang.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">Profil Fakultas</a>
+                    <a href="../tentang.html#sejarah" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Sejarah</a>
+                    <a href="../tentang.html#visi-misi" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Visi, Misi & Tujuan</a>
+                    <a href="../tentang.html#struktur" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Struktur Organisasi</a>
+
+                    <a href="../tentang.html#pimpinan" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Kepemimpinan Fakultas</a>
+
+                    <a href="../tentang.html#fasilitas" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Fasilitas Fakultas</a>
+                    <a href="../direktori-dosen.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">Direktori Dosen & Peneliti</a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-100">
+                <button type="button" class="mobile-acc-btn w-full flex items-center justify-between py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]" data-acc="m-prodi">
+                    <span>Program Studi</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
+                </button>
+                <div id="m-prodi" class="hidden pl-4 pb-2 space-y-1">
+                    <a href="informatika.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">S1 Informatika</a>
+                    <a href="sistem-teknologi-informasi.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">S1 Sistem dan Teknologi Informasi</a>
+                    <a href="bisnis-digital.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">S1 Bisnis Digital</a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-100">
+                <button type="button" class="mobile-acc-btn w-full flex items-center justify-between py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]" data-acc="m-akademik">
+                    <span>Akademik</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
+                </button>
+                <div id="m-akademik" class="hidden pl-4 pb-2 space-y-1">
+                    <a href="../pusat-unduhan.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">Pusat Unduhan & Dokumen</a>
+                </div>
+            </div>
+
+            <a href="../alumni.html" class="block py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602] border-t border-gray-100">Alumni</a>
+
+            <a href="../pmb.html" class="block py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602] border-t border-gray-100">PMB</a>
+        </div>
+    </header>
+    <!-- Internal Page Hero -->
+    <section class="internal-hero relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#1A1026]">
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div class="absolute inset-0 bg-[#5B2A7E]"></div>
+            <div class="absolute inset-0 opacity-[0.12]" style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 40px 40px;"></div>
+            <div class="absolute -top-[30%] -right-[15%] w-[55%] h-[80%] bg-[#F18602] rounded-full blur-[100px] opacity-20"></div>
+            <div class="absolute -bottom-[40%] -left-[10%] w-[40%] h-[60%] bg-[#F18602] rounded-full blur-[90px] opacity-10"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(26,16,38,0.45)_100%)]"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center reveal">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-5 tracking-tight leading-tight">S1 Bisnis Digital Fakultas Sains dan Teknologi Informasi</h1>
+                <p class="text-sm sm:text-base md:text-lg text-[#F18602] max-w-2xl mx-auto font-medium leading-relaxed">Mengintegrasikan bisnis, teknologi, data, kreativitas, dan inovasi untuk memimpin transformasi digital di FSTI Universitas Widya Gama Malang.</p>
+                <div class="mt-10 md:mt-12 pt-8 border-t border-white/10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-4 gap-y-6">
+                    <div>
+                        <p class="text-2xl md:text-3xl font-extrabold text-white">2023</p>
+                        <p class="text-[11px] md:text-xs font-bold uppercase tracking-wider text-[#F18602] mt-1">Tahun Berdiri</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl md:text-3xl font-extrabold text-white">Baik</p>
+                        <p class="text-[11px] md:text-xs font-bold uppercase tracking-wider text-[#F18602] mt-1">Akreditasi</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl md:text-3xl font-extrabold text-white">148</p>
+                        <p class="text-[11px] md:text-xs font-bold uppercase tracking-wider text-[#F18602] mt-1">Total SKS</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl md:text-3xl font-extrabold text-white">4</p>
+                        <p class="text-[11px] md:text-xs font-bold uppercase tracking-wider text-[#F18602] mt-1">Peminatan</p>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <p class="text-2xl md:text-3xl font-extrabold text-white">4</p>
+                        <p class="text-[11px] md:text-xs font-bold uppercase tracking-wider text-[#F18602] mt-1">Dosen Homebase</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Program Studi -->
+    <section id="tentang" class="prodi-section scroll-mt-32 py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="section-title reveal reveal-fade-up">
+                <p class="text-[#D97200] text-xs font-bold uppercase tracking-[0.2em] mb-3">Profil</p>
+                <h2>Tentang Program Studi</h2>
+                <span></span>
+            </div>
+            <div class="bg-[#FFF9F2] border-2 border-[#F18602]/30 rounded-[28px] p-7 md:p-9 mb-10 reveal reveal-fade-up">
+                <p class="text-base md:text-lg text-[#1A1026] leading-relaxed">Program Studi S-1 Bisnis Digital berfokus pada pengembangan bisnis digital berbasis teknologi yang mengintegrasikan strategi bisnis, data, kreativitas, pengalaman pengguna, inovasi terapan, dan transformasi digital.</p>
+            </div>
+            <div class="bg-white border-2 border-gray-200 rounded-[28px] p-7 md:p-9 mb-10 reveal reveal-fade-up">
+                <p class="text-xs font-bold uppercase tracking-widest text-[#D97200] mb-5">Legalitas & Riwayat Resmi</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+                    <div class="bg-[#FFF9F2] rounded-[20px] p-5 border border-gray-100">
+                        <p class="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1">Tanggal Berdiri (Resmi)</p>
+                        <p class="text-lg font-extrabold text-[#1A1026] leading-snug">2 Mei 2023</p>
+                    </div>
+                    <div class="bg-[#FFF9F2] rounded-[20px] p-5 border border-gray-100">
+                        <p class="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1">Nomor SK Pendirian</p>
+                        <p class="text-lg font-extrabold text-[#5B2A7E] leading-snug">364/E/O/2023</p>
+                        <p class="text-xs text-gray-500 mt-1">(SK Kemendiktiristek)</p>
+                    </div>
+                </div>
+                <ul class="space-y-2 text-sm text-gray-600 leading-relaxed">
+                    <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#F18602] flex-shrink-0"></span><span>Berdiri di bawah Fakultas Ekonomi dan Bisnis UWG.</span></li>
+                    <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#F18602] flex-shrink-0"></span><span>Terdaftar resmi melalui SK Kemendiktiristek No. 364/E/O/2023 (2 Mei 2023).</span></li>
+                    <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#F18602] flex-shrink-0"></span><span>Kini bergabung ke FSTI UWG.</span></li>
+                </ul>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 reveal reveal-fade-up">
+                <div class="info-card"><small>Fokus Keilmuan</small><strong>Bisnis Digital Berbasis Teknologi</strong></div>
+                <div class="info-card"><small>Akreditasi</small><strong>Baik</strong></div>
+                <div class="info-card"><small>Kaprodi</small><strong>Ahmad Fairuzabadi, S.Kom., M.Kom.</strong></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VMTS -->
+    <section id="vmts" class="prodi-section scroll-mt-32 py-16 md:py-20 bg-[#FFF9F2]">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="section-title reveal reveal-fade-up">
+                <p class="text-[#D97200] text-xs font-bold uppercase tracking-[0.2em] mb-3">Arah & Tujuan</p>
+                <h2>Visi, Misi & Tujuan</h2>
+                <span></span>
+            </div>
+            <div class="bg-[#1A1026] rounded-[28px] p-8 md:p-10 mb-8 reveal reveal-fade-up">
+                <p class="text-xs font-bold uppercase tracking-widest text-[#F18602] mb-3">Visi</p>
+                <p class="text-lg md:text-xl font-bold text-white leading-relaxed">Menjadi program studi yang unggul dalam pengembangan bisnis digital berbasis teknologi untuk menghasilkan lulusan yang kompeten, inovatif, berjiwa kewirausahaan digital kreatif, dan mampu berkontribusi dalam transformasi digital di tingkat global.</p>
+            </div>
+            <div class="grid grid-cols-1 gap-6 reveal reveal-fade-up">
+                <div class="content-list"><h3>Misi</h3><ol><li>Menyelenggarakan pendidikan bisnis digital yang unggul, bermutu, dan adaptif.</li><li>Mengembangkan penelitian yang mengintegrasikan bisnis, teknologi digital, data, dan inovasi.</li><li>Melaksanakan pengabdian berbasis ilmu dan teknologi bisnis digital.</li><li>Menghasilkan lulusan kompeten, inovatif, berkarakter, dan berjiwa kewirausahaan digital.</li><li>Mengembangkan kerja sama strategis di tingkat nasional dan global.</li></ol></div>
+                <div class="content-list"><h3>Tujuan</h3><ol><li>Mewujudkan pendidikan bisnis digital yang bermutu dan relevan.</li><li>Menghasilkan lulusan dengan kompetensi akademik dan profesional.</li><li>Menghasilkan lulusan yang inovatif, adaptif, dan berjiwa kewirausahaan digital.</li><li>Menghasilkan penelitian dan pengabdian yang mendukung transformasi digital.</li><li>Mewujudkan jejaring kerja sama dan daya saing lulusan global.</li></ol></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profil Lulusan -->
+    <section id="karier" class="prodi-section scroll-mt-32 py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="section-title reveal reveal-fade-up">
+                <p class="text-[#D97200] text-xs font-bold uppercase tracking-[0.2em] mb-3">Lulusan</p>
+                <h2>Profil Lulusan & Prospek Karier</h2>
+                <span></span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch reveal reveal-fade-up">
+                <article class="bg-white border-2 border-gray-200 rounded-[28px] p-6"><div class="w-11 h-11 rounded-xl bg-[#FFF9F2] text-[#D97200] flex items-center justify-center mb-4"><i data-lucide="rocket" class="w-5 h-5"></i></div><h3 class="font-bold text-[#1A1026] mb-2 leading-snug">Inovator Startup Digital</h3><p class="text-sm text-gray-600 leading-relaxed">Mengembangkan ide, model bisnis, dan produk digital yang bernilai bagi pengguna dan pasar.</p></article>
+                <article class="bg-white border-2 border-gray-200 rounded-[28px] p-6"><div class="w-11 h-11 rounded-xl bg-[#FFF9F2] text-[#D97200] flex items-center justify-center mb-4"><i data-lucide="palette" class="w-5 h-5"></i></div><h3 class="font-bold text-[#1A1026] mb-2 leading-snug">Perancang Konten Digital & UI/UX</h3><p class="text-sm text-gray-600 leading-relaxed">Merancang konten, antarmuka, dan pengalaman produk digital yang mudah digunakan.</p></article>
+                <article class="bg-white border-2 border-gray-200 rounded-[28px] p-6"><div class="w-11 h-11 rounded-xl bg-[#FFF9F2] text-[#D97200] flex items-center justify-center mb-4"><i data-lucide="pie-chart" class="w-5 h-5"></i></div><h3 class="font-bold text-[#1A1026] mb-2 leading-snug">Spesialis Pemasaran Digital & Analitik Data</h3><p class="text-sm text-gray-600 leading-relaxed">Mengelola strategi pemasaran digital dan membaca data untuk mendukung pertumbuhan bisnis.</p></article>
+                <article class="bg-white border-2 border-gray-200 rounded-[28px] p-6"><div class="w-11 h-11 rounded-xl bg-[#FFF9F2] text-[#D97200] flex items-center justify-center mb-4"><i data-lucide="monitor" class="w-5 h-5"></i></div><h3 class="font-bold text-[#1A1026] mb-2 leading-snug">Spesialis Solusi & Transformasi Digital</h3><p class="text-sm text-gray-600 leading-relaxed">Menganalisis kebutuhan bisnis dan membantu organisasi menerapkan solusi digital.</p></article>
+                <article class="bg-white border-2 border-gray-200 rounded-[28px] p-6"><div class="w-11 h-11 rounded-xl bg-[#FFF9F2] text-[#D97200] flex items-center justify-center mb-4"><i data-lucide="bot" class="w-5 h-5"></i></div><h3 class="font-bold text-[#1A1026] mb-2 leading-snug">Spesialis AI & Otomasi Bisnis Digital</h3><p class="text-sm text-gray-600 leading-relaxed">Memanfaatkan AI dan otomasi untuk meningkatkan efisiensi proses serta layanan bisnis digital.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kurikulum -->
+    <section id="kurikulum" class="prodi-section scroll-mt-32 py-16 md:py-20 bg-[#FFF9F2]">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="section-title reveal reveal-fade-up">
+                <p class="text-[#D97200] text-xs font-bold uppercase tracking-[0.2em] mb-3">Akademik</p>
+                <h2>Kurikulum dan Peminatan</h2>
+                <span></span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 reveal reveal-fade-up"><div class="info-card"><small>Model Kurikulum</small><strong>Kurikulum integratif berbasis bisnis, teknologi digital, data, kreativitas, dan inovasi terapan.</strong></div><div class="info-card"><small>Total Beban Studi</small><strong>148 SKS</strong></div></div>
+            <h3 class="text-lg font-bold text-[#5B2A7E] text-center mb-5">Mata Kuliah Unggulan</h3>
+            <div class="flex flex-wrap justify-center gap-2 mb-10 reveal reveal-fade-up"><span class="prodi-chip">Pengantar Bisnis Digital</span><span class="prodi-chip">Analitik Bisnis</span><span class="prodi-chip">E-Commerce</span><span class="prodi-chip">Pemasaran Digital</span><span class="prodi-chip">AI untuk Bisnis</span><span class="prodi-chip"><em>Data Mining</em></span><span class="prodi-chip"><em>Financial Technology</em> & Blockchain</span><span class="prodi-chip">Pengembangan Produk Digital</span><span class="prodi-chip">Kewirausahaan Digital</span><span class="prodi-chip"><em>Capstone Project</em></span></div>
+            <h3 class="text-lg font-bold text-[#5B2A7E] text-center mb-5">Peminatan/Konsentrasi</h3>
+            <div class="grid grid-cols-1 gap-5 items-stretch reveal reveal-fade-up">
+                <article class="concentration-card flex flex-col h-full"><div class="conc-header flex items-center gap-3 mb-5"><span class="inline-flex w-10 h-10 rounded-xl bg-[#FFF9F2] text-[#D97200] items-center justify-center text-xs font-extrabold">01</span><h4 class="text-lg font-extrabold text-[#1A1026] leading-snug break-words flex-1">Produk, UX & Kreatif Digital</h4>
+       <i data-lucide="chevron-down" class="conc-toggle-icon w-5 h-5 text-[#F18602] "></i></div><div class="concentration-body concentration-body-card"><div><h4>Fokus Keilmuan</h4><p>Merancang produk digital yang bernilai, mudah digunakan, dan memiliki pengalaman pengguna yang kuat.</p></div><div><h4>Apa yang Dipelajari</h4><p>UI/UX, desain komunikasi visual, eksperimen multimedia, pembuatan konten, fotografi, videografi, animasi, dan gamifikasi.</p></div><div><h4>Prospek Karier</h4><p><em>UI/UX Designer</em>, <em>Digital Product Designer</em>, Content Creator, Multimedia Designer, dan Product Experience Designer.</p></div></div></article>
+                <article class="concentration-card flex flex-col h-full"><div class="conc-header flex items-center gap-3 mb-5"><span class="inline-flex w-10 h-10 rounded-xl bg-[#FFF9F2] text-[#D97200] items-center justify-center text-xs font-extrabold">02</span><h4 class="text-lg font-extrabold text-[#1A1026] leading-snug break-words flex-1">Data, AI & <em>Business Intelligence</em></h4>
+       <i data-lucide="chevron-down" class="conc-toggle-icon w-5 h-5 text-[#F18602] "></i></div><div class="concentration-body concentration-body-card"><div><h4>Fokus Keilmuan</h4><p>Mengolah data dan kecerdasan buatan menjadi wawasan yang mendukung keputusan bisnis digital.</p></div><div><h4>Apa yang Dipelajari</h4><p><em>Business Intelligence</em>, <em>Machine Learning</em>, <em>Big Data Analytic</em>, dan analisis kompetitor.</p></div><div><h4>Prospek Karier</h4><p><em>Business Intelligence Analyst</em>, <em>Data Analyst</em>, <em>AI for Business Specialist</em>, dan analis intelijen pasar.</p></div></div></article>
+                <article class="concentration-card flex flex-col h-full"><div class="conc-header flex items-center gap-3 mb-5"><span class="inline-flex w-10 h-10 rounded-xl bg-[#FFF9F2] text-[#D97200] items-center justify-center text-xs font-extrabold">03</span><h4 class="text-lg font-extrabold text-[#1A1026] leading-snug break-words flex-1">Sistem, Platform & Implementasi</h4>
+       <i data-lucide="chevron-down" class="conc-toggle-icon w-5 h-5 text-[#F18602] "></i></div><div class="concentration-body concentration-body-card"><div><h4>Fokus Keilmuan</h4><p>Membangun, mengintegrasikan, mengamankan, dan menerapkan sistem serta platform bisnis digital.</p></div><div><h4>Apa yang Dipelajari</h4><p>Basis Data Lanjutan, pengembangan aplikasi mobile, DevOps, desain cloud bisnis, keamanan data, dan ERP.</p></div><div><h4>Prospek Karier</h4><p><em>Digital Solution Specialist</em>, <em>Business System Analyst</em>, spesialis cloud dan platform, serta ERP Specialist.</p></div></div></article>
+                <article class="concentration-card flex flex-col h-full"><div class="conc-header flex items-center gap-3 mb-5"><span class="inline-flex w-10 h-10 rounded-xl bg-[#FFF9F2] text-[#D97200] items-center justify-center text-xs font-extrabold">04</span><h4 class="text-lg font-extrabold text-[#1A1026] leading-snug break-words flex-1">Pemasaran, Pertumbuhan & Perdagangan Digital</h4>
+       <i data-lucide="chevron-down" class="conc-toggle-icon w-5 h-5 text-[#F18602] "></i></div><div class="concentration-body concentration-body-card"><div><h4>Fokus Keilmuan</h4><p>Mengembangkan strategi pemasaran, pertumbuhan, dan perdagangan untuk bisnis berbasis digital.</p></div><div><h4>Apa yang Dipelajari</h4><p>SEO, <em>Integrated Marketing Communication</em>, <em>Social Media Marketing</em>, crowdfunding digital, bisnis internasional, FinTech, dan <em>Agile Business</em>.</p></div><div><h4>Prospek Karier</h4><p><em>Digital Marketing Specialist</em>, Growth Strategist, <em>E-Commerce Specialist</em>, Social Media Strategist, dan wirausahawan teknologi.</p></div></div></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fasilitas -->
+    <section id="fasilitas" class="prodi-section scroll-mt-32 py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="section-title reveal reveal-fade-up"><p class="text-[#D97200] text-xs font-bold uppercase tracking-[0.2em] mb-3">Sarana</p><h2>Fasilitas Pendukung</h2><span></span></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 reveal reveal-fade-up">
+                <div class="bg-white border-2 border-gray-200 rounded-[20px] p-5 text-sm text-gray-600 flex items-center gap-3"><span class="w-9 h-9 rounded-lg bg-[#FFF9F2] text-[#D97200] flex items-center justify-center flex-shrink-0"><i data-lucide="home" class="w-4 h-4"></i></span>Ruang kelas</div>
+                <div class="bg-white border-2 border-gray-200 rounded-[20px] p-5 text-sm text-gray-600 flex items-center gap-3"><span class="w-9 h-9 rounded-lg bg-[#FFF9F2] text-[#D97200] flex items-center justify-center flex-shrink-0"><i data-lucide="monitor" class="w-4 h-4"></i></span>Laboratorium Komputer</div>
+                <div class="bg-white border-2 border-gray-200 rounded-[20px] p-5 text-sm text-gray-600 flex items-center gap-3"><span class="w-9 h-9 rounded-lg bg-[#FFF9F2] text-[#D97200] flex items-center justify-center flex-shrink-0"><i data-lucide="video" class="w-4 h-4"></i></span>Lab Multimedia Bisnis Digital</div>
+                <div class="bg-white border-2 border-gray-200 rounded-[20px] p-5 text-sm text-gray-600 flex items-center gap-3"><span class="w-9 h-9 rounded-lg bg-[#FFF9F2] text-[#D97200] flex items-center justify-center flex-shrink-0"><i data-lucide="cpu" class="w-4 h-4"></i></span>Software penunjang perkuliahan</div>
+                <div class="bg-white border-2 border-gray-200 rounded-[20px] p-5 text-sm text-gray-600 flex items-center gap-3"><span class="w-9 h-9 rounded-lg bg-[#FFF9F2] text-[#D97200] flex items-center justify-center flex-shrink-0"><i data-lucide="clipboard-list" class="w-4 h-4"></i></span>Pembelajaran berbasis proyek</div>
+                <div class="bg-white border-2 border-gray-200 rounded-[20px] p-5 text-sm text-gray-600 flex items-center gap-3"><span class="w-9 h-9 rounded-lg bg-[#FFF9F2] text-[#D97200] flex items-center justify-center flex-shrink-0"><i data-lucide="users" class="w-4 h-4"></i></span>Ruang diskusi & kolaborasi</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Direktori Dosen -->
+    <section id="dosen" class="prodi-section scroll-mt-32 py-16 md:py-20 bg-[#FFF9F2]">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="section-title reveal reveal-fade-up"><p class="text-[#D97200] text-xs font-bold uppercase tracking-[0.2em] mb-3">Tim Pengajar</p><h2>Direktori Dosen</h2><span></span></div>
+            <div class="bg-white border-2 border-gray-200 rounded-[28px] p-7 text-center reveal reveal-fade-up">
+                <p class="text-sm text-gray-600 mb-5">Kenali dosen homebase Bisnis Digital dan bidang keahliannya.</p>
+                <article class="bg-white border border-gray-200 rounded-[28px] p-6 text-center max-w-md mx-auto mb-6 flex flex-col">
+                    <img src="../assets/images/dosen/ahmad-fairuzabadi.webp" alt="Foto Ahmad Fairuzabadi - Kaprodi Bisnis Digital" class="w-32 h-32 mx-auto rounded-[20px] object-cover border border-gray-200 mb-5" width="128" height="128" loading="lazy" fetchpriority="low" decoding="async">
+                    <span class="inline-flex self-center items-center rounded-full bg-[#F18602]/10 px-3 py-1 text-xs font-bold text-[#D97200]">Kaprodi Bisnis Digital</span>
+                    <h3 class="mt-4 text-xl font-extrabold text-[#1A1026]">Ahmad Fairuzabadi, S.Kom., M.Kom.</h3>
+                    <p class="mt-2 text-sm leading-relaxed text-gray-600">Human Computer Interaction (HCI)</p>
+                </article>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-left">
+                    <li class="flex items-center gap-3 bg-[#FFF9F2] border border-gray-100 rounded-[20px] px-4 py-3"><img src="../assets/images/dosen/niken-paramita.webp" alt="Foto Niken Paramita" class="w-9 h-9 rounded-full object-cover flex-shrink-0" width="36" height="36" loading="lazy" fetchpriority="low" decoding="async"><span><span class="block text-sm font-bold text-[#1A1026] leading-snug">Niken Paramita, S.S., M.Pd.</span><span class="block text-[11px] font-bold uppercase tracking-wider text-gray-400 mt-0.5">Dosen</span><span class="block text-[11px] text-gray-400 leading-snug mt-0.5">English Linguistics, ELT, Translation Studies</span></span></li>
+                    <li class="flex items-center gap-3 bg-[#FFF9F2] border border-gray-100 rounded-[20px] px-4 py-3"><img src="../assets/images/dosen/shaifany-fatriana.webp" alt="Foto Shaifany Fatriana Kadir" class="w-9 h-9 rounded-full object-cover flex-shrink-0" width="36" height="36" loading="lazy" fetchpriority="low" decoding="async"><span><span class="block text-sm font-bold text-[#1A1026] leading-snug">Shaifany Fatriana Kadir, S.Kom., M.Kom.</span><span class="block text-[11px] font-bold uppercase tracking-wider text-gray-400 mt-0.5">Dosen</span><span class="block text-[11px] text-gray-400 leading-snug mt-0.5">Machine Learning, Digital Marketing, Analisis Sentimen</span></span></li>
+                    <li class="flex items-center gap-3 bg-[#FFF9F2] border border-gray-100 rounded-[20px] px-4 py-3"><img src="../assets/images/dosen/wiwin-purnomowati.webp" alt="Foto Wiwin Purnomowati" class="w-9 h-9 rounded-full object-cover flex-shrink-0" width="36" height="36" loading="lazy" fetchpriority="low" decoding="async"><span><span class="block text-sm font-bold text-[#1A1026] leading-snug">Dra. Wiwin Purnomowati, M.Si.</span><span class="block text-[11px] font-bold uppercase tracking-wider text-gray-400 mt-0.5">Dosen</span><span class="block text-[11px] text-gray-400 leading-snug mt-0.5">Ekonomi Pembangunan, Kewirausahaan</span></span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dokumen & Informasi Akademik -->
+    <section id="informasi-akademik" class="prodi-section scroll-mt-32 py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="section-title reveal reveal-fade-up"><p class="text-[#D97200] text-xs font-bold uppercase tracking-[0.2em] mb-3">Referensi</p><h2>Dokumen & Informasi Akademik</h2><span></span><p class="text-gray-600 text-sm md:text-base leading-relaxed max-w-2xl mx-auto mt-4">Akses dokumen kurikulum, pusat unduhan, dan informasi dosen untuk mendukung kebutuhan akademik Program Studi S1 Bisnis Digital.</p></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch reveal reveal-fade-up">
+                <div class="bg-white border-2 border-gray-200 rounded-[28px] p-6 flex flex-col h-full"><span class="inline-flex w-11 h-11 rounded-xl bg-[#FFF9F2] text-[#D97200] items-center justify-center mb-4"><i data-lucide="download" class="w-5 h-5"></i></span><h3 class="font-extrabold text-[#1A1026] mb-2">Buku KPT Bisnis Digital</h3><p class="text-sm text-gray-600 leading-relaxed mb-4">Dokumen sedang dalam proses finalisasi dan belum tersedia sebagai unduhan.</p><span class="inline-flex self-start items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-bold text-gray-500 mt-auto">Segera Tersedia</span></div>
+                <div class="bg-white border-2 border-gray-200 rounded-[28px] p-6 flex flex-col h-full"><span class="inline-flex w-11 h-11 rounded-xl bg-[#FFF9F2] text-[#D97200] items-center justify-center mb-4"><i data-lucide="file-text" class="w-5 h-5"></i></span><h3 class="font-extrabold text-[#1A1026] mb-2">Pusat Unduhan</h3><p class="text-sm text-gray-600 leading-relaxed mb-4">Kumpulan dokumen dan informasi akademik FSTI UWG Malang.</p><a href="../pusat-unduhan.html" class="inline-flex items-center gap-1 font-bold text-sm text-[#5B2A7E] hover:text-[#F18602] transition-colors">Buka halaman  <span class="detail-arrow">&gt;</span></a></div>
+                <div class="bg-white border-2 border-gray-200 rounded-[28px] p-6 flex flex-col h-full"><span class="inline-flex w-11 h-11 rounded-xl bg-[#FFF9F2] text-[#D97200] items-center justify-center mb-4"><i data-lucide="users" class="w-5 h-5"></i></span><h3 class="font-extrabold text-[#1A1026] mb-2">Direktori Dosen</h3><p class="text-sm text-gray-600 leading-relaxed mb-4">Profil dosen, bidang keahlian, dan informasi akademik pengajar FSTI.</p><a href="../direktori-dosen.html" class="inline-flex items-center gap-1 font-bold text-sm text-[#5B2A7E] hover:text-[#F18602] transition-colors">Lihat direktori  <span class="detail-arrow">&gt;</span></a></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#1A1026] text-white pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Kolom 1: Profil -->
+                <div class="space-y-6">
+                    <div class="bg-white p-3 rounded-xl inline-block shadow-sm">
+                        <img src="../assets/images/logo-final.webp" alt="Logo final" class="h-7 md:h-9 w-auto" width="160" height="40" loading="eager" fetchpriority="high" decoding="async">
+                    </div>
+                    <p class="text-purple-100 text-sm leading-relaxed">
+                        Kampus II Universitas Widya Gama Malang<br>
+                        Jl. Borobudur No.35, Malang, Jawa Timur<br>
+                        Lantai 4, Gedung FSTI
+                    </p>
+                    <div class="text-sm space-y-2">
+                        <p class="flex items-center"><i data-lucide="mail" class="w-4 h-4 mr-2 text-[#F18602]"></i> <a href="mailto:ruang.fsti@widyagama.ac.id" class="hover:text-[#F97316] transition-colors">ruang.fsti@widyagama.ac.id</a></p>
+                    </div>
+                    <div class="pt-3 border-t border-white/10 mt-4">
+                        <a href="https://widyagama.ac.id" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/15 text-purple-100 text-xs font-semibold hover:bg-white/15 hover:text-white hover:border-[#F18602]/50 active:scale-[0.98] transition-all">
+                            <i data-lucide="globe" class="w-3.5 h-3.5 text-[#F18602]"></i>
+                            <span>Web Utama UWG Malang</span>
+                            <i data-lucide="external-link" class="w-3 h-3 text-white/60 ml-0.5"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Kolom 2: Prodi & PMB -->
+                <div>
+                    <h3 class="font-bold text-lg mb-6 text-[#F97316] border-b-2 border-[#F97316]/20 pb-2">Program</h3>
+                    <ul class="space-y-4 text-purple-100/80 text-sm">
+                        <li><a href="informatika.html" class="hover:text-[#F97316] transition-colors">S1 Informatika</a></li>
+                        <li><a href="sistem-teknologi-informasi.html" class="hover:text-[#F97316] transition-colors">S1 Sistem dan Teknologi Informasi</a></li>
+                        <li><a href="bisnis-digital.html" class="hover:text-[#F97316] transition-colors">S1 Bisnis Digital</a></li>
+                        <li>
+                            <a href="../pmb.html" class="inline-flex items-center px-3 py-1 rounded-md bg-[#F97316] text-white font-bold text-xs hover:bg-white hover:text-[#F97316] transition-all group shadow-lg shadow-orange-950/20">
+                                INFO PMB 2026
+                                <span class="ml-2 flex h-2 w-2">
+                                    <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-white opacity-75"></span>
+                                    <span class="relative inline-flex h-2 w-2 rounded-full bg-white"></span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Kolom 3: Layanan -->
+                <div>
+                    <h3 class="font-bold text-lg mb-6 text-[#F97316] border-b-2 border-[#F97316]/20 pb-2">Layanan</h3>
+                    <ul class="space-y-4 text-purple-100/80 text-sm">
+                        <li><a href="../tentang.html" class="hover:text-[#F97316] transition-colors">Profil Fakultas</a></li>
+                        <li><a href="../pusat-unduhan.html" class="hover:text-[#F97316] transition-colors">Pusat Unduhan</a></li>
+                        <li><a href="../alumni.html" class="hover:text-[#F97316] transition-colors">Tracer Study Alumni</a></li>
+                        <li><a href="../direktori-dosen.html" class="hover:text-[#F97316] transition-colors">Direktori Dosen</a></li>
+                    </ul>
+                </div>
+                <!-- Kolom 4: Sosmed -->
+                <div>
+                    <h3 class="font-bold text-lg mb-6 text-[#F97316] border-b-2 border-[#F97316]/20 pb-2">Media Sosial</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/fsti.uwg" target="_blank" rel="noopener" class="w-10 h-10 bg-[#F97316]/10 text-[#F97316] border border-[#F97316]/30 rounded-full flex items-center justify-center hover:bg-[#F97316] hover:text-white transition-all shadow-lg"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="https://www.tiktok.com/@fsti.uwg" target="_blank" rel="noopener" class="w-10 h-10 bg-[#F97316]/10 text-[#F97316] border border-[#F97316]/30 rounded-full flex items-center justify-center hover:bg-[#F97316] hover:text-white transition-all shadow-lg"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.16z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-xs text-purple-200">
+                <p>&copy; 2026 Fakultas Sains dan Teknologi Informasi - Universitas Widya Gama Malang. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/lucide.min.js"></script>
+    <script src="../js/script.js"></script>
+
+<script>
+(function(){
+    document.querySelectorAll('.conc-header').forEach(function(header){
+        header.addEventListener('click', function(){
+            var clicked = header.closest('.concentration-card');
+            // Close all other cards first
+            document.querySelectorAll('.concentration-card.open').forEach(function(card){
+                if (card !== clicked) card.classList.remove('open');
+            });
+            // Toggle clicked card
+            if (clicked) clicked.classList.toggle('open');
+        });
+    });
+})();
+</script>
+
+</body>
+</html>

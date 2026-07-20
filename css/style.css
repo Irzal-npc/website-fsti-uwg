@@ -1,0 +1,655 @@
+/* ==========================================================================
+   Lokal Font-Face Definitions (Inter & Plus Jakarta Sans)
+   ========================================================================== */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('../assets/fonts/inter-latin.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 200 800;
+    font-display: swap;
+    src: url('../assets/fonts/plus-jakarta-sans-latin.woff2') format('woff2');
+}
+
+:root {
+    --fsti-orange: #F18602;
+    --fsti-orange-hover: #D97200;
+    --fsti-purple: #5B2A7E;
+    --fsti-purple-dark: #3D1A55;
+    --fsti-bg-warm: #FFF9F2;
+    --body-text: #4B5563;
+    --heading-charcoal: #1A1026;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--body-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--fsti-purple);
+}
+
+.bg-fsti-orange { background-color: var(--fsti-orange); }
+.text-fsti-orange { color: var(--fsti-orange); }
+.bg-fsti-purple { background-color: var(--fsti-purple); }
+.text-fsti-purple { color: var(--fsti-purple); }
+.bg-fsti-warm { background-color: var(--fsti-bg-warm); }
+
+.btn-primary {
+    background-color: var(--fsti-orange);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--fsti-orange-hover);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 2px solid var(--fsti-orange);
+    color: var(--fsti-orange);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: var(--fsti-orange);
+    color: white;
+}
+
+/* Reveal Animations - Option 1: Pure Fade-In */
+.reveal,
+.reveal-fade-up,
+.prodi-page .reveal,
+.prodi-page .reveal-fade-up {
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+}
+
+.reveal.active,
+.reveal-fade-up.active,
+.prodi-page .reveal.active,
+.prodi-page .reveal-fade-up.active {
+    opacity: 1;
+}
+
+.reveal-fade-left {
+    transform: translateX(-30px);
+}
+
+.reveal-fade-left.active {
+    transform: translateX(0);
+}
+
+.reveal-fade-right {
+    transform: translateX(30px);
+}
+
+.reveal-fade-right.active {
+    transform: translateX(0);
+}
+
+.ph-circle { border-radius: 9999px; }
+.ph-sm { font-size: 0.65rem; }
+
+.prodi-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: .5rem .85rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 9999px;
+    background: #fff;
+    color: #1A1026;
+    font-size: .75rem;
+    font-weight: 600;
+}
+
+.section-title { text-align: center; margin-bottom: 3rem; }
+.section-title h2 { color: #5B2A7E; font-size: clamp(1.875rem, 4vw, 2.25rem); line-height: 1.2; font-weight: 800; margin-bottom: 1rem; }
+.section-title span { display: block; width: 5rem; height: .375rem; margin: 0 auto; border-radius: 9999px; background: #F18602; }
+.info-card { display: flex; flex-direction: column; gap: .35rem; padding: 1.25rem; border: 2px solid #e5e7eb; border-radius: 1.25rem; background: #fff; }
+.info-card small { color: #D97200; font-size: .6875rem; line-height: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+.info-card strong { color: #1A1026; font-size: .875rem; line-height: 1.4; }
+.content-list { padding: 1.75rem; border: 2px solid #e5e7eb; border-radius: 1.75rem; background: #fff; }
+.content-list h3 { color: #5B2A7E; font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem; }
+.content-list ol { padding-left: 1.25rem; color: #4B5563; font-size: .875rem; line-height: 1.6; list-style: decimal; }
+.content-list li + li { margin-top: .75rem; }
+
+.concentration-card { border: 2px solid #e5e7eb; border-radius: 28px; background: #fff; overflow: hidden; }
+.concentration-card[open] { border-color: rgba(241, 134, 2, .5); }
+.concentration-card summary { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .75rem; padding: 1.25rem 1.5rem; cursor: pointer; list-style: none; }
+.concentration-card summary::-webkit-details-marker { display: none; }
+.concentration-card summary span { color: #D97200; font-size: .75rem; font-weight: 800; }
+.concentration-card summary strong { color: #1A1026; }
+.concentration-card summary small { color: #6B7280; font-size: .75rem; }
+.concentration-body { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; padding: 0 1.5rem 1.5rem; }
+.concentration-body div { padding: 1rem; border-radius: 1rem; background: #FFF9F2; }
+.concentration-body h4 { color: #5B2A7E; font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .5rem; }
+.concentration-body p { color: #4B5563; font-size: .8125rem; line-height: 1.6; }
+@media (max-width: 767px) { .concentration-card summary { grid-template-columns: auto 1fr; } .concentration-card summary small { grid-column: 2; } .concentration-body { grid-template-columns: 1fr; } }
+
+.vmts-accordion { overflow: hidden; border: 2px solid #e5e7eb; border-radius: 1.25rem; background: #fff; }
+.vmts-accordion[open] { border-color: rgba(91, 42, 126, .35); }
+.vmts-accordion summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 1.35rem; cursor: pointer; list-style: none; }
+.vmts-accordion summary::-webkit-details-marker { display: none; }
+.vmts-accordion summary span { color: #5B2A7E; font-weight: 800; }
+.vmts-accordion summary small { color: #6B7280; font-size: .75rem; }
+.vmts-accordion ol { margin: 0 1.35rem 1.35rem; padding: 1.1rem 1.1rem 1.1rem 2.25rem; border-radius: 1rem; background: #FFF9F2; color: #4B5563; font-size: .875rem; line-height: 1.65; list-style: decimal; }
+.vmts-accordion li + li { margin-top: .65rem; }
+@media (max-width: 640px) { .vmts-accordion summary { align-items: flex-start; flex-direction: column; gap: .2rem; } }
+
+.focus-area-card { position: relative; padding: 1.5rem; border: 2px solid #e5e7eb; border-radius: 28px; background: #fff; }
+.focus-area-card > span { display: inline-flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; margin-bottom: 1rem; border-radius: .75rem; background: #FFF9F2; color: #D97200; font-size: .75rem; font-weight: 800; }
+.focus-area-card h3 { color: #1A1026; font-weight: 800; margin-bottom: .5rem; }
+.focus-area-card p { color: #4B5563; font-size: .875rem; line-height: 1.6; margin-bottom: 1rem; }
+.focus-area-card div { display: flex; flex-wrap: wrap; gap: .4rem; }
+.focus-area-card b { padding: .3rem .55rem; border-radius: 9999px; background: #f3e8ff; color: #5B2A7E; font-size: .6875rem; }
+
+.kpt-card { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.75rem; border: 2px solid #e5e7eb; border-radius: 28px; background: #fff; }
+.kpt-eyebrow { color: #D97200 !important; font-size: .6875rem !important; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; margin-bottom: .35rem; }
+.kpt-card h2 { color: #1A1026; font-size: 1.125rem; font-weight: 800; margin-bottom: .35rem; }
+.kpt-card p { color: #6B7280; font-size: .8125rem; line-height: 1.5; }
+.kpt-status { flex-shrink: 0; padding: .65rem 1rem; border-radius: .75rem; background: #f3f4f6; color: #6B7280; font-size: .75rem; font-weight: 700; }
+@media (max-width: 640px) { .kpt-card { align-items: flex-start; flex-direction: column; } }
+
+/* Program study pages: visual rhythm and lightweight interaction */
+.prodi-page { --prodi-accent: #F18602; --prodi-soft: #FFF9F2; }
+.prodi-page.theme-sistekin { --prodi-accent: #2563EB; --prodi-soft: #EFF6FF; }
+.prodi-page.theme-bisdig { --prodi-accent: #D97200; --prodi-soft: #FFF7ED; }
+.prodi-section-nav { position: sticky; top: 4.15rem; z-index: 35; border-bottom: 1px solid #e5e7eb; background: rgba(255,255,255,.94); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.prodi-section-nav > div > div { display: flex; gap: .4rem; padding: .7rem 0; overflow-x: auto; scrollbar-width: none; }
+.prodi-section-nav > div > div::-webkit-scrollbar { display: none; }
+.prodi-section-nav a { flex: 0 0 auto; padding: .5rem .8rem; border-radius: 9999px; color: #4B5563; font-size: .75rem; font-weight: 700; transition: .2s ease; }
+.prodi-section-nav a:hover, .prodi-section-nav a:focus-visible { background: var(--prodi-soft); color: var(--prodi-accent); outline: none; }
+.prodi-section { position: relative; }
+.prodi-section .section-title span { background: var(--prodi-accent); }
+/* Kartu Prodi: Statis, tenang, tanpa efek hover bayangan/lompatan */
+.prodi-page .info-card, .prodi-page article, .prodi-page .content-list, .prodi-page .kpt-card {
+    transition: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: #e5e7eb !important;
+}
+.prodi-page .info-card small { color: var(--prodi-accent); }
+.prodi-page .focus-area-card > span { background: var(--prodi-soft); color: var(--prodi-accent); }
+.prodi-page .prodi-chip { transition: .2s ease; }
+@media (max-width: 1023px) { .prodi-section-nav { top: 3.65rem; } }
+@media (prefers-reduced-motion: reduce) { .prodi-page .info-card, .prodi-page article, .prodi-page .content-list, .prodi-page .kpt-card, .prodi-page .prodi-chip { transition: none; } }
+
+/* Align program-study pages with the main FSTI visual system */
+.prodi-page { --prodi-accent: #F18602; --prodi-soft: #FFF9F2; }
+
+.prodi-page .focus-area-card > span { background: #FFF9F2; color: #D97200; }
+.prodi-page .section-title { margin-bottom: 3rem; }
+.prodi-page .content-list,
+.prodi-page .kpt-card,
+.prodi-page .focus-area-card { border-radius: 1.75rem; }
+
+
+
+/* Hide scrollbar for galeri auto-scroll */
+#galeri-scroll::-webkit-scrollbar { display: none; }
+
+/* Perbaikan khusus beranda: header mobile dan lebar viewport */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    position: relative;
+}
+
+body > header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: auto;
+}
+
+img,
+svg {
+    max-width: 100%;
+}
+
+#galeri-scroll,
+#testimonial-carousel-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+#galeri-track,
+#testimonial-track {
+    max-width: none;
+}
+
+@media (max-width: 1023px) {
+    #mobile-menu {
+        width: 100%;
+        max-width: 100vw;
+        overscroll-behavior-x: contain;
+    }
+
+    #mobile-menu a,
+    #mobile-menu button {
+        max-width: 100%;
+    }
+
+    .stat-card {
+        min-width: 0;
+    }
+}
+/* Interaksi tombol & tautan universal untuk seluruh halaman web (Beranda, Prodi, & Internal) */
+body a,
+body button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+body a:not([class*="no-interaction"]),
+body button:not([class*="no-interaction"]) {
+    transition: background-color .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease, transform .15s ease;
+}
+
+body a:focus-visible,
+body button:focus-visible {
+    outline: 3px solid rgba(241, 134, 2, .45);
+    outline-offset: 3px;
+}
+
+/* Warna tombol saat ditekan (:active) di seluruh halaman */
+body a[class*="bg-[#F18602]"]:active,
+body button[class*="bg-[#F18602]"]:active {
+    background-color: #b85f00 !important;
+    border-color: #b85f00 !important;
+    color: #fff !important;
+}
+
+body a[class*="bg-[#5B2A7E]"]:active,
+body button[class*="bg-[#5B2A7E]"]:active {
+    background-color: #2f143f !important;
+    border-color: #2f143f !important;
+    color: #fff !important;
+}
+
+body a[class*="bg-white/10"]:active,
+body button[class*="bg-white/10"]:active {
+    background-color: rgba(255, 255, 255, .28) !important;
+    border-color: rgba(255, 255, 255, .7) !important;
+    color: #fff !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body a,
+    body button,
+    body a svg {
+        transition: none;
+    }
+}
+
+/* Testimoni: foto/identitas di atas, kutipan di bawah (urut DOM, tanpa order) */
+.testimonial-card {
+    position: relative;
+    min-height: 400px;
+    overflow: hidden;
+    border-radius: 28px;
+    border: 1px solid #e5e7eb;
+}
+
+.testimonial-card::before {
+    content: "“";
+    position: absolute;
+    top: .15rem;
+    right: 1.25rem;
+    color: rgba(241, 134, 2, .14);
+    font-family: Georgia, serif;
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.testimonial-card > .testimonial-quote {
+    margin-top: 1.25rem;
+    text-align: center;
+}
+
+.testimonial-card > .testimonial-quote p {
+    display: block;
+}
+
+.testimonial-card > .testimonial-identity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .25rem;
+    width: 100%;
+    text-align: center;
+}
+
+.testimonial-identity img {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-bottom: .5rem;
+}
+
+.testimonial-identity > div {
+    width: 100%;
+}
+
+.testimonial-card > .testimonial-identity,
+.testimonial-card > .testimonial-quote {
+    position: relative;
+    z-index: 1;
+}
+
+/* Interaksi tombol & tautan universal untuk seluruh halaman */
+body a:not([class*="no-interaction"]):not(:has(.detail-arrow)):hover,
+body button:not(:has(.detail-arrow)):hover {
+    transform: none;
+}
+
+/* Efek sentuhan elastis (:active) untuk SELURUH tautan dan tombol di semua halaman (Beranda, Tentang, Dosen, Alumni, PMB, Pusat Unduhan, Prodi) */
+body a:not([class*="no-interaction"]):active,
+body button:active {
+    transform: scale(.98) !important;
+}
+
+body #btn-prev:active,
+body #btn-next:active {
+    background-color: #F18602 !important;
+    border-color: #F18602 !important;
+    color: #ffffff !important;
+}
+
+body .cta-alumni:active {
+    background-color: transparent !important;
+    border-color: #5B2A7E !important;
+    color: #5B2A7E !important;
+}
+
+/* Biarkan .detail-arrow bergeser bebas saat hover/active/touch */
+body a:not(:has(.detail-arrow)) svg,
+body button:not(:has(.detail-arrow)) svg {
+    transform: none;
+}
+
+/* CTA alumni: blok ungu tanpa ikon */
+.home-page .cta-alumni {
+    background-color: #5B2A7E !important;
+    border-color: #5B2A7E !important;
+    color: #fff !important;
+}
+
+.home-page .cta-alumni:hover {
+    background-color: #3D1A55 !important;
+    border-color: #3D1A55 !important;
+    color: #fff !important;
+}
+
+.home-page .cta-alumni:active {
+    background-color: #3D1A55 !important;
+    border-color: #3D1A55 !important;
+    color: #fff !important;
+}
+
+/* Navigasi testimoni: tombol putih, ikon orange */
+.home-page #btn-prev,
+.home-page #btn-next {
+    background-color: #ffffff !important;
+    border-color: #e5e7eb !important;
+    color: #F18602 !important;
+}
+
+.home-page #btn-prev:hover,
+.home-page #btn-next:hover,
+.home-page #btn-prev:active,
+.home-page #btn-next:active {
+    background-color: #F18602 !important;
+    border-color: #F18602 !important;
+    color: #ffffff !important;
+}
+
+/* Identitas testimoni: jabatan dan instansi dipisah */
+.testimonial-identity h4 { margin-bottom: .25rem; }
+.testimonial-identity p { line-height: 1.35; }
+
+/* ============================================================
+   Direktori Dosen — Animasi modal detail (fade + scale lembut)
+   ============================================================ */
+#dosen-modal #dosen-modal-backdrop {
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+
+#dosen-modal #dosen-modal-panel {
+    opacity: 0;
+    transform: scale(.97);
+    transition: opacity .25s ease, transform .25s ease;
+}
+
+#dosen-modal.dosen-modal-open #dosen-modal-backdrop {
+    opacity: 1;
+}
+
+#dosen-modal.dosen-modal-open #dosen-modal-panel {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ============================================================
+   Alumni — Animasi modal detail (fade + scale lembut)
+   ============================================================ */
+#alumni-modal #alumni-modal-backdrop {
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+
+#alumni-modal #alumni-modal-panel {
+    opacity: 0;
+    transform: scale(.97);
+    transition: opacity .25s ease, transform .25s ease;
+}
+
+#alumni-modal.alumni-modal-open #alumni-modal-backdrop {
+    opacity: 1;
+}
+
+#alumni-modal.alumni-modal-open #alumni-modal-panel {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Scrollbar di dalam modal alumni: tipis, membulat, senada brand */
+#alumni-modal-panel {
+    scrollbar-width: thin;
+    scrollbar-color: #D1D5DB transparent;
+}
+
+#alumni-modal-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+#alumni-modal-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#alumni-modal-panel::-webkit-scrollbar-thumb {
+    background-color: #D1D5DB;
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+#alumni-modal-panel::-webkit-scrollbar-thumb:hover {
+    background-color: #F18602;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+/* Scrollbar di dalam modal profil: tipis, membulat, senada brand */
+#dosen-modal-panel {
+    scrollbar-width: thin;                    /* Firefox */
+    scrollbar-color: #D1D5DB transparent;     /* Firefox: thumb abu lembut, track transparan */
+}
+
+#dosen-modal-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+#dosen-modal-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#dosen-modal-panel::-webkit-scrollbar-thumb {
+    background-color: #D1D5DB;
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+#dosen-modal-panel::-webkit-scrollbar-thumb:hover {
+    background-color: #F18602;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+/* ==========================================================================
+   Standarisasi Kartu Statis & Mikro-Interaksi Panah / Tombol
+   ========================================================================== */
+
+/* Seluruh Kartu di Website (Prodi Unggulan, Dosen, Testimoni, Info, KPT, Artikel, dsb.):
+   Tampil statis, bersih, tenang, dan premium tanpa lompatan atau perubahan bayangan/border saat dikursor. */
+.program-card,
+.program-card:hover,
+.program-card:focus-within,
+.dosen-card,
+.dosen-card:hover,
+.testimonial-card,
+.testimonial-card:hover,
+.info-card,
+.info-card:hover,
+.kpt-card,
+.kpt-card:hover,
+.content-list,
+.content-list:hover,
+article,
+article:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: #e5e7eb !important;
+}
+
+/* Mikro-interaksi panah tautan (arrow shift):
+   simbol > / ikon panah di dalam tautan/tombol bergeser 4px (0.2s) saat dikursor maupun diswipe/disentuh di HP (:active). */
+/* Hover & Active pada Tombol Burger Menu Mobile (#menu-btn) */
+#menu-btn {
+    border-radius: 0.75rem !important;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease !important;
+}
+
+#menu-btn:hover {
+    background-color: #FFF9F2 !important;
+    color: #F18602 !important;
+}
+
+#menu-btn:active {
+    transform: scale(0.92) !important;
+    background-color: #FFEDD5 !important;
+    color: #D97200 !important;
+}
+
+.detail-arrow {
+    display: inline-block !important;
+    transition: transform .2s ease !important;
+}
+
+/* Mouse Hover, Touch Active (Tap/Press di HP), & Keyboard Focus-Visible */
+a:hover .detail-arrow,
+button:hover .detail-arrow,
+a:active .detail-arrow,
+button:active .detail-arrow,
+a:focus-visible .detail-arrow,
+button:focus-visible .detail-arrow,
+.dosen-card:hover .dosen-detail-btn .detail-arrow,
+.dosen-card:active .dosen-detail-btn .detail-arrow {
+    transform: translateX(4px) !important;
+}
+
+/* Optimasi Touch Screen (@media hover: none): Responsif & Anti-Sticky Hover saat Tap di HP */
+@media (hover: none) and (pointer: coarse) {
+    /* Animasi panah detail langsung merespons saat disentuh (:active) di HP */
+    a:active .detail-arrow,
+    button:active .detail-arrow {
+        transform: translateX(4px) !important;
+    }
+
+    /* Mencegah sticky hover (kartu tersangkut melayang/berbayang setelah disentuh) di HP */
+    .info-card:hover,
+    article:hover,
+    .content-list:hover,
+    .kpt-card:hover,
+    .dosen-card:hover,
+    .testimonial-card:hover,
+    .program-card:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Efek tekan elastis nyata saat disentuh (:active) pada tombol dan kartu yang bisa diklik */
+    .dosen-card:active,
+    .program-card:active {
+        transform: scale(.988) !important;
+    }
+}
+
+/* Aksesibilitas dropdown navigasi: klik & keyboard */
+.group.open > .absolute {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Peminatan Informatika: card layout, bukan accordion */
+.concentration-body-card {
+    display: block !important;
+    padding-top: 1rem;
+    border-top: 1px solid #f3f4f6;
+    margin-top: 1rem;
+}
+.concentration-body-card > div {
+    margin-bottom: 1rem;
+}
+.concentration-body-card > div:last-child {
+    margin-bottom: 0;
+}
+.concentration-body-card h4 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #5B2A7E;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+.concentration-body-card p {
+    font-size: 0.875rem;
+    color: #4B5563;
+    line-height: 1.5;
+}

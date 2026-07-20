@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSTI UWG Malang - Fakultas Sains dan Teknologi Informasi</title>
+    <meta name="description" content="Website resmi Fakultas Sains dan Teknologi Informasi (FSTI) Universitas Widya Gama Malang. Program Studi Informatika, Sistem dan Teknologi Informasi, dan Bisnis Digital yang relevan dengan kebutuhan industri.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="FSTI UWG Malang - Fakultas Sains dan Teknologi Informasi">
+    <meta property="og:description" content="Program Studi Informatika, Sistem dan Teknologi Informasi, dan Bisnis Digital FSTI UWG Malang.">
+    <meta property="og:image" content="assets/images/logo-final.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#5B2A7E">
+
+    <!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="home-page bg-white overflow-x-hidden">
+<div id="fsti-asset-guard" class="fixed inset-0 z-[99999] bg-white flex items-center justify-center transition-opacity duration-300">
+    <div id="fsti-guard-loader" class="flex flex-col items-center gap-4">
+        <div class="w-10 h-10 border-4 border-orange-100 border-t-[#F18602] rounded-full animate-spin"></div>
+    </div>
+    <div id="fsti-guard-error" class="hidden text-center p-8 max-w-md mx-auto">
+        <div class="w-12 h-12 rounded-full bg-red-50 text-red-500 flex items-center justify-center mx-auto mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold text-[#1A1026] mb-2 font-sans">Sistem Tidak Tersedia</h3>
+        <p class="text-sm text-gray-500 leading-relaxed font-sans">Mohon maaf, halaman tidak dapat dimuat saat ini. Silakan coba kembali beberapa saat lagi.</p>
+    </div>
+</div>
+<script src="js/asset-guard.js"></script>
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-100 border-t-4 border-t-[#F18602]">
+        <nav class="container mx-auto px-4 md:px-6 py-0 flex justify-between items-center">
+            <a href="index.html" class="flex items-center p-2">
+                <img src="assets/images/logo-final.webp" alt="Logo UWG FSTI" class="h-7 sm:h-8 md:h-10 w-auto" width="160" height="40" loading="eager" fetchpriority="high" decoding="async">
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex space-x-6 xl:space-x-8 items-center font-medium text-fsti-purple text-sm xl:text-base">
+                <a href="index.html" class="py-5 text-fsti-orange">Beranda</a>
+
+                <div class="relative group">
+                    <button type="button" class="flex items-center py-5 hover:text-[#F18602] transition-colors">
+                        Tentang Kami
+                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                    </button>
+                    <div class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white border-2 border-gray-200 rounded-xl shadow-lg py-2 min-w-[240px]">
+                            <a href="tentang.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">Profil Fakultas</a>
+                            <a href="tentang.html#sejarah" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Sejarah</a>
+                            <a href="tentang.html#visi-misi" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Visi, Misi & Tujuan</a>
+                            <a href="tentang.html#struktur" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Struktur Organisasi</a>
+
+                            <a href="tentang.html#pimpinan" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Kepemimpinan Fakultas</a>
+
+                            <a href="tentang.html#fasilitas" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Fasilitas Fakultas</a>
+                            <a href="direktori-dosen.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200] border-t border-gray-100 mt-1 pt-2">Direktori Dosen & Peneliti</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative group">
+                    <button type="button" class="flex items-center py-5 hover:text-[#F18602] transition-colors">
+                        Program Studi
+                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                    </button>
+                    <div class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white border-2 border-gray-200 rounded-xl shadow-lg py-2 min-w-[280px]">
+                            <a href="prodi/informatika.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">S1 Informatika</a>
+                            <a href="prodi/sistem-teknologi-informasi.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">S1 Sistem dan Teknologi Informasi</a>
+                            <a href="prodi/bisnis-digital.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">S1 Bisnis Digital</a>
+                        </div>
+                    </div>
+                </div>
+
+<div class="relative group">
+                    <button type="button" class="flex items-center py-5 hover:text-[#F18602] transition-colors">
+                        Akademik
+                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                    </button>
+                    <div class="absolute right-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white border-2 border-gray-200 rounded-xl shadow-lg py-2 min-w-[240px]">
+                            <a href="pusat-unduhan.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">Pusat Unduhan & Dokumen</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="alumni.html" class="py-5 hover:text-[#F18602] transition-colors">Alumni</a>
+
+                <a href="pmb.html" class="py-5 hover:text-[#F18602] transition-colors">PMB</a>
+            </div>
+
+            <button id="menu-btn" type="button" class="lg:hidden text-fsti-purple p-2 rounded-xl hover:bg-[#FFF9F2] hover:text-[#F18602] active:scale-[0.92] transition-all duration-200" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 px-4 py-3 max-h-[80vh] overflow-y-auto">
+            <a href="index.html" class="block py-3 px-2 font-medium text-fsti-orange">Beranda</a>
+
+            <div class="border-t border-gray-100">
+                <button type="button" class="mobile-acc-btn w-full flex items-center justify-between py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]" data-acc="m-tentang">
+                    <span>Tentang Kami</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
+                </button>
+                <div id="m-tentang" class="hidden pl-4 pb-2 space-y-1">
+                    <a href="tentang.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">Profil Fakultas</a>
+                    <a href="tentang.html#sejarah" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Sejarah</a>
+                    <a href="tentang.html#visi-misi" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Visi, Misi & Tujuan</a>
+                    <a href="tentang.html#struktur" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Struktur Organisasi</a>
+
+                    <a href="tentang.html#pimpinan" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Kepemimpinan Fakultas</a>
+
+                    <a href="tentang.html#fasilitas" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Fasilitas Fakultas</a>
+                    <a href="direktori-dosen.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">Direktori Dosen & Peneliti</a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-100">
+                <button type="button" class="mobile-acc-btn w-full flex items-center justify-between py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]" data-acc="m-prodi">
+                    <span>Program Studi</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
+                </button>
+                <div id="m-prodi" class="hidden pl-4 pb-2 space-y-1">
+                    <a href="prodi/informatika.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">S1 Informatika</a>
+                    <a href="prodi/sistem-teknologi-informasi.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">S1 Sistem dan Teknologi Informasi</a>
+                    <a href="prodi/bisnis-digital.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">S1 Bisnis Digital</a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-100">
+                <button type="button" class="mobile-acc-btn w-full flex items-center justify-between py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]" data-acc="m-akademik">
+                    <span>Akademik</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
+                </button>
+                <div id="m-akademik" class="hidden pl-4 pb-2 space-y-1">
+                    <a href="pusat-unduhan.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">Pusat Unduhan & Dokumen</a>
+                </div>
+            </div>
+
+            <a href="alumni.html" class="block py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602] border-t border-gray-100">Alumni</a>
+
+            <a href="pmb.html" class="block py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602] border-t border-gray-100">PMB</a>
+        </div>
+    </header>
+    <!-- Hero Section (Fluid Tech Minimalist - Polished) -->
+    <section class="relative min-h-screen flex items-center pt-20 pb-12 overflow-hidden bg-[#1A1026]">
+        <!-- 1. Multi-Layer Background (Visibilitas Terjaga) -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <!-- Base Layer -->
+            <div class="absolute inset-0 bg-[#5B2A7E]"></div>
+            
+            <!-- 2. Dot Grid Texture (Sangat Halus) -->
+            <div class="absolute inset-0 opacity-[0.15]" style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 50px 50px;"></div>
+            
+            <!-- 3. Strategic Mesh Glows (Dipinggir agar teks tetap tajam) -->
+            <div class="absolute -top-[20%] -right-[10%] w-[80%] h-[80%] bg-[#F18602] rounded-full blur-[120px] opacity-20 animate-pulse"></div>
+            <div class="absolute -bottom-[20%] -left-[10%] w-[70%] h-[70%] bg-[#F18602] rounded-full blur-[100px] opacity-10"></div>
+            
+            <!-- 4. Subtle Vignette (Memusatkan pandangan ke teks) -->
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(26,16,38,0.4)_100%)]"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-20">
+            <div class="max-w-5xl text-center md:text-left">
+                <div class="reveal-fade-up">
+                <!-- Innovation Tag -->
+                <div class="inline-flex items-center space-x-2 py-2 px-4 rounded-full bg-white/5 border border-white/10 text-white text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] mb-8">
+                    <span class="w-2 h-2 rounded-full bg-[#F18602]"></span>
+                    <span>Pendidikan Digital Berbasis Inovasi</span>
+                </div>
+
+                <!-- Fluid Typography Headline -->
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-8 text-white tracking-tighter">
+                    Bangun Masa Depan Digital
+                    <span class="text-[#F18602]">Bersama FSTI UWG Malang</span>
+                </h1>
+                
+                <!-- Fluid Typography Paragraph -->
+                <p class="text-base sm:text-lg md:text-xl text-white/70 mb-12 leading-relaxed max-w-2xl mx-auto md:mx-0 font-light">
+                    Temukan pendidikan inovatif di bidang Informatika, Sistem dan Teknologi Informasi, serta Bisnis Digital yang relevan dengan kebutuhan industri dan masyarakat.
+                </p>
+
+                <!-- Premium CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+                    <a href="#eksplorasi" class="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 bg-[#F18602] text-white rounded-xl font-bold text-lg hover:bg-[#D97200] hover:shadow-md transition-all duration-200 shadow-sm active:scale-[0.98]">
+                        Kenali Lebih Dekat
+                    </a>
+                    <a href="pmb.html" class="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-xl font-bold text-lg hover:bg-white hover:text-[#5B2A7E] transition-all duration-200">
+                        Info PMB 2026
+                    </a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll Target -->
+    <div id="eksplorasi"></div>
+
+    <!-- SECTION 2 – SEKILAS FAKULTAS & DEAN'S QUOTE -->
+    <section class="py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Kiri: Dean's Quote -->
+                <div class="lg:w-3/5">
+                    <div class="relative">
+                        <div class="absolute -top-10 -left-10 text-[#F18602] opacity-10">
+                            <i data-lucide="quote" class="w-32 h-32 text-[#F18602]/10"></i>
+                        </div>
+                        <div class="relative z-10 flex flex-col sm:flex-row items-center sm:items-start gap-8">
+                            <div class="flex-shrink-0">
+                                <div class="relative">
+                                    <div class="absolute inset-0 bg-[#F18602] rounded-[20px] rotate-6"></div>
+                                    <img src="assets/images/dosen/fitri-marisa.webp" alt="Foto Dekan - Fitri Marisa" class="relative z-10 w-48 h-48 rounded-[20px] border-2 border-gray-200 object-cover" width="192" height="192" loading="lazy" fetchpriority="low" decoding="async">
+                                </div>
+                            </div>
+                            <div class="text-center sm:text-left pt-4 flex-1">
+                                <h2 class="text-2xl font-bold text-[#5B2A7E] mb-4">Visi Kepemimpinan</h2>
+                                <p class="text-xl md:text-2xl italic text-gray-700 leading-relaxed mb-6 font-medium">
+                                    "FSTI UWG adalah wadah bagi inovator masa depan. Kami mencetak lulusan yang tidak hanya ahli teknologi, tapi juga memiliki jiwa wirausaha digital yang tangguh."
+                                </p>
+                                <div class="mb-6">
+                                    <h3 class="font-bold text-[#1A1026] text-base">Fitri Marisa, S.Kom., M.Pd., Ph.D.</h3>
+                                    <p class="text-sm text-[#F18602] font-semibold uppercase tracking-wider">Dekan FSTI UWG</p>
+                                </div>
+                                <a href="tentang.html" class="inline-flex items-center gap-1 font-bold text-[#5B2A7E] hover:text-[#F18602] transition-colors">
+                                    Pelajari Selengkapnya tentang FSTI
+                                    <span class="detail-arrow">&gt;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                <!-- Kanan: Statistik Counter -->
+                <div class="lg:w-2/5 w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-1 gap-4 sm:gap-6">
+                    <div class="stat-card py-4 px-5 sm:py-5 sm:px-6 rounded-[20px] bg-[#FFF9F2] border-2 border-gray-200 flex items-center space-x-4 sm:space-x-6">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 bg-[#F18602] rounded-xl flex items-center justify-center text-white shadow-lg">
+                            <i data-lucide="building-2" class="w-6 h-6 sm:w-7 sm:h-7"></i>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-[#1A1026]" data-count="3">0</div>
+                            <div class="text-[10px] sm:text-xs font-bold text-gray-500 uppercase tracking-widest">Prodi</div>
+                        </div>
+                    </div>
+                    <div class="stat-card py-4 px-5 sm:py-5 sm:px-6 rounded-[20px] bg-[#FFF9F2] border-2 border-gray-200 flex items-center space-x-4 sm:space-x-6">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 bg-[#5B2A7E] rounded-xl flex items-center justify-center text-white shadow-lg">
+                            <i data-lucide="graduation-cap" class="w-6 h-6 sm:w-7 sm:h-7"></i>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-[#1A1026]" data-count="14">0</div>
+                            <div class="text-[10px] sm:text-xs font-bold text-gray-500 uppercase tracking-widest">Dosen</div>
+                        </div>
+                    </div>
+                    <div class="stat-card py-4 px-5 sm:py-5 sm:px-6 rounded-[20px] bg-[#FFF9F2] border-2 border-gray-200 flex items-center space-x-4 sm:space-x-6">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 bg-[#F18602] rounded-xl flex items-center justify-center text-white shadow-lg">
+                            <i data-lucide="users" class="w-6 h-6 sm:w-7 sm:h-7"></i>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-[#1A1026]" data-count="222">0</div>
+                            <div class="text-[10px] sm:text-xs font-bold text-gray-500 uppercase tracking-widest">Mahasiswa Aktif</div>
+                        </div>
+                    </div>
+                    <div class="stat-card py-4 px-5 sm:py-5 sm:px-6 rounded-[20px] bg-[#FFF9F2] border-2 border-gray-200 flex items-center space-x-4 sm:space-x-6">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 bg-[#5B2A7E] rounded-xl flex items-center justify-center text-white shadow-lg">
+                            <i data-lucide="star" class="w-6 h-6 sm:w-7 sm:h-7"></i>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-[#1A1026]" data-count="10">0</div>
+                            <div class="text-[10px] sm:text-xs font-bold text-gray-500 uppercase tracking-widest">Mitra Kerja Sama</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galeri Grid Kecil (Placeholder Kegiatan Kampus) -->
+            <!-- Galeri Kegiatan: Auto-scroll loop semua layar, 1 baris -->
+            <div class="mt-16 relative overflow-hidden">
+                <!-- Fade edges -->
+                <div class="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+                <div class="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+                <!-- Scroll container -->
+                <div id="galeri-scroll" class="overflow-hidden" style="-webkit-overflow-scrolling: touch;">
+                    <div id="galeri-track" class="flex gap-4 will-change-transform">
+                        <div class="flex-shrink-0 w-64 sm:w-72 md:w-80 aspect-[3/2] rounded-2xl overflow-hidden border-2 border-gray-200">
+                            <img src="assets/images/kegiatan/kegiatan-outdoor.webp" alt="Kegiatan Kampus" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                        </div>
+                        <div class="flex-shrink-0 w-64 sm:w-72 md:w-80 aspect-[3/2] rounded-2xl overflow-hidden border-2 border-gray-200">
+                            <img src="assets/images/kegiatan/kelas-interaktif.webp" alt="Kelas Interaktif" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                        </div>
+                        <div class="flex-shrink-0 w-64 sm:w-72 md:w-80 aspect-[3/2] rounded-2xl overflow-hidden border-2 border-gray-200">
+                            <img src="assets/images/kegiatan/kunjungan-kkn.webp" alt="Pengabdian Masyarakat" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                        </div>
+                        <div class="flex-shrink-0 w-64 sm:w-72 md:w-80 aspect-[3/2] rounded-2xl overflow-hidden border-2 border-gray-200">
+                            <img src="assets/images/kegiatan/kolaborasi-proyek.webp" alt="Kolaborasi Proyek" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                        </div>
+                        <div class="flex-shrink-0 w-64 sm:w-72 md:w-80 aspect-[3/2] rounded-2xl overflow-hidden border-2 border-gray-200">
+                            <img src="assets/images/kegiatan/suasana-akademik.webp" alt="Suasana Akademik" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                        </div>
+                        <div class="flex-shrink-0 w-64 sm:w-72 md:w-80 aspect-[3/2] rounded-2xl overflow-hidden border-2 border-gray-200">
+                            <img src="assets/images/kegiatan/kegiatan-kemahasiswaan.webp" alt="Kegiatan Kemahasiswaan" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                        </div>
+                        <div class="flex-shrink-0 w-64 sm:w-72 md:w-80 aspect-[3/2] rounded-2xl overflow-hidden border-2 border-gray-200">
+                            <img src="assets/images/kegiatan/kegiatan-fakultas-full.webp" alt="Keluarga Besar FSTI" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                        </div>
+                        <div class="flex-shrink-0 w-64 sm:w-72 md:w-80 aspect-[3/2] rounded-2xl overflow-hidden border-2 border-gray-200">
+                            <img src="assets/images/kegiatan/bimbingan-akademik.webp" alt="Bimbingan Akademik" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                        </div>
+                        <div class="flex-shrink-0 w-64 sm:w-72 md:w-80 aspect-[3/2] rounded-2xl overflow-hidden border-2 border-gray-200">
+                            <img src="assets/images/kegiatan/foto-angkatan.webp" alt="Komunitas Mahasiswa" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+            (function(){
+                const scroll = document.getElementById('galeri-scroll');
+                const track = document.getElementById('galeri-track');
+                if (!scroll || !track) return;
+
+                let animId = null;
+                let paused = false;
+                const speed = 0.5;
+
+                // Clone items for infinite loop
+                const originals = Array.from(track.children);
+                originals.forEach(item => {
+                    const clone = item.cloneNode(true);
+                    clone.classList.add('galeri-clone');
+                    track.appendChild(clone);
+                });
+
+                function getOriginalWidth() {
+                    const gap = 16;
+                    return originals.reduce((sum, el) => sum + el.offsetWidth + gap, 0);
+                }
+
+                function animate() {
+                    if (!paused) {
+                        scroll.scrollLeft += speed;
+                        const origW = getOriginalWidth();
+                        if (origW > 0 && scroll.scrollLeft >= origW) {
+                            scroll.scrollLeft -= origW;
+                        }
+                    }
+                    animId = requestAnimationFrame(animate);
+                }
+
+                // Galeri mengalir terus menerus (non-stop auto-scroll) tanpa berhenti/zoom saat dikursor/disentuh
+
+                animId = requestAnimationFrame(animate);
+            })();
+            </script>
+        </div>
+    </section>
+    <!-- SECTION 3 – SHOWCASE 3 PROGRAM STUDI -->
+    <section class="py-16 md:py-20 bg-[#FFF9F2]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#D97200] mb-3">Program Studi</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-[#5B2A7E] mb-6">Program Studi Unggulan</h2>
+                <div class="w-20 h-1.5 bg-[#F18602] mx-auto rounded-full mb-8"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+                    Kurikulum yang dirancang khusus untuk mencetak tenaga profesional yang siap menghadapi tantangan ekonomi digital dan industri masa depan.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 reveal">
+                <!-- S1 Informatika -->
+                <div class="program-card bg-white p-10 rounded-[28px] border-2 border-gray-200 flex flex-col">
+                    <div class="flex items-center justify-between mb-8 gap-3">
+                        <div class="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center text-[#F18602] flex-shrink-0">
+                            <i data-lucide="code" class="w-10 h-10"></i>
+                        </div>
+                        <span class="px-4 py-1 rounded-full bg-orange-100 text-[#F18602] text-xs font-bold tracking-widest uppercase text-center">Akreditasi Baik Sekali</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#1A1026] mb-4">S1 Informatika</h3>
+                    <p class="text-gray-600 mb-10 leading-relaxed flex-1">Fokus Intelligent System - komputasi cerdas, AI, dan rekayasa perangkat lunak untuk solusi inovatif dan aplikatif.</p>
+                    <a href="prodi/informatika.html" class="inline-flex items-center gap-1 font-bold text-[#5B2A7E] hover:text-[#F18602] transition-colors mt-auto">
+                        Pelajari Selengkapnya
+                        <span class="detail-arrow">&gt;</span>
+                    </a>
+                </div>
+                <!-- S1 Sistem dan Teknologi Informasi -->
+                <div class="program-card bg-white p-10 rounded-[28px] border-2 border-gray-200 flex flex-col">
+                    <div class="flex items-center justify-between mb-8 gap-3">
+                        <div class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center text-[#5B2A7E] flex-shrink-0">
+                            <i data-lucide="cpu" class="w-10 h-10"></i>
+                        </div>
+                        <span class="px-4 py-1 rounded-full bg-purple-100 text-[#5B2A7E] text-xs font-bold tracking-widest uppercase text-center">Akreditasi Baik</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#1A1026] mb-4">S1 Sistem dan Teknologi Informasi</h3>
+                    <p class="text-gray-600 mb-10 leading-relaxed flex-1">Fokus Sistem dan Teknologi Informasi Cerdas - integrasi AI, IoT, multimedia, UX, gamifikasi & layanan digital inklusif.</p>
+                    <a href="prodi/sistem-teknologi-informasi.html" class="inline-flex items-center gap-1 font-bold text-[#5B2A7E] hover:text-[#F18602] transition-colors mt-auto">
+                        Pelajari Selengkapnya
+                        <span class="detail-arrow">&gt;</span>
+                    </a>
+                </div>
+                <!-- S1 Bisnis Digital -->
+                <div class="program-card bg-white p-10 rounded-[28px] border-2 border-gray-200 flex flex-col">
+                    <div class="flex items-center justify-between mb-8 gap-3">
+                        <div class="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center text-[#F18602] flex-shrink-0">
+                            <i data-lucide="trending-up" class="w-10 h-10"></i>
+                        </div>
+                        <span class="px-4 py-1 rounded-full bg-orange-100 text-[#F18602] text-xs font-bold tracking-widest uppercase text-center">Akreditasi Baik</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#1A1026] mb-4">S1 Bisnis Digital</h3>
+                    <p class="text-gray-600 mb-10 leading-relaxed flex-1">Fokus Technology-Driven Digital Business - bisnis digital, data, AI, UI/UX, kreativitas & technopreneurship global.</p>
+                    <a href="prodi/bisnis-digital.html" class="inline-flex items-center gap-1 font-bold text-[#5B2A7E] hover:text-[#F18602] transition-colors mt-auto">
+                        Pelajari Selengkapnya
+                        <span class="detail-arrow">&gt;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4 – SOROTAN PRESTASI (2 ITEMS) -->
+    <section class="py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#D97200] mb-3">Prestasi</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-[#5B2A7E] mb-6">Sorotan Prestasi</h2>
+                <div class="w-20 h-1.5 bg-[#F18602] mx-auto rounded-full mb-8"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+                    Beragam pencapaian mahasiswa FSTI di ajang nasional maupun internasional sebagai wujud kualitas pendidikan dan bimbingan kami.
+                </p>
+            </div>
+
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 reveal">
+                <!-- Prestasi 1 -->
+                <div class="prestasi-card bg-white border-2 border-gray-200 rounded-[28px] overflow-hidden flex flex-col">
+                    <div class="aspect-[3/2] border-b-2 border-[#F18602]/20 overflow-hidden">
+                        <img src="assets/images/kegiatan/prestasi-inotek.webp" alt="Juara 3 INOTEK Kota Malang 2025" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                    </div>
+                    <div class="p-6 md:p-8 flex-1 flex flex-col">
+                        <div class="inline-flex self-start items-center px-3 py-1 rounded-full bg-orange-100 text-[#F18602] text-[11px] font-bold tracking-widest uppercase mb-4">
+                            Prestasi Nasional
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold text-[#1A1026] mb-3 leading-tight">
+                            Juara 3 Lomba Inovasi Teknologi (INOTEK) Kota Malang 2025
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed text-sm md:text-base flex-1">
+                            Tim mahasiswa Informatika UWG (Naufal Ibra P., Fhadillah Ain M., Maria Rosalina T.) meraih Juara 3 dalam kompetisi inovasi teknologi tingkat kota.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Prestasi 2 -->
+                <div class="prestasi-card bg-white border-2 border-gray-200 rounded-[28px] overflow-hidden flex flex-col">
+                    <div class="aspect-[3/2] border-b-2 border-gray-100 overflow-hidden">
+                        <img src="assets/images/kegiatan/prestasi-irsyad.webp" alt="International Youth Innovation Summit Malaysia 2024" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                    </div>
+                    <div class="p-6 md:p-8 flex-1 flex flex-col">
+                        <div class="inline-flex self-start items-center px-3 py-1 rounded-full bg-purple-100 text-[#5B2A7E] text-[11px] font-bold tracking-widest uppercase mb-4">
+                            Prestasi Internasional
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold text-[#1A1026] mb-3 leading-tight">
+                            Tiga Penghargaan di International Youth Innovation Summit #6 Malaysia 2024
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed text-sm md:text-base flex-1">
+                            Irsyad Maulana Wijaya (Bisnis Digital) meraih 1st Best Presentation, 1st Best Video Innovation, dan 2nd Best Project Innovation di Kuala Lumpur, 10-13 Desember 2024.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Prestasi 3 -->
+                <div class="prestasi-card bg-white border-2 border-gray-200 rounded-[28px] overflow-hidden flex flex-col">
+                    <div class="aspect-[3/2] border-b-2 border-[#F18602]/20 overflow-hidden">
+                        <img src="assets/images/kegiatan/prestasi-nasional.webp" alt="Juara 1 Taekwondo Jatim Cup 3 2025" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                    </div>
+                    <div class="p-6 md:p-8 flex-1 flex flex-col">
+                        <div class="inline-flex self-start items-center px-3 py-1 rounded-full bg-orange-100 text-[#F18602] text-[11px] font-bold tracking-widest uppercase mb-4">
+                            Prestasi Non-Akademik
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold text-[#1A1026] mb-3 leading-tight">
+                            Juara 1 Taekwondo Kyorugi Senior Putri 48 KG - Jatim Cup 3 2025
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed text-sm md:text-base flex-1">
+                            Waode Anisa F (Informatika) meraih Juara 1 pada Kejuaraan Taekwondo Grade C KBPP Polri – Jatim Cup 3, Piala Kapolda Jawa Timur 2025.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5 – SOCIAL PROOF (TESTIMONI) -->
+    <section class="py-16 md:py-20 bg-[#FFF9F2]">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-12 reveal"><span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#D97200] mb-3">Alumni</span><h2 class="text-3xl md:text-5xl font-extrabold text-[#5B2A7E] mb-6">Cerita Mereka yang Bertumbuh Bersama FSTI</h2><div class="w-20 h-1.5 bg-[#F18602] mx-auto rounded-full mb-8"></div><p class="text-gray-600 max-w-2xl mx-auto text-lg">Alumni FSTI tersebar di berbagai sektor — industri, pendidikan, dan riset — menerapkan ilmu yang diperoleh untuk terus berkarya.</p></div>
+            <div class="relative reveal" id="testimonial-carousel-container" role="region" aria-roledescription="carousel" aria-label="Testimoni Alumni FSTI"><div class="flex transition-transform duration-500 ease-in-out" id="testimonial-track" aria-live="off"><div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4" role="group" aria-roledescription="slide" aria-label="Testimoni 1 dari 6"><div class="testimonial-card bg-white p-8 rounded-[28px] border border-gray-200 h-full flex flex-col"><div class="testimonial-identity"><img src="assets/images/alumni/kuncahyo-setyo-nugroho.webp" alt="Kuncahyo Setyo Nugroho" class="w-14 h-14 rounded-full border-2 border-[#F18602] p-0.5 object-cover" width="56" height="56" loading="lazy" fetchpriority="low" decoding="async"><div><h3 class="font-bold text-[#1A1026] text-sm leading-snug">Kuncahyo Setyo Nugroho</h4><p class="text-[11px] text-[#5B2A7E] font-bold">AI Research Associate</p><p class="text-[11px] text-gray-500">BINUS University & NVIDIA DLI</p></div></div><div class="testimonial-quote"><p class="text-gray-600 italic leading-relaxed">“Saya bersyukur menempuh pendidikan di FSTI UWG. Bekal teknis, pola pikir, dan kemampuan problem-solving selama kuliah menjadi fondasi karier saya hingga kini. Ilmu kecerdasan buatan serta pengalaman riset yang saya dapat dulu terus saya terapkan bersama tim di BINUS University dan NVIDIA DLI.”</p></div></div></div>
+<div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4" role="group" aria-roledescription="slide" aria-label="Testimoni 2 dari 6"><div class="testimonial-card bg-white p-8 rounded-[28px] border border-gray-200 h-full flex flex-col"><div class="testimonial-identity"><img src="assets/images/alumni/tri-mukti-lestari.webp" alt="Tri Mukti Lestari" class="w-14 h-14 rounded-full border-2 border-[#F18602] p-0.5 object-cover" width="56" height="56" loading="lazy" fetchpriority="low" decoding="async"><div><h3 class="font-bold text-[#1A1026] text-sm leading-snug">Tri Mukti Lestari</h4><p class="text-[11px] text-[#5B2A7E] font-bold">Dosen Informatika</p><p class="text-[11px] text-gray-500">UIN Maulana Malik Ibrahim Malang</p></div></div><div class="testimonial-quote"><p class="text-gray-600 italic leading-relaxed">“Pengalaman akademik dan riset di FSTI membentuk kompetensi saya di ilmu komputer — fondasi kuat saat menempuh S2 dan menjadi dosen. Dosen yang suportif dan lingkungan belajar yang kondusif membuat saya yakin melanjutkan karier di dunia pendidikan tinggi.”</p></div></div></div>
+<div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4" role="group" aria-roledescription="slide" aria-label="Testimoni 3 dari 6"><div class="testimonial-card bg-white p-8 rounded-[28px] border border-gray-200 h-full flex flex-col"><div class="testimonial-identity"><img src="assets/images/alumni/ismail-akbar-alumni.webp" alt="Ismail Akbar, S.Kom." class="w-14 h-14 rounded-full border-2 border-[#F18602] p-0.5 object-cover" width="56" height="56" loading="lazy" fetchpriority="low" decoding="async"><div><h3 class="font-bold text-[#1A1026] text-sm leading-snug">Ismail Akbar, S.Kom.</h4><p class="text-[11px] text-[#5B2A7E] font-bold">Kepala Unit PSTI</p><p class="text-[11px] text-gray-500">Universitas Widya Gama</p></div></div><div class="testimonial-quote"><p class="text-gray-600 italic leading-relaxed">“FSTI memberi fondasi teori, pengalaman proyek, dan problem-solving yang menopang saya sebagai akademisi, praktisi, sekaligus profesional. Pengalaman memimpin proyek nyata semasa kuliah menjadikan saya siap mengemban tugas kepemimpinan di unit PSTI.”</p></div></div></div>
+<div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4" role="group" aria-roledescription="slide" aria-label="Testimoni 4 dari 6"><div class="testimonial-card bg-white p-8 rounded-[28px] border border-gray-200 h-full flex flex-col"><div class="testimonial-identity"><img src="assets/images/alumni/dimas-rossiawan.webp" alt="Dimas Rossiawan Hendra Putra" class="w-14 h-14 rounded-full border-2 border-[#F18602] p-0.5 object-cover" width="56" height="56" loading="lazy" fetchpriority="low" decoding="async"><div><h3 class="font-bold text-[#1A1026] text-sm leading-snug">Dimas Rossiawan Hendra Putra</h4><p class="text-[11px] text-[#5B2A7E] font-bold">Dosen Elektronika</p><p class="text-[11px] text-gray-500">Politeknik Negeri Malang</p></div></div><div class="testimonial-quote"><p class="text-gray-600 italic leading-relaxed">“Menjadi bagian dari keluarga besar UWG adalah pengalaman berharga. Kampus membekali saya dengan ilmu, integritas, dan soft skill untuk dunia kerja. Praktik laboratorium dan bimbingan dosen membantu saya memahami elektronika secara aplikatif, sehingga mudah saya bagikan kepada mahasiswa saya kini.”</p></div></div></div>
+<div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4" role="group" aria-roledescription="slide" aria-label="Testimoni 5 dari 6"><div class="testimonial-card bg-white p-8 rounded-[28px] border border-gray-200 h-full flex flex-col"><div class="testimonial-identity"><img src="assets/images/alumni/dini-kristianti.webp" alt="Dini Kristianti" class="w-14 h-14 rounded-full border-2 border-[#F18602] p-0.5 object-cover" width="56" height="56" loading="lazy" fetchpriority="low" decoding="async"><div><h3 class="font-bold text-[#1A1026] text-sm leading-snug">Dini Kristianti</h4><p class="text-[11px] text-[#5B2A7E] font-bold">Kepala Lembaga Penjaminan Mutu</p><p class="text-[11px] text-gray-500">Universitas Modern Al Rifa'ie Indonesia</p></div></div><div class="testimonial-quote"><p class="text-gray-600 italic leading-relaxed">“Ilmu dan dukungan dosen FSTI membekali saya secara teori maupun praktis — modal berharga menjadi dosen sekaligus membangun usaha sendiri. Keseimbangan antara disiplin akademik dan jiwa kewirausahaan yang ditanamkan kampus memberi keberanian mengelola lembaga sekaligus usaha.”</p></div></div></div>
+<div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4" role="group" aria-roledescription="slide" aria-label="Testimoni 6 dari 6"><div class="testimonial-card bg-white p-8 rounded-[28px] border border-gray-200 h-full flex flex-col"><div class="testimonial-identity"><img src="assets/images/alumni/rizky-ratna-panggali.webp" alt="Rizky Ratna Panggali" class="w-14 h-14 rounded-full border-2 border-[#F18602] p-0.5 object-cover" width="56" height="56" loading="lazy" fetchpriority="low" decoding="async"><div><h3 class="font-bold text-[#1A1026] text-sm leading-snug">Rizky Ratna Panggali</h4><p class="text-[11px] text-[#5B2A7E] font-bold">Area Retail Analyst</p><p class="text-[11px] text-gray-500">PT HM Sampoerna Tbk</p></div></div><div class="testimonial-quote"><p class="text-gray-600 italic leading-relaxed">“Selain ilmu informatika, organisasi kampus melatih public speaking, problem solving, dan leadership saya — tumbuh berkat lingkungan yang supportif. Pengalaman magang dan berbagai kompetisi mengasah analisis data yang setiap hari saya gunakan dalam menentukan strategi ritel di Sampoerna.”</p></div></div></div>
+                </div>
+                <div class="testimonial-nav flex justify-center mt-8 space-x-4"><button id="btn-prev" class="w-10 h-10 rounded-full border-2 border-gray-200" aria-label="Testimoni sebelumnya">&lt;</button><button id="btn-next" class="w-10 h-10 rounded-full border-2 border-gray-200" aria-label="Testimoni berikutnya">&gt;</button></div>
+                <div class="mt-10 text-center reveal"><a href="alumni.html" class="cta-alumni inline-flex items-center justify-center px-8 py-3 border-2 border-[#5B2A7E] text-[#5B2A7E] font-bold rounded-xl hover:bg-[#3D1A55] hover:border-[#3D1A55] hover:text-white active:scale-[0.98] transition-all">Lihat Semua Cerita Alumni</a></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5b – MITRA KERJA SAMA -->
+    <section class="py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-12 reveal">
+                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#D97200] mb-3">Kolaborasi</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#5B2A7E] mb-4">Mitra Kerja Sama</h2>
+                <div class="w-20 h-1.5 bg-[#F18602] mx-auto rounded-full mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                    FSTI menjalin kerja sama dengan berbagai mitra nasional dan internasional untuk mendukung pembelajaran, magang, penelitian, dan pengabdian kepada masyarakat.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 reveal">
+                <div class="h-20 md:h-24 rounded-2xl border-2 border-gray-200 bg-white flex items-center justify-center p-4">
+                    <img src="assets/images/mitra/naratel.webp" alt="Naratel" class="max-w-full max-h-full object-contain" width="160" height="64" loading="lazy" fetchpriority="low" decoding="async">
+                </div>
+                <div class="h-20 md:h-24 rounded-2xl border-2 border-gray-200 bg-white flex items-center justify-center p-4">
+                    <img src="assets/images/mitra/nvidia-deep-learning.webp" alt="NVIDIA Deep Learning" class="max-w-full max-h-full object-contain" width="160" height="64" loading="lazy" fetchpriority="low" decoding="async">
+                </div>
+                <div class="h-20 md:h-24 rounded-2xl border-2 border-gray-200 bg-white flex items-center justify-center p-4">
+                    <img src="assets/images/mitra/ponpes-al-firdaus.webp" alt="Ponpes Al Firdaus" class="max-w-full max-h-full object-contain" width="160" height="64" loading="lazy" fetchpriority="low" decoding="async">
+                </div>
+                <div class="h-20 md:h-24 rounded-2xl border-2 border-gray-200 bg-white flex items-center justify-center p-4">
+                    <img src="assets/images/mitra/pt-zadabana.webp" alt="PT Zadabana" class="max-w-full max-h-full object-contain" width="160" height="64" loading="lazy" fetchpriority="low" decoding="async">
+                </div>
+                <div class="h-20 md:h-24 rounded-2xl border-2 border-gray-200 bg-white flex items-center justify-center p-4">
+                    <img src="assets/images/mitra/uthm.webp" alt="Universiti Tun Hussein Onn Malaysia" class="max-w-full max-h-full object-contain" width="160" height="64" loading="lazy" fetchpriority="low" decoding="async">
+                </div>
+                <div class="h-20 md:h-24 rounded-2xl border-2 border-gray-200 bg-white flex items-center justify-center p-4">
+                    <img src="assets/images/mitra/utem.webp" alt="Universiti Teknikal Malaysia Melaka" class="max-w-full max-h-full object-contain" width="160" height="64" loading="lazy" fetchpriority="low" decoding="async">
+                </div>
+                <div class="h-20 md:h-24 rounded-2xl border-2 border-gray-200 bg-white flex items-center justify-center p-4">
+                    <img src="assets/images/mitra/utm.webp" alt="Universiti Teknologi Malaysia" class="max-w-full max-h-full object-contain" width="160" height="64" loading="lazy" fetchpriority="low" decoding="async">
+                </div>
+                <div class="h-20 md:h-24 rounded-2xl border-2 border-gray-200 bg-white flex items-center justify-center p-4">
+                    <img src="assets/images/mitra/tati-university-college.webp" alt="TATI University College" class="max-w-full max-h-full object-contain" width="160" height="64" loading="lazy" fetchpriority="low" decoding="async">
+                </div>
+                <div class="h-20 md:h-24 rounded-2xl border-2 border-gray-200 bg-white flex items-center justify-center p-4">
+                    <img src="assets/images/mitra/ucsi-university.webp" alt="UCSI University" class="max-w-full max-h-full object-contain" width="160" height="64" loading="lazy" fetchpriority="low" decoding="async">
+                </div>
+                <div class="h-20 md:h-24 rounded-2xl border-2 border-gray-200 bg-white flex items-center justify-center p-4">
+                    <img src="assets/images/mitra/utm-malaysia.webp" alt="Universiti Teknologi Malaysia" class="max-w-full max-h-full object-contain" width="160" height="64" loading="lazy" fetchpriority="low" decoding="async">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6 – FINAL CTA PMB (Premium Polished) -->
+    <section class="py-16 md:py-20 bg-[#FFF9F2]">
+        <div class="container mx-auto px-6">
+            <div class="relative overflow-hidden bg-[#1A1026] rounded-[48px] p-12 md:p-24 border-2 border-white/10 shadow-2xl reveal">
+                <!-- Background Mesh Glows (Dipinggir agar tidak mengganggu teks) -->
+                <div class="absolute -top-24 -right-24 w-96 h-96 bg-[#F18602] rounded-full blur-[100px] opacity-20"></div>
+                <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-[#5B2A7E] rounded-full blur-[100px] opacity-40"></div>
+                
+                <!-- Subtle Grid Overlay -->
+                <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 30px 30px;"></div>
+                
+                <div class="relative z-10 flex flex-col items-center">
+                    <span class="px-5 py-2 rounded-full bg-[#F18602]/10 border border-[#F18602]/20 text-[#F18602] text-xs font-bold uppercase tracking-widest mb-8">
+                        Admission 2026 is Open
+                    </span>
+                    <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-8 leading-tight text-center tracking-tighter">
+                        Siap Membangun Karir <br> di Dunia <span class="text-[#F18602]">Digital?</span>
+                    </h2>
+                    <p class="text-purple-100/70 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light text-center leading-relaxed">
+                        Ambil langkah pertama menuju masa depan cerah. Bergabunglah dengan FSTI UWG dan jadilah ahli teknologi yang kompetitif di industri global.
+                    </p>
+                    <a href="pmb.html" class="inline-flex items-center justify-center px-12 py-5 bg-[#F18602] text-white rounded-xl font-bold text-xl transition-all duration-300 shadow-sm hover:bg-[#D97200] hover:shadow-md active:scale-[0.98] text-center">
+                        Cek Info Pendaftaran
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#1A1026] text-white pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Kolom 1: Profil -->
+                <div class="space-y-6">
+                    <div class="bg-white p-3 rounded-xl inline-block shadow-sm">
+                        <img src="assets/images/logo-final.webp" alt="Logo final" class="h-7 md:h-9 w-auto" width="160" height="40" loading="eager" fetchpriority="high" decoding="async">
+                    </div>
+                    <p class="text-purple-100 text-sm leading-relaxed">
+                        Kampus II Universitas Widya Gama Malang<br>
+                        Jl. Borobudur No.35, Malang, Jawa Timur<br>
+                        Lantai 4, Gedung FSTI
+                    </p>
+                    <div class="text-sm space-y-2">
+                        <p class="flex items-center"><i data-lucide="mail" class="w-4 h-4 mr-2 text-[#F18602]"></i> <a href="mailto:ruang.fsti@widyagama.ac.id" class="hover:text-[#F97316] transition-colors">ruang.fsti@widyagama.ac.id</a></p>
+                    </div>
+                    <div class="pt-3 border-t border-white/10 mt-4">
+                        <a href="https://widyagama.ac.id" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/15 text-purple-100 text-xs font-semibold hover:bg-white/15 hover:text-white hover:border-[#F18602]/50 active:scale-[0.98] transition-all">
+                            <i data-lucide="globe" class="w-3.5 h-3.5 text-[#F18602]"></i>
+                            <span>Web Utama UWG Malang</span>
+                            <i data-lucide="external-link" class="w-3 h-3 text-white/60 ml-0.5"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Kolom 2: Prodi & PMB -->
+                <div>
+                    <h3 class="font-bold text-lg mb-6 text-[#F97316] border-b-2 border-[#F97316]/20 pb-2">Program</h3>
+                    <ul class="space-y-4 text-purple-100/80 text-sm">
+                        <li><a href="prodi/informatika.html" class="hover:text-[#F97316] transition-colors">S1 Informatika</a></li>
+                        <li><a href="prodi/sistem-teknologi-informasi.html" class="hover:text-[#F97316] transition-colors">S1 Sistem dan Teknologi Informasi</a></li>
+                        <li><a href="prodi/bisnis-digital.html" class="hover:text-[#F97316] transition-colors">S1 Bisnis Digital</a></li>
+                        <li>
+                            <a href="pmb.html" class="inline-flex items-center px-3 py-1 rounded-md bg-[#F97316] text-white font-bold text-xs hover:bg-white hover:text-[#F97316] transition-all group shadow-lg shadow-orange-950/20">
+                                INFO PMB 2026
+                                <span class="ml-2 flex h-2 w-2">
+                                    <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-white opacity-75"></span>
+                                    <span class="relative inline-flex h-2 w-2 rounded-full bg-white"></span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Kolom 3: Layanan -->
+                <div>
+                    <h3 class="font-bold text-lg mb-6 text-[#F97316] border-b-2 border-[#F97316]/20 pb-2">Layanan</h3>
+                    <ul class="space-y-4 text-purple-100/80 text-sm">
+                        <li><a href="tentang.html" class="hover:text-[#F97316] transition-colors">Profil Fakultas</a></li>
+                        <li><a href="pusat-unduhan.html" class="hover:text-[#F97316] transition-colors">Pusat Unduhan</a></li>
+                        <li><a href="alumni.html" class="hover:text-[#F97316] transition-colors">Tracer Study Alumni</a></li>
+                        <li><a href="direktori-dosen.html" class="hover:text-[#F97316] transition-colors">Direktori Dosen</a></li>
+                    </ul>
+                </div>
+                <!-- Kolom 4: Sosmed -->
+                <div>
+                    <h3 class="font-bold text-lg mb-6 text-[#F97316] border-b-2 border-[#F97316]/20 pb-2">Media Sosial</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/fsti.uwg" target="_blank" rel="noopener" class="w-10 h-10 bg-[#F97316]/10 text-[#F97316] border border-[#F97316]/30 rounded-full flex items-center justify-center hover:bg-[#F97316] hover:text-white transition-all shadow-lg"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="https://www.tiktok.com/@fsti.uwg" target="_blank" rel="noopener" class="w-10 h-10 bg-[#F97316]/10 text-[#F97316] border border-[#F97316]/30 rounded-full flex items-center justify-center hover:bg-[#F97316] hover:text-white transition-all shadow-lg"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.16z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-xs text-purple-200">
+                <p>&copy; 2026 Fakultas Sains dan Teknologi Informasi - Universitas Widya Gama Malang. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Script -->
+    <script src="js/lucide.min.js"></script>
+    <script src="js/script.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Alumni - FSTI UWG Malang.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni - FSTI UWG Malang</title>
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#5B2A7E">
+
+<script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-white overflow-x-hidden">
+<div id="fsti-asset-guard" class="fixed inset-0 z-[99999] bg-white flex items-center justify-center transition-opacity duration-300">
+    <div id="fsti-guard-loader" class="flex flex-col items-center gap-4">
+        <div class="w-10 h-10 border-4 border-orange-100 border-t-[#F18602] rounded-full animate-spin"></div>
+    </div>
+    <div id="fsti-guard-error" class="hidden text-center p-8 max-w-md mx-auto">
+        <div class="w-12 h-12 rounded-full bg-red-50 text-red-500 flex items-center justify-center mx-auto mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold text-[#1A1026] mb-2 font-sans">Sistem Tidak Tersedia</h3>
+        <p class="text-sm text-gray-500 leading-relaxed font-sans">Mohon maaf, halaman tidak dapat dimuat saat ini. Silakan coba kembali beberapa saat lagi.</p>
+    </div>
+</div>
+<script src="js/asset-guard.js"></script>
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-100 border-t-4 border-t-[#F18602]">
+        <nav class="container mx-auto px-4 md:px-6 py-0 flex justify-between items-center">
+            <a href="index.html" class="flex items-center p-2">
+                <img src="assets/images/logo-final.webp" alt="Logo UWG FSTI" class="h-7 sm:h-8 md:h-10 w-auto" width="160" height="40" loading="eager" fetchpriority="high" decoding="async">
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex space-x-6 xl:space-x-8 items-center font-medium text-fsti-purple text-sm xl:text-base">
+                <a href="index.html" class="py-5 hover:text-[#F18602] transition-colors">Beranda</a>
+
+                <div class="relative group">
+                    <button type="button" class="flex items-center py-5 hover:text-[#F18602] transition-colors">
+                        Tentang Kami
+                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                    </button>
+                    <div class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white border-2 border-gray-200 rounded-xl shadow-lg py-2 min-w-[240px]">
+                            <a href="tentang.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">Profil Fakultas</a>
+                            <a href="tentang.html#sejarah" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Sejarah</a>
+                            <a href="tentang.html#visi-misi" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Visi, Misi & Tujuan</a>
+                            <a href="tentang.html#struktur" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Struktur Organisasi</a>
+
+                            <a href="tentang.html#pimpinan" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Kepemimpinan Fakultas</a>
+
+                            <a href="tentang.html#fasilitas" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Fasilitas Fakultas</a>
+                            <a href="direktori-dosen.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200] border-t border-gray-100 mt-1 pt-2">Direktori Dosen & Peneliti</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative group">
+                    <button type="button" class="flex items-center py-5 hover:text-[#F18602] transition-colors">
+                        Program Studi
+                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                    </button>
+                    <div class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white border-2 border-gray-200 rounded-xl shadow-lg py-2 min-w-[280px]">
+                            <a href="prodi/informatika.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">S1 Informatika</a>
+                            <a href="prodi/sistem-teknologi-informasi.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">S1 Sistem dan Teknologi Informasi</a>
+                            <a href="prodi/bisnis-digital.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">S1 Bisnis Digital</a>
+                        </div>
+                    </div>
+                </div>
+
+<div class="relative group">
+                    <button type="button" class="flex items-center py-5 hover:text-[#F18602] transition-colors">
+                        Akademik
+                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                    </button>
+                    <div class="absolute right-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white border-2 border-gray-200 rounded-xl shadow-lg py-2 min-w-[240px]">
+                            <a href="pusat-unduhan.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">Pusat Unduhan & Dokumen</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="alumni.html" class="py-5 text-fsti-orange">Alumni</a>
+
+                <a href="pmb.html" class="py-5 hover:text-[#F18602] transition-colors">PMB</a>
+            </div>
+
+            <button id="menu-btn" type="button" class="lg:hidden text-fsti-purple p-2 rounded-xl hover:bg-[#FFF9F2] hover:text-[#F18602] active:scale-[0.92] transition-all duration-200" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 px-4 py-3 max-h-[80vh] overflow-y-auto">
+            <a href="index.html" class="block py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]">Beranda</a>
+
+            <div class="border-t border-gray-100">
+                <button type="button" class="mobile-acc-btn w-full flex items-center justify-between py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]" data-acc="m-tentang">
+                    <span>Tentang Kami</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
+                </button>
+                <div id="m-tentang" class="hidden pl-4 pb-2 space-y-1">
+                    <a href="tentang.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">Profil Fakultas</a>
+                    <a href="tentang.html#sejarah" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Sejarah</a>
+                    <a href="tentang.html#visi-misi" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Visi, Misi & Tujuan</a>
+                    <a href="tentang.html#struktur" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Struktur Organisasi</a>
+
+                    <a href="tentang.html#pimpinan" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Kepemimpinan Fakultas</a>
+
+                    <a href="tentang.html#fasilitas" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Fasilitas Fakultas</a>
+                    <a href="direktori-dosen.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">Direktori Dosen & Peneliti</a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-100">
+                <button type="button" class="mobile-acc-btn w-full flex items-center justify-between py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]" data-acc="m-prodi">
+                    <span>Program Studi</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
+                </button>
+                <div id="m-prodi" class="hidden pl-4 pb-2 space-y-1">
+                    <a href="prodi/informatika.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">S1 Informatika</a>
+                    <a href="prodi/sistem-teknologi-informasi.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">S1 Sistem dan Teknologi Informasi</a>
+                    <a href="prodi/bisnis-digital.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">S1 Bisnis Digital</a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-100">
+                <button type="button" class="mobile-acc-btn w-full flex items-center justify-between py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]" data-acc="m-akademik">
+                    <span>Akademik</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
+                </button>
+                <div id="m-akademik" class="hidden pl-4 pb-2 space-y-1">
+                    <a href="pusat-unduhan.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">Pusat Unduhan & Dokumen</a>
+                </div>
+            </div>
+
+            <a href="alumni.html" class="block py-3 px-2 font-medium text-fsti-orange border-t border-gray-100">Alumni</a>
+
+            <a href="pmb.html" class="block py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602] border-t border-gray-100">PMB</a>
+        </div>
+    </header>
+    <section class="relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#1A1026]">
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div class="absolute inset-0 bg-[#5B2A7E]"></div>
+            <div class="absolute inset-0 opacity-[0.12]" style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 40px 40px;"></div>
+            <div class="absolute -top-[30%] -right-[15%] w-[55%] h-[80%] bg-[#F18602] rounded-full blur-[100px] opacity-20"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center reveal">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-5 tracking-tight">Alumni Fakultas Sains dan Teknologi Informasi</h1>
+                <p class="text-sm sm:text-base md:text-lg text-[#F18602] max-w-2xl mx-auto font-medium leading-relaxed">Cerita sukses dan testimoni lulusan FSTI Universitas Widya Gama Malang.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter & Grid -->
+    <section class="relative py-16 md:py-20 bg-[#FFF9F2] overflow-hidden">
+        <!-- Dekorasi halus senada hero -->
+        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+            <div class="absolute -top-24 -right-24 w-80 h-80 bg-[#F18602] rounded-full blur-[120px] opacity-[0.08]"></div>
+            <div class="absolute -bottom-32 -left-24 w-96 h-96 bg-[#5B2A7E] rounded-full blur-[140px] opacity-[0.06]"></div>
+            <div class="absolute inset-0 opacity-[0.05]" style="background-image: radial-gradient(#F18602 1.5px, transparent 1.5px); background-size: 28px 28px;"></div>
+        </div>
+        <div class="relative container mx-auto px-6 max-w-6xl">
+            <!-- Judul seksi terpusat -->
+            <div class="text-center reveal mb-10">
+                <span class="inline-block text-[#D97200] text-xs font-bold uppercase tracking-[0.2em] mb-3">Alumni</span>
+                <h2 class="text-[#5B2A7E] text-3xl md:text-4xl font-extrabold mb-4">Cerita &amp; Testimoni Alumni</h2>
+                <div class="w-20 h-1.5 bg-[#F18602] mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Search -->
+            <div class="bg-white border border-gray-200 rounded-[20px] p-4 md:p-5 mb-8 reveal reveal-fade-up">
+                <div class="relative w-full">
+                    <i data-lucide="search" class="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    <input id="alumni-search" type="search" placeholder="Cari nama, jabatan, atau instansi…" class="w-full pl-12 pr-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#F18602] focus:outline-none text-sm text-[#1A1026]">
+                </div>
+            </div>
+
+            <!-- Count -->
+            <div class="flex items-center justify-between mb-6">
+                <p id="alumni-count" class="text-sm text-gray-500"></p>
+            </div>
+
+            <!-- Grid -->
+            <div id="alumni-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal"></div>
+
+            <!-- Empty State -->
+            <div id="alumni-empty" class="hidden text-center py-16 px-6 bg-white border-2 border-dashed border-[#F18602]/40 rounded-[28px]">
+                <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[#FFF9F2] border border-[#F18602]/30 flex items-center justify-center">
+                    <i data-lucide="search" class="w-8 h-8 text-[#F18602]"></i>
+                </div>
+                <p class="text-[#1A1026] font-bold mb-1">Tidak ada alumni yang cocok</p>
+                <p class="text-gray-500 text-sm">Coba kata kunci lain untuk menemukan alumni yang dicari.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Detail Alumni -->
+    <div id="alumni-modal" class="fixed inset-0 z-[100] hidden" aria-hidden="true">
+        <div id="alumni-modal-backdrop" class="absolute inset-0 bg-[#1A1026]/60"></div>
+        <div class="relative z-10 min-h-full flex items-end sm:items-center justify-center p-0 sm:p-6">
+            <div id="alumni-modal-panel" role="dialog" aria-modal="true" aria-labelledby="alumni-modal-title" class="w-full sm:max-w-2xl max-h-[92vh] overflow-y-auto bg-white rounded-t-[28px] sm:rounded-[28px] border-2 border-gray-200 shadow-2xl">
+                <div class="sticky top-0 z-10 bg-white border-b border-gray-100 rounded-t-[28px] overflow-hidden">
+                    <div class="h-1.5 bg-gradient-to-r from-[#F18602] to-[#5B2A7E]"></div>
+                    <div class="px-5 sm:px-6 py-4 flex items-start justify-between gap-3">
+                        <div class="min-w-0">
+                            <p class="text-[11px] font-bold uppercase tracking-widest text-[#D97200] mb-1">Profil Alumni</p>
+                            <h3 id="alumni-modal-title" class="font-bold text-[#1A1026] text-lg leading-snug"></h3>
+                        </div>
+                        <button type="button" id="alumni-modal-close" class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#F18602] hover:text-[#F18602] transition-colors" aria-label="Tutup">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="alumni-modal-body" class="px-5 sm:px-6 py-6"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/alumni-data.js"></script>
+    <script src="js/lucide.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+    (function(){
+        const data = window.FSTI_ALUMNI || [];
+        const grid = document.getElementById('alumni-grid');
+        const searchEl = document.getElementById('alumni-search');
+        const countEl = document.getElementById('alumni-count');
+        const emptyEl = document.getElementById('alumni-empty');
+        const modal = document.getElementById('alumni-modal');
+        const modalBody = document.getElementById('alumni-modal-body');
+        const modalTitle = document.getElementById('alumni-modal-title');
+        const modalClose = document.getElementById('alumni-modal-close');
+        const modalBackdrop = document.getElementById('alumni-modal-backdrop');
+
+        function esc(s){ return String(s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+        function shortText(s, max=72){
+            const text = String(s||'').trim();
+            return text.length > max ? text.slice(0, max).trim() + '...' : text;
+        }
+
+        function cardHtml(d){
+            const inisial = (d.name||'A').split(',')[0].trim().split(/\s+/).slice(0,2).map(w=>w.charAt(0)).join('').toUpperCase();
+            const fotoHtml = d.foto
+                ? `<img src="${esc(d.foto)}" alt="${esc(d.name)}" class="w-14 h-14 rounded-full border-2 border-[#F18602] p-0.5 object-cover" width="56" height="56" loading="lazy" fetchpriority="low" decoding="async">`
+                : `<div class="w-14 h-14 rounded-full border-2 border-[#F18602] p-0.5 flex items-center justify-center bg-[#FFF9F2]"><span class="font-extrabold text-[#5B2A7E] text-sm">${esc(inisial)}</span></div>`;
+            const shortTesti = esc(shortText(d.testimoni || 'Belum ada testimoni.', 160));
+            const jabatan = shortText(d.jabatan || 'Alumni FSTI', 58);
+            const instansi = shortText(d.instansi || (d.tahunLulus ? `Lulusan ${d.tahunLulus}` : 'FSTI UWG Malang'), 58);
+            const lulusBadge = d.tahunLulus ? `<span class="mt-3 inline-flex self-center rounded-full bg-[#FFF9F2] border border-orange-100 px-3 py-1 text-[11px] font-bold text-[#D97200]">Lulus ${esc(d.tahunLulus)}</span>` : '';
+            return `
+            <article class="testimonial-card alumni-testimonial-card bg-white p-8 rounded-[28px] border border-gray-200 h-full flex flex-col" data-name="${esc(d.name.toLowerCase())}" data-jabatan="${esc((d.jabatan+' '+d.instansi).toLowerCase())}">
+                <div class="testimonial-identity">
+                    ${fotoHtml}
+                    <div>
+                        <h3 class="font-bold text-[#1A1026] text-sm leading-snug">${esc(d.name)}</h4>
+                        <p class="text-[11px] text-[#5B2A7E] font-bold" title="${esc(d.jabatan || 'Alumni FSTI')}">${esc(jabatan)}</p>
+                        <p class="text-[11px] text-gray-500" title="${esc(d.instansi || 'FSTI UWG Malang')}">${esc(instansi)}</p>
+                        ${lulusBadge}
+                    </div>
+                </div>
+                <div class="testimonial-quote flex-1">
+                    <p class="text-gray-600 italic leading-relaxed">“${shortTesti}”</p>
+                </div>
+                <button type="button" class="mt-auto pt-5 inline-flex items-center justify-center gap-1 text-sm font-bold text-[#5B2A7E] hover:text-[#F18602] transition-colors testimoni-btn" data-id="${d.id}">Lihat testimoni lengkap <span class="detail-arrow">&gt;</span></button>
+            </article>`;
+        }
+
+        function render(list){
+            grid.innerHTML = list.map(cardHtml).join('');
+            countEl.textContent = `Menampilkan ${list.length} alumni`;
+            emptyEl.classList.toggle('hidden', list.length!==0);
+            // bind buttons
+            grid.querySelectorAll('.testimoni-btn').forEach(btn=>{
+                btn.addEventListener('click', ()=>{
+                    const id = Number(btn.getAttribute('data-id'));
+                    const d = data.find(x=>x.id===id);
+                    if(d) openModal(d);
+                });
+            });
+            // re-observe reveal
+            if ('IntersectionObserver' in window) {
+                grid.querySelectorAll('.reveal, .reveal-fade-up').forEach(el => {
+                    const obs = new IntersectionObserver(([entry]) => {
+                        if (entry.isIntersecting) { entry.target.classList.add('active'); obs.unobserve(entry.target); }
+                    }, { threshold: 0.01, rootMargin: '0px 0px -10px 0px' });
+                    obs.observe(el);
+                });
+            }
+        }
+
+        function applyFilter(){
+            const q = (searchEl.value||'').toLowerCase().trim();
+            if(!q){ render(data); return; }
+            const filtered = data.filter(d=>{
+                const hay = (d.name+' '+d.jabatan+' '+d.instansi+' '+d.tahunLulus).toLowerCase();
+                return hay.includes(q);
+            });
+            render(filtered);
+        }
+
+        function openModal(d){
+            window._lastTriggerBtn = document.activeElement;
+            // Reset scroll position ke atas (scrollTop = 0) agar modal tidak mengingat posisi guliran sebelumnya
+            const panel = document.getElementById('alumni-modal-panel');
+            if (panel) panel.scrollTop = 0;
+            if (modal) modal.scrollTop = 0;
+            const fotoHtml = d.foto
+                ? `<img src="${esc(d.foto)}" alt="${esc(d.name)}" class="w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0 rounded-full border-2 border-[#F18602] p-0.5 object-cover" width="120" height="120" loading="lazy" fetchpriority="low" decoding="async">`
+                : `<div class="w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0 rounded-full border-2 border-[#F18602] p-0.5 bg-[#FFF9F2] flex items-center justify-center"><span class="font-extrabold text-[#5B2A7E] text-xl">${esc((d.name||'A').split(',')[0].trim().split(/\s+/).slice(0,2).map(w=>w.charAt(0)).join('').toUpperCase())}</span></div>`;
+            const jabatanText = d.jabatan || 'Alumni FSTI';
+            const instansiText = d.instansi || '';
+            modalTitle.textContent = d.name;
+            modalBody.innerHTML = `
+                <!-- Bagian 1: Identitas -->
+                <section class="mb-8">
+                    <div class="flex items-center gap-2 mb-5">
+                        <span class="w-1.5 h-5 rounded-full bg-[#F18602]"></span>
+                        <h4 class="text-sm font-extrabold uppercase tracking-widest text-[#5B2A7E]">Identitas</h4>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5 bg-[#FFF9F2] border border-gray-100 rounded-[20px] p-5">
+                        ${fotoHtml}
+                        <div class="text-center sm:text-left">
+                            <h3 class="font-extrabold text-[#1A1026] text-lg leading-snug">${esc(d.name)}</h3>
+                            <p class="text-sm font-bold text-[#5B2A7E] mt-1">${esc(jabatanText)}</p>
+                            ${instansiText ? `<p class="text-xs text-gray-500 mt-0.5">${esc(instansiText)}</p>` : ''}
+                            ${d.tahunLulus ? `<span class="mt-2.5 inline-flex items-center px-3 py-1 rounded-full bg-white border border-orange-100 text-[11px] font-bold text-[#D97200]">Lulus ${esc(d.tahunLulus)}</span>` : ''}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bagian 2: Biodata -->
+                <section class="mb-8 pt-2">
+                    <div class="flex items-center gap-2 mb-5">
+                        <span class="w-1.5 h-5 rounded-full bg-[#5B2A7E]"></span>
+                        <h4 class="text-sm font-extrabold uppercase tracking-widest text-[#5B2A7E]">Biodata</h4>
+                    </div>
+                    <dl class="grid sm:grid-cols-2 gap-x-6 border-2 border-gray-100 rounded-[20px] overflow-hidden">
+                        <div class="py-3 px-4 border-b border-gray-100">
+                            <dt class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Nama Lengkap</dt>
+                            <dd class="text-sm text-[#1A1026] font-semibold">${esc(d.name)||'—'}</dd>
+                        </div>
+                        <div class="py-3 px-4 border-b border-gray-100">
+                            <dt class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Jabatan</dt>
+                            <dd class="text-sm text-[#1A1026]">${esc(d.jabatan)||'—'}</dd>
+                        </div>
+                        <div class="py-3 px-4 border-b border-gray-100 sm:col-span-2">
+                            <dt class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Instansi</dt>
+                            <dd class="text-sm text-[#1A1026]">${esc(d.instansi)||'—'}</dd>
+                        </div>
+                        <div class="py-3 px-4 border-b border-gray-100">
+                            <dt class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Tahun Masuk</dt>
+                            <dd class="text-sm text-[#1A1026]">${esc(d.tahunMasuk)||'—'}</dd>
+                        </div>
+                        <div class="py-3 px-4">
+                            <dt class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Tahun Lulus</dt>
+                            <dd class="text-sm text-[#1A1026]">${esc(d.tahunLulus)||'—'}</dd>
+                        </div>
+                    </dl>
+                </section>
+
+                <!-- Bagian 3: Testimoni -->
+                <section>
+                    <div class="flex items-center gap-2 mb-5">
+                        <span class="w-1.5 h-5 rounded-full bg-[#F18602]"></span>
+                        <h4 class="text-sm font-extrabold uppercase tracking-widest text-[#5B2A7E]">Testimoni</h4>
+                    </div>
+                    <div class="bg-[#FFF9F2] border border-orange-100 rounded-[20px] p-5 sm:p-6 text-sm text-gray-600 leading-relaxed whitespace-pre-line">${esc(d.testimoni)||'Belum ada testimoni.'}</div>
+                </section>
+            `;
+            modal.classList.remove('hidden');
+            modal.setAttribute('aria-hidden', 'false');
+            if (panel) panel.scrollTop = 0;
+            document.body.classList.add('overflow-hidden');
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => modal.classList.add('alumni-modal-open'));
+            });
+        }
+
+        function closeModal(fromPopstate = false){
+            if (modal.classList.contains('hidden')) return;
+            modal.classList.remove('alumni-modal-open');
+            if (document.activeElement && modal.contains(document.activeElement)) {
+                document.activeElement.blur();
+            }
+            if (window._lastTriggerBtn && window._lastTriggerBtn.focus) {
+                try { window._lastTriggerBtn.focus(); } catch(err){}
+            }
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('overflow-hidden');
+            clearTimeout(modal._closeTimer);
+            modal._closeTimer = setTimeout(() => { modal.classList.add('hidden'); const p = document.getElementById('alumni-modal-panel'); if (p) p.scrollTop = 0; if (modal) modal.scrollTop = 0; }, 260);
+            
+            if (window._alumniModalHistoryPushed && !fromPopstate) {
+                window._alumniModalHistoryPushed = false;
+                try { history.back(); } catch(err){}
+            } else {
+                window._alumniModalHistoryPushed = false;
+            }
+        }
+
+        searchEl.addEventListener('input', applyFilter);
+        modalClose.addEventListener('click', () => closeModal(false));
+        window.addEventListener('popstate', (e) => {
+            if (window._alumniModalHistoryPushed || !modal.classList.contains('hidden')) {
+                closeModal(true);
+            }
+        });
+        modalBackdrop.addEventListener('click', () => closeModal(false));
+        document.addEventListener('keydown', e=>{ if(e.key==='Escape' && !modal.classList.contains('hidden')) closeModal(false); });
+
+        // initial
+        render(data);
+    })();
+    </script>
+    <!-- FOOTER -->
+    <footer class="bg-[#1A1026] text-white pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Kolom 1: Profil -->
+                <div class="space-y-6">
+                    <div class="bg-white p-3 rounded-xl inline-block shadow-sm">
+                        <img src="assets/images/logo-final.webp" alt="Logo final" class="h-7 md:h-9 w-auto" width="160" height="40" loading="eager" fetchpriority="high" decoding="async">
+                    </div>
+                    <p class="text-purple-100 text-sm leading-relaxed">
+                        Kampus II Universitas Widya Gama Malang<br>
+                        Jl. Borobudur No.35, Malang, Jawa Timur<br>
+                        Lantai 4, Gedung FSTI
+                    </p>
+                    <div class="text-sm space-y-2">
+                        <p class="flex items-center"><i data-lucide="mail" class="w-4 h-4 mr-2 text-[#F18602]"></i> <a href="mailto:ruang.fsti@widyagama.ac.id" class="hover:text-[#F97316] transition-colors">ruang.fsti@widyagama.ac.id</a></p>
+                    </div>
+                    <div class="pt-3 border-t border-white/10 mt-4">
+                        <a href="https://widyagama.ac.id" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/15 text-purple-100 text-xs font-semibold hover:bg-white/15 hover:text-white hover:border-[#F18602]/50 active:scale-[0.98] transition-all">
+                            <i data-lucide="globe" class="w-3.5 h-3.5 text-[#F18602]"></i>
+                            <span>Web Utama UWG Malang</span>
+                            <i data-lucide="external-link" class="w-3 h-3 text-white/60 ml-0.5"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Kolom 2: Prodi & PMB -->
+                <div>
+                    <h3 class="font-bold text-lg mb-6 text-[#F97316] border-b-2 border-[#F97316]/20 pb-2">Program</h3>
+                    <ul class="space-y-4 text-purple-100/80 text-sm">
+                        <li><a href="prodi/informatika.html" class="hover:text-[#F97316] transition-colors">S1 Informatika</a></li>
+                        <li><a href="prodi/sistem-teknologi-informasi.html" class="hover:text-[#F97316] transition-colors">S1 Sistem dan Teknologi Informasi</a></li>
+                        <li><a href="prodi/bisnis-digital.html" class="hover:text-[#F97316] transition-colors">S1 Bisnis Digital</a></li>
+                        <li>
+                            <a href="pmb.html" class="inline-flex items-center px-3 py-1 rounded-md bg-[#F97316] text-white font-bold text-xs hover:bg-white hover:text-[#F97316] transition-all group shadow-lg shadow-orange-950/20">
+                                INFO PMB 2026
+                                <span class="ml-2 flex h-2 w-2">
+                                    <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-white opacity-75"></span>
+                                    <span class="relative inline-flex h-2 w-2 rounded-full bg-white"></span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Kolom 3: Layanan -->
+                <div>
+                    <h3 class="font-bold text-lg mb-6 text-[#F97316] border-b-2 border-[#F97316]/20 pb-2">Layanan</h3>
+                    <ul class="space-y-4 text-purple-100/80 text-sm">
+                        <li><a href="tentang.html" class="hover:text-[#F97316] transition-colors">Profil Fakultas</a></li>
+                        <li><a href="pusat-unduhan.html" class="hover:text-[#F97316] transition-colors">Pusat Unduhan</a></li>
+                        <li><a href="alumni.html" class="hover:text-[#F97316] transition-colors">Tracer Study Alumni</a></li>
+                        <li><a href="direktori-dosen.html" class="hover:text-[#F97316] transition-colors">Direktori Dosen</a></li>
+                    </ul>
+                </div>
+                <!-- Kolom 4: Sosmed -->
+                <div>
+                    <h3 class="font-bold text-lg mb-6 text-[#F97316] border-b-2 border-[#F97316]/20 pb-2">Media Sosial</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/fsti.uwg" target="_blank" rel="noopener" class="w-10 h-10 bg-[#F97316]/10 text-[#F97316] border border-[#F97316]/30 rounded-full flex items-center justify-center hover:bg-[#F97316] hover:text-white transition-all shadow-lg"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="https://www.tiktok.com/@fsti.uwg" target="_blank" rel="noopener" class="w-10 h-10 bg-[#F97316]/10 text-[#F97316] border border-[#F97316]/30 rounded-full flex items-center justify-center hover:bg-[#F97316] hover:text-white transition-all shadow-lg"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.16z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-xs text-purple-200">
+                <p>&copy; 2026 Fakultas Sains dan Teknologi Informasi - Universitas Widya Gama Malang. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
