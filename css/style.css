@@ -689,192 +689,46 @@ button:focus-visible .detail-arrow,
 }
 
 /* ==========================================================================
-   IMAGE MODAL UNIVERSAL — Clean & Premium (Responsive)
+   IMAGE MODAL UNIVERSAL — Option B: Clean FSTI White Card (Responsive)
    ========================================================================== */
 
 #image-modal {
     z-index: 999999;
 }
 
-#image-modal .modal-content {
-    max-width: 780px;
-    width: 100%;
-    margin: 0 1rem;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px -10px rgb(0 0 0 / 0.18);
-    border: 1px solid #e5e7eb;
-    background: #ffffff;
-    position: relative;
+#image-modal #image-modal-panel {
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease;
 }
 
-/* Orange accent bar di atas modal */
-#image-modal .modal-content::before {
+/* Orange/Purple Brand Accent Bar at the top of modal panel */
+#image-modal #image-modal-panel::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(to right, #F18602, #D97200);
-    z-index: 10;
+    background: linear-gradient(to right, #F18602, #5B2A7E);
+    z-index: 20;
 }
 
-/* Gambar */
+/* Modal Image Element — Never forced width 100% to prevent upscaling blurriness */
 #image-modal img#modal-image {
-    max-height: 60vh;
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
-    background: #f8fafc;
+    margin: auto;
     display: block;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: auto;
 }
 
-/* Caption Area */
-#image-modal .modal-caption-area {
-    padding: 1.35rem 1.75rem 1.5rem;
-    background: #ffffff;
-    border-top: 1px solid #e5e7eb;
-}
-
-#image-modal .modal-caption {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #5B2A7E;
-    margin-bottom: 0.35rem;
-    line-height: 1.35;
-}
-
-#image-modal .modal-desc {
-    color: #475569;
-    font-size: 0.92rem;
-    line-height: 1.55;
-}
-
-/* Navigasi */
-#image-modal .modal-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.9rem 1.75rem;
-    background: #f8fafc;
-    border-top: 1px solid #e5e7eb;
-}
-
-#image-modal .modal-nav button {
-    background: #ffffff;
-    border: 2px solid #e2e8f0;
-    color: #5B2A7E;
-    width: 40px;
-    height: 40px;
-    border-radius: 9999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: all 0.2s ease;
-    cursor: pointer;
-}
-
-#image-modal .modal-nav button:hover {
-    background: #F18602;
-    color: white;
-    border-color: #F18602;
-}
-
-#image-modal .modal-nav button:active {
-    transform: scale(0.94);
-}
-
-#image-modal .modal-nav button:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-}
-
-#image-modal .modal-counter {
-    font-weight: 600;
-    color: #64748b;
-    font-size: 0.9rem;
-}
-
-/* Tombol Close */
-#image-modal .modal-close {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: #ffffff;
-    border: 2px solid #e2e8f0;
-    width: 38px;
-    height: 38px;
-    border-radius: 9999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.55rem;
-    color: #5B2A7E;
-    z-index: 10;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: all 0.2s ease;
-}
-
-#image-modal .modal-close:hover {
-    background: #F18602;
-    color: white;
-    border-color: #F18602;
-}
-
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-
-/* Tablet & Mobile */
-@media (max-width: 768px) {
-    #image-modal .modal-content {
-        margin: 0 0.6rem;
-        border-radius: 16px;
-        max-width: calc(100% - 1.2rem);
-    }
-    
-    #image-modal img#modal-image {
-        max-height: 56vh;
-    }
-    
-    #image-modal .modal-caption-area {
-        padding: 1.15rem 1.4rem;
-    }
-    
-    #image-modal .modal-nav {
-        padding: 0.75rem 1.4rem;
-    }
-    
-    #image-modal .modal-caption {
-        font-size: 1.05rem;
-    }
-}
-
-/* Mobile Small */
-@media (max-width: 480px) {
-    #image-modal .modal-content {
-        margin: 0 0.4rem;
-        border-radius: 14px;
-    }
-    
-    #image-modal img#modal-image {
-        max-height: 52vh;
-    }
-    
-    #image-modal .modal-caption-area {
-        padding: 1rem 1.2rem;
-    }
-    
-    #image-modal .modal-nav {
-        padding: 0.65rem 1.2rem;
-    }
-    
-    #image-modal .modal-close {
-        width: 36px;
-        height: 36px;
-        font-size: 1.45rem;
+/* Responsive adjustments for mobile screens */
+@media (max-width: 640px) {
+    #image-modal #image-modal-panel {
+        border-radius: 24px;
+        max-height: 88vh;
     }
 }

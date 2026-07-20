@@ -836,22 +836,48 @@
     })();
     </script>
 
-    <!-- Image Modal Universal -->
-    <div id="image-modal" class="fixed inset-0 z-[999999] hidden items-center justify-center bg-black/90">
-        <div class="modal-content relative bg-white rounded-3xl shadow-2xl w-full max-w-[1100px] mx-4 overflow-hidden">
-            <button id="modal-close" class="modal-close absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-3xl text-[#5B2A7E] hover:text-white hover:bg-[#5B2A7E] rounded-full z-50 transition-all" aria-label="Tutup modal">&times;</button>
-            <div class="relative">
-                <img id="modal-image" class="w-full max-h-[75vh] object-contain bg-[#f8f9fa]" alt="Gambar detail">
+    <!-- =====================================================
+         IMAGE MODAL UNIVERSAL (Option B - Clean FSTI White Card)
+         ===================================================== -->
+    <div id="image-modal" class="fixed inset-0 z-[999999] hidden items-center justify-center p-3 sm:p-5 bg-[#1A1026]/75 backdrop-blur-sm transition-opacity duration-300" aria-hidden="true">
+        <div id="image-modal-panel" class="modal-content relative bg-white rounded-[28px] border-2 border-gray-200 shadow-2xl w-full max-w-[880px] max-h-[92vh] sm:max-h-[88vh] flex flex-col overflow-hidden my-auto transform transition-all duration-300 scale-95 opacity-0">
+            
+            <!-- Modal Header Top Bar -->
+            <div class="px-5 py-3.5 sm:px-6 sm:py-4 bg-white border-b border-gray-200 flex items-center justify-between flex-shrink-0">
+                <div class="flex items-center gap-2.5 min-w-0 pr-3">
+                    <span id="modal-category" class="px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-[#D97200] bg-[#FFF9F2] border border-[#F18602]/30 rounded-full flex-shrink-0">Fasilitas</span>
+                    <h3 id="modal-caption" class="text-base sm:text-lg font-bold text-[#1A1026] truncate"></h3>
+                </div>
+                <button id="modal-close" type="button" class="flex-shrink-0 w-9 h-9 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#F18602] hover:text-[#F18602] hover:bg-[#FFF9F2] active:scale-[0.98] transition-all" aria-label="Tutup modal">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
             </div>
-            <div class="modal-caption-area px-6 py-5 border-t border-gray-200">
-                <h3 id="modal-caption" class="text-xl font-bold text-[#5B2A7E]"></h3>
-                <p id="modal-desc" class="mt-1 text-gray-600 text-[15px] leading-relaxed"></p>
+
+            <!-- Area Foto Display -->
+            <div class="relative flex-1 min-h-0 bg-[#FFF9F2] p-3 sm:p-5 flex items-center justify-center overflow-hidden">
+                <img id="modal-image" class="max-w-full max-h-full object-contain mx-auto rounded-[16px] border border-gray-200/80 shadow-xs bg-white transition-opacity duration-200" alt="Gambar detail">
             </div>
-            <div id="modal-nav" class="modal-nav hidden items-center justify-between px-6 py-4 bg-[#f8f9fa] border-t border-gray-200">
-                <button id="modal-prev" class="flex items-center justify-center w-11 h-11 rounded-full border-2 border-gray-300 text-[#5B2A7E] hover:bg-[#5B2A7E] hover:text-white transition-all" aria-label="Foto sebelumnya">←</button>
-                <div id="modal-counter" class="font-semibold text-gray-600 text-sm"></div>
-                <button id="modal-next" class="flex items-center justify-center w-11 h-11 rounded-full border-2 border-gray-300 text-[#5B2A7E] hover:bg-[#5B2A7E] hover:text-white transition-all" aria-label="Foto berikutnya">→</button>
+
+            <!-- Caption & Description -->
+            <div id="modal-desc-area" class="px-5 py-3.5 sm:px-6 sm:py-4 bg-white border-t border-gray-200 overflow-y-auto max-h-[120px] flex-shrink-0">
+                <p id="modal-desc" class="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans"></p>
             </div>
+
+            <!-- Navigation Bar (Kategori Multi-Foto) -->
+            <div id="modal-nav" class="hidden px-5 py-3 sm:px-6 sm:py-3.5 bg-[#FFF9F2] border-t border-gray-200 items-center justify-between flex-shrink-0">
+                <button id="modal-prev" type="button" class="flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-xl border border-gray-300 text-xs font-bold text-[#5B2A7E] hover:border-[#5B2A7E] hover:bg-[#5B2A7E] hover:text-white active:scale-[0.98] transition-all" aria-label="Foto sebelumnya">
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                    <span class="hidden sm:inline">Sebelumnya</span>
+                </button>
+
+                <span id="modal-counter" class="text-xs font-bold text-[#D97200] bg-white px-3 py-1 rounded-full border border-gray-200 shadow-xs"></span>
+
+                <button id="modal-next" type="button" class="flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-xl border border-gray-300 text-xs font-bold text-[#5B2A7E] hover:border-[#5B2A7E] hover:bg-[#5B2A7E] hover:text-white active:scale-[0.98] transition-all" aria-label="Foto berikutnya">
+                    <span class="hidden sm:inline">Berikutnya</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
+            </div>
+
         </div>
     </div>
 </body>
