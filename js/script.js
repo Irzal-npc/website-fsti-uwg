@@ -248,273 +248,6 @@ document.addEventListener('DOMContentLoaded', () => {
         revealElements.forEach(el => el.classList.add('active'));
     }
 
-    // Testimonial Carousel Logic - WCAG 2.1 AA Accessible & Mobile/Desktop Optimized
-    const track = document.getElementById('testimonial-track');
-    const btnPrev = document.getElementById('btn-prev');
-    const btnNext = document.getElementById('btn-next');
-    
-    if (track && btnPrev && btnNext) {
-        let currentIndex = 0;
-        let autoPlayTimer;
-        let startX = 0;
-        let isSwiping = false;
-        let isTransitioning = false;
-        
-        // Store original items
-        const originalItems = Array.from(track.children);
-        const totalOriginal = originalItems.length;
-        
-        // Clone all items and append to end (sembunyikan dari screen reader & keyboard tabbing)
-        originalItems.forEach(item => {
-            const clone = item.cloneNode(true);
-            clone.classList.add('cloned');
-            clone.setAttribute('aria-hidden', 'true');
-            clone.querySelectorAll('a, button, input, [tabindex]').forEach(el => el.setAttribute('tabindex', '-1'));
-            track.appendChild(clone);
-        });
-        
-        // Clone all items and prepend to beginning
-        [...originalItems].reverse().forEach(item => {
-            const clone = item.cloneNode(true);
-            clone.classList.add('cloned');
-            clone.setAttribute('aria-hidden', 'true');
-            clone.querySelectorAll('a, button, input, [tabindex]').forEach(el => el.setAttribute('tabindex', '-1'));
-            track.insertBefore(clone, track.firstChild);
-        });
-        
-        // Start at the first real item (after prepended clones)
-        currentIndex = totalOriginal;
-        
-        const getMetrics = () => {
-            const totalItems = track.children.length;
-            let itemsPerView = 1;
-            if (window.innerWidth >= 1024) itemsPerView = 3;
-            else if (window.innerWidth >= 768) itemsPerView = 2;
-            const itemWidth = 100 / itemsPerView;
-            return { totalItems, itemsPerView, itemWidth };
-        };
-
-        const updateCarousel = (animate = true) => {
-            const { itemWidth, itemsPerView } = getMetrics();
-            const indicator = document.getElementById('testimonial-indicator');
-            const activeIndex = ((currentIndex - totalOriginal) % totalOriginal + totalOriginal) % totalOriginal;
-            
-            if (indicator && totalOriginal) {
-                indicator.textContent = `${activeIndex + 1} / ${totalOriginal}`;
-            }
-            
-            if (animate) {
-                track.style.transition = 'transform 500ms ease-in-out';
-            } else {
-                track.style.transition = 'none';
-            }
-            
-            track.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
-
-            // ✅ OPTIMASI AKSESIBILITAS (a11y Viewport Visibility & Focus Trap Prevention):
-            // Atur aria-hidden & tabindex hanya untuk item asli yang sedang terlihat di layar
-            originalItems.forEach((item, idx) => {
-                const isVisible = (idx >= activeIndex && idx < activeIndex + itemsPerView) || 
-                                  (activeIndex + itemsPerView > totalOriginal && idx < (activeIndex + itemsPerView) % totalOriginal);
-                
-                if (isVisible) {
-                    item.setAttribute('aria-hidden', 'false');
-                    item.querySelectorAll('a, button, input').forEach(el => el.removeAttribute('tabindex'));
-                } else {
-                    item.setAttribute('aria-hidden', 'true');
-                    item.querySelectorAll('a, button, input').forEach(el => el.setAttribute('tabindex', '-1'));
-                }
-            });
-        };
-
-        // Handle seamless infinite loop
-        track.addEventListener('transitionend', () => {
-            isTransitioning = false;
-            
-            if (currentIndex >= totalOriginal * 2) {
-                currentIndex = totalOriginal;
-                updateCarousel(false);
-            } else if (currentIndex < totalOriginal) {
-                currentIndex = totalOriginal * 2 - 1;
-                updateCarousel(false);
-            }
-        });
-
-        btnNext.addEventListener('click', () => {
-            if (isTransitioning) return;
-            isTransitioning = true;
-            track.setAttribute('aria-live', 'polite');
-            currentIndex++;
-            updateCarousel();
-        });
-
-        btnPrev.addEventListener('click', () => {
-            if (isTransitioning) return;
-            isTransitioning = true;
-            track.setAttribute('aria-live', 'polite');
-            currentIndex--;
-            updateCarousel();
-        });
-
-        // Touch swipe support with real-time tracking
-        let currentTranslateX = 0;
-        let startTranslateX = 0;
-        
-        track.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            isSwiping = true;
-            const { itemWidth } = getMetrics();
-            startTranslateX = -(currentIndex * itemWidth);
-            track.style.transition = 'none';
-        }, { passive: true });
-
-        track.addEventListener('touchmove', (e) => {
-            if (!isSwiping) return;
-            const currentX = e.touches[0].clientX;
-            const diff = currentX - startX;
-            const { itemWidth } = getMetrics();
-            const trackWidth = track.offsetWidth;
-            const pixelDiff = (diff / trackWidth) * 100;
-            currentTranslateX = startTranslateX + pixelDiff;
-            track.style.transform = `translateX(${currentTranslateX}%)`;
-            if (Math.abs(diff) > 10 && e.cancelable) {
-                e.preventDefault();
-            }
-        }, { passive: false });
-
-        track.addEventListener('touchend', (e) => {
-            if (!isSwiping) return;
-            const endX = e.changedTouches[0].clientX;
-            const diff = startX - endX;
-            
-            if (Math.abs(diff) > 50) {
-                if (isTransitioning) return;
-                isTransitioning = true;
-                track.setAttribute('aria-live', 'polite');
-                if (diff > 0) currentIndex++;
-                else currentIndex--;
-            }
-            updateCarousel();
-            isSwiping = false;
-        });
-
-        // Mouse drag support with real-time tracking
-        let mouseDown = false;
-        let mouseStartX = 0;
-        let mouseStartTranslateX = 0;
-        
-        track.addEventListener('mousedown', (e) => { 
-            mouseDown = true; 
-            mouseStartX = e.clientX;
-            const { itemWidth } = getMetrics();
-            mouseStartTranslateX = -(currentIndex * itemWidth);
-            track.style.transition = 'none';
-            track.style.cursor = 'grabbing';
-            if (e.cancelable) e.preventDefault();
-        });
-        
-        track.addEventListener('mousemove', (e) => {
-            if (!mouseDown) return;
-            const currentX = e.clientX;
-            const diff = currentX - mouseStartX;
-            const trackWidth = track.offsetWidth;
-            const pixelDiff = (diff / trackWidth) * 100;
-            currentTranslateX = mouseStartTranslateX + pixelDiff;
-            track.style.transform = `translateX(${currentTranslateX}%)`;
-        });
-        
-        track.addEventListener('mouseup', (e) => {
-            if (!mouseDown) return;
-            const diff = mouseStartX - e.clientX;
-            
-            if (Math.abs(diff) > 50) {
-                if (isTransitioning) return;
-                isTransitioning = true;
-                track.setAttribute('aria-live', 'polite');
-                if (diff > 0) currentIndex++;
-                else currentIndex--;
-            }
-            updateCarousel();
-            mouseDown = false;
-            track.style.cursor = 'grab';
-        });
-        
-        track.addEventListener('mouseleave', () => { 
-            if (mouseDown) {
-                updateCarousel();
-                mouseDown = false;
-            }
-            track.style.cursor = 'grab'; 
-        });
-        track.style.cursor = 'grab';
-
-        // Resize handler
-        window.addEventListener('resize', () => updateCarousel(false));
-        updateCarousel(false);
-
-        // Autoplay logic & Accessibility Focus Management
-        const startAutoPlay = () => {
-            clearInterval(autoPlayTimer);
-            autoPlayTimer = setInterval(() => {
-                if (isTransitioning) return;
-                isTransitioning = true;
-                currentIndex++;
-                updateCarousel();
-            }, 6000);
-        };
-        const stopAutoPlay = () => clearInterval(autoPlayTimer);
-        startAutoPlay();
-
-        const carouselContainer = document.getElementById('testimonial-carousel-container');
-        if (carouselContainer) {
-            carouselContainer.addEventListener('mouseenter', () => {
-                stopAutoPlay();
-                track.setAttribute('aria-live', 'polite');
-            });
-            carouselContainer.addEventListener('mouseleave', () => {
-                if (!carouselContainer.contains(document.activeElement)) {
-                    startAutoPlay();
-                    track.setAttribute('aria-live', 'off');
-                }
-            });
-            carouselContainer.addEventListener('focusin', () => {
-                stopAutoPlay();
-                track.setAttribute('aria-live', 'polite');
-            });
-            carouselContainer.addEventListener('focusout', (e) => {
-                if (!carouselContainer.contains(e.relatedTarget)) {
-                    startAutoPlay();
-                    track.setAttribute('aria-live', 'off');
-                }
-            });
-            carouselContainer.addEventListener('touchstart', () => {
-                stopAutoPlay();
-                track.setAttribute('aria-live', 'polite');
-            }, { passive: true });
-            carouselContainer.addEventListener('touchend', () => {
-                setTimeout(() => {
-                    if (!carouselContainer.contains(document.activeElement)) {
-                        startAutoPlay();
-                        track.setAttribute('aria-live', 'off');
-                    }
-                }, 4000);
-            });
-
-            // ✅ AKSESIBILITAS KEYBOARD (Navigasi Tombol Panah Kiri/Kanan):
-            carouselContainer.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowRight') {
-                    e.preventDefault();
-                    stopAutoPlay();
-                    btnNext.click();
-                } else if (e.key === 'ArrowLeft') {
-                    e.preventDefault();
-                    stopAutoPlay();
-                    btnPrev.click();
-                }
-            });
-        }
-    }
-
     // Accordion Peminatan/Konsentrasi (tertutup default, keyboard accessible)
     const concHeaders = document.querySelectorAll('.conc-header');
     if (concHeaders.length) {
@@ -570,15 +303,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalDesc = document.getElementById('modal-desc');
         const modalDescArea = document.getElementById('modal-desc-area');
         const modalClose = document.getElementById('modal-close');
-        const modalPrev = document.getElementById('modal-prev');
-        const modalNext = document.getElementById('modal-next');
-        const modalCounter = document.getElementById('modal-counter');
-        const modalNav = document.getElementById('modal-nav');
-
-        let currentGroup = '';
-        let currentIndex = 0;
-        let currentGroupImages = [];
-
         // Helper label kategori badge
         const getGroupLabel = (group) => {
             const map = {
@@ -654,17 +378,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             updateModalContent(imgElement);
 
-            const group = imgElement.getAttribute('data-group') || 'lainnya';
-            currentGroup = group;
-            currentGroupImages = Array.from(
-                document.querySelectorAll(`img[data-modal="true"][data-group="${group}"]`)
-            );
-
-            currentIndex = currentGroupImages.indexOf(imgElement);
-
-            const showNav = currentGroupImages.length > 1;
-            if (modalNav) modalNav.style.display = showNav ? 'flex' : 'none';
-            if (modalCounter) modalCounter.textContent = showNav ? `Foto ${currentIndex + 1} dari ${currentGroupImages.length}` : '';
 
             imageModal.classList.remove('hidden');
             imageModal.classList.add('flex');
@@ -726,24 +439,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        // Navigasi Prev
-        const goToPrev = () => {
-            if (!currentGroupImages.length) return;
-            currentIndex = (currentIndex - 1 + currentGroupImages.length) % currentGroupImages.length;
-            const prevImg = currentGroupImages[currentIndex];
-            updateModalContent(prevImg);
-            if (modalCounter) modalCounter.textContent = `Foto ${currentIndex + 1} dari ${currentGroupImages.length}`;
-        };
-
-        // Navigasi Next
-        const goToNext = () => {
-            if (!currentGroupImages.length) return;
-            currentIndex = (currentIndex + 1) % currentGroupImages.length;
-            const nextImg = currentGroupImages[currentIndex];
-            updateModalContent(nextImg);
-            if (modalCounter) modalCounter.textContent = `Foto ${currentIndex + 1} dari ${currentGroupImages.length}`;
-        };
-
         // Event Delegation untuk semua gambar dengan data-modal="true"
         document.addEventListener('click', (e) => {
             const target = e.target;
@@ -771,16 +466,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (e.key === 'Escape') {
                 closeImageModal(false);
-            } else if (e.key === 'ArrowLeft' && modalPrev) {
-                goToPrev();
-            } else if (e.key === 'ArrowRight' && modalNext) {
-                goToNext();
             }
         });
 
-        // Tombol Prev & Next
-        if (modalPrev) modalPrev.addEventListener('click', goToPrev);
-        if (modalNext) modalNext.addEventListener('click', goToNext);
 
         // Handler untuk event popstate (tombol Back fisik browser)
         window.addEventListener('popstate', () => {
