@@ -399,54 +399,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalDesc = document.getElementById('modal-desc');
         const modalDescArea = document.getElementById('modal-desc-area');
         const modalClose = document.getElementById('modal-close');
-        // Helper label kategori badge + konteks lokasi halaman/seksi
-        const getGroupLabel = (group, imgElement) => {
-            const baseMap = {
-                'fasilitas': 'Fasilitas Fakultas',
-                'kegiatan': 'Galeri Kegiatan',
-                'prestasi': 'Prestasi Mahasiswa',
-                'dosen': 'Profil Pengajar',
-                'alumni': 'Tracer Alumni',
+        // Helper label kategori badge (diringkas agar tidak terlalu panjang & rapi)
+        const getGroupLabel = (group /*, imgElement */) => {
+            const shortMap = {
+                'fasilitas': 'Fasilitas',
+                'kegiatan': 'Kegiatan',
+                'prestasi': 'Prestasi',
+                'dosen': 'Dosen',
+                'alumni': 'Alumni',
                 'prodi': 'Program Studi',
-                'testimoni': 'Testimoni Alumni',
-                'organisasi': 'Struktur Organisasi'
+                'testimoni': 'Alumni',
+                'organisasi': 'Organisasi'
             };
-            const baseLabel = baseMap[group.toLowerCase()] || 'Dokumentasi FSTI';
-
-            // Deteksi konteks halaman dari URL
-            const path = window.location.pathname;
-            let pageContext = '';
-            if (path.includes('/alumni.html') || path.endsWith('/alumni')) pageContext = 'Halaman Alumni';
-            else if (path.includes('/direktori-dosen.html') || path.endsWith('/direktori-dosen')) pageContext = 'Direktori Dosen';
-            else if (path.includes('/tentang.html') || path.endsWith('/tentang')) pageContext = 'Tentang Fakultas';
-            else if (path.includes('/prodi/')) pageContext = 'Halaman Program Studi';
-            else if (path.includes('/index.html') || path === '/' || path.endsWith('/')) pageContext = 'Beranda';
-            else if (path.includes('/pmb.html')) pageContext = 'PMB';
-            else if (path.includes('/pusat-unduhan.html')) pageContext = 'Pusat Unduhan';
-
-            // Deteksi seksi terdekat (heading terdekat di atas gambar)
-            let sectionContext = '';
-            if (imgElement) {
-                const sectionHeading = imgElement.closest('section, main, article, div[class*="reveal"], div[id]');
-                if (sectionHeading) {
-                    const heading = sectionHeading.querySelector('h2, h3, h4, [class*="section-title"] h2, [class*="section-title"] h3');
-                    if (heading) {
-                        const text = heading.textContent.trim();
-                        if (text && text.length < 60) sectionContext = text;
-                    }
-                }
-            }
-
-            // Gabungkan: prioritas data-section (explicit) > sectionContext > pageContext
-            const explicitSection = imgElement?.getAttribute('data-section');
-            const contextParts = [];
-            if (explicitSection) contextParts.push(explicitSection);
-            else if (sectionContext) contextParts.push(sectionContext);
-            else if (pageContext) contextParts.push(pageContext);
-
-            return contextParts.length > 0
-                ? `${baseLabel} — ${contextParts.join(' › ')}`
-                : baseLabel;
+            const g = (group || '').toLowerCase();
+            return shortMap[g] || 'Dokumentasi';
         };
 
         // Helper update konten modal
