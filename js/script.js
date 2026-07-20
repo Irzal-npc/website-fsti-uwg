@@ -248,274 +248,90 @@ document.addEventListener('DOMContentLoaded', () => {
         revealElements.forEach(el => el.classList.add('active'));
     }
 
-    // Testimonial Carousel Logic - WCAG 2.1 AA Accessible & Mobile/Desktop Optimized
+    // Testimonial Carousel — CSS Scroll Snap + Minimal JS
     const track = document.getElementById('testimonial-track');
     const btnPrev = document.getElementById('btn-prev');
     const btnNext = document.getElementById('btn-next');
+    const pagination = document.getElementById('testimonial-pagination');
 
-    if (track && btnPrev && btnNext) {
+    if (track && btnPrev && btnNext && pagination) {
+        const slides = Array.from(track.querySelectorAll('[role="group"][aria-roledescription="slide"]'));
+        const totalSlides = slides.length;
         let currentIndex = 0;
-        let autoPlayTimer;
-        let startX = 0;
-        let isSwiping = false;
-        let isTransitioning = false;
 
-        // Store original items
-        const originalItems = Array.from(track.children);
-        const totalOriginal = originalItems.length;
-
-        // Clone all items and append to end (sembunyikan dari screen reader & keyboard tabbing)
-        originalItems.forEach(item => {
-            const clone = item.cloneNode(true);
-            clone.classList.add('cloned');
-            clone.setAttribute('aria-hidden', 'true');
-            clone.querySelectorAll('a, button, input, [tabindex]').forEach(el => el.setAttribute('tabindex', '-1'));
-            track.appendChild(clone);
+        // Create pagination dots
+        slides.forEach((_, i) => {
+            const btn = document.createElement('button');
+            btn.setAttribute('role', 'tab');
+            btn.setAttribute('aria-label', `Testimoni ${i + 1} dari ${totalSlides}`);
+            btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+            btn.addEventListener('click', () => goToSlide(i));
+            pagination.appendChild(btn);
         });
 
-        // Clone all items and prepend to beginning
-        [...originalItems].reverse().forEach(item => {
-            const clone = item.cloneNode(true);
-            clone.classList.add('cloned');
-            clone.setAttribute('aria-hidden', 'true');
-            clone.querySelectorAll('a, button, input, [tabindex]').forEach(el => el.setAttribute('tabindex', '-1'));
-            track.insertBefore(clone, track.firstChild);
-        });
+        const dots = Array.from(pagination.querySelectorAll('button'));
 
-        // Start at the first real item (after prepended clones)
-        currentIndex = totalOriginal;
-
-        const getMetrics = () => {
-            const totalItems = track.children.length;
-            let itemsPerView = 1;
-            if (window.innerWidth >= 1024) itemsPerView = 3;
-            else if (window.innerWidth >= 768) itemsPerView = 2;
-            const itemWidth = 100 / itemsPerView;
-            return { totalItems, itemsPerView, itemWidth };
-        };
-
-        const updateCarousel = (animate = true) => {
-            const { itemWidth, itemsPerView } = getMetrics();
-            const indicator = document.getElementById('testimonial-indicator');
-            const activeIndex = ((currentIndex - totalOriginal) % totalOriginal + totalOriginal) % totalOriginal;
-
-            if (indicator && totalOriginal) {
-                indicator.textContent = `${activeIndex + 1} / ${totalOriginal}`;
-            }
-
-            if (animate) {
-                track.style.transition = 'transform 500ms ease-in-out';
-            } else {
-                track.style.transition = 'none';
-            }
-
-            track.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
-
-            // ✅ OPTIMASI AKSESIBILITAS (a11y Viewport Visibility & Focus Trap Prevention):
-            // Atur aria-hidden & tabindex hanya untuk item asli yang sedang terlihat di layar
-            originalItems.forEach((item, idx) => {
-                const isVisible = (idx >= activeIndex && idx < activeIndex + itemsPerView) ||
-                                  (activeIndex + itemsPerView > totalOriginal && idx < (activeIndex + itemsPerView) % totalOriginal);
-
-                if (isVisible) {
-                    item.setAttribute('aria-hidden', 'false');
-                    item.querySelectorAll('a, button, input').forEach(el => el.removeAttribute('tabindex'));
-                } else {
-                    item.setAttribute('aria-hidden', 'true');
-                    item.querySelectorAll('a, button, input').forEach(el => el.setAttribute('tabindex', '-1'));
-                }
-            });
-        };
-
-        // Handle seamless infinite loop
-        track.addEventListener('transitionend', () => {
-            isTransitioning = false;
-
-            if (currentIndex >= totalOriginal * 2) {
-                currentIndex = totalOriginal;
-                updateCarousel(false);
-            } else if (currentIndex < totalOriginal) {
-                currentIndex = totalOriginal * 2 - 1;
-                updateCarousel(false);
-            }
-        });
-
-        btnNext.addEventListener('click', () => {
-            if (isTransitioning) return;
-            isTransitioning = true;
-            track.setAttribute('aria-live', 'polite');
-            currentIndex++;
-            updateCarousel();
-        });
-
-        btnPrev.addEventListener('click', () => {
-            if (isTransitioning) return;
-            isTransitioning = true;
-            track.setAttribute('aria-live', 'polite');
-            currentIndex--;
-            updateCarousel();
-        });
-
-        // Touch swipe support with real-time tracking
-        let currentTranslateX = 0;
-        let startTranslateX = 0;
-
-        track.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            isSwiping = true;
-            const { itemWidth } = getMetrics();
-            startTranslateX = -(currentIndex * itemWidth);
-            track.style.transition = 'none';
-        }, { passive: true });
-
-        track.addEventListener('touchmove', (e) => {
-            if (!isSwiping) return;
-            const currentX = e.touches[0].clientX;
-            const diff = currentX - startX;
-            const { itemWidth } = getMetrics();
-            const trackWidth = track.offsetWidth;
-            const pixelDiff = (diff / trackWidth) * 100;
-            currentTranslateX = startTranslateX + pixelDiff;
-            track.style.transform = `translateX(${currentTranslateX}%)`;
-            if (Math.abs(diff) > 10 && e.cancelable) {
-                e.preventDefault();
-            }
-        }, { passive: false });
-
-        track.addEventListener('touchend', (e) => {
-            if (!isSwiping) return;
-            const endX = e.changedTouches[0].clientX;
-            const diff = startX - endX;
-
-            if (Math.abs(diff) > 50) {
-                if (isTransitioning) return;
-                isTransitioning = true;
-                track.setAttribute('aria-live', 'polite');
-                if (diff > 0) currentIndex++;
-                else currentIndex--;
-            }
-            updateCarousel();
-            isSwiping = false;
-        });
-
-        // Mouse drag support with real-time tracking
-        let mouseDown = false;
-        let mouseStartX = 0;
-        let mouseStartTranslateX = 0;
-
-        track.addEventListener('mousedown', (e) => {
-            mouseDown = true;
-            mouseStartX = e.clientX;
-            const { itemWidth } = getMetrics();
-            mouseStartTranslateX = -(currentIndex * itemWidth);
-            track.style.transition = 'none';
-            track.style.cursor = 'grabbing';
-            if (e.cancelable) e.preventDefault();
-        });
-
-        track.addEventListener('mousemove', (e) => {
-            if (!mouseDown) return;
-            const currentX = e.clientX;
-            const diff = currentX - mouseStartX;
-            const trackWidth = track.offsetWidth;
-            const pixelDiff = (diff / trackWidth) * 100;
-            currentTranslateX = mouseStartTranslateX + pixelDiff;
-            track.style.transform = `translateX(${currentTranslateX}%)`;
-        });
-
-        track.addEventListener('mouseup', (e) => {
-            if (!mouseDown) return;
-            const diff = mouseStartX - e.clientX;
-
-            if (Math.abs(diff) > 50) {
-                if (isTransitioning) return;
-                isTransitioning = true;
-                track.setAttribute('aria-live', 'polite');
-                if (diff > 0) currentIndex++;
-                else currentIndex--;
-            }
-            updateCarousel();
-            mouseDown = false;
-            track.style.cursor = 'grab';
-        });
-
-        track.addEventListener('mouseleave', () => {
-            if (mouseDown) {
-                updateCarousel();
-                mouseDown = false;
-            }
-            track.style.cursor = 'grab';
-        });
-        track.style.cursor = 'grab';
-
-        // Resize handler
-        window.addEventListener('resize', () => updateCarousel(false));
-        updateCarousel(false);
-
-        // Autoplay logic & Accessibility Focus Management
-        const startAutoPlay = () => {
-            clearInterval(autoPlayTimer);
-            autoPlayTimer = setInterval(() => {
-                if (isTransitioning) return;
-                isTransitioning = true;
-                currentIndex++;
-                updateCarousel();
-            }, 6000);
-        };
-        const stopAutoPlay = () => clearInterval(autoPlayTimer);
-        startAutoPlay();
-
-        const carouselContainer = document.getElementById('testimonial-carousel-container');
-        if (carouselContainer) {
-            carouselContainer.addEventListener('mouseenter', () => {
-                stopAutoPlay();
-                track.setAttribute('aria-live', 'polite');
-            });
-            carouselContainer.addEventListener('mouseleave', () => {
-                if (!carouselContainer.contains(document.activeElement)) {
-                    startAutoPlay();
-                    track.setAttribute('aria-live', 'off');
-                }
-            });
-            carouselContainer.addEventListener('focusin', () => {
-                stopAutoPlay();
-                track.setAttribute('aria-live', 'polite');
-            });
-            carouselContainer.addEventListener('focusout', (e) => {
-                if (!carouselContainer.contains(e.relatedTarget)) {
-                    startAutoPlay();
-                    track.setAttribute('aria-live', 'off');
-                }
-            });
-            carouselContainer.addEventListener('touchstart', () => {
-                stopAutoPlay();
-                track.setAttribute('aria-live', 'polite');
-            }, { passive: true });
-            carouselContainer.addEventListener('touchend', () => {
-                setTimeout(() => {
-                    if (!carouselContainer.contains(document.activeElement)) {
-                        startAutoPlay();
-                        track.setAttribute('aria-live', 'off');
-                    }
-                }, 4000);
-            });
-
-            // ✅ AKSESIBILITAS KEYBOARD (Navigasi Tombol Panah Kiri/Kanan):
-            carouselContainer.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowRight') {
-                    e.preventDefault();
-                    stopAutoPlay();
-                    btnNext.click();
-                } else if (e.key === 'ArrowLeft') {
-                    e.preventDefault();
-                    stopAutoPlay();
-                    btnPrev.click();
-                }
+        function updateDots(index) {
+            dots.forEach((dot, i) => {
+                dot.setAttribute('aria-selected', i === index ? 'true' : 'false');
             });
         }
+
+        function goToSlide(index) {
+            if (index < 0) index = totalSlides - 1;
+            if (index >= totalSlides) index = 0;
+            currentIndex = index;
+            const slide = slides[index];
+            if (slide) {
+                // Hitung posisi scroll agar slide center di viewport
+                const slideRect = slide.getBoundingClientRect();
+                const trackRect = track.getBoundingClientRect();
+                const slideCenter = slideRect.left + slideRect.width / 2;
+                const trackCenter = trackRect.left + track.clientWidth / 2;
+                const offset = slideCenter - trackCenter;
+                track.scrollBy({ left: offset, behavior: 'smooth' });
+            }
+            updateDots(index);
+        }
+
+        // Navigation buttons
+        btnNext.addEventListener('click', () => goToSlide(currentIndex + 1));
+        btnPrev.addEventListener('click', () => goToSlide(currentIndex - 1));
+
+        // Keyboard navigation
+        track.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                goToSlide(currentIndex + 1);
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                goToSlide(currentIndex - 1);
+            }
+        });
+
+        // Sync dots on manual scroll (debounced) - pakai IntersectionObserver untuk akurasi
+        const slideObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                    const slideIndex = slides.indexOf(entry.target);
+                    if (slideIndex !== -1 && slideIndex !== currentIndex) {
+                        currentIndex = slideIndex;
+                        updateDots(currentIndex);
+                    }
+                }
+            });
+        }, {
+            root: track,
+            threshold: [0.5],
+            rootMargin: '0px'
+        });
+
+        slides.forEach(slide => slideObserver.observe(slide));
+
+        // Touch swipe: let native scroll-snap handle it, just sync dots via IntersectionObserver
+        // No need for custom drag logic — browser does it natively
     }
     // Accordion Peminatan/Konsentrasi (tertutup default, keyboard accessible)
-    const concHeaders = document.querySelectorAll('.conc-header');
     if (concHeaders.length) {
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const openConc = (card, header) => {
@@ -569,9 +385,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalDesc = document.getElementById('modal-desc');
         const modalDescArea = document.getElementById('modal-desc-area');
         const modalClose = document.getElementById('modal-close');
-        // Helper label kategori badge
-        const getGroupLabel = (group) => {
-            const map = {
+        // Helper label kategori badge + konteks lokasi halaman/seksi
+        const getGroupLabel = (group, imgElement) => {
+            const baseMap = {
                 'fasilitas': 'Fasilitas Fakultas',
                 'kegiatan': 'Galeri Kegiatan',
                 'prestasi': 'Prestasi Mahasiswa',
@@ -581,7 +397,42 @@ document.addEventListener('DOMContentLoaded', () => {
                 'testimoni': 'Testimoni Alumni',
                 'organisasi': 'Struktur Organisasi'
             };
-            return map[group.toLowerCase()] || 'Dokumentasi FSTI';
+            const baseLabel = baseMap[group.toLowerCase()] || 'Dokumentasi FSTI';
+
+            // Deteksi konteks halaman dari URL
+            const path = window.location.pathname;
+            let pageContext = '';
+            if (path.includes('/alumni.html') || path.endsWith('/alumni')) pageContext = 'Halaman Alumni';
+            else if (path.includes('/direktori-dosen.html') || path.endsWith('/direktori-dosen')) pageContext = 'Direktori Dosen';
+            else if (path.includes('/tentang.html') || path.endsWith('/tentang')) pageContext = 'Tentang Fakultas';
+            else if (path.includes('/prodi/')) pageContext = 'Halaman Program Studi';
+            else if (path.includes('/index.html') || path === '/' || path.endsWith('/')) pageContext = 'Beranda';
+            else if (path.includes('/pmb.html')) pageContext = 'PMB';
+            else if (path.includes('/pusat-unduhan.html')) pageContext = 'Pusat Unduhan';
+
+            // Deteksi seksi terdekat (heading terdekat di atas gambar)
+            let sectionContext = '';
+            if (imgElement) {
+                const sectionHeading = imgElement.closest('section, main, article, div[class*="reveal"], div[id]');
+                if (sectionHeading) {
+                    const heading = sectionHeading.querySelector('h2, h3, h4, [class*="section-title"] h2, [class*="section-title"] h3');
+                    if (heading) {
+                        const text = heading.textContent.trim();
+                        if (text && text.length < 60) sectionContext = text;
+                    }
+                }
+            }
+
+            // Gabungkan: prioritas data-section (explicit) > sectionContext > pageContext
+            const explicitSection = imgElement?.getAttribute('data-section');
+            const contextParts = [];
+            if (explicitSection) contextParts.push(explicitSection);
+            else if (sectionContext) contextParts.push(sectionContext);
+            else if (pageContext) contextParts.push(pageContext);
+
+            return contextParts.length > 0
+                ? `${baseLabel} — ${contextParts.join(' › ')}`
+                : baseLabel;
         };
 
         // Helper update konten modal
@@ -590,6 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const caption = imgElement.getAttribute('data-modal-caption') || imgElement.alt || 'Dokumentasi FSTI UWG';
             const desc = imgElement.getAttribute('data-modal-desc') || '';
             const group = imgElement.getAttribute('data-group') || 'lainnya';
+            const explicitSection = imgElement.getAttribute('data-section') || '';
 
             if (modalPanel) {
                 modalPanel.style.maxWidth = '880px'; // Reset ke max-width wide default saat mengganti gambar
@@ -598,6 +450,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (modalImage) {
                 modalImage.style.opacity = '0';
                 modalImage.src = fullSrc;
+                // Set alt dinamis untuk aksesibilitas
+                modalImage.alt = caption;
                 modalImage.onload = () => {
                     modalImage.style.opacity = '1';
                     
@@ -627,9 +481,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
             if (modalCaption) modalCaption.textContent = caption;
-            if (modalCategory) modalCategory.textContent = getGroupLabel(group);
+            if (modalCategory) modalCategory.textContent = getGroupLabel(group, imgElement);
             
             if (modalDesc) {
+                // Gunakan deskripsi asli tanpa tambahan "Lokasi" (badge sudah menampilkan konteks)
                 modalDesc.textContent = desc;
                 if (modalDescArea) {
                     modalDescArea.style.display = desc.trim() ? 'block' : 'none';
