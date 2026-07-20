@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Penerimaan Mahasiswa Baru - FSTI UWG Malang</title>
     <meta name="description" content="Informasi lengkap Penerimaan Mahasiswa Baru (PMB) Fakultas Sains dan Teknologi Informasi Universitas Widya Gama Malang tahun akademik 2026/2027 — jadwal, jalur penerimaan, biaya studi, dan beasiswa.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Penerimaan Mahasiswa Baru - FSTI UWG Malang">
+    <meta property="og:description" content="Informasi lengkap Penerimaan Mahasiswa Baru (PMB) Fakultas Sains dan Teknologi Informasi Universitas Widya Gama Malang tahun akademik 2026/2027 — jadwal, jalur penerimaan, biaya studi, dan beasiswa.">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:image" content="assets/images/logo-final.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Penerimaan Mahasiswa Baru - FSTI UWG Malang">
+    <meta name="twitter:description" content="Informasi lengkap Penerimaan Mahasiswa Baru (PMB) Fakultas Sains dan Teknologi Informasi Universitas Widya Gama Malang tahun akademik 2026/2027 — jadwal, jalur penerimaan, biaya studi, dan beasiswa.">
+    <meta name="twitter:image" content="assets/images/logo-final.webp">
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#5B2A7E">
@@ -13,6 +22,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-white overflow-x-hidden">
+    <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
 <div id="fsti-asset-guard" class="fixed inset-0 z-[99999] bg-white flex items-center justify-center transition-opacity duration-300">
     <div id="fsti-guard-loader" class="flex flex-col items-center gap-4">
         <div class="w-10 h-10 border-4 border-orange-100 border-t-[#F18602] rounded-full animate-spin"></div>
@@ -67,7 +77,7 @@
                     </div>
                 </div>
                 <a href="alumni.html" class="py-5 hover:text-[#F18602] transition-colors">Alumni</a>
-                <a href="pmb.html" class="py-5 text-fsti-orange">PMB</a>
+                <a href="pmb.html" class="py-5 text-fsti-orange" aria-current="page">PMB</a>
             </div>
             <button id="menu-btn" type="button" class="lg:hidden text-fsti-purple p-2 rounded-xl hover:bg-[#FFF9F2] hover:text-[#F18602] active:scale-[0.92] transition-all duration-200" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu">
                 <i data-lucide="menu" class="w-8 h-8"></i>
@@ -107,11 +117,11 @@
 
             <a href="alumni.html" class="block py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602] border-t border-gray-100">Alumni</a>
 
-            <a href="pmb.html" class="block py-3 px-2 font-medium text-fsti-orange border-t border-gray-100">PMB</a>
+            <a href="pmb.html" class="block py-3 px-2 font-medium text-fsti-orange border-t border-gray-100" aria-current="page">PMB</a>
         </div>
     </header>
 
-    <section class="relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#1A1026]">
+    <section id="main-content" tabindex="-1" class="relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#1A1026]">
         <div class="absolute inset-0 z-0 pointer-events-none">
             <div class="absolute inset-0 bg-[#5B2A7E]"></div>
             <div class="absolute inset-0 opacity-[0.12]" style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 40px 40px;"></div>
@@ -127,7 +137,7 @@
         </div>
     </section>
 
-    <section id="jadwal" class="py-16 md:py-20 bg-white">
+    <section id="jadwal" class="py-16 md:py-20 bg-white scroll-mt-24">
         <div class="container mx-auto px-6 max-w-6xl">
             <div class="text-center mb-12 reveal">
                 <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#D97200] mb-3">Jadwal</span>
@@ -187,7 +197,7 @@
         </div>
     </section>
 
-    <section id="alur" class="py-16 md:py-20 bg-white">
+    <section id="alur" class="py-16 md:py-20 bg-white scroll-mt-24">
         <div class="container mx-auto px-6 max-w-5xl">
             <div class="text-center mb-12 reveal">
                 <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#D97200] mb-3">Tahapan</span>
@@ -244,7 +254,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="https://siakad.widyagama.ac.id/spmbfront/" target="_blank" class="inline-flex items-center gap-1 font-bold text-[#5B2A7E] hover:text-[#F18602] transition-colors">Cek Detail Biaya di Website PMB Pusat <span class="detail-arrow">&gt;</span></a>
+                <a href="https://siakad.widyagama.ac.id/spmbfront/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-bold text-[#5B2A7E] hover:text-[#F18602] transition-colors">Cek Detail Biaya di Website PMB Pusat <span class="detail-arrow">&gt;</span></a>
             </div>
             <div class="text-center mb-10 reveal">
                 <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#D97200] mb-3">Beasiswa</span>
@@ -258,12 +268,12 @@
             </div>
             <div class="mt-12 text-center reveal">
                 <p class="text-sm text-gray-500 mb-5">*Syarat dan ketentuan berlaku. Detail lengkap tersedia di brosur resmi.</p>
-                <a href="https://siakad.widyagama.ac.id/spmbfront/detail-pengumuman/11/brosur-pmb-gasal-20262027" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-bold text-[#5B2A7E] hover:text-[#F18602] transition-colors">Lihat Brosur Resmi <span class="detail-arrow">&gt;</span></a>
+                <a href="https://siakad.widyagama.ac.id/spmbfront/detail-pengumuman/11/brosur-pmb-gasal-20262027" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-bold text-[#5B2A7E] hover:text-[#F18602] transition-colors">Lihat Brosur Resmi <span class="detail-arrow">&gt;</span></a>
             </div>
         </div>
     </section>
 
-    <section id="daftar" class="py-16 md:py-20 bg-white">
+    <section id="daftar" class="py-16 md:py-20 bg-white scroll-mt-24">
         <div class="container mx-auto px-6">
             <div class="relative overflow-hidden bg-[#1A1026] rounded-[48px] p-10 md:p-20 border-2 border-white/10 reveal">
                 <div class="absolute -top-24 -right-24 w-80 h-80 bg-[#F18602] rounded-full blur-[100px] opacity-20"></div>
@@ -274,9 +284,9 @@
                     <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-5 leading-tight tracking-tight">Siap Bergabung dengan <span class="text-[#F18602]">FSTI?</span></h2>
                     <p class="text-purple-100/70 text-base md:text-lg mb-10 max-w-xl font-light leading-relaxed">Pendaftaran Mahasiswa Baru FSTI UWG Malang telah dibuka. Amankan kursi Anda sekarang.</p>
                     <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
-                        <a href="https://siakad.widyagama.ac.id/spmbfront/" target="_blank" class="px-9 py-4 bg-[#F18602] text-white rounded-xl font-bold text-lg hover:bg-[#D97200] hover:shadow-md transition-all active:scale-[0.98] inline-flex items-center justify-center">Isi Formulir Pendaftaran</a>
-                        <a href="https://wa.me/6285649732858" target="_blank" class="px-7 py-4 border-2 border-white/25 text-white rounded-xl font-bold hover:bg-white hover:text-[#1A1026] transition-all active:scale-[0.98] inline-flex items-center justify-center">Hubungi Admin 1</a>
-                        <a href="https://wa.me/628986321472" target="_blank" class="px-7 py-4 border-2 border-white/25 text-white rounded-xl font-bold hover:bg-white hover:text-[#1A1026] transition-all active:scale-[0.98] inline-flex items-center justify-center">Hubungi Admin 2</a>
+                        <a href="https://siakad.widyagama.ac.id/spmbfront/" target="_blank" rel="noopener noreferrer" class="px-9 py-4 bg-[#F18602] text-white rounded-xl font-bold text-lg hover:bg-[#D97200] hover:shadow-md transition-all active:scale-[0.98] inline-flex items-center justify-center">Isi Formulir Pendaftaran</a>
+                        <a href="https://wa.me/6285649732858" target="_blank" rel="noopener noreferrer" class="px-7 py-4 border-2 border-white/25 text-white rounded-xl font-bold hover:bg-white hover:text-[#1A1026] transition-all active:scale-[0.98] inline-flex items-center justify-center">Hubungi Admin 1</a>
+                        <a href="https://wa.me/628986321472" target="_blank" rel="noopener noreferrer" class="px-7 py-4 border-2 border-white/25 text-white rounded-xl font-bold hover:bg-white hover:text-[#1A1026] transition-all active:scale-[0.98] inline-flex items-center justify-center">Hubungi Admin 2</a>
                     </div>
                 </div>
             </div>

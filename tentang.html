@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Fakultas - FSTI UWG Malang</title>
     <meta name="description" content="Profil lengkap Fakultas Sains dan Teknologi Informasi (FSTI) Universitas Widya Gama Malang — sejarah, visi misi, struktur organisasi, pimpinan, dan fasilitas fakultas.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Profil Fakultas - FSTI UWG Malang">
+    <meta property="og:description" content="Profil lengkap Fakultas Sains dan Teknologi Informasi (FSTI) Universitas Widya Gama Malang — sejarah, visi misi, struktur organisasi, pimpinan, dan fasilitas fakultas.">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:image" content="assets/images/logo-final.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Profil Fakultas - FSTI UWG Malang">
+    <meta name="twitter:description" content="Profil lengkap Fakultas Sains dan Teknologi Informasi (FSTI) Universitas Widya Gama Malang — sejarah, visi misi, struktur organisasi, pimpinan, dan fasilitas fakultas.">
+    <meta name="twitter:image" content="assets/images/logo-final.webp">
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#5B2A7E">
@@ -13,6 +22,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-white overflow-x-hidden">
+    <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
 <div id="fsti-asset-guard" class="fixed inset-0 z-[99999] bg-white flex items-center justify-center transition-opacity duration-300">
     <div id="fsti-guard-loader" class="flex flex-col items-center gap-4">
         <div class="w-10 h-10 border-4 border-orange-100 border-t-[#F18602] rounded-full animate-spin"></div>
@@ -45,7 +55,7 @@
                     </button>
                     <div class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                         <div class="bg-white border border-gray-200 rounded-xl shadow-lg py-2 min-w-[240px]">
-                            <a href="tentang.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">Profil Fakultas</a>
+                            <a href="tentang.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]" aria-current="page">Profil Fakultas</a>
                             <a href="tentang.html#sejarah" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Sejarah</a>
                             <a href="tentang.html#visi-misi" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Visi, Misi & Tujuan</a>
                             <a href="tentang.html#struktur" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Struktur Organisasi</a>
@@ -104,7 +114,7 @@
                     <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
                 </button>
                 <div id="m-tentang" class="hidden pl-4 pb-2 space-y-1">
-                    <a href="tentang.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">Profil Fakultas</a>
+                    <a href="tentang.html" class="block py-2 text-sm text-fsti-orange font-bold" aria-current="page">Profil Fakultas</a>
                     <a href="tentang.html#sejarah" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Sejarah</a>
                     <a href="tentang.html#visi-misi" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Visi, Misi & Tujuan</a>
                     <a href="tentang.html#struktur" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Struktur Organisasi</a>
@@ -144,7 +154,7 @@
         </div>
     </header>
     <!-- Internal Page Hero -->
-    <section class="internal-hero relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#1A1026]">
+    <section id="main-content" tabindex="-1" class="internal-hero relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#1A1026]">
         <div class="absolute inset-0 z-0 pointer-events-none">
             <div class="absolute inset-0 bg-[#5B2A7E]"></div>
             <div class="absolute inset-0 opacity-[0.12]" style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 40px 40px;"></div>

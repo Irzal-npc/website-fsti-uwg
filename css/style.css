@@ -653,3 +653,33 @@ button:focus-visible .detail-arrow,
     color: #4B5563;
     line-height: 1.5;
 }
+
+/* ============================================================
+   AKSESIBILITAS: Skip-to-Content Link (WCAG 2.4.1 Bypass Blocks)
+   Hanya terlihat saat menerima fokus keyboard (Tab pertama).
+   z-index berada di atas Asset Guard (z-[99999]).
+   ============================================================ */
+.skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 100002;
+    transform: translateY(-180%);
+    background: var(--fsti-purple);
+    color: #ffffff;
+    padding: 0.7rem 1.15rem;
+    border-radius: 0.85rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(26, 16, 38, 0.4);
+    transition: transform 0.2s ease-out;
+}
+.skip-link:focus-visible {
+    transform: translateY(0);
+    outline: 3px solid var(--fsti-orange);
+    outline-offset: 2px;
+}
+#main-content:focus {
+    outline: none;
+}

@@ -4,6 +4,34 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-20] - Revisi: Perbaikan Bug & Kualitas Halaman (Tentang, Direktori Dosen, Alumni, PMB, Pusat Unduhan)
+
+#### Diperbaiki (Bug HTML Tidak Valid)
+- **Tag heading tidak seimbang `<h3>...</h4>`**: Mengoreksi 6 kartu testimoni karosel di `index.html` dan 1 template kartu dinamis di `alumni.html` (dirender untuk seluruh 15 alumni) agar menggunakan penutup `</h3>` yang benar. Struktur heading kini valid untuk SEO, screen reader, dan 100% lolos pemeriksa HTML.
+
+#### Diperbaiki (Keamanan Tautan Eksternal)
+- **Anti-Tabnabbing**: Menambahkan `rel="noopener noreferrer"` pada seluruh tautan `target="_blank"` eksternal di `pmb.html` (lokasi: tautan detail biaya SIAKAD, tombol Isi Formulir Pendaftaran, dan tombol WhatsApp Admin 1 & 2) mencegah eksploitasi `window.opener`.
+
+#### Ditambahkan (Aksesibilitas WCAG 2.4.1)
+- **Skip-to-Content Link di 9 halaman**: Menambahkan tautan "Lewati ke konten utama" yang tersembunyi dan tampil saat fokus keyboard (Tab pertama), dengan `id="main-content"` pada section utama tiap halaman, gaya `.skip-link` baru di `css/style.css`, dan handler fokus khusus di `js/script.js` (loncat instan tanpa animasi panjang, fokus berpindah ke konten).
+- **`aria-current="page"` pada nav aktif**: Menandai item navigasi aktif di desktop dan mobile untuk seluruh 9 halaman agar pembaca layar mengenali halaman yang sedang dibuka.
+- **Konsistensi state aktif menu mobile**: Menandai item aktif pada menu mobile `tentang.html`, `direktori-dosen.html`, dan `pusat-unduhan.html` (sebelumnya hanya alumni & pmb yang ditandai).
+
+#### Diperbaiki (Kualitas SEO & Berbagi)
+- **Meta description diperkaya**: Menulis ulang deskripsi tipis (sekadar mengulang judul) pada `direktori-dosen.html`, `alumni.html`, dan `pusat-unduhan.html` menjadi deskriptif dan mengandung kata kunci.
+- **Open Graph & Twitter Card**: Menambahkan blok meta `og:*` dan `twitter:*` konsisten pada 5 halaman (Tentang, Direktori Dosen, Alumni, PMB, Pusat Unduhan) agar pratinjau tautan di media sosial tampil informatif seperti halaman beranda.
+
+#### Diperbaiki (Robustness & Redaksional)
+- **Offset scroll anchor**: Menambahkan `scroll-mt-24` pada section `#jadwal`, `#alur`, dan `#daftar` di `pmb.html` agar tidak tertutup header tetap saat ditautkan.
+- **Ejaan KBBI**: Mengoreksi "Praktek Kerja Lapangan" menjadi "Praktik Kerja Lapangan" pada `pusat-unduhan.html`.
+
+#### Diverifikasi
+- Pemeriksa struktur tag HTML: 9/9 halaman valid tanpa tag tak seimbang dan tanpa ID duplikat.
+- `node --check`: seluruh berkas JS lolos pemeriksaan sintaks.
+- Hasil pindaian: tidak ada tautan internal rusak, tidak ada gambar hilang, seluruh tautan `target="_blank"` memiliki `rel` aman.
+
+---
+
 ### [2026-07-20] - Sinkronisasi Nomenklatur Resmi Fakultas & Rename Halaman Informatika
 
 #### Diubah
