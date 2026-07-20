@@ -501,24 +501,22 @@
     <div id="image-modal" class="fixed inset-0 z-[999999] hidden items-center justify-center p-3 sm:p-5 bg-[#1A1026]/75 backdrop-blur-sm transition-opacity duration-300" aria-hidden="true">
         <div id="image-modal-panel" class="modal-content relative bg-white rounded-[28px] border-2 border-gray-200 shadow-2xl w-full max-w-[880px] max-h-[92vh] sm:max-h-[88vh] flex flex-col overflow-hidden my-auto transform transition-all duration-300 scale-95 opacity-0">
             
-            <!-- Modal Header Top Bar -->
-            <div class="px-12 py-3.5 sm:px-14 sm:py-4 bg-white border-b border-gray-200 flex items-center gap-4 flex-shrink-0">
-                <!-- Left spacer (keeps caption centered) -->
-                <div class="w-9 flex-shrink-0" aria-hidden="true"></div>
-                <!-- Center: caption & category -->
-                <div class="flex-1 flex flex-col items-center text-center min-w-0">
-                    <span id="modal-category" class="inline-flex px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#D97200] bg-[#FFF9F2] border border-[#F18602]/30 rounded-full mb-1.5">Fasilitas</span>
-                    <h3 id="modal-caption" class="text-base sm:text-lg font-extrabold text-[#1A1026] leading-snug truncate"></h3>
+            <!-- Modal Header Top Bar (Rapi: badge diringkas, tombol silang tidak bertabrakan) -->
+            <div class="flex items-center gap-3 px-4 py-3 sm:px-5 sm:py-3.5 bg-white border-b border-gray-200 flex-shrink-0">
+                <!-- Kiri: Badge + Judul -->
+                <div class="flex-1 min-w-0 flex items-center gap-2.5">
+                    <span id="modal-category" class="inline-flex flex-shrink-0 items-center px-2 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#D97200] bg-[#FFF9F2] border border-[#F18602]/30 rounded-full leading-none">Foto</span>
+                    <h3 id="modal-caption" class="text-sm sm:text-base md:text-lg font-extrabold text-[#1A1026] leading-snug break-words min-w-0"></h3>
                 </div>
-                <!-- Right: close button -->
-                <button id="modal-close" type="button" class="flex-shrink-0 w-9 h-9 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-500 hover:bg-[#F18602] hover:border-[#F18602] hover:text-white active:scale-[0.98] transition-all cursor-pointer" aria-label="Tutup modal">
+                <!-- Kanan: Tombol Silang -->
+                <button id="modal-close" type="button" class="flex-shrink-0 w-9 h-9 rounded-full border-2 border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:bg-[#F18602] hover:border-[#F18602] hover:text-white active:scale-[0.98] transition-all cursor-pointer" aria-label="Tutup modal">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
 
             <!-- Area Foto Display -->
-            <div class="relative w-full p-0 bg-[#FFF9F2] flex items-center justify-center overflow-hidden">
-                <img id="modal-image" class="max-w-full max-h-full object-contain mx-auto transition-opacity duration-200" alt="Gambar detail">
+            <div id="modal-image-area" class="relative w-full p-0 bg-[#FFF9F2] flex items-center justify-center overflow-hidden">
+                <img id="modal-image" class="max-w-full w-auto object-contain mx-auto transition-opacity duration-200" alt="Gambar detail" style="max-height:58vh;">
             </div>
 
             <!-- Caption & Description -->
