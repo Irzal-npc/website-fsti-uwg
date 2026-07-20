@@ -687,3 +687,129 @@ button:focus-visible .detail-arrow,
 #main-content:focus {
     outline: none;
 }
+
+/* ==========================================================================
+   IMAGE MODAL UNIVERSAL (Semua Foto)
+   ========================================================================== */
+
+#image-modal {
+    z-index: 999999;
+}
+
+#image-modal .modal-content {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 1rem;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px -15px rgb(0 0 0 / 0.3);
+}
+
+#image-modal img#modal-image {
+    max-height: 75vh;
+    width: 100%;
+    object-fit: contain;
+    background: #f8f9fa;
+    display: block;
+}
+
+#image-modal .modal-caption-area {
+    padding: 1.5rem 2rem;
+    background: white;
+    border-top: 1px solid #e5e7eb;
+}
+
+#image-modal .modal-caption {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #5B2A7E;
+    margin-bottom: 0.25rem;
+}
+
+#image-modal .modal-desc {
+    color: #4B5563;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+#image-modal .modal-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: #f8f9fa;
+    border-top: 1px solid #e5e7eb;
+}
+
+#image-modal .modal-nav button {
+    background: white;
+    border: 2px solid #e5e7eb;
+    color: #5B2A7E;
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+#image-modal .modal-nav button:hover {
+    background: #5B2A7E;
+    color: white;
+    border-color: #5B2A7E;
+}
+
+#image-modal .modal-nav button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+#image-modal .modal-counter {
+    font-weight: 600;
+    color: #6B7280;
+    font-size: 0.95rem;
+}
+
+#image-modal .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(255,255,255,0.95);
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: #5B2A7E;
+    z-index: 10;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.2s ease;
+}
+
+#image-modal .modal-close:hover {
+    background: #5B2A7E;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #image-modal .modal-content {
+        margin: 0 0.75rem;
+        border-radius: 20px;
+    }
+    
+    #image-modal .modal-caption-area {
+        padding: 1.25rem 1.5rem;
+    }
+    
+    #image-modal .modal-nav {
+        padding: 0.75rem 1.5rem;
+    }
+}

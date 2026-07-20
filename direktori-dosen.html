@@ -833,5 +833,24 @@
         apply();
     })();
     </script>
+
+    <!-- Image Modal Universal -->
+    <div id="image-modal" class="fixed inset-0 z-[999999] hidden items-center justify-center bg-black/90">
+        <div class="modal-content relative bg-white rounded-3xl shadow-2xl w-full max-w-[1100px] mx-4 overflow-hidden">
+            <button id="modal-close" class="modal-close absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-3xl text-[#5B2A7E] hover:text-white hover:bg-[#5B2A7E] rounded-full z-50 transition-all" aria-label="Tutup modal">&times;</button>
+            <div class="relative">
+                <img id="modal-image" class="w-full max-h-[75vh] object-contain bg-[#f8f9fa]" alt="Gambar detail">
+            </div>
+            <div class="modal-caption-area px-6 py-5 border-t border-gray-200">
+                <h3 id="modal-caption" class="text-xl font-bold text-[#5B2A7E]"></h3>
+                <p id="modal-desc" class="mt-1 text-gray-600 text-[15px] leading-relaxed"></p>
+            </div>
+            <div id="modal-nav" class="modal-nav hidden items-center justify-between px-6 py-4 bg-[#f8f9fa] border-t border-gray-200">
+                <button id="modal-prev" class="flex items-center justify-center w-11 h-11 rounded-full border-2 border-gray-300 text-[#5B2A7E] hover:bg-[#5B2A7E] hover:text-white transition-all" aria-label="Foto sebelumnya">←</button>
+                <div id="modal-counter" class="font-semibold text-gray-600 text-sm"></div>
+                <button id="modal-next" class="flex items-center justify-center w-11 h-11 rounded-full border-2 border-gray-300 text-[#5B2A7E] hover:bg-[#5B2A7E] hover:text-white transition-all" aria-label="Foto berikutnya">→</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
