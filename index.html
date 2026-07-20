@@ -333,9 +333,23 @@
 
                 // Clone items for infinite loop
                 const originals = Array.from(track.children);
-                originals.forEach(item => {
+                originals.forEach((item, index) => {
                     const clone = item.cloneNode(true);
                     clone.classList.add('galeri-clone');
+                    
+                    // Matikan grup pada kloningan agar tidak terhitung ganda di modal,
+                    // tapi jika kloningan diklik, trigger click pada gambar asli yang bersangkutan.
+                    const originalImg = item.querySelector('img');
+                    const clonedImg = clone.querySelector('img');
+                    if (clonedImg && originalImg) {
+                        clonedImg.removeAttribute('data-group');
+                        clonedImg.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            originalImg.click();
+                        });
+                    }
+                    
                     track.appendChild(clone);
                 });
 
