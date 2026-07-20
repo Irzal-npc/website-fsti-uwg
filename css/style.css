@@ -705,6 +705,19 @@ button:focus-visible .detail-arrow,
     box-shadow: 0 20px 40px -10px rgb(0 0 0 / 0.18);
     border: 1px solid #e5e7eb;
     background: #ffffff;
+    position: relative;
+}
+
+/* Orange accent bar di atas modal */
+#image-modal .modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #F18602, #D97200);
+    z-index: 10;
 }
 
 /* Gambar */
