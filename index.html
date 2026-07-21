@@ -220,7 +220,7 @@
                             <div class="flex-shrink-0">
                                 <div class="relative">
                                     <div class="absolute inset-0 bg-[#F18602] rounded-[20px] rotate-6"></div>
-                                    <img src="assets/images/dosen/fitri-marisa.webp" data-modal="true" data-modal-image="assets/images/dosen/fitri-marisa.webp" data-modal-caption="Fitri Marisa, S.Kom., M.Pd., Ph.D." data-modal-desc="Dekan Fakultas Sains dan Teknologi Informasi Universitas Widya Gama Malang" data-group="dosen" data-section="Kepemimpinan Fakultas" alt="Foto Dekan - Fitri Marisa" class="relative z-10 w-48 h-48 rounded-[20px] border-2 border-gray-200 object-cover cursor-pointer hover:opacity-95 transition-all" width="192" height="192" loading="lazy" fetchpriority="low" decoding="async">
+                                    <img src="assets/images/dosen/fitri-marisa.webp" data-modal="true" data-modal-image="assets/images/dosen/fitri-marisa.webp" data-modal-caption="Fitri Marisa, S.Kom., M.Pd., Ph.D." data-modal-desc="Dekan Fakultas Sains dan Teknologi Informasi Universitas Widya Gama Malang" data-group="dosen" data-section="Kepemimpinan Fakultas" alt="Foto Dekan - Fitri Marisa" class="relative z-10 w-48 h-48 rounded-[20px] border-2 border-gray-200 object-cover cursor-pointer hover:opacity-95 transition-all" width="192" height="192" loading="eager" fetchpriority="high" decoding="async">
                                 </div>
                             </div>
                             <div class="text-center sm:text-left pt-4 flex-1">
@@ -329,7 +329,16 @@
 
                 let animId = null;
                 let paused = false;
+                let originalWidth = 0;
                 const speed = 0.5;
+
+                // Cache lebar track agar loop ini tidak memaksa browser melakukan
+                // layout ulang di setiap frame (offsetWidth di dalam rAF membuat
+                // scrolling halaman lain ikut tersendat).
+                const updateOriginalWidth = () => {
+                    const gap = 16;
+                    originalWidth = originals.reduce((sum, el) => sum + el.offsetWidth + gap, 0);
+                };
 
                 // Clone items for infinite loop
                 const originals = Array.from(track.children);
@@ -353,20 +362,22 @@
                     track.appendChild(clone);
                 });
 
-                function getOriginalWidth() {
-                    const gap = 16;
-                    return originals.reduce((sum, el) => sum + el.offsetWidth + gap, 0);
-                }
-
                 function animate() {
-                    if (!paused) {
+                    if (!paused && originalWidth > 0) {
                         scroll.scrollLeft += speed;
-                        const origW = getOriginalWidth();
-                        if (origW > 0 && scroll.scrollLeft >= origW) {
-                            scroll.scrollLeft -= origW;
+                        if (scroll.scrollLeft >= originalWidth) {
+                            scroll.scrollLeft -= originalWidth;
                         }
                     }
                     animId = requestAnimationFrame(animate);
+                }
+
+                updateOriginalWidth();
+                if ('ResizeObserver' in window) {
+                    const resizeObserver = new ResizeObserver(updateOriginalWidth);
+                    originals.forEach(item => resizeObserver.observe(item));
+                } else {
+                    window.addEventListener('resize', updateOriginalWidth, { passive: true });
                 }
 
                 // Galeri mengalir terus menerus (non-stop auto-scroll) tanpa berhenti/zoom saat dikursor/disentuh

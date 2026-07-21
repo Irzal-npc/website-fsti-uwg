@@ -124,12 +124,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Enhanced Smooth Scroll for in-page anchors with custom easing animation
+    let smoothScrollFrame = null;
     const smoothScrollTo = (targetElement) => {
+        // Jangan biarkan dua animasi scroll berjalan bersamaan saat tombol ditekan
+        // berulang kali atau ketika navigasi Back/Forward dipicu.
+        if (smoothScrollFrame !== null) {
+            window.cancelAnimationFrame(smoothScrollFrame);
+            smoothScrollFrame = null;
+        }
+
         const headerHeight = document.querySelector('header')?.offsetHeight || 80;
         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
         const startPosition = window.pageYOffset;
         const distance = targetPosition - startPosition;
-        const duration = 1000; // 1 second animation
+        const duration = 800;
         let start = null;
         
         const step = (timestamp) => {
@@ -145,11 +153,13 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo(0, startPosition + distance * easeInOutCubic);
             
             if (progress < duration) {
-                window.requestAnimationFrame(step);
+                smoothScrollFrame = window.requestAnimationFrame(step);
+            } else {
+                smoothScrollFrame = null;
             }
         };
         
-        window.requestAnimationFrame(step);
+        smoothScrollFrame = window.requestAnimationFrame(step);
     };
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
