@@ -197,44 +197,62 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Counter Animation for Statistics
+    // Semua counter dijalankan dalam satu rAF loop. Sebelumnya setiap angka
+    // membuat loop animasi sendiri dan mengubah text/layout bersamaan dengan
+    // smooth-scroll, sehingga transisi menuju statistik bisa tersendat.
+    const pendingCounters = new Set();
+    let counterAnimationFrame = null;
+    let counterStartTimer = null;
+
+    const animateCounters = (timestamp) => {
+        let hasRunningCounter = false;
+        pendingCounters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-count'), 10);
+            const suffix = counter.getAttribute('data-suffix') || '';
+            const startTime = Number(counter.dataset.counterStart) || timestamp;
+            counter.dataset.counterStart = startTime;
+            const progress = Math.min((timestamp - startTime) / 2000, 1);
+            const value = Math.round((1 - Math.pow(1 - progress, 3)) * target);
+            counter.textContent = value.toLocaleString() + suffix;
+            hasRunningCounter = progress < 1 || hasRunningCounter;
+        });
+
+        if (hasRunningCounter) {
+            counterAnimationFrame = requestAnimationFrame(animateCounters);
+        } else {
+            pendingCounters.clear();
+            counterAnimationFrame = null;
+        }
+    };
+
+    const scheduleCounterAnimation = () => {
+        // Tunggu sampai animasi scroll selesai supaya perubahan angka tidak
+        // berebut frame dengan perpindahan halaman.
+        if (smoothScrollFrame !== null) {
+            counterStartTimer = setTimeout(scheduleCounterAnimation, 100);
+            return;
+        }
+        if (counterAnimationFrame === null && pendingCounters.size > 0) {
+            counterAnimationFrame = requestAnimationFrame(animateCounters);
+        }
+    };
+
     const counterObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const counter = entry.target;
-                const target = parseInt(counter.getAttribute('data-count'), 10);
-                const suffix = counter.getAttribute('data-suffix') || '';
-                
-                if (isNaN(target)) return;
-                
-                const duration = 2000; // 2 seconds
-                const startTime = performance.now();
-                
-                const animate = (currentTime) => {
-                    const elapsed = currentTime - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    
-                    // Ease out cubic for smooth deceleration
-                    const easeOutCubic = 1 - Math.pow(1 - progress, 3);
-                    const current = Math.round(easeOutCubic * target);
-                    
-                    counter.textContent = current.toLocaleString() + suffix;
-                    
-                    if (progress < 1) {
-                        requestAnimationFrame(animate);
-                    } else {
-                        counter.textContent = target.toLocaleString() + suffix;
-                    }
-                };
-                
-                requestAnimationFrame(animate);
-                counterObserver.unobserve(counter);
+            if (!entry.isIntersecting) return;
+            const counter = entry.target;
+            if (!Number.isNaN(parseInt(counter.getAttribute('data-count'), 10))) {
+                pendingCounters.add(counter);
+                counter.removeAttribute('data-counter-start');
             }
+            counterObserver.unobserve(counter);
         });
+        if (pendingCounters.size > 0 && counterStartTimer === null) {
+            scheduleCounterAnimation();
+        }
     }, { threshold: 0.5 });
 
-    document.querySelectorAll('[data-count]').forEach(el => {
-        counterObserver.observe(el);
-    });
+    document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 
     // Simple and reliable reveal animation
     const revealElements = document.querySelectorAll('.reveal, .reveal-fade-up');
