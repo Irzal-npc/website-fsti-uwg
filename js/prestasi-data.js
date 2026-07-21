@@ -33,9 +33,9 @@ window.FSTI_PRESTASI = [
   "asal": "Mahasiswa S1 Informatika / Pengurus HMIF",
   "penyelenggara": "Lomba Inovasi Teknologi (INOTEK) Kota Malang 2025",
   "foto": "assets/images/kegiatan/prestasi-inotek.webp",
-  "keterangan": "Tim mahasiswa Informatika yang juga tergabung dalam Himpunan Mahasiswa Informatika (HMIF) ini meraih Juara 3 Lomba Inovasi Teknologi (INOTEK) tingkat Kota Malang 2025 — kebanggaan sivitas fakultas sekaligus himpunan.",
-  "sumber": "",
-  "sumberLabel": ""
+  "keterangan": "Melalui karya TAHES (Talk and Heal Every Student) — aplikasi pemantauan kesehatan mental siswa berbasis analisis stres dan dukungan sosial — tim mahasiswa Informatika semester V yang juga pengurus HMIF ini meraih Juara 3 pada ajang INOTEK Kota Malang 2025.",
+  "sumber": "https://widyagama.ac.id/tahes-uwg-raih-juara-iii-inotek-kota-malang-2025-inovasi-pemantauan-kesehatan-mental-siswa-berbasis-teknologi/",
+  "sumberLabel": "Berita Resmi UWG (12 Nov 2025)"
  },
  {
   "id": 2,
@@ -57,12 +57,12 @@ window.FSTI_PRESTASI = [
   "nama": "Juara 1 Taekwondo Kyorugi Senior Putri Kelas 48 KG - Jatim Cup 3 (Piala Kapolda Jawa Timur) 2025",
   "kategori": "Non-Akademik",
   "tingkat": "Provinsi",
-  "peraih": "Waode Anisa F",
+  "peraih": "Wa Ode Anisa Febrianti",
   "asal": "Mahasiswa S1 Informatika",
-  "penyelenggara": "Kejuaraan Taekwondo Grade C KBPP Polri - Jatim Cup 3, Piala Kapolda Jawa Timur 2025",
+  "penyelenggara": "Kejuaraan Taekwondo Grade C KBPP Polri - Jatim Cup 3, Piala Kapolda Jawa Timur 2025 — ITS Robotics Center Surabaya, 6-7 Desember 2025",
   "foto": "assets/images/kegiatan/prestasi-nasional.webp",
-  "keterangan": "Waode meraih Juara 1 nomor Kyorugi Senior Putri kelas 48 kg pada Kejuaraan Taekwondo Grade C KBPP Polri - Jatim Cup 3 yang memperebutkan Piala Kapolda Jawa Timur 2025.",
-  "sumber": "",
-  "sumberLabel": ""
+  "keterangan": "Anisa meraih Juara 1 (medali emas) nomor Kyorugi Senior Putri kelas 48 kg — bagian dari raihan membanggakan UKM Taekwondo UWG yang memborong 4 medali emas dan 1 medali perak dari 5 kategori, dengan seluruh atletnya naik podium.",
+  "sumber": "https://widyagama.ac.id/bikin-bangga-uwg-ukm-taekwondo-borong-medali-di-ajang-bergengsi-kapolda-jatim/",
+  "sumberLabel": "Berita Resmi UWG (30 Des 2025)"
  }
 ];

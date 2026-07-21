@@ -4,6 +4,25 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-21] - Data Prestasi Diperkaya dari Berita Resmi UWG (TAHES & Borong Medali UKM Taekwondo)
+
+#### Ditambahkan
+- **Sumber resmi untuk ketiga entri prestasi** (kolom `sumber` + `sumberLabel` kini terisi semua, semuanya berita resmi Humas di widyagama.ac.id dan telah diverifikasi aktif):
+  - INOTEK → artikel *"TAHES UWG Raih Juara III INOTEK Kota Malang 2025"* (12 Nov 2025).
+  - IYIS → artikel prestasi Irsyad (17 Des 2024).
+  - Taekwondo → artikel *"UKM Taekwondo Borong Medali di Ajang Bergengsi Kapolda Jatim"* (30 Des 2025).
+- **Detail TAHES (entri INOTEK)**: narasi kini memuat nama karya **TAHES (Talk and Heal Every Student)** — aplikasi pemantauan kesehatan mental siswa berbasis analisis stres dan dukungan sosial — serta konteks tim (mahasiswa Informatika semester V).
+- **Konteks tim UKM Taekwondo (entri Taekwondo)**: raihan Wa Ode Anisa Febrianti kini tercatat sebagai bagian dari **borongan 4 medali emas + 1 medali perak dari 5 atlet UKM Taekwondo UWG** (seluruh atlet naik podium). Nama peraih dilengkapi dari versi resmi Humas ("Wa Ode Anisa Febrianti"), dan kolom penyelenggara ditambah lokasi/tanggal (ITS Robotics Center Surabaya, 6–7 Desember 2025).
+
+#### Diubah
+- `prestasi.html`: kolom pencarian kini ikut menelusuri narasi `keterangan` (mis. kata "TAHES", "UMKM", "Surabaya" menemukan entrinya).
+- `service-worker.js`: bump cache ke `v2026.19`.
+
+#### Diverifikasi
+- Kedua URL artikel Humas dikonfirmasi daring dan isinya sesuai; parser HTML 13/13 valid; `node --check` lolos; uji DOM headless **34/34** lolos (termasuk: tiga baris sumber tampil, narasi TAHES & konteks 4 emas tampil, pencarian lewat keterangan menemukan entri yang benar).
+
+---
+
 ### [2026-07-21] - Halaman Prestasi Menjadi Arsip Horizontal + Narasi & Tautan Sumber
 
 #### Latar Belakang
