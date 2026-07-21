@@ -69,6 +69,24 @@
                 }
                 return showSystemError();
             }
+            if ((path.includes('penelitian.html') || path.includes('pengabdian.html')) && typeof window.FSTI_DOSEN === 'undefined' && typeof window.dosenData === 'undefined') {
+                if (checkAttempts < maxAttempts) {
+                    return setTimeout(verifyAllAssets, 100);
+                }
+                return showSystemError();
+            }
+            if (path.includes('kerjasama.html') && typeof window.FSTI_KERJASAMA === 'undefined') {
+                if (checkAttempts < maxAttempts) {
+                    return setTimeout(verifyAllAssets, 100);
+                }
+                return showSystemError();
+            }
+            if (path.includes('prestasi.html') && typeof window.FSTI_PRESTASI === 'undefined') {
+                if (checkAttempts < maxAttempts) {
+                    return setTimeout(verifyAllAssets, 100);
+                }
+                return showSystemError();
+            }
 
             // 4. Cek khusus Logo Header (abaikan gambar loading="lazy" agar tidak memicu false alarm saat lazy-loading)
             const headerLogo = document.querySelector('header img');

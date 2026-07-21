@@ -4,6 +4,206 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-21] - Bidang Keahlian Bu Devi Septiani Diperbarui
+
+#### Diubah
+- **Devi Septiani, S.Kom., M.Kom.** (Dosen Homebase S1 SISTEKIN): bidang keahlian diperbarui dari "Manajemen Sistem Informasi" menjadi **"Manajemen Sistem Informasi, VR & AR, Multimedia 3D"**, disinkronkan di tiga lokasi data:
+  - `js/dosen-data.js` (kolom `expertise` & `tags` — chip keahlian di Direktori Dosen otomatis menjadi 3).
+  - `prodi/sistem-teknologi-informasi.html` (daftar Dosen Homebase SISTEKIN: teks keahlian & `data-modal-desc`).
+  - `data/biodata-dosen.csv` (arsip administratif).
+- `service-worker.js`: bump cache ke `v2026.20`.
+
+#### Diverifikasi
+- Parser HTML 13/13 valid (termasuk sistekin yang berubah); `js/dosen-data.js` termuat benar (14 dosen; entri Bu Devi: 3 tag keahlian); CSV tetap 17 kolom per baris.
+
+---
+
+### [2026-07-21] - Data Prestasi Diperkaya dari Berita Resmi UWG (TAHES & Borong Medali UKM Taekwondo)
+
+#### Ditambahkan
+- **Sumber resmi untuk ketiga entri prestasi** (kolom `sumber` + `sumberLabel` kini terisi semua, semuanya berita resmi Humas di widyagama.ac.id dan telah diverifikasi aktif):
+  - INOTEK → artikel *"TAHES UWG Raih Juara III INOTEK Kota Malang 2025"* (12 Nov 2025).
+  - IYIS → artikel prestasi Irsyad (17 Des 2024).
+  - Taekwondo → artikel *"UKM Taekwondo Borong Medali di Ajang Bergengsi Kapolda Jatim"* (30 Des 2025).
+- **Detail TAHES (entri INOTEK)**: narasi kini memuat nama karya **TAHES (Talk and Heal Every Student)** — aplikasi pemantauan kesehatan mental siswa berbasis analisis stres dan dukungan sosial — serta konteks tim (mahasiswa Informatika semester V).
+- **Konteks tim UKM Taekwondo (entri Taekwondo)**: raihan Wa Ode Anisa Febrianti kini tercatat sebagai bagian dari **borongan 4 medali emas + 1 medali perak dari 5 atlet UKM Taekwondo UWG** (seluruh atlet naik podium). Nama peraih dilengkapi dari versi resmi Humas ("Wa Ode Anisa Febrianti"), dan kolom penyelenggara ditambah lokasi/tanggal (ITS Robotics Center Surabaya, 6–7 Desember 2025).
+
+#### Diubah
+- `prestasi.html`: kolom pencarian kini ikut menelusuri narasi `keterangan` (mis. kata "TAHES", "UMKM", "Surabaya" menemukan entrinya).
+- `service-worker.js`: bump cache ke `v2026.19`.
+
+#### Diverifikasi
+- Kedua URL artikel Humas dikonfirmasi daring dan isinya sesuai; parser HTML 13/13 valid; `node --check` lolos; uji DOM headless **34/34** lolos (termasuk: tiga baris sumber tampil, narasi TAHES & konteks 4 emas tampil, pencarian lewat keterangan menemukan entri yang benar).
+
+---
+
+### [2026-07-21] - Halaman Prestasi Menjadi Arsip Horizontal + Narasi & Tautan Sumber
+
+#### Latar Belakang
+Isi halaman Prestasi (3 entri riil) identik dengan seksi "Sorotan Prestasi" di Beranda sehingga terasa seperti duplikat. Atas keputusan pengelola, halaman dibedakan lewat **tata letak sekaligus kedalaman isi** — Beranda tetap sorotan ringkas, halaman menjadi arsip resmi.
+
+#### Ditambahkan (`js/prestasi-data.js` + `prestasi.html`)
+- Tiga kolom data opsional baru: **`keterangan`** (narasi singkat; tampil pada kartu dan otomatis disertakan di deskripsi lightbox), **`sumber`** & **`sumberLabel`** (tautan sumber berita; baris "Sumber: …" hanya muncul bila URL diisi).
+- Narasi diisi dari sumber yang diverifikasi: IG resmi HMIF (INOTEK & Taekwondo) dan artikel resmi Humas — IYIS kini bertautan ke **berita resmi di widyagama.ac.id** (17 Des 2024, terverifikasi daring dan sejalan dengan liputan TIMES Indonesia).
+
+#### Diubah (`prestasi.html`)
+- Kartu grid vertikal diubah menjadi **kartu arsip horizontal satu kolom** (foto di kiri pada layar ≥sm, konten di kanan); foto tetap membuka lightbox global. Statistik, chip kategori, filter tingkat, pencarian, sorting tahun, dan *empty state* tidak berubah.
+- `README.md` disesuaikan; `service-worker.js`: bump cache ke `v2026.18`.
+
+#### Diverifikasi
+- URL sumber IYIS di widyagama.ac.id dikonfirmasi aktif dan isinya sesuai; parser HTML 13/13 valid; `node --check` skrip inline lolos; seluruh ikon Lucide valid; uji DOM headless 31/31 lolos (termasuk asersi baru: tata letak horizontal, narasi tampil, hanya entri IYIS yang merender tautan sumber).
+
+---
+
+### [2026-07-21] - Tombol "Lihat Semua Cerita Alumni" Diseragamkan
+
+#### Diubah
+- **`index.html`**: tombol CTA akhir "Lihat Semua Cerita Alumni" kini memakai gaya **outline ungu** (border + teks `#5B2A7E`, hover blok ungu gelap `#3D1A55`) lengkap dengan panah `detail-arrow` — identik dengan tombol "Lihat Semua Prestasi Fakultas" dan "Lihat Semua Kerjasama Fakultas" (standar Tombol Kedua sesuai Panduan Desain butir 5). Wrapper diseragamkan (`text-center mt-12 reveal reveal-fade-up`).
+- **`css/style.css`**: blok override `.home-page .cta-alumni` (blok ungu solid tanpa ikon) dan `body .cta-alumni:active` dihapus karena kelas `cta-alumni` sudah tidak dipakai di mana pun.
+- `service-worker.js`: bump cache ke `v2026.17`.
+
+#### Diverifikasi
+- Tidak ada sisa referensi `cta-alumni` di HTML/CSS/JS; kurung kurawal CSS seimbang; parser HTML: 13/13 halaman valid; ketiga tombol "Lihat Semua …" di Beranda kini berbagi kelas yang sama persis.
+
+---
+
+### [2026-07-21] - Logo Mitra Tanpa Lightbox
+
+#### Diubah
+- **`kerjasama.html`**: logo mitra pada kartu tidak lagi dapat diklik untuk diperbesar (atribut `data-modal-*` dihapus) — menyelaraskan perilaku dengan tile logo mitra di Beranda. Blok markup modal gambar (`#image-modal`) ikut dilepas dari halaman ini karena sudah tidak ada elemen yang memakainya (halaman lain yang membutuhkan — Prestasi, Beranda, dll. — tidak terpengaruh).
+- `README.md`: klaim lightbox pada logo mitra di fitur butir 6 & tabel halaman dihapus.
+- `service-worker.js`: bump cache ke `v2026.16`.
+
+#### Diverifikasi
+- Parser HTML: 13/13 halaman valid; `node --check` skrip inline lolos; uji DOM headless 27/27 lolos (dengan asersi baru: `kerjasama.html` bebas `data-modal`, `prestasi.html` tetap memiliki lightbox foto).
+
+---
+
+### [2026-07-21] - Penyegaran README Menyeluruh + Penyelarasan Kartu ke Standar Desain Statis
+
+#### Diubah (README.md — sinkron dengan kondisi web terbaru)
+- Badge versi `2026.7` → `2026.15` (mengikuti versi cache Service Worker).
+- **Tentang Project**: ditambahkan empat sajian informasi baru (tabel agregat Penelitian & Pengabdian, direktori Kerjasama, galeri Prestasi); status dokumen Pusat Unduhan diperbarui (Buku KPT tersedia; Pedoman Skripsi & PKL *Segera Hadir*).
+- **Fitur Unggulan**: jumlah ikon/gambar dikoreksi ke data riil (55+ ikon Lucide, 60+ gambar `.webp`); AssetGuard kini juga memvalidasi `FSTI_KERJASAMA`/`FSTI_PRESTASI`; versi Service Worker `v2026.7` → `v2026.15`; **fitur baru butir 6** mendokumentasikan mesin tabel agregat (`karya-agregat.js` + `util-tabel.js`: 617 penelitian 2003–2026 & 108 pengabdian 2010–2026, filter dosen, sorting tahun, salin sitasi), direktori kartu mitra, dan galeri kartu prestasi.
+- **Tabel Halaman**: deskripsi Direktori Dosen (14 pengajar), Penelitian (617 entri), Pengabdian (108 entri), Kerjasama (10 mitra: 7 LN/program global & 3 DN), dan Alumni (15 lulusan) diperkaya angka riil.
+- **Struktur Folder**: jumlah foto `assets/images/fasilitas/` dikoreksi 8 → 7.
+- **Teknologi & Stack**: baris Data Architecture mencakup keempat berkas data JS + mesin agregat.
+- **Panduan Desain butir 8**: daftar halaman fungsional tanpa Hero Stats Bar dilengkapi (Penelitian, Pengabdian, Kerjasama, Prestasi). **Butir 10**: standar header ditulis lengkap (urutan menu + isi ketiga dropdown + konvensi penanda halaman aktif), dan standar kolom *Layanan* footer didetailkan.
+
+#### Diubah (Penyelarasan kartu ke Panduan Desain butir 2 & 5 — *Static Premium Cards*)
+- `kerjasama.html` & `prestasi.html`: kelas kartu hasil render diselaraskan ke standar kartu utama situs — `rounded-[28px] border-gray-200` **statis** (tanpa lompatan `translateY`, bayangan, atau border oranye saat hover). Interaksi pada media dikembalikan ke pola semula: ring oranye lembut pada logo mitra dan transparansi halus pada foto prestasi saat dikursor.
+
+#### Diubah (Pendukung)
+- `service-worker.js`: bump cache ke `v2026.15`.
+
+#### Diverifikasi
+- Parser HTML: 13/13 halaman valid; `node --check` skrip inline lolos; uji DOM headless 27/27 skenario tetap lolos setelah penyelarasan kelas kartu.
+
+---
+
+### [2026-07-21] - Tampilan Kerjasama & Prestasi Diubah dari Tabel menjadi Grid Kartu
+
+#### Diubah
+- **`kerjasama.html`**: Tabel 8 kolom diganti menjadi **grid kartu mitra** (1/2/3 kolom responsif). Setiap kartu memuat: logo mitra besar (klik → lightbox), badge jenis mitra & ruang lingkup (Dalam/Luar Negeri — otomatis dari negara), nama mitra, negara, ruang lingkup bidang kerja sama, serta baris meta (bentuk dokumen, periode bila tersedia, pill status Aktif/Berakhir) dan tombol tautan situs resmi. Pencarian, filter jenis, sorting nama, statistik ringkas (10 mitra / 3 DN / 7 LN), dan *empty state* dipertahankan.
+- **`prestasi.html`**: Tabel diganti menjadi **grid kartu prestasi** dengan sampul foto dokumentasi yang dapat diklik (lightbox tetap berfungsi), badge tahun di atas foto, badge kategori (Akademik/Non-Akademik) & tingkat, nama prestasi, peraih + asal, dan penyelenggara. Chip filter kategori, filter tingkat, sorting tahun, statistik ringkas, dan *empty state* dipertahankan. (Sorting kini cukup via dropdown — tombol sortir di kepala kolom tabel turut dihapus bersama tabelnya.)
+- Rationale: permintaan tabel dari fakultas hanya untuk halaman Penelitian & Pengabdian (ratusan entri); Kerjasama (10 mitra) & Prestasi (3 entri) lebih komunikatif sebagai kartu visual.
+- `README.md`, komentar kepala `js/kerjasama-data.js` & `js/prestasi-data.js` disesuaikan (format data tidak berubah).
+- `service-worker.js`: bump cache ke `v2026.14`.
+
+#### Diverifikasi
+- Parser HTML: 13/13 halaman valid (tag seimbang, tanpa ID ganda); `node --check` lolos untuk skrip inline kedua halaman; 54 ikon Lucide terpakai tervalidasi tersedia di bundel lokal.
+- Uji DOM headless: 27/27 skenario lolos (jumlah kartu, statistik, filter jenis/tingkat/chip kategori, pencarian, sorting nama & tahun, *empty state*, reset, tidak ada tombol salin).
+
+---
+
+### [2026-07-21] - Penyesuaian Lintas Halaman: Tautan Silang + Sinkronisasi 10 Mitra (UKM)
+
+#### Ditambahkan (Tautan Silang)
+- **`index.html`**: Tombol CTA "Lihat Semua Prestasi Fakultas" di akhir seksi Sorotan Prestasi (→ `prestasi.html`) dan "Lihat Semua Kerjasama Fakultas" di akhir seksi Mitra Kerja Sama (→ `kerjasama.html`) — menautkan konten ringkas Beranda dengan halaman penuh barunya.
+- **`direktori-dosen.html`**: Baris tautan silang ke tabel agregat `penelitian.html` & `pengabdian.html` tepat sebelum grid dosen.
+- **`tentang.html`**: Frasa "kerjasama kemitraan" pada butir Misi fakultas kini tertaut ke `kerjasama.html`.
+
+#### Diperbaiki (Sinkronisasi Angka Mitra — 10 di semua tempat)
+- **Identifikasi mitra ke-10**: File logo `assets/images/mitra/utm-malaysia.webp` terverifikasi sebagai lambang **Universiti Kebangsaan Malaysia (UKM)** (perisai 4 kuadran: harimau, atom, roda gigi + jangka, bunga raya + buku terbuka — sesuai deskripsi lambang resmi di ukm.my), bukan logo UTM kedua.
+- File logo direname menjadi `ukm.webp`; `alt` tile di `index.html` dikoreksi menjadi "Universiti Kebangsaan Malaysia".
+- `js/kerjasama-data.js`: UKM ditambahkan sebagai mitra ke-10 (id dinomor ulang 1–10). Statistik halaman Kerjasama kini otomatis sinkron: **10 mitra (7 luar negeri, 3 dalam negeri)** — sama dengan angka "10 Mitra Kerja Sama" di Beranda.
+
+#### Diverifikasi
+- Uji DOM headless: 45/45 skenario lolos; seluruh referensi file logo valid.
+
+---
+
+### [2026-07-21] - Pedoman PKL & Skripsi Berstatus "Segera Hadir" + Penghapusan PDF
+
+#### Diubah
+- **`pusat-unduhan.html`**: Kartu **Pedoman Skripsi FSTI** dan **Pedoman PKL FSTI** kini berstatus **"Segera Hadir"** (badge abu-abu + ikon jam, keterangan "Sedang difinalisasi fakultas"); tombol "Unduh PDF" dihapus karena dokumen resmi belum final.
+
+#### Dihapus
+- **`assets/docs/pedoman-skripsi-fsti.pdf`** dan **`assets/docs/pedoman-pkl-fsti.pdf`** dihapus dari repositori. `assets/docs/buku-kpt-teknik-informatika-2023.pdf` tetap dipertahankan.
+
+#### Diubah (Pendukung)
+- `README.md`: deskripsi Pusat Unduhan disesuaikan & struktur folder `assets/docs/` diperbarui.
+- `service-worker.js`: bump cache ke `v2026.13`.
+
+#### Diverifikasi
+- Tidak ada lagi tautan menuju kedua PDF di seluruh halaman; struktur HTML `pusat-unduhan.html` valid.
+
+---
+
+### [2026-07-21] - Hapus Tombol Salin di Halaman Kerjasama & Prestasi
+
+#### Dihapus
+- Kolom "Salin" beserta tombol ikon copy per baris di `kerjasama.html` dan `prestasi.html` — tombol salin memang hanya diminta untuk tabel Penelitian & Pengabdian, sehingga dua halaman ini dikembalikan ke tabel murni.
+
+#### Diubah
+- `kerjasama.html`: fungsi `ringkasan()` ikut dihapus (hanya dipakai tombol salin). `prestasi.html`: fungsi `ringkasan()` dipertahankan karena masih dipakai sebagai deskripsi lightbox foto dokumentasi.
+- `service-worker.js`: bump cache ke `v2026.12` agar pengunjung menerima versi terbaru.
+
+#### Tetap
+- Tombol ikon salin di `penelitian.html` & `pengabdian.html` (via `js/karya-agregat.js`) tidak berubah — tetap aktif sesuai permintaan.
+
+#### Diverifikasi
+- Uji DOM headless: 45/45 skenario lolos; kedua halaman valid tanpa tag tak seimbang & tanpa ID duplikat.
+
+---
+
+### [2026-07-21] - Revisi Navigasi: Kerjasama & Prestasi Masuk Dropdown Akademik
+
+#### Diubah
+- **Menu utama**: Item **Kerjasama** dan **Prestasi** dipindahkan dari menu tingkat atas menjadi item di dalam **dropdown Akademik** (setelah "Pusat Unduhan & Dokumen") di seluruh 13 halaman, sesuai arahan terbaru. Menu tingkat atas kini: Beranda · Tentang Kami▾ · Program Studi▾ · Akademik▾ · Penelitian · Pengabdian · Alumni · PMB. Halaman Penelitian & Pengabdian tetap sebagai menu tingkat atas.
+- **Menu mobile**: Kedua item dipindahkan ke dalam akordeon **Akademik** di seluruh 13 halaman.
+- **State aktif**: Halaman `kerjasama.html` / `prestasi.html` kini menandai tombol dropdown **Akademik** dengan aksen oranye + `aria-current="page"` pada item dropdown/akordeon masing-masing (konsisten dengan pola `pusat-unduhan.html`).
+
+#### Diverifikasi
+- Setiap halaman memiliki tepat 3 referensi per slug baru (dropdown desktop + akordeon mobile + footer); tidak ada sisa item tingkat atas.
+- Pemeriksa struktur tag HTML: 13/13 halaman valid tanpa tag tak seimbang dan tanpa ID duplikat.
+
+---
+
+### [2026-07-21] - Menu Baru: Halaman Penelitian, Pengabdian, Kerjasama & Prestasi (Tabel Agregat)
+
+#### Ditambahkan (4 Halaman Baru)
+- **`penelitian.html` — Tabel Agregat Penelitian Seluruh Dosen FSTI**: Satu halaman tampilan tabel yang mengagregasi otomatis 600+ karya berjenis `Penelitian` dari seluruh 14 dosen (sumber tunggal: `window.FSTI_DOSEN` di `js/dosen-data.js`). Fitur: filter berdasarkan nama dosen (dropdown berisi seluruh dosen + jumlah karya), pencarian bebas (judul/dosen/prodi/tahun), **sorting tahun** (klik kepala kolom "Tahun" atau pilihan sortir, indikator `aria-sort` + ikon chevron), sortir bonus Judul & Dosen A–Z, muat bertahap 60 baris (tombol "Muat Lebih Banyak" / "Tampilkan Semua"), statistik ringkas otomatis (total entri, jumlah dosen, rentang tahun), dan **tombol ikon salin di setiap baris** (format sitasi siap tempel: *Judul. Dosen (Tahun). Terindeks: … . URL*) dengan umpan balik ikon *copy → check* dan toast.
+- **`pengabdian.html` — Tabel Agregat Pengabdian Masyarakat**: Mesin yang sama (`js/karya-agregat.js`, konfigurasi via `window.FSTI_KARYA_PAGE`) untuk karya berjenis `Pengabdian Masyarakat` (100+ entri). Data per dosen di halaman Direktori Dosen **tetap dipertahankan** apa adanya — halaman agregat hanya membaca dari sumber yang sama.
+- **`kerjasama.html` — Daftar Kerjasama Fakultas**: Tabel seluruh kemitraan fakultas (kolom: mitra + logo, jenis, bentuk, ruang lingkup, periode, status aktif, tautan resmi, salin ringkasan). Filter jenis mitra (dibangun dinamis dari data), pencarian, sortir nama/jenis, statistik total/Dalam Negeri/Luar Negeri. Data awal (`js/kerjasama-data.js`, `window.FSTI_KERJASAMA`) diselaraskan dengan galeri 10 logo mitra di Beranda; kolom nomor dokumen/periode disiapkan untuk dilengkapi fakultas sesuai arsip MoU/MoA.
+- **`prestasi.html` — Daftar Prestasi Fakultas (Akademik & Non-Akademik)**: Tabel prestasi (kolom: dokumentasi, tahun, prestasi + penyelenggara, kategori, tingkat, peraih, salin ringkasan). Filter chip *Semua/Akademik/Non-Akademik*, filter tingkat dinamis (Lokal→Internasional), sorting tahun (klik kolom/pilihan), foto dokumentasi terhubung ke lightbox modal global. Data awal (`js/prestasi-data.js`, `window.FSTI_PRESTASI`) berisi 3 prestasi resmi dari seksi Sorotan Prestasi Beranda (INOTEK 2025, IYIS #6 Malaysia 2024, Taekwondo Jatim Cup 3 2025).
+
+#### Diubah (Navigasi & Konsistensi 13 Halaman)
+- **Menu utama**: Menambahkan item **Penelitian | Pengabdian | Kerjasama | Prestasi** tepat setelah dropdown **Akademik** pada menu desktop dan menu mobile di ke-13 halaman (9 halaman lama + 4 halaman baru), sesuai permintaan pimpinan fakultas. Spasi menu desktop dirapatkan (`space-x-4 xl:space-x-6`) agar 10 item muat di layar laptop.
+- **Footer "Layanan"**: Menambahkan tautan ke 4 halaman baru di seluruh halaman.
+- **`js/util-tabel.js`** (baru): Utilitas bersama — escape HTML, toast `aria-live`, salin-clipboard (Clipboard API + fallback `execCommand`), dan delegasi global tombol `[data-copy-text]`.
+- **`js/asset-guard.js`**: Memperluas verifikasi fail-closed ke data halaman baru (`FSTI_DOSEN` untuk penelitian/pengabdian, `FSTI_KERJASAMA`, `FSTI_PRESTASI`).
+- **`css/style.css`**: Menambahkan gaya umpan balik `.fsti-copy-ok` (hijau) untuk tombol salin.
+- **`service-worker.js`**: Bump cache ke `v2026.11` dan menambahkan 4 halaman + 4 berkas JS baru ke `CORE_ASSETS` agar PWA/offline tetap utuh.
+- **`README.md`**: Mendokumentasikan 4 halaman baru, struktur folder, serta panduan pembaruan data kerjasama/prestasi.
+
+#### Diverifikasi
+- `node --check`: seluruh berkas JS baru/diubah lolos pemeriksaan sintaks.
+- Agregasi data terverifikasi: 617 entri Penelitian (2003–2026) & 108 entri Pengabdian Masyarakat (2010–2026); seluruh tahun valid 4 digit; seluruh entri memiliki tautan sumber.
+- Pemeriksa struktur tag HTML: 13/13 halaman valid tanpa tag tak seimbang dan tanpa ID duplikat.
+
+---
+
 ### [2026-07-20] - Penyempurnaan Card Peminatan: Isi Lebih Rapi + Animasi Buka/Tutup Halus
 - Isi card beraksen dan label bertitik yang lebih rapi.
 - Chevron chip sebagai penanda interaksi.

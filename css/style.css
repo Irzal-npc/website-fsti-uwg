@@ -374,35 +374,10 @@ body #btn-next:active {
     color: #ffffff !important;
 }
 
-body .cta-alumni:active {
-    background-color: transparent !important;
-    border-color: #5B2A7E !important;
-    color: #5B2A7E !important;
-}
-
 /* Biarkan .detail-arrow bergeser bebas saat hover/active/touch */
 body a:not(:has(.detail-arrow)) svg,
 body button:not(:has(.detail-arrow)) svg {
     transform: none;
-}
-
-/* CTA alumni: blok ungu tanpa ikon */
-.home-page .cta-alumni {
-    background-color: #5B2A7E !important;
-    border-color: #5B2A7E !important;
-    color: #fff !important;
-}
-
-.home-page .cta-alumni:hover {
-    background-color: #3D1A55 !important;
-    border-color: #3D1A55 !important;
-    color: #fff !important;
-}
-
-.home-page .cta-alumni:active {
-    background-color: #3D1A55 !important;
-    border-color: #3D1A55 !important;
-    color: #fff !important;
 }
 
 /* Navigasi testimoni: tombol putih, ikon orange */
@@ -851,4 +826,13 @@ img[data-modal="true"]:hover {
 img[data-modal="true"]:active {
     transform: scale(0.98) !important;
     filter: brightness(0.92) !important;
+}
+
+/* ==========================================================================
+   TABEL AGREGAT — Umpan balik tombol salin (js/util-tabel.js)
+   ========================================================================== */
+.fsti-copy-ok {
+    background-color: #DCFCE7 !important;
+    border-color: #4ADE80 !important;
+    color: #15803D !important;
 }

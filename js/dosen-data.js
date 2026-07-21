@@ -1462,9 +1462,11 @@ window.FSTI_DOSEN = [
   "jabfung": "-",
   "role": "Dosen",
   "pendidikan": "S3: (Tugas Belajar) Sistem Informasi - Institut Teknologi Sepuluh Nopember; S2: M.Kom. - Magister Sistem Informasi - Universitas Brawijaya (2023); S1: S.Kom. - Sarjana Sistem Informasi - Universitas Brawijaya (2020)",
-  "expertise": "Manajemen Sistem Informasi",
+  "expertise": "Manajemen Sistem Informasi, VR & AR, Multimedia 3D",
   "tags": [
-   "Manajemen Sistem Informasi"
+   "Manajemen Sistem Informasi",
+   "VR & AR",
+   "Multimedia 3D"
   ],
   "email": "deviseptiani569@gmail.com",
   "scholar": "",

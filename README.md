@@ -4,7 +4,7 @@
 ### Fakultas Sains dan Teknologi Informasi — Universitas Widya Gama Malang
 
 [![Build Status](https://img.shields.io/badge/Build-Passed-success?style=for-the-badge&logo=github)](https://github.com)
-[![Version](https://img.shields.io/badge/Version-2026.7-orange?style=for-the-badge)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/Version-2026.15-orange?style=for-the-badge)](CHANGELOG.md)
 [![Accessibility](https://img.shields.io/badge/Accessibility-WCAG%202.1%20AA%2FAAA-blue?style=for-the-badge)](CHANGELOG.md)
 [![Architecture](https://img.shields.io/badge/Architecture-Static%20PWA%20%7C%20Offline--Ready-purple?style=for-the-badge)](service-worker.js)
 [![PageSpeed](https://img.shields.io/badge/PageSpeed-100%2F100%20Zero%20CLS-00C853?style=for-the-badge)](CHANGELOG.md)
@@ -42,9 +42,12 @@ Website ini menyajikan informasi lengkap mengenai:
 - Profil, sejarah, visi, misi, dan struktur organisasi fakultas.
 - Program studi unggulan S1 Informatika, S1 Sistem dan Teknologi Informasi (SISTEKIN), dan S1 Bisnis Digital (BISDIG).
 - Direktori interaktif dosen dan peneliti beserta publikasi ilmiah, NUPTK, dan tautan pangkalan data (*SINTA, Google Scholar, ORCID, Scopus*).
+- **Tabel agregat Penelitian dan Pengabdian kepada Masyarakat** seluruh dosen FSTI dalam satu halaman masing-masing (600+ entri penelitian, 100+ entri pengabdian) dengan filter nama dosen, sorting tahun, dan tombol salin sitasi.
+- **Direktori Kerjasama Fakultas** (10 mitra: perguruan tinggi luar negeri, industri, dan lembaga pendidikan) dalam susunan kartu logo visual.
+- **Galeri Prestasi Fakultas** — baik akademik maupun non-akademik — dari tingkat lokal hingga internasional.
 - Direktori interaktif dan cerita inspiratif lulusan/alumni FSTI dari berbagai industri.
 - Panduan, jalur, kelas (*Reguler A / Karyawan B / Transfer D3*), dan beasiswa Penerimaan Mahasiswa Baru (PMB).
-- Pusat unduhan dokumen resmi kurikulum, pedoman skripsi, dan pedoman PKL.
+- Pusat unduhan dokumen resmi fakultas (Buku KPT Teknik Informatika 2023 tersedia; Pedoman Skripsi & Pedoman PKL berstatus *Segera Hadir* sembari menunggu finalisasi dokumen resmi).
 
 ---
 
@@ -52,12 +55,12 @@ Website ini menyajikan informasi lengkap mengenai:
 
 ### 1. 100% Self-Hosted & Aset Lokal Mandiri (*Zero External Dependencies*)
 - **Tipografi Lokal (`assets/fonts/`)**: Menggunakan font super ringan `.woff2` (*Inter* dan *Plus Jakarta Sans*) dengan `font-display: swap` yang dimuat secara lokal lewat `@font-face`. Tidak membutuhkan koneksi CDN Google Fonts, menghasilkan waktu muat *First Contentful Paint* di bawah 0.5 detik.
-- **Pustaka Ikon Lokal (`js/lucide.min.js`)**: Seluruh 157+ ikon antarmuka ditenagai oleh mesin ikon lokal Lucide (`data-lucide="..."`) yang dikombinasikan dengan *Inline SVG* murni (khusus ikon merek seperti TikTok), membuat web bekerja 100% *offline-ready*.
-- **Next-Gen Imagery (`assets/images/`)**: Seluruh 61+ foto dosen, alumni, fasilitas, kegiatan, dan mitra telah dikompresi dalam format `.webp` beresolusi tinggi.
+- **Pustaka Ikon Lokal (`js/lucide.min.js`)**: Seluruh 55+ ikon antarmuka ditenagai oleh mesin ikon lokal Lucide (`data-lucide="..."`) yang dikombinasikan dengan *Inline SVG* murni (khusus ikon merek seperti TikTok), membuat web bekerja 100% *offline-ready*.
+- **Next-Gen Imagery (`assets/images/`)**: Seluruh 60+ foto dosen, alumni, fasilitas, kegiatan, logo, dan mitra telah dikompresi dalam format `.webp` beresolusi tinggi.
 
 ### 2. Sistem Preloader Cerdas & Keamanan Aset (*AssetGuard / Fail-Closed Guard*)
-- **Sensor Validasi Real-Time (`js/asset-guard.js`)**: Setiap kali halaman dibuka, sistem memverifikasi integritas `style.css`, `lucide.min.js`, `script.js`, data global JS (`alumniData` / `dosenData`), dan gambar utama (Logo).
-- **Progressive Web App (`service-worker.js` & `manifest.json`)**: Dilengkapi mesin *Cache-First Service Worker v2026.7* yang menyimpan seluruh berkas HTML, CSS, JS, font, dan gambar WebP ke dalam *Cache Storage* peramban. Website dapat di-install sebagai aplikasi desktop/mobile dan bekerja 100% offline di dalam mode pesawat.
+- **Sensor Validasi Real-Time (`js/asset-guard.js`)**: Setiap kali halaman dibuka, sistem memverifikasi integritas `style.css`, `lucide.min.js`, `script.js`, data global JS (`alumniData` / `dosenData`, serta `FSTI_KERJASAMA` / `FSTI_PRESTASI` pada halaman Kerjasama & Prestasi), dan gambar utama (Logo).
+- **Progressive Web App (`service-worker.js` & `manifest.json`)**: Dilengkapi mesin *Cache-First Service Worker v2026.15* yang menyimpan seluruh berkas HTML, CSS, JS, font, dan gambar WebP ke dalam *Cache Storage* peramban. Website dapat di-install sebagai aplikasi desktop/mobile dan bekerja 100% offline di dalam mode pesawat.
 - **Zero Layout Shift & Native Lazy Loading**: Seluruh gambar dipasangi atribut `width`, `height`, `loading="lazy"`, dan `decoding="async"`, menjamin stabilitas tata letak (CLS = 0.00) dan skor performa 100/100 di Google PageSpeed Insights.
 - **Mekanisme *Fail-Closed* Elegan**: Jika seluruh aset terverifikasi utuh, layar penahan memudar halus (`opacity: 0`). Jika ada satu saja aset yang rusak/hilang (`404 Not Found`), sistem langsung mengunci layar dengan pesan error putih bersih bergaya FSTI (**"Sistem Tidak Tersedia"**) tanpa membocorkan struktur path server atau keterangan teknis.
 
@@ -78,6 +81,12 @@ Website ini menyajikan informasi lengkap mengenai:
 - **Sensasi Tekan Taktil (`scale(.98)`)**: Tombol dan kartu interaktif sedikit mengecil elastis memberi efek fisik nyata saat ditekan baik di Desktop maupun Mobile.
 - **Galeri Non-Stop Auto-Scroll (`#galeri-scroll`)**: Galeri foto kegiatan mengalir mulus tanpa henti (*continuous infinite auto-scroll*) tanpa efek pembesaran/zoom atau jeda saat disentuh.
 
+### 6. Halaman Agregat Akademik: Penelitian, Pengabdian, Kerjasama & Prestasi
+- **Mesin Tabel Agregat (`js/karya-agregat.js` + `js/util-tabel.js`)**: Halaman `penelitian.html` dan `pengabdian.html` mengagregasi otomatis ratusan karya seluruh dosen dari `js/dosen-data.js` (kolom `jenis`) menjadi satu tabel per halaman — 617 entri penelitian (2003–2026) dan 108 entri pengabdian (2010–2026). Dilengkapi pencarian, filter nama dosen (dropdown dibangun dinamis dari data), sorting tahun (klik kepala kolom/dropdown), pemuatan bertahap 60 baris, dan tombol ikon **salin sitasi** per baris (Clipboard API + fallback `execCommand`, umpan balik ikon & toast).
+- **Direktori Kartu Mitra (`kerjasama.html`)**: Kesepuluh mitra fakultas (7 luar negeri, 3 dalam negeri — sinkron dengan statistik Beranda) tampil sebagai grid kartu logo dengan badge jenis & ruang lingkup (otomatis dari negara), bentuk dokumen, status, tautan situs resmi, pencarian, filter jenis, dan sorting nama.
+- **Galeri Kartu Prestasi (`prestasi.html`)**: Prestasi di bawah fakultas baik **Akademik maupun Non-Akademik** tampil sebagai arsip kartu horizontal — foto dokumentasi (badge tahun, terhubung *lightbox* global), narasi keterangan per prestasi (kolom `keterangan`), dan tautan sumber berita resmi (kolom `sumber`, cth: berita resmi widyagama.ac.id) — dilengkapi badge kategori & tingkat (Lokal → Internasional), chip filter kategori, filter tingkat, sorting tahun, dan statistik otomatis. Susunannya sengaja dibedakan dari seksi "Sorotan Prestasi" di Beranda yang bersifat ringkas.
+- **Data Terpisah & Mudah Dirawat**: Kerjasama dan Prestasi dikelola lewat `js/kerjasama-data.js` (`window.FSTI_KERJASAMA`) dan `js/prestasi-data.js` (`window.FSTI_PRESTASI`); statistik ringkas, opsi filter, dan jumlah entri di seluruh halaman menyesuaikan isi data secara otomatis tanpa perlu menyunting HTML.
+
 ---
 
 ## 📄 Halaman Website
@@ -86,10 +95,14 @@ Website ini menyajikan informasi lengkap mengenai:
 |---|---|---|
 | **Beranda** | `index.html` | Portal utama; Hero fluid typography, kutipan Dekan, 3 prodi unggulan, sorotan prestasi, galeri auto-scroll non-stop, dan testimoni alumni. |
 | **Profil Fakultas** | `tentang.html` | Sejarah, visi-misi, struktur organisasi, profil kepemimpinan (dengan data resmi NUPTK), serta sarana fasilitas laboratorium/ruang kelas. |
-| **Direktori Dosen** | `direktori-dosen.html` | Direktori interaktif pengajar/peneliti FSTI dilengkapi pencarian RAM instan, filter jenis & database karya ilmiah, serta modal biodata lengkap. |
-| **Direktori Alumni** | `alumni.html` | Direktori lulusan FSTI dari berbagai angkatan/instansi dilengkapi pencarian RAM instan, filter prodi, dan modal cerita testimoni. |
+| **Direktori Dosen** | `direktori-dosen.html` | Direktori interaktif 14 pengajar/peneliti FSTI dilengkapi pencarian RAM instan, filter jenis & database karya ilmiah, serta modal biodata lengkap. |
+| **Penelitian Dosen** | `penelitian.html` | Tabel agregat 617 karya penelitian (2003–2026) seluruh dosen FSTI dalam satu halaman; filter nama dosen, sorting tahun (klik kolom/pilihan), muat bertahap, dan tombol ikon salin sitasi per baris. |
+| **Pengabdian Masyarakat** | `pengabdian.html` | Tabel agregat 108 karya pengabdian kepada masyarakat (2010–2026) seluruh dosen FSTI dalam satu halaman; fitur filter, sorting, dan salin sitasi serupa halaman Penelitian. |
+| **Kerjasama Fakultas** | `kerjasama.html` | Grid kartu 10 mitra kerjasama fakultas (7 perguruan tinggi luar negeri & program global, 3 mitra dalam negeri) dengan logo mitra, badge jenis & ruang lingkup, status dokumen, tautan situs resmi, filter jenis, pencarian, dan sorting nama. |
+| **Prestasi Fakultas** | `prestasi.html` | Arsip prestasi di bawah fakultas — akademik & non-akademik — dalam kartu horizontal: foto dokumentasi (lightbox), narasi keterangan tiap prestasi, tautan sumber berita resmi, chip filter kategori, filter tingkat, pencarian, dan sorting tahun. Sengaja dibedakan dari seksi "Sorotan Prestasi" Beranda yang ringkas. |
+| **Direktori Alumni** | `alumni.html` | Direktori 15 lulusan FSTI dari berbagai angkatan/instansi dilengkapi pencarian RAM instan, filter prodi, dan modal cerita testimoni. |
 | **Penerimaan Mahasiswa Baru** | `pmb.html` | Informasi jalur pendaftaran, 4 langkah alur SPMB, jadwal kelas (Reguler A / Karyawan B / Transfer D3 / RPL), rincian biaya, dan 3 program beasiswa. |
-| **Pusat Unduhan & Dokumen** | `pusat-unduhan.html` | Pustaka dokumen resmi fakultas; menyediakan unduhan langsung file PDF Buku KPT, Pedoman PKL, dan Pedoman Skripsi. |
+| **Pusat Unduhan & Dokumen** | `pusat-unduhan.html` | Pustaka dokumen resmi fakultas; Pedoman Skripsi & Pedoman PKL berstatus *Segera Hadir* sembari menunggu finalisasi dokumen resmi. |
 | **S1 Informatika** | `prodi/informatika.html` | Profil prodi berakreditasi Baik Sekali; fokus *Intelligent System*, 3 peminatan, sebaran mata kuliah, prospek karier, dan fasilitas lab jaringan/komputer. |
 | **S1 Sistem dan Teknologi Informasi** | `prodi/sistem-teknologi-informasi.html` | Profil prodi SISTEKIN; fokus sistem cerdas berbasis AI, IoT, multimedia, UX, gamifikasi, mata kuliah unggulan, dan prospek karier. |
 | **S1 Bisnis Digital** | `prodi/bisnis-digital.html` | Profil prodi BISDIG; fokus *Technology-Driven Digital Business*, 4 peminatan/konsentrasi, mata kuliah inovasi startup, dan prospek karier global. |
@@ -101,6 +114,8 @@ Website ini menyajikan informasi lengkap mengenai:
 ```text
 project-fsti-rapi/
 ├── index.html, tentang.html, direktori-dosen.html, alumni.html, pmb.html, pusat-unduhan.html
+├── penelitian.html, pengabdian.html          # Tabel agregat karya dosen (Penelitian / Pengabdian)
+├── kerjasama.html, prestasi.html             # Grid kartu mitra kerjasama Fakultas & daftar prestasi
 ├── README.md                                 # Dokumentasi & panduan arsitektur project
 ├── CHANGELOG.md                              # Log resmi riwayat pembaruan & revisi kode
 ├── prodi/
@@ -114,7 +129,11 @@ project-fsti-rapi/
 │   ├── lucide.min.js                         # Pustaka ikon lokal mandiri (Offline Lucide)
 │   ├── script.js                             # Mesin interaksi, carousel a11y, & scroll history
 │   ├── alumni-data.js                        # Pangkalan data 15+ alumni (window.FSTI_ALUMNI)
-│   └── dosen-data.js                         # Pangkalan data 14+ dosen & karya (window.FSTI_DOSEN)
+│   ├── dosen-data.js                         # Pangkalan data 14+ dosen & karya (window.FSTI_DOSEN)
+│   ├── kerjasama-data.js                     # Pangkalan data kerjasama fakultas (window.FSTI_KERJASAMA)
+│   ├── prestasi-data.js                      # Pangkalan data prestasi fakultas (window.FSTI_PRESTASI)
+│   ├── util-tabel.js                         # Util tabel agregat: esc, toast, & salin-clipboard
+│   └── karya-agregat.js                      # Mesin tabel agregat karya (dipakai Penelitian & Pengabdian)
 ├── data/
 │   ├── biodata-dosen.csv                     # Arsip CSV biodata dosen
 │   ├── alumni.csv                            # Arsip CSV data alumni
@@ -124,8 +143,6 @@ project-fsti-rapi/
     │   ├── inter-latin.woff2                 # Font lokal Inter (Regular, Medium, SemiBold)
     │   └── plus-jakarta-sans-latin.woff2     # Font lokal Plus Jakarta Sans (SemiBold, Bold, ExtraBold)
     ├── docs/
-    │   ├── pedoman-skripsi-fsti.pdf          # Dokumen PDF Pedoman Skripsi FSTI
-    │   ├── pedoman-pkl-fsti.pdf              # Dokumen PDF Pedoman PKL / Magang FSTI
     │   └── buku-kpt-teknik-informatika-2023.pdf # Dokumen PDF Kurikulum Pendidikan Tinggi TI
     └── images/
         ├── favicon.png                       # Ikon tab browser resmi FSTI
@@ -133,7 +150,7 @@ project-fsti-rapi/
         ├── org-p8-0.webp                     # Bagan struktur organisasi fakultas (.webp)
         ├── dosen/                            # 14 foto profil dosen (.webp)
         ├── alumni/                           # 15 foto profil alumni (.webp)
-        ├── fasilitas/                        # 8 foto laboratorium & ruang kelas (.webp)
+        ├── fasilitas/                        # 7 foto laboratorium & ruang kelas (.webp)
         ├── kegiatan/                         # 12 foto kegiatan akademik & prestasi (.webp)
         └── mitra/                            # 10 logo mitra universitas & perusahaan (.webp)
 ```
@@ -147,9 +164,9 @@ project-fsti-rapi/
 | **Core Structure** | HTML5 Semantic & WCAG 2.1 AA | Arsitektur semantik (`role`, `aria-*`, landmark navigation, dan `tabindex` management). |
 | **Styling & Design** | Tailwind CSS v3 (CDN) + Custom CSS3 | Desain responsif, fluid typography, flex/grid adaptif, dan variabel warna brand FSTI (`#5B2A7E` & `#F18602`). |
 | **Interactivity Engine** | Vanilla JavaScript (ES6+) | Tanpa jQuery atau framework berat. Menggunakan `IntersectionObserver`, `history.pushState`, dan DOM manipulation murni. |
-| **Iconography** | Lucide Icons (`lucide.min.js`) + Inline SVG | 157+ ikon vektor lokal beresolusi tinggi + SVG murni untuk ikon merek (TikTok). |
+| **Iconography** | Lucide Icons (`lucide.min.js`) + Inline SVG | 55+ ikon vektor lokal beresolusi tinggi + SVG murni untuk ikon merek (TikTok). |
 | **Typography** | Local Self-Hosted Google Fonts (`.woff2`) | Font *Plus Jakarta Sans* (Heading) dan *Inter* (Body) dimuat 100% lokal. |
-| **Data Architecture** | In-Memory JS Objects (`alumni-data.js` & `dosen-data.js`) | Penyimpanan dan pemilahan data langsung di RAM browser dengan cadangan arsip `.csv`. |
+| **Data Architecture** | In-Memory JS Objects (`alumni-data.js`, `dosen-data.js`, `kerjasama-data.js`, `prestasi-data.js`) | Penyimpanan dan pemilahan data langsung di RAM browser dengan cadangan arsip `.csv`. Agregasi karya dosen otomatis via `karya-agregat.js` + util bersama `util-tabel.js`. |
 
 ---
 
@@ -224,7 +241,7 @@ Setiap tombol Utama (Solid) maupun Kedua (Outline) wajib memenuhi kesamaan fisik
   * **Judul Utama (H1)**: Menggunakan warna putih bersih seutuhnya (`text-white font-extrabold`). Dari segi ketentuan isi, wajib menyebutkan nama halaman dengan jelas (contoh: "Profil ") diikuti nama lengkap fakultas ("Fakultas Sains dan Teknologi Informasi") demi menjaga formalitas akademik dan kejelasan topik.
   * **Kalimat Deskripsi (P)**: Menggunakan warna Oranye FSTI penuh (**`text-[#F18602] font-medium`**) agar memberikan kontras warna yang menonjol dan berkarakter kuat. Dari segi ketentuan isi, wajib berupa **satu kalimat ringkas** yang merangkum isi halaman secara spesifik dan wajib diakhiri dengan penyebutan nama institusi resmi secara lengkap (**"FSTI Universitas Widya Gama Malang"** atau **"FSTI UWG Malang"**) sebagai jangkar branding yang kokoh.
   * **Bar Statistik Hero (Hero Stats Bar) [Opsional]**: Ringkasan angka kunci halaman di dalam hero, tepat di bawah deskripsi. Ketentuan:
-    * **Cakupan**: Hanya untuk halaman berjenis **profil/identitas** (halaman Program Studi dan Profil Fakultas). Halaman fungsional (PMB, Direktori Dosen, Alumni, Pusat Unduhan) **tidak** menggunakannya karena data ringkasnya sudah tampil di toolbar/kontennya.
+    * **Cakupan**: Hanya untuk halaman berjenis **profil/identitas** (halaman Program Studi dan Profil Fakultas). Halaman fungsional (PMB, Direktori Dosen, Alumni, Pusat Unduhan, Penelitian, Pengabdian, Kerjasama, Prestasi) **tidak** menggunakannya karena data ringkasnya sudah tampil di toolbar/kontennya.
     * **Jumlah**: Maksimal 5 statistik. Seluruh angka wajib nyata dan terverifikasi dari data resmi (CSV/data JS/konten resmi halaman), label menyesuaikan konteks tiap halaman (cth: "Peminatan" di TI/BISDIG, "Area Fokus" di SISTEKIN).
     * **Struktur**: Berada di dalam container `.reveal` hero, diawali garis pemisah tipis `border-t border-white/10` dengan jarak `mt-10 md:mt-12 pt-8`.
     * **Gaya Angka & Label**: Angka `text-2xl md:text-3xl font-extrabold text-white`; label `text-[11px] md:text-xs font-bold uppercase tracking-wider text-[#F18602] mt-1`.
@@ -246,8 +263,16 @@ Setiap awal seksi informasi besar wajib diawali dengan struktur judul seksi teng
 * **Pembungkus Utama**: Seluruh elemen di atas wajib dibungkus dalam satu kontainer div ber-kelas **`text-center reveal`** agar lurus di tengah secara sempurna dan memudar masuk secara lembut.
 
 ### 10. Header & Footer
-* **Header Navigasi**: Wajib menggunakan struktur navigasi yang sama persis di semua halaman, baik mode Desktop maupun urutan Mobile (**Beranda → Tentang Kami → Program Studi → Akademik → Alumni → PMB**).
-* **Footer**: Wajib menggunakan **Footer 4-Kolom** yang identik dengan halaman beranda di bagian paling bawah.
+* **Header Navigasi**: Wajib menggunakan struktur navigasi yang sama persis di semua halaman, baik mode Desktop maupun urutan Mobile, dengan susunan lengkap sebagai berikut:
+  * **Beranda** (tautan langsung).
+  * **Tentang Kami ▾** (dropdown): Profil Fakultas — beserta sub-tautan Sejarah, Visi Misi & Tujuan, Struktur Organisasi, Kepemimpinan Fakultas, Fasilitas Fakultas — serta Direktori Dosen & Peneliti.
+  * **Program Studi ▾** (dropdown): S1 Informatika, S1 Sistem dan Teknologi Informasi, S1 Bisnis Digital.
+  * **Akademik ▾** (dropdown): Pusat Unduhan & Dokumen, **Kerjasama**, **Prestasi**.
+  * **Penelitian** (tautan langsung) dan **Pengabdian** (tautan langsung).
+  * **Alumni** (tautan langsung).
+  * **PMB** (tautan langsung).
+  * Pada halaman yang berada di dalam dropdown (mis. Kerjasama/Prestasi), tautan aktif ditandai `aria-current="page"` dan label menu induk (mis. "Akademik") diberi warna oranye sebagai penanda posisi pengguna.
+* **Footer**: Wajib menggunakan **Footer 4-Kolom** yang identik dengan halaman beranda di bagian paling bawah, dengan kolom *Layanan* yang memuat tautan ke seluruh halaman fungsional (Pusat Unduhan, Direktori Dosen, Penelitian Dosen, Pengabdian Masyarakat, Kerjasama Fakultas, Prestasi, dan Tracer Study Alumni).
 
 ---
 
@@ -257,13 +282,19 @@ Website ini menggunakan arsitektur penyimpanan data langsung di dalam memori Jav
 
 ### Sumber Data Utama:
 1. **`js/alumni-data.js`**: Menyimpan array `window.FSTI_ALUMNI` (beserta alias `window.alumniData`) yang berisi informasi 15+ lulusan FSTI beserta jabatan, instansi, testimoni, foto `.webp`, dan tautan email/LinkedIn.
-2. **`js/dosen-data.js`**: Menyimpan array `window.FSTI_DOSEN` (beserta alias `window.dosenData`) yang berisi informasi 14+ dosen & peneliti FSTI beserta NUPTK, NIDN, jabatan fungsional, bidang keahlian, foto `.webp`, daftar karya ilmiah, serta tautan SINTA, Google Scholar, ORCID, Scopus, dan Garuda.
+2. **`js/dosen-data.js`**: Menyimpan array `window.FSTI_DOSEN` (beserta alias `window.dosenData`) yang berisi informasi 14+ dosen & peneliti FSTI beserta NUPTK, NIDN, jabatan fungsional, bidang keahlian, foto `.webp`, daftar karya ilmiah, serta tautan SINTA, Google Scholar, ORCID, Scopus, dan Garuda. **Penting:** halaman `penelitian.html` dan `pengabdian.html` mengagregasi otomatis dari array `karya` di berkas ini (kolom `jenis`: `"Penelitian"` / `"Pengabdian Masyarakat"`) — tidak perlu mengelola data terpisah untuk kedua halaman tersebut.
+3. **`js/kerjasama-data.js`**: Menyimpan array `window.FSTI_KERJASAMA` berisi daftar kerjasama fakultas (mitra, jenis, negara, bentuk, bidang, periode, status, logo, tautan) yang dirender oleh `kerjasama.html`.
+4. **`js/prestasi-data.js`**: Menyimpan array `window.FSTI_PRESTASI` berisi daftar prestasi akademik & non-akademik (tahun, nama prestasi, kategori, tingkat, peraih, asal, penyelenggara, foto) yang dirender oleh `prestasi.html`.
 
 ### Cara Memperbarui Data Dosen / Alumni:
 1. Buka berkas `js/alumni-data.js` atau `js/dosen-data.js` menggunakan editor kode (*VS Code* / *Sublime*).
 2. Tambahkan atau edit objek JSON di dalam array yang sesuai. Pastikan format sintaks JSON akurat.
 3. Simpan berkas (`Ctrl+S` / `Cmd+S`). Perubahan akan langsung muncul secara seketika di website saat dimuat ulang, dan sistem *AssetGuard* otomatis memvalidasi strukturnya.
 4. *(Opsional)* Untuk keperluan arsip administratif, Anda dapat memperbarui salinan berkas `.csv` di dalam folder `data/` (`biodata-dosen.csv` / `alumni.csv`).
+
+### Cara Memperbarui Data Kerjasama / Prestasi:
+1. Buka berkas `js/kerjasama-data.js` atau `js/prestasi-data.js` (struktur kolom dijelaskan di komentar kepala masing-masing berkas).
+2. Tambahkan/edit objek pada array, lalu simpan. Grid kartu di halaman terkait, statistik ringkas, serta opsi filter otomatis menyesuaikan isi data.
 
 ---
 
