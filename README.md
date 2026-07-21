@@ -87,6 +87,10 @@ Website ini menyajikan informasi lengkap mengenai:
 | **Beranda** | `index.html` | Portal utama; Hero fluid typography, kutipan Dekan, 3 prodi unggulan, sorotan prestasi, galeri auto-scroll non-stop, dan testimoni alumni. |
 | **Profil Fakultas** | `tentang.html` | Sejarah, visi-misi, struktur organisasi, profil kepemimpinan (dengan data resmi NUPTK), serta sarana fasilitas laboratorium/ruang kelas. |
 | **Direktori Dosen** | `direktori-dosen.html` | Direktori interaktif pengajar/peneliti FSTI dilengkapi pencarian RAM instan, filter jenis & database karya ilmiah, serta modal biodata lengkap. |
+| **Penelitian Dosen** | `penelitian.html` | Tabel agregat seluruh karya penelitian dosen FSTI dalam satu halaman; filter nama dosen, sorting tahun (klik kolom/pilihan), muat bertahap, dan tombol ikon salin sitasi per baris. |
+| **Pengabdian Masyarakat** | `pengabdian.html` | Tabel agregat seluruh karya pengabdian kepada masyarakat dosen FSTI dalam satu halaman; fitur filter, sorting, dan salin sitasi serupa halaman Penelitian. |
+| **Kerjasama Fakultas** | `kerjasama.html` | Tabel daftar seluruh kerjasama fakultas (industri, perguruan tinggi dalam/luar negeri, lembaga pendidikan) lengkap dengan logo mitra, filter jenis, pencarian, dan tombol salin ringkasan. |
+| **Prestasi Fakultas** | `prestasi.html` | Tabel daftar prestasi di bawah fakultas — akademik & non-akademik — dengan filter kategori, filter tingkat (lokal→internasional), sorting tahun, foto dokumentasi, dan tombol salin ringkasan. |
 | **Direktori Alumni** | `alumni.html` | Direktori lulusan FSTI dari berbagai angkatan/instansi dilengkapi pencarian RAM instan, filter prodi, dan modal cerita testimoni. |
 | **Penerimaan Mahasiswa Baru** | `pmb.html` | Informasi jalur pendaftaran, 4 langkah alur SPMB, jadwal kelas (Reguler A / Karyawan B / Transfer D3 / RPL), rincian biaya, dan 3 program beasiswa. |
 | **Pusat Unduhan & Dokumen** | `pusat-unduhan.html` | Pustaka dokumen resmi fakultas; menyediakan unduhan langsung file PDF Buku KPT, Pedoman PKL, dan Pedoman Skripsi. |
@@ -101,6 +105,8 @@ Website ini menyajikan informasi lengkap mengenai:
 ```text
 project-fsti-rapi/
 ├── index.html, tentang.html, direktori-dosen.html, alumni.html, pmb.html, pusat-unduhan.html
+├── penelitian.html, pengabdian.html          # Tabel agregat karya dosen (Penelitian / Pengabdian)
+├── kerjasama.html, prestasi.html             # Tabel kerjasama Fakultas & daftar prestasi
 ├── README.md                                 # Dokumentasi & panduan arsitektur project
 ├── CHANGELOG.md                              # Log resmi riwayat pembaruan & revisi kode
 ├── prodi/
@@ -114,7 +120,11 @@ project-fsti-rapi/
 │   ├── lucide.min.js                         # Pustaka ikon lokal mandiri (Offline Lucide)
 │   ├── script.js                             # Mesin interaksi, carousel a11y, & scroll history
 │   ├── alumni-data.js                        # Pangkalan data 15+ alumni (window.FSTI_ALUMNI)
-│   └── dosen-data.js                         # Pangkalan data 14+ dosen & karya (window.FSTI_DOSEN)
+│   ├── dosen-data.js                         # Pangkalan data 14+ dosen & karya (window.FSTI_DOSEN)
+│   ├── kerjasama-data.js                     # Pangkalan data kerjasama fakultas (window.FSTI_KERJASAMA)
+│   ├── prestasi-data.js                      # Pangkalan data prestasi fakultas (window.FSTI_PRESTASI)
+│   ├── util-tabel.js                         # Util tabel agregat: esc, toast, & salin-clipboard
+│   └── karya-agregat.js                      # Mesin tabel agregat karya (dipakai Penelitian & Pengabdian)
 ├── data/
 │   ├── biodata-dosen.csv                     # Arsip CSV biodata dosen
 │   ├── alumni.csv                            # Arsip CSV data alumni
@@ -257,13 +267,19 @@ Website ini menggunakan arsitektur penyimpanan data langsung di dalam memori Jav
 
 ### Sumber Data Utama:
 1. **`js/alumni-data.js`**: Menyimpan array `window.FSTI_ALUMNI` (beserta alias `window.alumniData`) yang berisi informasi 15+ lulusan FSTI beserta jabatan, instansi, testimoni, foto `.webp`, dan tautan email/LinkedIn.
-2. **`js/dosen-data.js`**: Menyimpan array `window.FSTI_DOSEN` (beserta alias `window.dosenData`) yang berisi informasi 14+ dosen & peneliti FSTI beserta NUPTK, NIDN, jabatan fungsional, bidang keahlian, foto `.webp`, daftar karya ilmiah, serta tautan SINTA, Google Scholar, ORCID, Scopus, dan Garuda.
+2. **`js/dosen-data.js`**: Menyimpan array `window.FSTI_DOSEN` (beserta alias `window.dosenData`) yang berisi informasi 14+ dosen & peneliti FSTI beserta NUPTK, NIDN, jabatan fungsional, bidang keahlian, foto `.webp`, daftar karya ilmiah, serta tautan SINTA, Google Scholar, ORCID, Scopus, dan Garuda. **Penting:** halaman `penelitian.html` dan `pengabdian.html` mengagregasi otomatis dari array `karya` di berkas ini (kolom `jenis`: `"Penelitian"` / `"Pengabdian Masyarakat"`) — tidak perlu mengelola data terpisah untuk kedua halaman tersebut.
+3. **`js/kerjasama-data.js`**: Menyimpan array `window.FSTI_KERJASAMA` berisi daftar kerjasama fakultas (mitra, jenis, negara, bentuk, bidang, periode, status, logo, tautan) yang dirender oleh `kerjasama.html`.
+4. **`js/prestasi-data.js`**: Menyimpan array `window.FSTI_PRESTASI` berisi daftar prestasi akademik & non-akademik (tahun, nama prestasi, kategori, tingkat, peraih, asal, penyelenggara, foto) yang dirender oleh `prestasi.html`.
 
 ### Cara Memperbarui Data Dosen / Alumni:
 1. Buka berkas `js/alumni-data.js` atau `js/dosen-data.js` menggunakan editor kode (*VS Code* / *Sublime*).
 2. Tambahkan atau edit objek JSON di dalam array yang sesuai. Pastikan format sintaks JSON akurat.
 3. Simpan berkas (`Ctrl+S` / `Cmd+S`). Perubahan akan langsung muncul secara seketika di website saat dimuat ulang, dan sistem *AssetGuard* otomatis memvalidasi strukturnya.
 4. *(Opsional)* Untuk keperluan arsip administratif, Anda dapat memperbarui salinan berkas `.csv` di dalam folder `data/` (`biodata-dosen.csv` / `alumni.csv`).
+
+### Cara Memperbarui Data Kerjasama / Prestasi:
+1. Buka berkas `js/kerjasama-data.js` atau `js/prestasi-data.js` (struktur kolom dijelaskan di komentar kepala masing-masing berkas).
+2. Tambahkan/edit objek pada array, lalu simpan. Tabel di halaman terkait, statistik ringkas, serta opsi filter otomatis menyesuaikan isi data.
 
 ---
 

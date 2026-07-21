@@ -852,3 +852,12 @@ img[data-modal="true"]:active {
     transform: scale(0.98) !important;
     filter: brightness(0.92) !important;
 }
+
+/* ==========================================================================
+   TABEL AGREGAT — Umpan balik tombol salin (js/util-tabel.js)
+   ========================================================================== */
+.fsti-copy-ok {
+    background-color: #DCFCE7 !important;
+    border-color: #4ADE80 !important;
+    color: #15803D !important;
+}

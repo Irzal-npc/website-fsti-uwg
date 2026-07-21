@@ -4,6 +4,30 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-21] - Menu Baru: Halaman Penelitian, Pengabdian, Kerjasama & Prestasi (Tabel Agregat)
+
+#### Ditambahkan (4 Halaman Baru)
+- **`penelitian.html` — Tabel Agregat Penelitian Seluruh Dosen FSTI**: Satu halaman tampilan tabel yang mengagregasi otomatis 600+ karya berjenis `Penelitian` dari seluruh 14 dosen (sumber tunggal: `window.FSTI_DOSEN` di `js/dosen-data.js`). Fitur: filter berdasarkan nama dosen (dropdown berisi seluruh dosen + jumlah karya), pencarian bebas (judul/dosen/prodi/tahun), **sorting tahun** (klik kepala kolom "Tahun" atau pilihan sortir, indikator `aria-sort` + ikon chevron), sortir bonus Judul & Dosen A–Z, muat bertahap 60 baris (tombol "Muat Lebih Banyak" / "Tampilkan Semua"), statistik ringkas otomatis (total entri, jumlah dosen, rentang tahun), dan **tombol ikon salin di setiap baris** (format sitasi siap tempel: *Judul. Dosen (Tahun). Terindeks: … . URL*) dengan umpan balik ikon *copy → check* dan toast.
+- **`pengabdian.html` — Tabel Agregat Pengabdian Masyarakat**: Mesin yang sama (`js/karya-agregat.js`, konfigurasi via `window.FSTI_KARYA_PAGE`) untuk karya berjenis `Pengabdian Masyarakat` (100+ entri). Data per dosen di halaman Direktori Dosen **tetap dipertahankan** apa adanya — halaman agregat hanya membaca dari sumber yang sama.
+- **`kerjasama.html` — Daftar Kerjasama Fakultas**: Tabel seluruh kemitraan fakultas (kolom: mitra + logo, jenis, bentuk, ruang lingkup, periode, status aktif, tautan resmi, salin ringkasan). Filter jenis mitra (dibangun dinamis dari data), pencarian, sortir nama/jenis, statistik total/Dalam Negeri/Luar Negeri. Data awal (`js/kerjasama-data.js`, `window.FSTI_KERJASAMA`) diselaraskan dengan galeri 10 logo mitra di Beranda; kolom nomor dokumen/periode disiapkan untuk dilengkapi fakultas sesuai arsip MoU/MoA.
+- **`prestasi.html` — Daftar Prestasi Fakultas (Akademik & Non-Akademik)**: Tabel prestasi (kolom: dokumentasi, tahun, prestasi + penyelenggara, kategori, tingkat, peraih, salin ringkasan). Filter chip *Semua/Akademik/Non-Akademik*, filter tingkat dinamis (Lokal→Internasional), sorting tahun (klik kolom/pilihan), foto dokumentasi terhubung ke lightbox modal global. Data awal (`js/prestasi-data.js`, `window.FSTI_PRESTASI`) berisi 3 prestasi resmi dari seksi Sorotan Prestasi Beranda (INOTEK 2025, IYIS #6 Malaysia 2024, Taekwondo Jatim Cup 3 2025).
+
+#### Diubah (Navigasi & Konsistensi 13 Halaman)
+- **Menu utama**: Menambahkan item **Penelitian | Pengabdian | Kerjasama | Prestasi** tepat setelah dropdown **Akademik** pada menu desktop dan menu mobile di ke-13 halaman (9 halaman lama + 4 halaman baru), sesuai permintaan pimpinan fakultas. Spasi menu desktop dirapatkan (`space-x-4 xl:space-x-6`) agar 10 item muat di layar laptop.
+- **Footer "Layanan"**: Menambahkan tautan ke 4 halaman baru di seluruh halaman.
+- **`js/util-tabel.js`** (baru): Utilitas bersama — escape HTML, toast `aria-live`, salin-clipboard (Clipboard API + fallback `execCommand`), dan delegasi global tombol `[data-copy-text]`.
+- **`js/asset-guard.js`**: Memperluas verifikasi fail-closed ke data halaman baru (`FSTI_DOSEN` untuk penelitian/pengabdian, `FSTI_KERJASAMA`, `FSTI_PRESTASI`).
+- **`css/style.css`**: Menambahkan gaya umpan balik `.fsti-copy-ok` (hijau) untuk tombol salin.
+- **`service-worker.js`**: Bump cache ke `v2026.11` dan menambahkan 4 halaman + 4 berkas JS baru ke `CORE_ASSETS` agar PWA/offline tetap utuh.
+- **`README.md`**: Mendokumentasikan 4 halaman baru, struktur folder, serta panduan pembaruan data kerjasama/prestasi.
+
+#### Diverifikasi
+- `node --check`: seluruh berkas JS baru/diubah lolos pemeriksaan sintaks.
+- Agregasi data terverifikasi: 617 entri Penelitian (2003–2026) & 108 entri Pengabdian Masyarakat (2010–2026); seluruh tahun valid 4 digit; seluruh entri memiliki tautan sumber.
+- Pemeriksa struktur tag HTML: 13/13 halaman valid tanpa tag tak seimbang dan tanpa ID duplikat.
+
+---
+
 ### [2026-07-20] - Penyempurnaan Card Peminatan: Isi Lebih Rapi + Animasi Buka/Tutup Halus
 - Isi card beraksen dan label bertitik yang lebih rapi.
 - Chevron chip sebagai penanda interaksi.
