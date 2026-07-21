@@ -287,13 +287,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalSlides = slides.length;
         let currentIndex = 0;
 
-        // Create pagination dots
-        slides.forEach((_, i) => {
+        // Create pagination dots based on visible slides per viewport
+        const visible = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+        const totalDots = Math.ceil(totalSlides / visible);
+        for (let i = 0; i < totalDots; i++) {
             const btn = document.createElement('button');
             btn.setAttribute('role', 'tab');
-            btn.setAttribute('aria-label', `Testimoni ${i + 1} dari ${totalSlides}`);
+            btn.setAttribute('aria-label', `Testimoni ${i + 1} dari ${totalDots}`);
             btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
-            btn.addEventListener('click', () => goToSlide(i));
+            btn.addEventListener('click', () => goToSlide(i * visible));
             pagination.appendChild(btn);
         });
 
@@ -320,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 track.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
             }
-            updateDots(index);
+            updateDots(Math.floor(index / visible));
         }
 
         // Navigation tetap tersedia lewat swipe, scroll, keyboard, dan pagination dots.
