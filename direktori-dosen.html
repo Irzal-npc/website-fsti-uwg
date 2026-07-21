@@ -18,7 +18,7 @@
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#5B2A7E">
 
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/tailwind.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-white overflow-x-hidden">
@@ -166,7 +166,7 @@
         </div>
     </header>
     <!-- Internal Page Hero -->
-    <section id="main-content" tabindex="-1" class="internal-hero relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#1A1026]">
+    <section id="main-content" role="main" tabindex="-1" class="internal-hero relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#1A1026]">
         <div class="absolute inset-0 z-0 pointer-events-none">
             <div class="absolute inset-0 bg-[#5B2A7E]"></div>
             <div class="absolute inset-0 opacity-[0.12]" style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 40px 40px;"></div>
@@ -192,7 +192,7 @@
         <div class="relative container mx-auto px-6 max-w-6xl">
             <!-- Judul seksi terpusat (standar README: eyebrow → H2 → garis) -->
             <div class="text-center reveal mb-10">
-                <span class="inline-block text-[#D97200] text-xs font-bold uppercase tracking-[0.2em] mb-3">Direktori</span>
+                <span class="inline-block text-[#C2410C] text-xs font-bold uppercase tracking-[0.2em] mb-3">Direktori</span>
                 <h2 class="text-[#5B2A7E] text-3xl md:text-4xl font-extrabold mb-4">Tim Dosen &amp; Peneliti</h2>
                 <div class="w-20 h-1.5 bg-[#F18602] mx-auto rounded-full"></div>
             </div>
@@ -204,7 +204,7 @@
                         <input id="dosen-search" type="search" placeholder="Cari nama, keahlian, atau email…" class="w-full pl-12 pr-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#F18602] focus:outline-none text-sm text-[#1A1026]" />
                     </div>
                     <div id="dosen-filters" class="flex flex-wrap gap-2">
-                        <button type="button" data-filter="ALL" class="filter-chip px-4 py-2 rounded-full border-2 text-sm font-semibold transition-colors border-[#F18602] bg-[#FFF9F2] text-[#D97200]">Semua</button>
+                        <button type="button" data-filter="ALL" class="filter-chip px-4 py-2 rounded-full border-2 text-sm font-semibold transition-colors border-[#F18602] bg-[#FFF9F2] text-[#C2410C]">Semua</button>
                         <button type="button" data-filter="TI" class="filter-chip px-4 py-2 rounded-full border-2 text-sm font-semibold transition-colors border-gray-200 text-gray-600 hover:border-[#F18602]">TI</button>
                         <button type="button" data-filter="STEI" class="filter-chip px-4 py-2 rounded-full border-2 text-sm font-semibold transition-colors border-gray-200 text-gray-600 hover:border-[#F18602]">STEI</button>
                         <button type="button" data-filter="BD" class="filter-chip px-4 py-2 rounded-full border-2 text-sm font-semibold transition-colors border-gray-200 text-gray-600 hover:border-[#F18602]">Bisdig</button>
@@ -323,7 +323,7 @@
                     <div class="h-1.5 bg-gradient-to-r from-[#F18602] to-[#5B2A7E]"></div>
                     <div class="px-5 sm:px-6 py-4 flex items-start justify-between gap-3">
                         <div class="min-w-0">
-                            <p class="text-[11px] font-bold uppercase tracking-widest text-[#D97200] mb-1">Profil Dosen</p>
+                            <p class="text-[11px] font-bold uppercase tracking-widest text-[#C2410C] mb-1">Profil Dosen</p>
                         <h3 id="dosen-modal-title" class="font-bold text-[#1A1026] text-lg leading-snug"></h3>
                         </div>
                         <button type="button" id="dosen-modal-close" class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#F18602] hover:text-[#F18602] transition-colors" aria-label="Tutup">
@@ -386,12 +386,12 @@
             let badges = '';
             if (role.includes('dekan')) {
                 badges = '<span class="inline-flex self-start items-center h-7 px-2.5 rounded-full bg-[#F18602] text-[11px] leading-none font-bold text-white">Dekan</span>';
-                badges += '<span class="inline-flex self-start items-center h-7 px-2.5 rounded-full bg-[#FFF9F2] border border-[#F18602]/30 text-[11px] leading-none font-bold text-[#D97200] ml-1.5">Dosen</span>';
+                badges += '<span class="inline-flex self-start items-center h-7 px-2.5 rounded-full bg-[#FFF9F2] border border-[#F18602]/30 text-[11px] leading-none font-bold text-[#C2410C] ml-1.5">Dosen</span>';
             } else if (role.includes('kaprodi')) {
                 badges = '<span class="inline-flex self-start items-center h-7 px-2.5 rounded-full bg-[#5B2A7E] text-[11px] leading-none font-bold text-white">Kaprodi</span>';
-                badges += '<span class="inline-flex self-start items-center h-7 px-2.5 rounded-full bg-[#FFF9F2] border border-[#F18602]/30 text-[11px] leading-none font-bold text-[#D97200] ml-1.5">Dosen</span>';
+                badges += '<span class="inline-flex self-start items-center h-7 px-2.5 rounded-full bg-[#FFF9F2] border border-[#F18602]/30 text-[11px] leading-none font-bold text-[#C2410C] ml-1.5">Dosen</span>';
             } else {
-                badges = '<span class="inline-flex self-start items-center h-7 px-2.5 rounded-full bg-[#FFF9F2] border border-[#F18602]/30 text-[11px] leading-none font-bold text-[#D97200]">Dosen</span>';
+                badges = '<span class="inline-flex self-start items-center h-7 px-2.5 rounded-full bg-[#FFF9F2] border border-[#F18602]/30 text-[11px] leading-none font-bold text-[#C2410C]">Dosen</span>';
             }
             return badges;
         }
@@ -429,11 +429,11 @@
             } else if (role.includes('kaprodi') || role.includes('ketua program studi')) {
                 cls = 'bg-[#5B2A7E] border border-[#5B2A7E] text-white';
             } else {
-                cls = 'bg-[#FFF9F2] border border-[#F18602]/30 text-[#D97200]';
+                cls = 'bg-[#FFF9F2] border border-[#F18602]/30 text-[#C2410C]';
             }
             let badge = `<span class="inline-block mb-3 px-2.5 py-0.5 rounded-full ${cls} text-[11px] font-bold">${label}</span>`;
             if (role.includes('dekan') || role.includes('kaprodi') || role.includes('ketua program studi')) {
-                badge += `<span class="inline-block mb-3 ml-1.5 px-2.5 py-0.5 rounded-full bg-[#FFF9F2] border border-[#F18602]/30 text-[11px] font-bold text-[#D97200]">Dosen</span>`;
+                badge += `<span class="inline-block mb-3 ml-1.5 px-2.5 py-0.5 rounded-full bg-[#FFF9F2] border border-[#F18602]/30 text-[11px] font-bold text-[#C2410C]">Dosen</span>`;
             }
             return badge;
         }
@@ -488,14 +488,14 @@
             if (ranked.length === 1) {
                 const r = ranked[0];
                 const badge = r.rank < 9
-                    ? `<span class="inline-flex items-center px-2 py-0.5 mr-2 rounded-full border border-orange-100 bg-[#FFF9F2] text-[11px] font-bold text-[#D97200]">${degreeLabel(r.rank)}</span>`
+                    ? `<span class="inline-flex items-center px-2 py-0.5 mr-2 rounded-full border border-orange-100 bg-[#FFF9F2] text-[11px] font-bold text-[#C2410C]">${degreeLabel(r.rank)}</span>`
                     : '';
                 return `<p class="text-sm text-[#1A1026] leading-relaxed">${badge}${esc(r.item)}</p>`;
             }
             const items = ranked.map((r, i) => {
                 const badge = r.rank < 9 ? degreeLabel(r.rank) : String(i + 1);
                 return `<li class="flex gap-3 py-2.5 ${i < ranked.length - 1 ? 'border-b border-gray-100' : ''}">
-                    <span class="flex-shrink-0 min-w-[2rem] h-7 px-1.5 rounded-lg bg-[#FFF9F2] border border-[#F18602]/30 text-[#D97200] text-[11px] font-bold flex items-center justify-center">${badge}</span>
+                    <span class="flex-shrink-0 min-w-[2rem] h-7 px-1.5 rounded-lg bg-[#FFF9F2] border border-[#F18602]/30 text-[#C2410C] text-[11px] font-bold flex items-center justify-center">${badge}</span>
                     <span class="text-sm text-[#1A1026] leading-relaxed pt-0.5">${esc(r.item)}</span>
                 </li>`;
             }).join('');
@@ -622,14 +622,14 @@
                         badges.push(`<span class="inline-flex items-center px-2 py-0.5 rounded-full border border-gray-200 bg-gray-50 text-[11px] font-semibold text-gray-600">Tahun: ${esc(k.tahun)}</span>`);
                     }
                     if (k._jenis) {
-                        badges.push(`<span class="inline-flex items-center px-2 py-0.5 rounded-full border border-orange-100 bg-[#FFF9F2] text-[11px] font-semibold text-[#D97200]">${esc(k._jenis)}</span>`);
+                        badges.push(`<span class="inline-flex items-center px-2 py-0.5 rounded-full border border-orange-100 bg-[#FFF9F2] text-[11px] font-semibold text-[#C2410C]">${esc(k._jenis)}</span>`);
                     }
                     (k._dbs || []).forEach(db => {
                         badges.push(`<span class="inline-flex items-center px-2 py-0.5 rounded-full border border-purple-100 bg-purple-50 text-[11px] font-semibold text-[#5B2A7E]">${esc(db)}</span>`);
                     });
                     return `<li class="border-2 border-gray-200 rounded-[20px] p-4">
                         <div class="flex gap-3">
-                            <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#FFF9F2] border border-[#F18602]/30 text-[#D97200] text-[11px] font-bold flex items-center justify-center">${i + 1}</span>
+                            <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#FFF9F2] border border-[#F18602]/30 text-[#C2410C] text-[11px] font-bold flex items-center justify-center">${i + 1}</span>
                             <div class="min-w-0 flex-1">
                                 ${titleHtml}
                                 ${badges.length ? `<div class="mt-2 flex flex-wrap gap-1.5">${badges.join('')}</div>` : ''}
@@ -657,12 +657,12 @@
 
                 const jenisChips = ['Semua', ...jenisSet].map((j, i) => {
                     const on = i === 0;
-                    return `<button type="button" data-karya-jenis="${esc(j)}" class="karya-filter-jenis px-3 py-1.5 rounded-full border-2 text-[11px] font-bold transition-colors ${on ? 'border-[#F18602] bg-[#FFF9F2] text-[#D97200]' : 'border-gray-200 text-gray-600 hover:border-[#F18602]'}">${esc(j)}</button>`;
+                    return `<button type="button" data-karya-jenis="${esc(j)}" class="karya-filter-jenis px-3 py-1.5 rounded-full border-2 text-[11px] font-bold transition-colors ${on ? 'border-[#F18602] bg-[#FFF9F2] text-[#C2410C]' : 'border-gray-200 text-gray-600 hover:border-[#F18602]'}">${esc(j)}</button>`;
                 }).join('');
 
                 const dbChips = ['Semua', ...dbSet].map((db, i) => {
                     const on = i === 0;
-                    return `<button type="button" data-karya-db="${esc(db)}" class="karya-filter-db px-3 py-1.5 rounded-full border-2 text-[11px] font-bold transition-colors ${on ? 'border-[#F18602] bg-[#FFF9F2] text-[#D97200]' : 'border-gray-200 text-gray-600 hover:border-[#F18602]'}">${esc(db)}</button>`;
+                    return `<button type="button" data-karya-db="${esc(db)}" class="karya-filter-db px-3 py-1.5 rounded-full border-2 text-[11px] font-bold transition-colors ${on ? 'border-[#F18602] bg-[#FFF9F2] text-[#C2410C]' : 'border-gray-200 text-gray-600 hover:border-[#F18602]'}">${esc(db)}</button>`;
                 }).join('');
 
                 const filterBlock = (jenisSet.length || dbSet.length) ? `
@@ -765,7 +765,7 @@
                         document.querySelectorAll('.karya-filter-jenis').forEach(b => {
                             const on = b === btn;
                             b.className = 'karya-filter-jenis px-3 py-1.5 rounded-full border-2 text-[11px] font-bold transition-colors ' +
-                                (on ? 'border-[#F18602] bg-[#FFF9F2] text-[#D97200]' : 'border-gray-200 text-gray-600 hover:border-[#F18602]');
+                                (on ? 'border-[#F18602] bg-[#FFF9F2] text-[#C2410C]' : 'border-gray-200 text-gray-600 hover:border-[#F18602]');
                         });
                         applyKaryaFilter();
                     });
@@ -776,7 +776,7 @@
                         document.querySelectorAll('.karya-filter-db').forEach(b => {
                             const on = b === btn;
                             b.className = 'karya-filter-db px-3 py-1.5 rounded-full border-2 text-[11px] font-bold transition-colors ' +
-                                (on ? 'border-[#F18602] bg-[#FFF9F2] text-[#D97200]' : 'border-gray-200 text-gray-600 hover:border-[#F18602]');
+                                (on ? 'border-[#F18602] bg-[#FFF9F2] text-[#C2410C]' : 'border-gray-200 text-gray-600 hover:border-[#F18602]');
                         });
                         applyKaryaFilter();
                     });
@@ -854,7 +854,7 @@
                     const on = b === btn;
                     b.classList.toggle('border-[#F18602]', on);
                     b.classList.toggle('bg-[#FFF9F2]', on);
-                    b.classList.toggle('text-[#D97200]', on);
+                    b.classList.toggle('text-[#C2410C]', on);
                     b.classList.toggle('border-gray-200', !on);
                     b.classList.toggle('text-gray-600', !on);
                 });
@@ -877,7 +877,7 @@
             <div class="flex items-center gap-3 px-4 py-3 sm:px-5 sm:py-3.5 bg-white border-b border-gray-200 flex-shrink-0">
                 <!-- Kiri: Badge + Judul -->
                 <div class="flex-1 min-w-0 flex items-center gap-2.5">
-                    <span id="modal-category" class="inline-flex flex-shrink-0 items-center px-2 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#D97200] bg-[#FFF9F2] border border-[#F18602]/30 rounded-full leading-none">Foto</span>
+                    <span id="modal-category" class="inline-flex flex-shrink-0 items-center px-2 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#C2410C] bg-[#FFF9F2] border border-[#F18602]/30 rounded-full leading-none">Foto</span>
                     <h3 id="modal-caption" class="text-sm sm:text-base md:text-lg font-extrabold text-[#1A1026] leading-snug break-words min-w-0"></h3>
                 </div>
                 <!-- Kanan: Tombol Silang -->

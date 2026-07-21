@@ -143,7 +143,7 @@
                 + '<td class="py-3.5 px-4 text-xs text-gray-400 font-semibold align-top whitespace-nowrap">' + (idx + 1) + '</td>'
                 + '<td class="py-3.5 px-4 align-top min-w-[280px]"><span class="font-semibold text-[#1A1026] leading-snug text-sm">' + U.esc(r.judul) + '</span></td>'
                 + '<td class="py-3.5 px-4 align-top min-w-[190px]"><span class="text-sm text-[#1A1026] font-medium leading-snug">' + U.esc(r.dosen) + '</span><span class="block mt-1.5"><span class="inline-flex items-center px-2 py-0.5 rounded-full bg-purple-50 text-[#5B2A7E] border border-purple-200 text-[10px] font-bold whitespace-nowrap">' + U.esc(r.prodi) + '</span></span></td>'
-                + '<td class="py-3.5 px-4 align-top whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-1 rounded-lg bg-[#FFF9F2] border border-[#F18602]/30 text-xs font-extrabold text-[#D97200]">' + (r.tahun != null ? r.tahun : (r.tahunRaw ? U.esc(r.tahunRaw) : '—')) + '</span></td>'
+                + '<td class="py-3.5 px-4 align-top whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-1 rounded-lg bg-[#FFF9F2] border border-[#F18602]/30 text-xs font-extrabold text-[#C2410C]">' + (r.tahun != null ? r.tahun : (r.tahunRaw ? U.esc(r.tahunRaw) : '—')) + '</span></td>'
                 + '<td class="py-3.5 px-4 align-top min-w-[150px]"><div class="flex flex-wrap gap-1">' + dbChips(r.db) + '</div></td>'
                 + '<td class="py-3.5 px-4 align-top text-center">' + linkCell + '</td>'
                 + '<td class="py-3.5 px-4 align-top text-center">' + copyCell + '</td>'

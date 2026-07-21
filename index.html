@@ -14,8 +14,8 @@
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#5B2A7E">
 
-    <!-- Tailwind CSS CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS (local self-hosted build — jalankan: npm run build:css) -->
+<link rel="stylesheet" href="css/tailwind.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -164,7 +164,7 @@
         </div>
     </header>
     <!-- Hero Section (Fluid Tech Minimalist - Polished) -->
-    <section id="main-content" tabindex="-1" class="relative min-h-screen flex items-center pt-20 pb-12 overflow-hidden bg-[#1A1026]">
+    <section id="main-content" role="main" tabindex="-1" class="relative min-h-screen flex items-center pt-20 pb-12 overflow-hidden bg-[#1A1026]">
         <!-- 1. Multi-Layer Background (Visibilitas Terjaga) -->
         <div class="absolute inset-0 z-0 pointer-events-none">
             <!-- Base Layer -->
@@ -242,7 +242,7 @@
                                 </p>
                                 <div class="mb-6">
                                     <h3 class="font-bold text-[#1A1026] text-base">Fitri Marisa, S.Kom., M.Pd., Ph.D.</h3>
-                                    <p class="text-sm text-[#F18602] font-semibold uppercase tracking-wider">Dekan FSTI UWG</p>
+                                    <p class="text-sm text-[#C2410C] font-semibold uppercase tracking-wider">Dekan FSTI UWG</p>
                                 </div>
                                 <a href="tentang.html" class="inline-flex items-center gap-1 font-bold text-[#5B2A7E] hover:text-[#F18602] transition-colors">
                                     Pelajari Selengkapnya tentang FSTI
@@ -303,31 +303,31 @@
                 <div id="galeri-scroll" class="overflow-hidden" style="-webkit-overflow-scrolling: touch;">
                     <div id="galeri-track" class="flex gap-4 will-change-transform">
                         <div class="flex-shrink-0 w-64 sm:w-72 md:w-80 aspect-[3/2] rounded-2xl overflow-hidden border-2 border-gray-200">
-                            <img src="assets/images/kegiatan/kegiatan-outdoor.webp" data-modal="true" data-modal-image="assets/images/kegiatan/kegiatan-outdoor.webp" data-modal-caption="MAKRAB S1 Bisnis Digital 2025" data-modal-desc="Keseruan acara Malam Keakraban (MAKRAB) mahasiswa baru S1 Bisnis Digital tahun 2025 yang diadakan oleh Himpunan Mahasiswa Program Studi Bisnis Digital UWG Malang." data-group="kegiatan" data-section="Galeri Kegiatan Mahasiswa" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                            <img alt="MAKRAB S1 Bisnis Digital 2025" src="assets/images/kegiatan/kegiatan-outdoor.webp" data-modal="true" data-modal-image="assets/images/kegiatan/kegiatan-outdoor.webp" data-modal-caption="MAKRAB S1 Bisnis Digital 2025" data-modal-desc="Keseruan acara Malam Keakraban (MAKRAB) mahasiswa baru S1 Bisnis Digital tahun 2025 yang diadakan oleh Himpunan Mahasiswa Program Studi Bisnis Digital UWG Malang." data-group="kegiatan" data-section="Galeri Kegiatan Mahasiswa" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
                         </div>
                         <div class="flex-shrink-0 w-64 sm:w-72 md:w-80 aspect-[3/2] rounded-2xl overflow-hidden border-2 border-gray-200">
-                            <img src="assets/images/kegiatan/kelas-interaktif.webp" data-modal="true" data-modal-image="assets/images/kegiatan/kelas-interaktif.webp" data-modal-caption="Perkuliahan Interaktif & Diskusi Aktif" data-modal-desc="Suasana pembelajaran interaktif di ruang kelas FSTI, didukung fasilitas multimedia modern untuk mendukung diskusi aktif dan daya pikir kritis." data-group="kegiatan" data-section="Galeri Kegiatan Mahasiswa" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                            <img alt="Perkuliahan Interaktif & Diskusi Aktif" src="assets/images/kegiatan/kelas-interaktif.webp" data-modal="true" data-modal-image="assets/images/kegiatan/kelas-interaktif.webp" data-modal-caption="Perkuliahan Interaktif & Diskusi Aktif" data-modal-desc="Suasana pembelajaran interaktif di ruang kelas FSTI, didukung fasilitas multimedia modern untuk mendukung diskusi aktif dan daya pikir kritis." data-group="kegiatan" data-section="Galeri Kegiatan Mahasiswa" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
                         </div>
                         <div class="flex-shrink-0 w-64 sm:w-72 md:w-80 aspect-[3/2] rounded-2xl overflow-hidden border-2 border-gray-200">
-                            <img src="assets/images/kegiatan/kunjungan-kkn.webp" data-modal="true" data-modal-image="assets/images/kegiatan/kunjungan-kkn.webp" data-modal-caption="Kunjungan KKN 2026: Desa Senggreng" data-modal-desc="Kunjungan silaturahmi para dosen jajaran FSTI UWG ke lokasi Kuliah Kerja Nyata (KKN) UWG tahun 2026 di Desa Senggreng, Kabupaten Malang, guna meninjau program kerja dan memberi dukungan kepada para mahasiswa." data-group="kegiatan" data-section="Galeri Kegiatan Mahasiswa" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                            <img alt="Kunjungan KKN 2026: Desa Senggreng" src="assets/images/kegiatan/kunjungan-kkn.webp" data-modal="true" data-modal-image="assets/images/kegiatan/kunjungan-kkn.webp" data-modal-caption="Kunjungan KKN 2026: Desa Senggreng" data-modal-desc="Kunjungan silaturahmi para dosen jajaran FSTI UWG ke lokasi Kuliah Kerja Nyata (KKN) UWG tahun 2026 di Desa Senggreng, Kabupaten Malang, guna meninjau program kerja dan memberi dukungan kepada para mahasiswa." data-group="kegiatan" data-section="Galeri Kegiatan Mahasiswa" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
                         </div>
                         <div class="flex-shrink-0 w-64 sm:w-72 md:w-80 aspect-[3/2] rounded-2xl overflow-hidden border-2 border-gray-200">
-                            <img src="assets/images/kegiatan/kolaborasi-proyek.webp" data-modal="true" data-modal-image="assets/images/kegiatan/kolaborasi-proyek.webp" data-modal-caption="Kolaborasi Proyek &amp; Diskusi Tim" data-modal-desc="Mahasiswa FSTI bersama dosen pendamping berkolaborasi aktif dalam diskusi kelompok dan perancangan proyek menggunakan laptop di ruang diskusi." data-group="kegiatan" data-section="Galeri Kegiatan Mahasiswa" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                            <img alt="Kolaborasi Proyek &amp; Diskusi Tim" src="assets/images/kegiatan/kolaborasi-proyek.webp" data-modal="true" data-modal-image="assets/images/kegiatan/kolaborasi-proyek.webp" data-modal-caption="Kolaborasi Proyek &amp; Diskusi Tim" data-modal-desc="Mahasiswa FSTI bersama dosen pendamping berkolaborasi aktif dalam diskusi kelompok dan perancangan proyek menggunakan laptop di ruang diskusi." data-group="kegiatan" data-section="Galeri Kegiatan Mahasiswa" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
                         </div>
                         <div class="flex-shrink-0 w-64 sm:w-72 md:w-80 aspect-[3/2] rounded-2xl overflow-hidden border-2 border-gray-200">
-                            <img src="assets/images/kegiatan/suasana-akademik.webp" data-modal="true" data-modal-image="assets/images/kegiatan/suasana-akademik.webp" data-modal-caption="Interaksi Akademik Dosen &amp; Mahasiswa" data-modal-desc="Sesi perkuliahan dan interaksi akademik antara dosen dan mahasiswa di ruang kelas FSTI, mencerminkan kedekatan dan keaktifan proses pembelajaran." data-group="kegiatan" data-section="Galeri Kegiatan Mahasiswa" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                            <img alt="Interaksi Akademik Dosen &amp; Mahasiswa" src="assets/images/kegiatan/suasana-akademik.webp" data-modal="true" data-modal-image="assets/images/kegiatan/suasana-akademik.webp" data-modal-caption="Interaksi Akademik Dosen &amp; Mahasiswa" data-modal-desc="Sesi perkuliahan dan interaksi akademik antara dosen dan mahasiswa di ruang kelas FSTI, mencerminkan kedekatan dan keaktifan proses pembelajaran." data-group="kegiatan" data-section="Galeri Kegiatan Mahasiswa" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
                         </div>
                         <div class="flex-shrink-0 w-64 sm:w-72 md:w-80 aspect-[3/2] rounded-2xl overflow-hidden border-2 border-gray-200">
-                            <img src="assets/images/kegiatan/kegiatan-kemahasiswaan.webp" data-modal="true" data-modal-image="assets/images/kegiatan/kegiatan-kemahasiswaan.webp" data-modal-caption="MUSTIKA 2025-2026" data-modal-desc="Musyawarah Himpunan Mahasiswa Informatika (MUSTIKA) menjadi momentum evaluasi, penyampaian Laporan Pertanggungjawaban, serta pembahasan arah dan keberlanjutan organisasi untuk kepengurusan selanjutnya." data-group="kegiatan" data-section="Galeri Kegiatan Mahasiswa" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                            <img alt="MUSTIKA 2025-2026" src="assets/images/kegiatan/kegiatan-kemahasiswaan.webp" data-modal="true" data-modal-image="assets/images/kegiatan/kegiatan-kemahasiswaan.webp" data-modal-caption="MUSTIKA 2025-2026" data-modal-desc="Musyawarah Himpunan Mahasiswa Informatika (MUSTIKA) menjadi momentum evaluasi, penyampaian Laporan Pertanggungjawaban, serta pembahasan arah dan keberlanjutan organisasi untuk kepengurusan selanjutnya." data-group="kegiatan" data-section="Galeri Kegiatan Mahasiswa" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
                         </div>
                         <div class="flex-shrink-0 w-64 sm:w-72 md:w-80 aspect-[3/2] rounded-2xl overflow-hidden border-2 border-gray-200">
-                            <img src="assets/images/kegiatan/kegiatan-fakultas-full.webp" data-modal="true" data-modal-image="assets/images/kegiatan/kegiatan-fakultas-full.webp" data-modal-caption="FGD VMTS FSTI 2026" data-modal-desc="FGD perancangan Visi, Misi, Tujuan, dan Strategi (VMTS) FSTI UWG pada 5 Mei 2026 di Auditorium Kampus 3. Memantapkan arah FSTI sebagai fakultas unggul berbasis Artificial Intelligence (AI) dan technopreneurship." data-group="kegiatan" data-section="Galeri Kegiatan Mahasiswa" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                            <img alt="FGD VMTS FSTI 2026" src="assets/images/kegiatan/kegiatan-fakultas-full.webp" data-modal="true" data-modal-image="assets/images/kegiatan/kegiatan-fakultas-full.webp" data-modal-caption="FGD VMTS FSTI 2026" data-modal-desc="FGD perancangan Visi, Misi, Tujuan, dan Strategi (VMTS) FSTI UWG pada 5 Mei 2026 di Auditorium Kampus 3. Memantapkan arah FSTI sebagai fakultas unggul berbasis Artificial Intelligence (AI) dan technopreneurship." data-group="kegiatan" data-section="Galeri Kegiatan Mahasiswa" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
                         </div>
                         <div class="flex-shrink-0 w-64 sm:w-72 md:w-80 aspect-[3/2] rounded-2xl overflow-hidden border-2 border-gray-200">
-                            <img src="assets/images/kegiatan/bimbingan-akademik.webp" data-modal="true" data-modal-image="assets/images/kegiatan/bimbingan-akademik.webp" data-modal-caption="Bimbingan Akademik Berkala Dosen Wali" data-modal-desc="Sesi bimbingan akademik berkala antara dosen wali dan mahasiswa FSTI guna memantau perkembangan studi, konsultasi rencana KRS, dan mendiskusikan arah karier." data-group="kegiatan" data-section="Galeri Kegiatan Mahasiswa" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                            <img alt="Bimbingan Akademik Berkala Dosen Wali" src="assets/images/kegiatan/bimbingan-akademik.webp" data-modal="true" data-modal-image="assets/images/kegiatan/bimbingan-akademik.webp" data-modal-caption="Bimbingan Akademik Berkala Dosen Wali" data-modal-desc="Sesi bimbingan akademik berkala antara dosen wali dan mahasiswa FSTI guna memantau perkembangan studi, konsultasi rencana KRS, dan mendiskusikan arah karier." data-group="kegiatan" data-section="Galeri Kegiatan Mahasiswa" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
                         </div>
                         <div class="flex-shrink-0 w-64 sm:w-72 md:w-80 aspect-[3/2] rounded-2xl overflow-hidden border-2 border-gray-200">
-                            <img src="assets/images/kegiatan/foto-angkatan.webp" data-modal="true" data-modal-image="assets/images/kegiatan/foto-angkatan.webp" data-modal-caption="Potret Kebersamaan Satu Angkatan Mahasiswa FSTI" data-modal-desc="Momen kebersamaan dan kekompakan mahasiswa satu angkatan di Fakultas Sains dan Teknologi Informasi (FSTI) Universitas Widya Gama Malang sebagai wujud soliditas civitas akademika." data-group="kegiatan" data-section="Galeri Kegiatan Mahasiswa" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                            <img alt="Potret Kebersamaan Satu Angkatan Mahasiswa FSTI" src="assets/images/kegiatan/foto-angkatan.webp" data-modal="true" data-modal-image="assets/images/kegiatan/foto-angkatan.webp" data-modal-caption="Potret Kebersamaan Satu Angkatan Mahasiswa FSTI" data-modal-desc="Momen kebersamaan dan kekompakan mahasiswa satu angkatan di Fakultas Sains dan Teknologi Informasi (FSTI) Universitas Widya Gama Malang sebagai wujud soliditas civitas akademika." data-group="kegiatan" data-section="Galeri Kegiatan Mahasiswa" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -408,7 +408,7 @@
     <section class="py-16 md:py-20 bg-[#FFF9F2]">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 reveal">
-                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#D97200] mb-3">Program Studi</span>
+                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#C2410C] mb-3">Program Studi</span>
                 <h2 class="text-3xl md:text-5xl font-extrabold text-[#5B2A7E] mb-6">Program Studi Unggulan</h2>
                 <div class="w-20 h-1.5 bg-[#F18602] mx-auto rounded-full mb-8"></div>
                 <p class="text-gray-600 max-w-2xl mx-auto text-lg">
@@ -422,7 +422,7 @@
                         <div class="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center text-[#F18602] flex-shrink-0">
                             <i data-lucide="code" class="w-10 h-10"></i>
                         </div>
-                        <span class="px-4 py-1 rounded-full bg-orange-100 text-[#F18602] text-xs font-bold tracking-widest uppercase text-center">Akreditasi Baik Sekali</span>
+                        <span class="px-4 py-1 rounded-full bg-orange-100 text-[#C2410C] text-xs font-bold tracking-widest uppercase text-center">Akreditasi Baik Sekali</span>
                     </div>
                     <h3 class="text-2xl font-bold text-[#1A1026] mb-4">S1 Informatika</h3>
                     <p class="text-gray-600 mb-10 leading-relaxed flex-1">Fokus Intelligent System - komputasi cerdas, AI, dan rekayasa perangkat lunak untuk solusi inovatif dan aplikatif.</p>
@@ -452,7 +452,7 @@
                         <div class="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center text-[#F18602] flex-shrink-0">
                             <i data-lucide="trending-up" class="w-10 h-10"></i>
                         </div>
-                        <span class="px-4 py-1 rounded-full bg-orange-100 text-[#F18602] text-xs font-bold tracking-widest uppercase text-center">Akreditasi Baik</span>
+                        <span class="px-4 py-1 rounded-full bg-orange-100 text-[#C2410C] text-xs font-bold tracking-widest uppercase text-center">Akreditasi Baik</span>
                     </div>
                     <h3 class="text-2xl font-bold text-[#1A1026] mb-4">S1 Bisnis Digital</h3>
                     <p class="text-gray-600 mb-10 leading-relaxed flex-1">Fokus Technology-Driven Digital Business - bisnis digital, data, AI, UI/UX, kreativitas & technopreneurship global.</p>
@@ -469,7 +469,7 @@
     <section class="py-16 md:py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 reveal">
-                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#D97200] mb-3">Prestasi</span>
+                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#C2410C] mb-3">Prestasi</span>
                 <h2 class="text-3xl md:text-5xl font-extrabold text-[#5B2A7E] mb-6">Sorotan Prestasi</h2>
                 <div class="w-20 h-1.5 bg-[#F18602] mx-auto rounded-full mb-8"></div>
                 <p class="text-gray-600 max-w-2xl mx-auto text-lg">
@@ -481,10 +481,10 @@
                 <!-- Prestasi 1 -->
                 <div class="prestasi-card bg-white border-2 border-gray-200 rounded-[28px] overflow-hidden flex flex-col">
                     <div class="aspect-[3/2] border-b-2 border-[#F18602]/20 overflow-hidden">
-                        <img src="assets/images/kegiatan/prestasi-inotek.webp" data-modal="true" data-modal-image="assets/images/kegiatan/prestasi-inotek.webp" data-modal-caption="Juara 3 INOTEK 2025 (Tim HMIF)" data-modal-desc="Selamat & Sukses kepada Naufal Ibra Prasetyo, Fhadillah Ain Marpaung, dan Maria Rosalina Trisna Yangaluy (Mahasiswa Informatika & Pengurus HMIF) atas prestasinya meraih Juara 3 Lomba Inovasi Teknologi (INOTEK) Kota Malang 2025." data-group="prestasi" data-section="Sorotan Prestasi" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                        <img alt="Juara 3 INOTEK 2025 (Tim HMIF)" src="assets/images/kegiatan/prestasi-inotek.webp" data-modal="true" data-modal-image="assets/images/kegiatan/prestasi-inotek.webp" data-modal-caption="Juara 3 INOTEK 2025 (Tim HMIF)" data-modal-desc="Selamat & Sukses kepada Naufal Ibra Prasetyo, Fhadillah Ain Marpaung, dan Maria Rosalina Trisna Yangaluy (Mahasiswa Informatika & Pengurus HMIF) atas prestasinya meraih Juara 3 Lomba Inovasi Teknologi (INOTEK) Kota Malang 2025." data-group="prestasi" data-section="Sorotan Prestasi" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
                     </div>
                     <div class="p-6 md:p-8 flex-1 flex flex-col">
-                        <div class="inline-flex self-start items-center px-3 py-1 rounded-full bg-orange-100 text-[#F18602] text-[11px] font-bold tracking-widest uppercase mb-4">
+                        <div class="inline-flex self-start items-center px-3 py-1 rounded-full bg-orange-100 text-[#C2410C] text-[11px] font-bold tracking-widest uppercase mb-4">
                             Prestasi Nasional
                         </div>
                         <h3 class="text-xl md:text-2xl font-bold text-[#1A1026] mb-3 leading-tight">
@@ -499,7 +499,7 @@
                 <!-- Prestasi 2 -->
                 <div class="prestasi-card bg-white border-2 border-gray-200 rounded-[28px] overflow-hidden flex flex-col">
                     <div class="aspect-[3/2] border-b-2 border-gray-100 overflow-hidden">
-                        <img src="assets/images/kegiatan/prestasi-irsyad.webp" data-modal="true" data-modal-image="assets/images/kegiatan/prestasi-irsyad.webp" data-modal-caption="3 Penghargaan IYIS #6 Malaysia 2024" data-modal-desc="Irsyad Maulana Wijaya (Mahasiswa S1 Bisnis Digital UWG) sukses memborong 3 penghargaan sekaligus di ajang International Youth Innovation Summit #6 di Kuala Lumpur, Malaysia: 1st Best Presentation, 1st Best Video Innovation, dan 2nd Best Project Innovation dengan membawakan proyek Strategi Komunitas Digital Pelaku UMKM." data-group="prestasi" data-section="Sorotan Prestasi" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                        <img alt="3 Penghargaan IYIS #6 Malaysia 2024" src="assets/images/kegiatan/prestasi-irsyad.webp" data-modal="true" data-modal-image="assets/images/kegiatan/prestasi-irsyad.webp" data-modal-caption="3 Penghargaan IYIS #6 Malaysia 2024" data-modal-desc="Irsyad Maulana Wijaya (Mahasiswa S1 Bisnis Digital UWG) sukses memborong 3 penghargaan sekaligus di ajang International Youth Innovation Summit #6 di Kuala Lumpur, Malaysia: 1st Best Presentation, 1st Best Video Innovation, dan 2nd Best Project Innovation dengan membawakan proyek Strategi Komunitas Digital Pelaku UMKM." data-group="prestasi" data-section="Sorotan Prestasi" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
                     </div>
                     <div class="p-6 md:p-8 flex-1 flex flex-col">
                         <div class="inline-flex self-start items-center px-3 py-1 rounded-full bg-purple-100 text-[#5B2A7E] text-[11px] font-bold tracking-widest uppercase mb-4">
@@ -517,10 +517,10 @@
                 <!-- Prestasi 3 -->
                 <div class="prestasi-card bg-white border-2 border-gray-200 rounded-[28px] overflow-hidden flex flex-col">
                     <div class="aspect-[3/2] border-b-2 border-[#F18602]/20 overflow-hidden">
-                        <img src="assets/images/kegiatan/prestasi-nasional.webp" data-modal="true" data-modal-image="assets/images/kegiatan/prestasi-nasional.webp" data-modal-caption="Juara 1 Taekwondo Jatim Cup 3 2025" data-modal-desc="Selamat kepada Waode Anisa F (Mahasiswa S1 Informatika UWG) atas prestasinya meraih Juara 1 Kyorugi Senior Putri Kelas 48 KG pada Kejuaraan Taekwondo Grade C KBPP Polri – Jatim Cup 3 Perebutan Piala Kapolda Jawa Timur 2025." data-group="prestasi" data-section="Sorotan Prestasi" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
+                        <img alt="Juara 1 Taekwondo Jatim Cup 3 2025" src="assets/images/kegiatan/prestasi-nasional.webp" data-modal="true" data-modal-image="assets/images/kegiatan/prestasi-nasional.webp" data-modal-caption="Juara 1 Taekwondo Jatim Cup 3 2025" data-modal-desc="Selamat kepada Waode Anisa F (Mahasiswa S1 Informatika UWG) atas prestasinya meraih Juara 1 Kyorugi Senior Putri Kelas 48 KG pada Kejuaraan Taekwondo Grade C KBPP Polri – Jatim Cup 3 Perebutan Piala Kapolda Jawa Timur 2025." data-group="prestasi" data-section="Sorotan Prestasi" class="w-full h-full object-cover" width="320" height="213" loading="lazy" fetchpriority="low" decoding="async">
                     </div>
                     <div class="p-6 md:p-8 flex-1 flex flex-col">
-                        <div class="inline-flex self-start items-center px-3 py-1 rounded-full bg-orange-100 text-[#F18602] text-[11px] font-bold tracking-widest uppercase mb-4">
+                        <div class="inline-flex self-start items-center px-3 py-1 rounded-full bg-orange-100 text-[#C2410C] text-[11px] font-bold tracking-widest uppercase mb-4">
                             Prestasi Non-Akademik
                         </div>
                         <h3 class="text-xl md:text-2xl font-bold text-[#1A1026] mb-3 leading-tight">
@@ -544,7 +544,7 @@
     <!-- SECTION 5 – SOCIAL PROOF (TESTIMONI) -->
     <section class="py-16 md:py-20 bg-[#FFF9F2]">
         <div class="container mx-auto px-6 max-w-6xl">
-            <div class="text-center mb-12 reveal"><span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#D97200] mb-3">Alumni</span><h2 class="text-3xl md:text-5xl font-extrabold text-[#5B2A7E] mb-6">Cerita Mereka yang Bertumbuh Bersama FSTI</h2><div class="w-20 h-1.5 bg-[#F18602] mx-auto rounded-full mb-8"></div><p class="text-gray-600 max-w-2xl mx-auto text-lg">Alumni FSTI tersebar di berbagai sektor — industri, pendidikan, dan riset — menerapkan ilmu yang diperoleh untuk terus berkarya.</p></div>
+            <div class="text-center mb-12 reveal"><span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#C2410C] mb-3">Alumni</span><h2 class="text-3xl md:text-5xl font-extrabold text-[#5B2A7E] mb-6">Cerita Mereka yang Bertumbuh Bersama FSTI</h2><div class="w-20 h-1.5 bg-[#F18602] mx-auto rounded-full mb-8"></div><p class="text-gray-600 max-w-2xl mx-auto text-lg">Alumni FSTI tersebar di berbagai sektor — industri, pendidikan, dan riset — menerapkan ilmu yang diperoleh untuk terus berkarya.</p></div>
             <div class="relative reveal" id="testimonial-carousel-container" role="region" aria-roledescription="carousel" aria-label="Testimoni Alumni FSTI"><!-- Scroll Track -->
                 <div id="testimonial-track" class="flex gap-4 overflow-x-hidden scroll-snap-x mandatory pb-4 scrollbar-hide testimonial-track" style="touch-action: pan-y; overscroll-behavior-x: contain;">
                     <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4 testimonial-slide" role="group" aria-roledescription="slide" aria-label="Testimoni 1 dari 6">
@@ -662,7 +662,7 @@
     <section class="py-16 md:py-20 bg-white">
         <div class="container mx-auto px-6 max-w-6xl">
             <div class="text-center mb-12 reveal">
-                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#D97200] mb-3">Kolaborasi</span>
+                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#C2410C] mb-3">Kolaborasi</span>
                 <h2 class="text-3xl md:text-4xl font-extrabold text-[#5B2A7E] mb-4">Mitra Kerja Sama</h2>
                 <div class="w-20 h-1.5 bg-[#F18602] mx-auto rounded-full mb-4"></div>
                 <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
@@ -723,7 +723,7 @@
                 <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 30px 30px;"></div>
                 
                 <div class="relative z-10 flex flex-col items-center">
-                    <span class="self-center text-center px-5 py-2 rounded-full bg-[#F18602]/10 border border-[#F18602]/20 text-[#F18602] text-xs font-bold uppercase tracking-widest mb-8">
+                    <span class="self-center text-center px-5 py-2 rounded-full bg-[#F18602]/10 border border-[#F18602]/20 text-[#C2410C] text-xs font-bold uppercase tracking-widest mb-8">
                         Admission 2026 is Open
                     </span>
                     <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-8 leading-tight text-center tracking-tighter">
@@ -826,7 +826,7 @@
             <div class="flex items-center gap-3 px-4 py-3 sm:px-5 sm:py-3.5 bg-white border-b border-gray-200 flex-shrink-0">
                 <!-- Kiri: Badge + Judul -->
                 <div class="flex-1 min-w-0 flex items-center gap-2.5">
-                    <span id="modal-category" class="inline-flex flex-shrink-0 items-center px-2 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#D97200] bg-[#FFF9F2] border border-[#F18602]/30 rounded-full leading-none">Foto</span>
+                    <span id="modal-category" class="inline-flex flex-shrink-0 items-center px-2 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#C2410C] bg-[#FFF9F2] border border-[#F18602]/30 rounded-full leading-none">Foto</span>
                     <h3 id="modal-caption" class="text-sm sm:text-base md:text-lg font-extrabold text-[#1A1026] leading-snug break-words min-w-0"></h3>
                 </div>
                 <!-- Kanan: Tombol Silang (pasti tidak bertabrakan karena berada di kolom terpisah) -->

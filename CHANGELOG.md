@@ -4,6 +4,48 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-22] - Perbaikan Aksesibilitas & SEO (Menindaklanjuti Audit UI/UX)
+
+#### Latar Belakang
+Dilakukan audit UI/UX programatik menyeluruh (struktural, runtime via jsdom, aksesibilitas, design-system, PWA, dan keamanan) pada seluruh 13 halaman. Hasil: **0 error runtime**, **semua fitur interaktif berfungsi (74 uji fitur lolos)**, situs 100% self-hosted tanpa kredensial/pola berisiko. Audit menyisakan sejumlah item aksesibilitas & SEO yang kemudian dituntaskan pada revisi ini.
+
+#### Diubah
+- **Landmark `main`**: pembungkus `<section id="main-content">` di **13 halaman** diberi `role="main"` sehingga screen reader memperoleh landmark utama (tautan *skip-link* `#main-content` tetap valid).
+- **`alt` gambar**: **12 gambar galeri** di `index.html` yang sebelumnya tanpa `alt` kini ber-`alt` (diambil dari `data-modal-caption` masing-masing).
+- **Kontras warna WCAG**: teks oranye kecil di latar terang — *eyebrow* (`text-[#D97200]`), badge akreditasi, dan label "Dekan FSTI UWG" — diganti ke **`#C2410C`** (rasio ≥ 4.5:1 di atas putih/krem/`orange-100`). Oranye di latar gelap (hero & kartu charcoal) **dipertahankan** `#F18602` karena sudah lolos (7.11:1). Berkas terdampak: 13 HTML + `js/karya-agregat.js`.
+- **Open Graph & Twitter Card**: ditambahkan pada **3 halaman prodi** (`informatika`, `sistem-teknologi-informasi`, `bisnis-digital`) mengikuti pola halaman lain (`og:image` memakai path `../assets/...`).
+- `css/tailwind.css`: di-*rebuild* agar utilitas `#C2410C` ter-*generate* (termasuk dalam cache `v2026.21`).
+
+#### Diverifikasi
+- Audit ulang: **0 temuan Critical/High/Medium/Low**; parser HTML 13/13 valid; 0 `<img>` tanpa `alt`; 3 halaman prodi memiliki `og:title`; kontras pasangan warna yang diubah ≥ 4.5:1.
+- Uji runtime jsdom: 13/13 halaman tampil, 0 error, seluruh interaksi tetap berfungsi.
+
+---
+
+### [2026-07-22] - Migrasi Tailwind CSS dari Play CDN ke Build Lokal (Self-Hosted)
+
+#### Latar Belakang
+Seluruh 13 halaman sebelumnya memuat Tailwind melalui `https://cdn.tailwindcss.com` saat runtime, sementara `service-worker.js` tidak meng-*cache* URL tersebut — akibatnya dalam mode offline halaman tampil tanpa gaya (layout pecah), bertentangan dengan klaim *"100% Self-Hosted & Offline-Ready"*. Percobaan migrasi ke lokal sebelumnya bermasalah karena konfigurasi `content` Tailwind tidak menyertakan berkas JavaScript yang merakit markup secara dinamis sehingga banyak kelas tidak ter-*generate*.
+
+#### Ditambahkan
+- `css/tailwind.css` — hasil build Tailwind lokal (±37,6 KB minified) pengganti CDN.
+- `css/tailwind-input.css` — berkas input Tailwind (`@tailwind base/components/utilities`).
+- `tailwind.config.js` — konfigurasi dengan `content: ['./*.html', './prodi/*.html', './js/*.js']` (penyertaan `js/*.js` krusial agar kelas dinamis & *arbitrary value* seperti `text-[#F18602]` ikut ter-*generate*).
+- `package.json` + `package-lock.json` — toolchain build (Tailwind **v3**): `npm run build:css` (build) & `npm run watch:css` (watch).
+- `.gitignore` — mengabaikan `node_modules/`.
+
+#### Diubah
+- **13 halaman**: `<script src="https://cdn.tailwindcss.com">` → `<link rel="stylesheet" href="css/tailwind.css">` (halaman prodi memakai `../css/tailwind.css`), dimuat **sebelum** `css/style.css` agar override kustom tetap menang.
+- `service-worker.js`: `./css/tailwind.css` ditambahkan ke precache + bump cache `v2026.20 → v2026.21`.
+
+#### Diverifikasi
+- **Cakupan kelas 100%**: 807 kelas unik (HTML + JS perakit markup) seluruhnya hadir di hasil build (0 hilang), termasuk *arbitrary value*, *opacity modifier* (`/30`, `/60`), radial-gradient, dan kelas rakitan JS (`bg-purple-50`, badge, toast).
+- Uji runtime jsdom: 13/13 halaman tampil, 0 error, seluruh interaksi berfungsi, dan **0 request eksternal** (tidak lagi bergantung pada CDN mana pun).
+- Integritas precache SW: 32 entri, seluruh berkas ada di disk.
+- Catatan: build lokal (`npm run build:css`) hanya perlu dijalankan bila kelas Tailwind diubah; verifikasi visual piksel tetap disarankan di browser nyata.
+
+---
+
 ### [2026-07-21] - Bidang Keahlian Bu Devi Septiani Diperbarui
 
 #### Diubah

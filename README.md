@@ -4,7 +4,7 @@
 ### Fakultas Sains dan Teknologi Informasi — Universitas Widya Gama Malang
 
 [![Build Status](https://img.shields.io/badge/Build-Passed-success?style=for-the-badge&logo=github)](https://github.com)
-[![Version](https://img.shields.io/badge/Version-2026.15-orange?style=for-the-badge)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/Version-2026.21-orange?style=for-the-badge)](CHANGELOG.md)
 [![Accessibility](https://img.shields.io/badge/Accessibility-WCAG%202.1%20AA%2FAAA-blue?style=for-the-badge)](CHANGELOG.md)
 [![Architecture](https://img.shields.io/badge/Architecture-Static%20PWA%20%7C%20Offline--Ready-purple?style=for-the-badge)](service-worker.js)
 [![PageSpeed](https://img.shields.io/badge/PageSpeed-100%2F100%20Zero%20CLS-00C853?style=for-the-badge)](CHANGELOG.md)
@@ -60,7 +60,7 @@ Website ini menyajikan informasi lengkap mengenai:
 
 ### 2. Sistem Preloader Cerdas & Keamanan Aset (*AssetGuard / Fail-Closed Guard*)
 - **Sensor Validasi Real-Time (`js/asset-guard.js`)**: Setiap kali halaman dibuka, sistem memverifikasi integritas `style.css`, `lucide.min.js`, `script.js`, data global JS (`alumniData` / `dosenData`, serta `FSTI_KERJASAMA` / `FSTI_PRESTASI` pada halaman Kerjasama & Prestasi), dan gambar utama (Logo).
-- **Progressive Web App (`service-worker.js` & `manifest.json`)**: Dilengkapi mesin *Cache-First Service Worker v2026.15* yang menyimpan seluruh berkas HTML, CSS, JS, font, dan gambar WebP ke dalam *Cache Storage* peramban. Website dapat di-install sebagai aplikasi desktop/mobile dan bekerja 100% offline di dalam mode pesawat.
+- **Progressive Web App (`service-worker.js` & `manifest.json`)**: Dilengkapi mesin *Cache-First Service Worker v2026.21* yang menyimpan seluruh berkas HTML, CSS (termasuk `tailwind.css` hasil build lokal), JS, font, dan gambar WebP ke dalam *Cache Storage* peramban. Website dapat di-install sebagai aplikasi desktop/mobile dan bekerja 100% offline di dalam mode pesawat.
 - **Zero Layout Shift & Native Lazy Loading**: Seluruh gambar dipasangi atribut `width`, `height`, `loading="lazy"`, dan `decoding="async"`, menjamin stabilitas tata letak (CLS = 0.00) dan skor performa 100/100 di Google PageSpeed Insights.
 - **Mekanisme *Fail-Closed* Elegan**: Jika seluruh aset terverifikasi utuh, layar penahan memudar halus (`opacity: 0`). Jika ada satu saja aset yang rusak/hilang (`404 Not Found`), sistem langsung mengunci layar dengan pesan error putih bersih bergaya FSTI (**"Sistem Tidak Tersedia"**) tanpa membocorkan struktur path server atau keterangan teknis.
 
@@ -162,7 +162,7 @@ project-fsti-rapi/
 | Komponen | Teknologi yang Digunakan | Keterangan |
 |---|---|---|
 | **Core Structure** | HTML5 Semantic & WCAG 2.1 AA | Arsitektur semantik (`role`, `aria-*`, landmark navigation, dan `tabindex` management). |
-| **Styling & Design** | Tailwind CSS v3 (CDN) + Custom CSS3 | Desain responsif, fluid typography, flex/grid adaptif, dan variabel warna brand FSTI (`#5B2A7E` & `#F18602`). |
+| **Styling & Design** | Tailwind CSS v3 (Build Lokal / Self-Hosted) + Custom CSS3 | Desain responsif, fluid typography, flex/grid adaptif, dan variabel warna brand FSTI (`#5B2A7E` & `#F18602`). CSS Tailwind di-build lokal ke `css/tailwind.css` (bukan CDN) sehingga 100% mandiri & offline-ready. |
 | **Interactivity Engine** | Vanilla JavaScript (ES6+) | Tanpa jQuery atau framework berat. Menggunakan `IntersectionObserver`, `history.pushState`, dan DOM manipulation murni. |
 | **Iconography** | Lucide Icons (`lucide.min.js`) + Inline SVG | 55+ ikon vektor lokal beresolusi tinggi + SVG murni untuk ikon merek (TikTok). |
 | **Typography** | Local Self-Hosted Google Fonts (`.woff2`) | Font *Plus Jakarta Sans* (Heading) dan *Inter* (Body) dimuat 100% lokal. |
@@ -256,7 +256,7 @@ Setiap tombol Utama (Solid) maupun Kedua (Outline) wajib memenuhi kesamaan fisik
 
 ### 9. Standardisasi Judul Seksi (*Section Header*)
 Setiap awal seksi informasi besar wajib diawali dengan struktur judul seksi tengah (*centered Section Header*) yang memiliki elemen berikut secara berurutan:
-* **Eyebrow / Sub-title (Span)**: Menggunakan teks kecil kapital berwarna Oranye gelap (`text-[#D97200] text-xs font-bold uppercase tracking-[0.2em] mb-3`) sebagai penanda tema seksi.
+* **Eyebrow / Sub-title (Span)**: Menggunakan teks kecil kapital berwarna Oranye gelap aksesibel (`text-[#C2410C] text-xs font-bold uppercase tracking-[0.2em] mb-3`) sebagai penanda tema seksi. Warna `#C2410C` dipilih (bukan `#D97200`) agar memenuhi kontras WCAG AA (≥ 4.5:1) di atas latar terang (`bg-white`/`bg-[#FFF9F2]`).
 * **Judul Utama Seksi (H2)**: Menggunakan font tebal berwarna Ungu FSTI (`text-[#5B2A7E] text-3xl md:text-4xl font-extrabold mb-4`) untuk menarik perhatian utama.
 * **Garis Dekorasi (Indicator Line)**: Sebuah garis horizontal pendek melengkung berwarna Oranye (`w-20 h-1.5 bg-[#F18602] mx-auto rounded-full mb-4` atau `mb-8` jika di bawahnya langsung ada grid kartu) untuk estetika seimbang.
 * **Paragraf Deskripsi Seksi (P) [Optional]**: Paragraf pelengkap berwarna abu-abu (`text-gray-600 text-sm md:text-base leading-relaxed max-w-2xl` atau `max-w-3xl mx-auto`) untuk memberikan konteks awal isi seksi tersebut.
@@ -314,6 +314,17 @@ Karena website ini merupakan **Statis Modern (Pure HTML5 + CSS3 + Vanilla JS)** 
 Project ini siap diluncurkan ke berbagai penyedia layanan *static hosting* gratis maupun *shared hosting* berbayar:
 - **GitHub Pages / Cloudflare Pages / Vercel / Netlify:** Cukup hubungkan repositori Git Anda atau unggah folder project ini. Atur *build command* menjadi kosong (`none`) dan *output directory* ke akar (`/` atau `.`).
 - **cPanel / Apache / Nginx Shared Hosting:** Unggah seluruh isi folder project ke dalam direktori `public_html` atau `www` di server hosting Anda. Seluruh path relatif akan bekerja otomatis tanpa butuh `.htaccess` khusus.
+
+### 🛠️ Catatan: Build Tailwind CSS (Hanya Bila Diperlukan)
+Situs ini menyertakan **`css/tailwind.css` yang sudah jadi** di dalam repositori, sehingga **menjalankan maupun meng-deploy tidak memerlukan Node.js sama sekali** — cukup ikuti Opsi 1 atau Opsi 2 di atas. Node.js hanya dibutuhkan **apabila Anda mengubah/menambah kelas utilitas Tailwind** pada berkas HTML/JS. Setelah mengubah kelas, jalankan:
+
+```bash
+npm install          # sekali saja (memasang tailwindcss v3)
+npm run build:css    # membangun ulang css/tailwind.css (minified)
+# atau: npm run watch:css  (build otomatis saat berkas berubah, untuk development)
+```
+
+> ⚠️ **Jangan mengedit `css/tailwind.css` secara manual** — berkas ini adalah hasil build dan akan ditimpa. Sumber konfigurasi ada di `tailwind.config.js` dengan input `css/tailwind-input.css`. Pastikan `content` di `tailwind.config.js` tetap mencakup `*.html`, `prodi/*.html`, **dan `js/*.js`** agar kelas yang dirakit JavaScript (tabel karya, kartu direktori, toast, dsb.) ikut ter-generate.
 
 ---
 
