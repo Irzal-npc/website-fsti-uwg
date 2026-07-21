@@ -8,9 +8,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ✅ NONAKTIFKAN SCROLL RESTORATION BAWAAN BROWSER:
+    // Dengan scrollRestoration='manual', browser tidak akan otomatis memulihkan
+    // posisi scroll saat back/forward. Ini mencegah race condition antara
+    // scroll restoration bawaan browser dan scrollTo() manual di
+    // closeImageModal — bug yang menyebabkan halaman kembali ke dean quote
+    // saat modal foto ditutup di desktop (timing native restoration menimpa
+    // scrollTo manual). Pada mobile timing berbeda sehingga manual berhasil.
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+
     // ✅ OPTIMASI BACK-FORWARD CACHE (bfcache) & HASH CHANGE:
     window.addEventListener('pageshow', (event) => {
         if (event.persisted) {
+            // Pastikan scrollRestoration tetap 'manual' setelah bfcache restore
+            if ('scrollRestoration' in history) {
+                history.scrollRestoration = 'manual';
+            }
             // Jika halaman dipulihkan dari memori cache browser saat tombol Back/Forward ditekan
             const guard = document.getElementById('fsti-asset-guard');
             if (guard && !guard.classList.contains('guard-failed')) {
@@ -20,6 +35,20 @@ document.addEventListener('DOMContentLoaded', () => {
             // Bersihkan sisa overflow-hidden jika pengguna menekan Back saat modal/mobile menu terbuka
             document.body.classList.remove('overflow-hidden');
             document.body.style.overflow = '';
+            // Tutup modal foto jika masih terbuka setelah bfcache restore
+            const modalEl = document.getElementById('image-modal');
+            if (modalEl && !modalEl.classList.contains('hidden')) {
+                modalEl.classList.remove('flex');
+                modalEl.classList.add('hidden');
+                modalEl.setAttribute('aria-hidden', 'true');
+                const panel = document.getElementById('image-modal-panel');
+                if (panel) {
+                    panel.classList.remove('scale-100', 'opacity-100');
+                    panel.classList.add('scale-95', 'opacity-0');
+                }
+                window._imageModalClosing = false;
+                window._imageModalHistoryPushed = false;
+            }
             const mobileMenu = document.getElementById('mobile-menu');
             const menuBtn = document.getElementById('menu-btn');
             if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
@@ -34,11 +63,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.addEventListener('popstate', () => {
+        // Lewati scroll-to-hash saat modal foto sedang terbuka atau sedang
+        // ditutup. Event popstate juga dipicu oleh history.back() di dalam
+        // closeImageModal(); jika tidak dilewati, smoothScrollTo ke hash
+        // (mis. #eksplorasi yang berada tepat di atas dean quote) akan
+        // menimpa posisi scroll yang sudah benar — bug khusus desktop.
+        if (window._imageModalClosing) return;
+        const modalEl = document.getElementById('image-modal');
+        if (modalEl && !modalEl.classList.contains('hidden')) return;
+
         if (window.location.hash) {
             const target = document.querySelector(window.location.hash);
             if (target && typeof smoothScrollTo === 'function') {
                 smoothScrollTo(target);
             }
+        } else {
+            // Tidak ada hash — kembali ke atas (menggantikan scroll restoration
+            // bawaan browser yang sudah kami nonaktifkan dengan scrollRestoration='manual').
+            window.scrollTo(0, 0);
         }
     });
 
