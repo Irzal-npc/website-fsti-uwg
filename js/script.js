@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
             btn.addEventListener('click', () => goToSlide(i * visible));
             pagination.appendChild(btn);
-        });
+        }
 
         const dots = Array.from(pagination.querySelectorAll('button'));
 
