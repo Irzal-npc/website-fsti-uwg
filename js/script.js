@@ -381,6 +381,47 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // Auto-slide functionality
+        let autoSlideTimer = null;
+        const AUTO_SLIDE_INTERVAL = 5000; // 5 seconds
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function startAutoSlide() {
+            if (reduceMotion) return; // Respect user preference
+            stopAutoSlide();
+            autoSlideTimer = setInterval(() => {
+                goToSlide(currentIndex + visible);
+            }, AUTO_SLIDE_INTERVAL);
+        }
+
+        function stopAutoSlide() {
+            if (autoSlideTimer !== null) {
+                clearInterval(autoSlideTimer);
+                autoSlideTimer = null;
+            }
+        }
+
+        // Pause on hover/focus
+        const carouselContainer = document.getElementById('testimonial-carousel-container');
+        if (carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', stopAutoSlide);
+            carouselContainer.addEventListener('focusin', stopAutoSlide);
+            carouselContainer.addEventListener('mouseleave', startAutoSlide);
+            carouselContainer.addEventListener('focusout', startAutoSlide);
+        }
+
+        // Pause on button/dot interaction
+        [btnPrev, btnNext, pagination].forEach(el => {
+            if (el) {
+                el.addEventListener('mousedown', stopAutoSlide);
+                el.addEventListener('focus', stopAutoSlide);
+                el.addEventListener('blur', startAutoSlide);
+            }
+        });
+
+        // Start auto-slide
+        startAutoSlide();
+
         // Recreate dots on resize (responsive)
         let resizeTimer = null;
         window.addEventListener('resize', () => {
