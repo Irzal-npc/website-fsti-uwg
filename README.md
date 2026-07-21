@@ -93,7 +93,7 @@ Website ini menyajikan informasi lengkap mengenai:
 | **Prestasi Fakultas** | `prestasi.html` | Tabel daftar prestasi di bawah fakultas — akademik & non-akademik — dengan filter kategori, filter tingkat (lokal→internasional), sorting tahun, foto dokumentasi, dan tombol salin ringkasan. |
 | **Direktori Alumni** | `alumni.html` | Direktori lulusan FSTI dari berbagai angkatan/instansi dilengkapi pencarian RAM instan, filter prodi, dan modal cerita testimoni. |
 | **Penerimaan Mahasiswa Baru** | `pmb.html` | Informasi jalur pendaftaran, 4 langkah alur SPMB, jadwal kelas (Reguler A / Karyawan B / Transfer D3 / RPL), rincian biaya, dan 3 program beasiswa. |
-| **Pusat Unduhan & Dokumen** | `pusat-unduhan.html` | Pustaka dokumen resmi fakultas; menyediakan unduhan langsung file PDF Buku KPT, Pedoman PKL, dan Pedoman Skripsi. |
+| **Pusat Unduhan & Dokumen** | `pusat-unduhan.html` | Pustaka dokumen resmi fakultas; Pedoman Skripsi & Pedoman PKL berstatus *Segera Hadir* sembari menunggu finalisasi dokumen resmi. |
 | **S1 Informatika** | `prodi/informatika.html` | Profil prodi berakreditasi Baik Sekali; fokus *Intelligent System*, 3 peminatan, sebaran mata kuliah, prospek karier, dan fasilitas lab jaringan/komputer. |
 | **S1 Sistem dan Teknologi Informasi** | `prodi/sistem-teknologi-informasi.html` | Profil prodi SISTEKIN; fokus sistem cerdas berbasis AI, IoT, multimedia, UX, gamifikasi, mata kuliah unggulan, dan prospek karier. |
 | **S1 Bisnis Digital** | `prodi/bisnis-digital.html` | Profil prodi BISDIG; fokus *Technology-Driven Digital Business*, 4 peminatan/konsentrasi, mata kuliah inovasi startup, dan prospek karier global. |
@@ -134,8 +134,6 @@ project-fsti-rapi/
     │   ├── inter-latin.woff2                 # Font lokal Inter (Regular, Medium, SemiBold)
     │   └── plus-jakarta-sans-latin.woff2     # Font lokal Plus Jakarta Sans (SemiBold, Bold, ExtraBold)
     ├── docs/
-    │   ├── pedoman-skripsi-fsti.pdf          # Dokumen PDF Pedoman Skripsi FSTI
-    │   ├── pedoman-pkl-fsti.pdf              # Dokumen PDF Pedoman PKL / Magang FSTI
     │   └── buku-kpt-teknik-informatika-2023.pdf # Dokumen PDF Kurikulum Pendidikan Tinggi TI
     └── images/
         ├── favicon.png                       # Ikon tab browser resmi FSTI

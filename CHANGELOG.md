@@ -4,6 +4,23 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-21] - Pedoman PKL & Skripsi Berstatus "Segera Hadir" + Penghapusan PDF
+
+#### Diubah
+- **`pusat-unduhan.html`**: Kartu **Pedoman Skripsi FSTI** dan **Pedoman PKL FSTI** kini berstatus **"Segera Hadir"** (badge abu-abu + ikon jam, keterangan "Sedang difinalisasi fakultas"); tombol "Unduh PDF" dihapus karena dokumen resmi belum final.
+
+#### Dihapus
+- **`assets/docs/pedoman-skripsi-fsti.pdf`** dan **`assets/docs/pedoman-pkl-fsti.pdf`** dihapus dari repositori. `assets/docs/buku-kpt-teknik-informatika-2023.pdf` tetap dipertahankan.
+
+#### Diubah (Pendukung)
+- `README.md`: deskripsi Pusat Unduhan disesuaikan & struktur folder `assets/docs/` diperbarui.
+- `service-worker.js`: bump cache ke `v2026.13`.
+
+#### Diverifikasi
+- Tidak ada lagi tautan menuju kedua PDF di seluruh halaman; struktur HTML `pusat-unduhan.html` valid.
+
+---
+
 ### [2026-07-21] - Hapus Tombol Salin di Halaman Kerjasama & Prestasi
 
 #### Dihapus
