@@ -4,6 +4,20 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-21] - Bidang Keahlian Bu Devi Septiani Diperbarui
+
+#### Diubah
+- **Devi Septiani, S.Kom., M.Kom.** (Dosen Homebase S1 SISTEKIN): bidang keahlian diperbarui dari "Manajemen Sistem Informasi" menjadi **"Manajemen Sistem Informasi, VR & AR, Multimedia 3D"**, disinkronkan di tiga lokasi data:
+  - `js/dosen-data.js` (kolom `expertise` & `tags` — chip keahlian di Direktori Dosen otomatis menjadi 3).
+  - `prodi/sistem-teknologi-informasi.html` (daftar Dosen Homebase SISTEKIN: teks keahlian & `data-modal-desc`).
+  - `data/biodata-dosen.csv` (arsip administratif).
+- `service-worker.js`: bump cache ke `v2026.20`.
+
+#### Diverifikasi
+- Parser HTML 13/13 valid (termasuk sistekin yang berubah); `js/dosen-data.js` termuat benar (14 dosen; entri Bu Devi: 3 tag keahlian); CSV tetap 17 kolom per baris.
+
+---
+
 ### [2026-07-21] - Data Prestasi Diperkaya dari Berita Resmi UWG (TAHES & Borong Medali UKM Taekwondo)
 
 #### Ditambahkan
