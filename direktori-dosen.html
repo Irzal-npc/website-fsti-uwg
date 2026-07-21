@@ -529,6 +529,12 @@
 
         function openModal(d) {
             window._lastTriggerBtn = document.activeElement;
+            // Tambahkan satu riwayat sementara: tombol Back browser menutup modal
+            // terlebih dahulu, bukan langsung meninggalkan halaman direktori.
+            if (!window._dosenModalHistoryPushed) {
+                history.pushState({ dosenModalOpen: true }, '');
+                window._dosenModalHistoryPushed = true;
+            }
             // Reset scroll position ke atas (scrollTop = 0) agar modal tidak mengingat posisi guliran sebelumnya
             const panel = document.getElementById('dosen-modal-panel');
             if (panel) panel.scrollTop = 0;
@@ -766,8 +772,9 @@
             if (document.activeElement && modal.contains(document.activeElement)) {
                 document.activeElement.blur();
             }
-            if (window._lastTriggerBtn && window._lastTriggerBtn.focus) {
-                try { window._lastTriggerBtn.focus(); } catch(err){}
+            if (window._lastTriggerBtn && window._lastTriggerBtn.focus && document.contains(window._lastTriggerBtn)) {
+                // Jangan sampai fokus yang dipulihkan menggulir halaman ke tombol pemicu.
+                try { window._lastTriggerBtn.focus({ preventScroll: true }); } catch(err) { window._lastTriggerBtn.focus(); }
             }
             modal.setAttribute('aria-hidden', 'true');
             document.body.classList.remove('overflow-hidden');

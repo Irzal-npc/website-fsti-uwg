@@ -315,6 +315,12 @@
 
         function openModal(d){
             window._lastTriggerBtn = document.activeElement;
+            // Tambahkan satu riwayat sementara: tombol Back browser menutup modal
+            // terlebih dahulu, bukan langsung meninggalkan halaman alumni.
+            if (!window._alumniModalHistoryPushed) {
+                history.pushState({ alumniModalOpen: true }, '');
+                window._alumniModalHistoryPushed = true;
+            }
             // Reset scroll position ke atas (scrollTop = 0) agar modal tidak mengingat posisi guliran sebelumnya
             const panel = document.getElementById('alumni-modal-panel');
             if (panel) panel.scrollTop = 0;
@@ -389,6 +395,8 @@
             requestAnimationFrame(() => {
                 requestAnimationFrame(() => modal.classList.add('alumni-modal-open'));
             });
+            // Fokus awal berada di tombol tutup agar Escape/fokus keyboard konsisten.
+            modalClose.focus();
         }
 
         function closeModal(fromPopstate = false){
@@ -397,8 +405,9 @@
             if (document.activeElement && modal.contains(document.activeElement)) {
                 document.activeElement.blur();
             }
-            if (window._lastTriggerBtn && window._lastTriggerBtn.focus) {
-                try { window._lastTriggerBtn.focus(); } catch(err){}
+            if (window._lastTriggerBtn && window._lastTriggerBtn.focus && document.contains(window._lastTriggerBtn)) {
+                // Jangan sampai fokus yang dipulihkan menggulir halaman ke tombol pemicu.
+                try { window._lastTriggerBtn.focus({ preventScroll: true }); } catch(err) { window._lastTriggerBtn.focus(); }
             }
             modal.setAttribute('aria-hidden', 'true');
             document.body.classList.remove('overflow-hidden');
