@@ -4,6 +4,24 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-21] - Halaman Prestasi Menjadi Arsip Horizontal + Narasi & Tautan Sumber
+
+#### Latar Belakang
+Isi halaman Prestasi (3 entri riil) identik dengan seksi "Sorotan Prestasi" di Beranda sehingga terasa seperti duplikat. Atas keputusan pengelola, halaman dibedakan lewat **tata letak sekaligus kedalaman isi** — Beranda tetap sorotan ringkas, halaman menjadi arsip resmi.
+
+#### Ditambahkan (`js/prestasi-data.js` + `prestasi.html`)
+- Tiga kolom data opsional baru: **`keterangan`** (narasi singkat; tampil pada kartu dan otomatis disertakan di deskripsi lightbox), **`sumber`** & **`sumberLabel`** (tautan sumber berita; baris "Sumber: …" hanya muncul bila URL diisi).
+- Narasi diisi dari sumber yang diverifikasi: IG resmi HMIF (INOTEK & Taekwondo) dan artikel resmi Humas — IYIS kini bertautan ke **berita resmi di widyagama.ac.id** (17 Des 2024, terverifikasi daring dan sejalan dengan liputan TIMES Indonesia).
+
+#### Diubah (`prestasi.html`)
+- Kartu grid vertikal diubah menjadi **kartu arsip horizontal satu kolom** (foto di kiri pada layar ≥sm, konten di kanan); foto tetap membuka lightbox global. Statistik, chip kategori, filter tingkat, pencarian, sorting tahun, dan *empty state* tidak berubah.
+- `README.md` disesuaikan; `service-worker.js`: bump cache ke `v2026.18`.
+
+#### Diverifikasi
+- URL sumber IYIS di widyagama.ac.id dikonfirmasi aktif dan isinya sesuai; parser HTML 13/13 valid; `node --check` skrip inline lolos; seluruh ikon Lucide valid; uji DOM headless 31/31 lolos (termasuk asersi baru: tata letak horizontal, narasi tampil, hanya entri IYIS yang merender tautan sumber).
+
+---
+
 ### [2026-07-21] - Tombol "Lihat Semua Cerita Alumni" Diseragamkan
 
 #### Diubah

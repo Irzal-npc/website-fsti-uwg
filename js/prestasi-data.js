@@ -16,6 +16,9 @@
  *   asal          : asal peraih (cth: 'Mahasiswa S1 Informatika / Pengurus HMIF')
  *   penyelenggara : pihak penyelenggara ajang/kejuaraan
  *   foto          : path foto dokumentasi (.webp) — kosongkan ('') bila tidak ada
+ *   keterangan    : narasi singkat tambahan (opsional; tampil pada kartu & deskripsi lightbox)
+ *   sumber        : URL tautan sumber berita resmi (opsional; kosongkan bila belum ada)
+ *   sumberLabel   : label tautan sumber (cth: 'Berita Resmi UWG (17 Des 2024)')
  *
  * CATATAN: dua entri pertama diselaraskan dengan seksi "Sorotan Prestasi" di halaman Beranda.
  */
@@ -29,7 +32,10 @@ window.FSTI_PRESTASI = [
   "peraih": "Naufal Ibra Prasetyo, Fhadillah Ain Marpaung, & Maria Rosalina Trisna Yangaluy",
   "asal": "Mahasiswa S1 Informatika / Pengurus HMIF",
   "penyelenggara": "Lomba Inovasi Teknologi (INOTEK) Kota Malang 2025",
-  "foto": "assets/images/kegiatan/prestasi-inotek.webp"
+  "foto": "assets/images/kegiatan/prestasi-inotek.webp",
+  "keterangan": "Tim mahasiswa Informatika yang juga tergabung dalam Himpunan Mahasiswa Informatika (HMIF) ini meraih Juara 3 Lomba Inovasi Teknologi (INOTEK) tingkat Kota Malang 2025 — kebanggaan sivitas fakultas sekaligus himpunan.",
+  "sumber": "",
+  "sumberLabel": ""
  },
  {
   "id": 2,
@@ -40,7 +46,10 @@ window.FSTI_PRESTASI = [
   "peraih": "Irsyad Maulana Wijaya",
   "asal": "Mahasiswa S1 Bisnis Digital",
   "penyelenggara": "International Youth Innovation Summit #6, Kuala Lumpur, Malaysia, 10-13 Desember 2024",
-  "foto": "assets/images/kegiatan/prestasi-irsyad.webp"
+  "foto": "assets/images/kegiatan/prestasi-irsyad.webp",
+  "keterangan": "Berangkat sebagai satu-satunya perwakilan UWG Malang di Kuala Lumpur, Irsyad memaparkan inovasi strategi komunitas digital bagi pelaku UMKM di hadapan juri internasional dan memborong tiga penghargaan sekaligus.",
+  "sumber": "https://widyagama.ac.id/irsyad-mahasiswa-bisdig-uwg-malang-raih-tiga-penghargaan-di-ajang-internasional-di-malaysia/",
+  "sumberLabel": "Berita Resmi UWG (17 Des 2024)"
  },
  {
   "id": 3,
@@ -51,6 +60,9 @@ window.FSTI_PRESTASI = [
   "peraih": "Waode Anisa F",
   "asal": "Mahasiswa S1 Informatika",
   "penyelenggara": "Kejuaraan Taekwondo Grade C KBPP Polri - Jatim Cup 3, Piala Kapolda Jawa Timur 2025",
-  "foto": "assets/images/kegiatan/prestasi-nasional.webp"
+  "foto": "assets/images/kegiatan/prestasi-nasional.webp",
+  "keterangan": "Waode meraih Juara 1 nomor Kyorugi Senior Putri kelas 48 kg pada Kejuaraan Taekwondo Grade C KBPP Polri - Jatim Cup 3 yang memperebutkan Piala Kapolda Jawa Timur 2025.",
+  "sumber": "",
+  "sumberLabel": ""
  }
 ];

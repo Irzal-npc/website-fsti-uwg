@@ -263,7 +263,7 @@
 
             <!-- Grid Kartu Prestasi -->
             <div id="prestasi-card-wrap" class="reveal reveal-fade-up">
-                <div id="prestasi-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-6"></div>
+                <div id="prestasi-grid" class="grid grid-cols-1 gap-5 md:gap-6"></div>
             </div>
 
             <!-- Empty state -->
@@ -419,6 +419,7 @@
             if (p.asal) t += ', ' + p.asal;
             t += '. Kategori: ' + (p.kategori || '-') + '; Tingkat: ' + (p.tingkat || '-') + '.';
             if (p.penyelenggara) t += ' Penyelenggara: ' + p.penyelenggara + '.';
+            if (p.keterangan) t += ' ' + p.keterangan;
             return t;
         }
 
@@ -428,9 +429,9 @@
 
         function fotoBlock(p) {
             var inner = p.foto
-                ? '<img src="' + U.esc(p.foto) + '" alt="Dokumentasi: ' + U.esc(p.nama) + '" data-modal="true" data-modal-image="' + U.esc(p.foto) + '" data-modal-caption="' + U.esc(p.nama) + '" data-modal-desc="' + U.esc(ringkasan(p)) + '" data-group="prestasi" class="w-full h-full object-cover cursor-pointer hover:opacity-[0.92] transition-opacity" width="400" height="300" loading="lazy" fetchpriority="low" decoding="async">'
-                : '<div class="w-full h-full bg-gradient-to-br from-[#5B2A7E] to-[#3D1A55] flex items-center justify-center"><i data-lucide="trophy" class="w-12 h-12 text-[#F18602]" aria-hidden="true"></i></div>';
-            return '<div class="relative h-44 sm:h-48 overflow-hidden bg-[#1A1026]">' + inner + tahunBadge(p) + '</div>';
+                ? '<img src="' + U.esc(p.foto) + '" alt="Dokumentasi: ' + U.esc(p.nama) + '" data-modal="true" data-modal-image="' + U.esc(p.foto) + '" data-modal-caption="' + U.esc(p.nama) + '" data-modal-desc="' + U.esc(ringkasan(p)) + '" data-group="prestasi" class="w-full h-44 sm:h-full object-cover cursor-pointer hover:opacity-[0.92] transition-opacity" width="400" height="300" loading="lazy" fetchpriority="low" decoding="async">'
+                : '<div class="w-full h-44 sm:h-full bg-gradient-to-br from-[#5B2A7E] to-[#3D1A55] flex items-center justify-center"><i data-lucide="trophy" class="w-12 h-12 text-[#F18602]" aria-hidden="true"></i></div>';
+            return '<div class="relative flex-shrink-0 overflow-hidden bg-[#1A1026] sm:w-60 md:w-72">' + inner + tahunBadge(p) + '</div>';
         }
 
         function kategoriPill(p) {
@@ -453,12 +454,17 @@
             var penyelenggara = p.penyelenggara
                 ? '<p class="flex items-start gap-2 text-xs text-gray-500 leading-relaxed"><i data-lucide="landmark" class="w-3.5 h-3.5 mt-0.5 flex-shrink-0" aria-hidden="true"></i><span>' + U.esc(p.penyelenggara) + '</span></p>'
                 : '';
-            return '<article class="bg-white border border-gray-200 rounded-[28px] overflow-hidden flex flex-col">'
+            var sumber = p.sumber
+                ? '<p class="flex items-start gap-2 text-xs leading-relaxed"><i data-lucide="newspaper" class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-[#F18602]" aria-hidden="true"></i>'
+                + '<span>Sumber: <a href="' + U.esc(p.sumber) + '" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#5B2A7E] hover:text-[#F18602] transition-colors" aria-label="Buka sumber berita: ' + U.esc(p.sumberLabel || p.sumber) + '">' + U.esc(p.sumberLabel || 'Lihat sumber') + '</a></span></p>'
+                : '';
+            return '<article class="bg-white border border-gray-200 rounded-[28px] overflow-hidden flex flex-col sm:flex-row items-stretch">'
                 + fotoBlock(p)
-                + '<div class="p-5 flex flex-col flex-1">'
+                + '<div class="p-5 md:p-6 flex flex-col flex-1 min-w-0">'
                 + '<div class="flex flex-wrap gap-1.5 mb-2.5">' + kategoriPill(p) + tingkatPill(p) + '</div>'
-                + '<h3 class="text-sm md:text-[15px] font-extrabold text-[#1A1026] leading-snug mb-3">' + U.esc(p.nama) + '</h3>'
-                + '<div class="mt-auto pt-3 border-t border-gray-100 space-y-1.5">' + peraih + penyelenggara + '</div>'
+                + '<h3 class="text-sm md:text-base font-extrabold text-[#1A1026] leading-snug mb-2">' + U.esc(p.nama) + '</h3>'
+                + (p.keterangan ? '<p class="text-xs md:text-sm text-gray-600 leading-relaxed mb-3">' + U.esc(p.keterangan) + '</p>' : '')
+                + '<div class="mt-auto pt-3 border-t border-gray-100 space-y-1.5">' + peraih + penyelenggara + sumber + '</div>'
                 + '</div></article>';
         }
 
