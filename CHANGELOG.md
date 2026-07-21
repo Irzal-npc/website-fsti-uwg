@@ -4,6 +4,28 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-21] - Penyegaran README Menyeluruh + Penyelarasan Kartu ke Standar Desain Statis
+
+#### Diubah (README.md — sinkron dengan kondisi web terbaru)
+- Badge versi `2026.7` → `2026.15` (mengikuti versi cache Service Worker).
+- **Tentang Project**: ditambahkan empat sajian informasi baru (tabel agregat Penelitian & Pengabdian, direktori Kerjasama, galeri Prestasi); status dokumen Pusat Unduhan diperbarui (Buku KPT tersedia; Pedoman Skripsi & PKL *Segera Hadir*).
+- **Fitur Unggulan**: jumlah ikon/gambar dikoreksi ke data riil (55+ ikon Lucide, 60+ gambar `.webp`); AssetGuard kini juga memvalidasi `FSTI_KERJASAMA`/`FSTI_PRESTASI`; versi Service Worker `v2026.7` → `v2026.15`; **fitur baru butir 6** mendokumentasikan mesin tabel agregat (`karya-agregat.js` + `util-tabel.js`: 617 penelitian 2003–2026 & 108 pengabdian 2010–2026, filter dosen, sorting tahun, salin sitasi), direktori kartu mitra, dan galeri kartu prestasi.
+- **Tabel Halaman**: deskripsi Direktori Dosen (14 pengajar), Penelitian (617 entri), Pengabdian (108 entri), Kerjasama (10 mitra: 7 LN/program global & 3 DN), dan Alumni (15 lulusan) diperkaya angka riil.
+- **Struktur Folder**: jumlah foto `assets/images/fasilitas/` dikoreksi 8 → 7.
+- **Teknologi & Stack**: baris Data Architecture mencakup keempat berkas data JS + mesin agregat.
+- **Panduan Desain butir 8**: daftar halaman fungsional tanpa Hero Stats Bar dilengkapi (Penelitian, Pengabdian, Kerjasama, Prestasi). **Butir 10**: standar header ditulis lengkap (urutan menu + isi ketiga dropdown + konvensi penanda halaman aktif), dan standar kolom *Layanan* footer didetailkan.
+
+#### Diubah (Penyelarasan kartu ke Panduan Desain butir 2 & 5 — *Static Premium Cards*)
+- `kerjasama.html` & `prestasi.html`: kelas kartu hasil render diselaraskan ke standar kartu utama situs — `rounded-[28px] border-gray-200` **statis** (tanpa lompatan `translateY`, bayangan, atau border oranye saat hover). Interaksi pada media dikembalikan ke pola semula: ring oranye lembut pada logo mitra dan transparansi halus pada foto prestasi saat dikursor.
+
+#### Diubah (Pendukung)
+- `service-worker.js`: bump cache ke `v2026.15`.
+
+#### Diverifikasi
+- Parser HTML: 13/13 halaman valid; `node --check` skrip inline lolos; uji DOM headless 27/27 skenario tetap lolos setelah penyelarasan kelas kartu.
+
+---
+
 ### [2026-07-21] - Tampilan Kerjasama & Prestasi Diubah dari Tabel menjadi Grid Kartu
 
 #### Diubah
