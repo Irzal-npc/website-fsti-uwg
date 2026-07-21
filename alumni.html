@@ -211,7 +211,7 @@
 
     <!-- Modal Detail Alumni -->
     <div id="alumni-modal" class="fixed inset-0 z-[100] hidden" aria-hidden="true">
-        <div id="alumni-modal-backdrop" class="absolute inset-0 bg-[#1A1026]/60"></div>
+        <div id="alumni-modal-backdrop" class="absolute inset-0 bg-[#1A1026]/60 backdrop-blur-sm"></div>
         <div class="relative z-10 min-h-full flex items-end sm:items-center justify-center p-0 sm:p-6">
             <div id="alumni-modal-panel" role="dialog" aria-modal="true" aria-labelledby="alumni-modal-title" class="w-full sm:max-w-2xl max-h-[92vh] overflow-y-auto bg-white rounded-t-[28px] sm:rounded-[28px] border-2 border-gray-200 shadow-2xl">
                 <div class="sticky top-0 z-10 bg-white border-b border-gray-100 rounded-t-[28px] overflow-hidden">
@@ -315,6 +315,12 @@
 
         function openModal(d){
             window._lastTriggerBtn = document.activeElement;
+            // Tambahkan satu riwayat sementara: tombol Back browser menutup modal
+            // terlebih dahulu, bukan langsung meninggalkan halaman alumni.
+            if (!window._alumniModalHistoryPushed) {
+                history.pushState({ alumniModalOpen: true }, '');
+                window._alumniModalHistoryPushed = true;
+            }
             // Reset scroll position ke atas (scrollTop = 0) agar modal tidak mengingat posisi guliran sebelumnya
             const panel = document.getElementById('alumni-modal-panel');
             if (panel) panel.scrollTop = 0;
@@ -389,6 +395,8 @@
             requestAnimationFrame(() => {
                 requestAnimationFrame(() => modal.classList.add('alumni-modal-open'));
             });
+            // Fokus awal berada di tombol tutup agar Escape/fokus keyboard konsisten.
+            modalClose.focus();
         }
 
         function closeModal(fromPopstate = false){
@@ -397,8 +405,9 @@
             if (document.activeElement && modal.contains(document.activeElement)) {
                 document.activeElement.blur();
             }
-            if (window._lastTriggerBtn && window._lastTriggerBtn.focus) {
-                try { window._lastTriggerBtn.focus(); } catch(err){}
+            if (window._lastTriggerBtn && window._lastTriggerBtn.focus && document.contains(window._lastTriggerBtn)) {
+                // Jangan sampai fokus yang dipulihkan menggulir halaman ke tombol pemicu.
+                try { window._lastTriggerBtn.focus({ preventScroll: true }); } catch(err) { window._lastTriggerBtn.focus(); }
             }
             modal.setAttribute('aria-hidden', 'true');
             document.body.classList.remove('overflow-hidden');
@@ -512,7 +521,7 @@
                     <h3 id="modal-caption" class="text-sm sm:text-base md:text-lg font-extrabold text-[#1A1026] leading-snug break-words min-w-0"></h3>
                 </div>
                 <!-- Kanan: Tombol Silang -->
-                <button id="modal-close" type="button" class="flex-shrink-0 w-9 h-9 rounded-full border-2 border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:bg-[#F18602] hover:border-[#F18602] hover:text-white active:scale-[0.98] transition-all cursor-pointer" aria-label="Tutup modal">
+                <button id="modal-close" type="button" class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#F18602] hover:text-[#F18602] transition-colors" aria-label="Tutup modal">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
