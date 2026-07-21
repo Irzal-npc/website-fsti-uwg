@@ -479,7 +479,14 @@ document.addEventListener('DOMContentLoaded', () => {
             clearTimeout(imageModal._closeTimer);
             window._imageModalClosing = false;
 
-            // Simpan tombol pemicu untuk pemulihan fokus a11y
+            // Simpan posisi halaman dan elemen fokus sebelum modal dibuka.
+            // Gambar tidak otomatis menerima fokus saat diklik, sehingga elemen aktif
+            // bisa saja masih berupa tombol/tautan jauh di halaman (mis. kartu Dekan).
+            // Posisi ini dipulihkan saat modal ditutup tanpa membuat halaman melompat.
+            window._imageModalScrollPosition = {
+                x: window.scrollX || window.pageXOffset || 0,
+                y: window.scrollY || window.pageYOffset || 0
+            };
             window._lastImageModalTriggerBtn = document.activeElement;
 
             updateModalContent(imgElement);
@@ -537,23 +544,48 @@ document.addEventListener('DOMContentLoaded', () => {
                 imageModal.classList.remove('flex');
                 imageModal.classList.add('hidden');
                 document.body.style.overflow = '';
+                // Jalankan sekali lagi setelah body kembali bisa di-scroll.
+                if (window._imageModalScrollPosition) {
+                    window.scrollTo(window._imageModalScrollPosition.x, window._imageModalScrollPosition.y);
+                }
                 if (modalImage) modalImage.removeAttribute('src');
                 window._imageModalClosing = false;
             }, 250);
 
-            // Kembalikan fokus ke tombol pemicu awal jika ada
-            if (window._lastImageModalTriggerBtn) {
-                window._lastImageModalTriggerBtn.focus();
+            // Kembalikan fokus tanpa scroll. Sebelumnya focus() biasa dapat menggulir
+            // halaman ke elemen yang masih aktif sebelum foto diklik (contohnya CTA
+            // Dekan/quote di beranda), sehingga saat tombol X ditekan halaman loncat.
+            const savedScrollPosition = window._imageModalScrollPosition;
+            if (window._lastImageModalTriggerBtn && document.contains(window._lastImageModalTriggerBtn)) {
+                try {
+                    window._lastImageModalTriggerBtn.focus({ preventScroll: true });
+                } catch (err) {
+                    // Fallback untuk browser lama yang belum mendukung preventScroll.
+                    window._lastImageModalTriggerBtn.focus();
+                }
                 window._lastImageModalTriggerBtn = null;
             }
 
+            // Pastikan pemulihan fokus maupun history tidak mengubah viewport.
+            // Dua frame diperlukan karena browser dapat melakukan scroll restoration
+            // setelah event popstate diproses.
+            const restoreModalScrollPosition = () => {
+                if (!savedScrollPosition) return;
+                window.scrollTo(savedScrollPosition.x, savedScrollPosition.y);
+                requestAnimationFrame(() => window.scrollTo(savedScrollPosition.x, savedScrollPosition.y));
+            };
+            restoreModalScrollPosition();
+
             // Ada satu entry history tambahan saat modal dibuka. Tandai sudah
             // ditangani sebelum history.back(), agar popstate tidak menutup
-            // modal untuk kedua kalinya.
+            // modal untuk kedua kalinya. Simpan posisi lagi setelah history browser
+            // selesai melakukan scroll restoration.
             if (!byPopState && window._imageModalHistoryPushed) {
                 window._imageModalHistoryPushed = false;
                 window.history.back();
+                setTimeout(restoreModalScrollPosition, 0);
             }
+            setTimeout(restoreModalScrollPosition, 0);
         };
 
         // Event Delegation untuk semua gambar dengan data-modal="true"
