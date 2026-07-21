@@ -338,18 +338,18 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initial creation
         createDots();
 
-        // Navigation via prev/next buttons only (no swipe)
-        if (btnNext) btnNext.addEventListener('click', () => goToSlide(currentIndex + 1));
-        if (btnPrev) btnPrev.addEventListener('click', () => goToSlide(currentIndex - 1));
+        // Navigation via prev/next buttons - move by page (same as dots)
+        if (btnNext) btnNext.addEventListener('click', () => goToSlide(currentIndex + visible));
+        if (btnPrev) btnPrev.addEventListener('click', () => goToSlide(currentIndex - visible));
 
-        // Keyboard navigation
+        // Keyboard navigation - move by page (same as dots/buttons)
         track.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight') {
                 e.preventDefault();
-                goToSlide(currentIndex + 1);
+                goToSlide(currentIndex + visible);
             } else if (e.key === 'ArrowLeft') {
                 e.preventDefault();
-                goToSlide(currentIndex - 1);
+                goToSlide(currentIndex - visible);
             }
         });
 
