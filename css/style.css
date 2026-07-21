@@ -601,9 +601,7 @@ button:hover .detail-arrow,
 a:active .detail-arrow,
 button:active .detail-arrow,
 a:focus-visible .detail-arrow,
-button:focus-visible .detail-arrow,
-.dosen-card:hover .dosen-detail-btn .detail-arrow,
-.dosen-card:active .dosen-detail-btn .detail-arrow {
+button:focus-visible .detail-arrow {
     transform: translateX(4px) !important;
 }
 
@@ -627,8 +625,14 @@ button:focus-visible .detail-arrow,
         box-shadow: none !important;
     }
 
-    /* Efek tekan elastis nyata saat disentuh (:active) pada tombol dan kartu yang bisa diklik */
-    .dosen-card:active,
+    /* Kartu dosen tetap statis; hanya tombol detail dan foto profil yang
+       mempertahankan interaksi hover/active masing-masing. */
+    .dosen-card:active {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Efek tekan elastis tetap berlaku untuk kartu program studi. */
     .program-card:active {
         transform: scale(.988) !important;
     }
@@ -759,15 +763,18 @@ button:focus-visible .detail-arrow,
    TESTIMONIAL CAROUSEL — CSS Scroll Snap (Native Smooth)
    ========================================================================== */
 .testimonial-track {
-    scroll-snap-type: x mandatory;
+    /* Tetap mengunci ke card terdekat, tetapi proximity memberi ruang untuk
+       swipe/drag yang lebih natural dan tidak terasa seperti dipaksa berhenti. */
+    scroll-snap-type: x proximity;
     -webkit-overflow-scrolling: touch;
-    /* scroll-padding: ruang di kiri/kanan agar slide pertama/terakhir snap ke center */
     scroll-padding-left: 50%;
     scroll-padding-right: 50%;
 }
 
 .testimonial-slide {
     scroll-snap-align: center;
+    /* Boleh melewati beberapa card saat swipe cepat; snap tetap terjadi saat
+       posisi scroll sudah dekat dengan card berikutnya. */
     scroll-snap-stop: normal;
 }
 
