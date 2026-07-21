@@ -318,6 +318,34 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // Custom smooth scroll with easing for premium feel
+        let scrollAnimationFrame = null;
+        function animateScrollTo(targetScrollLeft) {
+            if (scrollAnimationFrame !== null) {
+                cancelAnimationFrame(scrollAnimationFrame);
+                scrollAnimationFrame = null;
+            }
+            const startScrollLeft = track.scrollLeft;
+            const distance = targetScrollLeft - startScrollLeft;
+            const duration = 500; // ms
+            let startTime = null;
+
+            const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                const eased = easeOutCubic(progress);
+                track.scrollLeft = startScrollLeft + distance * eased;
+                if (progress < 1) {
+                    scrollAnimationFrame = requestAnimationFrame(step);
+                } else {
+                    scrollAnimationFrame = null;
+                }
+            }
+            scrollAnimationFrame = requestAnimationFrame(step);
+        }
+
         function goToSlide(index) {
             if (index < 0) index = totalSlides - 1;
             if (index >= totalSlides) index = 0;
@@ -330,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const trackCenter = trackRect.left + trackRect.width / 2;
                 const offset = slideCenter - trackCenter;
                 const targetScrollLeft = track.scrollLeft + offset;
-                track.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+                animateScrollTo(targetScrollLeft);
             }
             updateDots(Math.floor(index / visible));
         }
