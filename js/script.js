@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
         history.scrollRestoration = 'manual';
     }
 
+    const rAF = window.requestAnimationFrame || ((cb) => setTimeout(() => cb(Date.now()), 16));
+
     // ✅ OPTIMASI BACK-FORWARD CACHE (bfcache) & HASH CHANGE:
     window.addEventListener('pageshow', (event) => {
         if (event.persisted) {
@@ -195,13 +197,13 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo(0, startPosition + distance * easeInOutCubic);
             
             if (progress < duration) {
-                smoothScrollFrame = window.requestAnimationFrame(step);
+                smoothScrollFrame = rAF(step);
             } else {
                 smoothScrollFrame = null;
             }
         };
         
-        smoothScrollFrame = window.requestAnimationFrame(step);
+        smoothScrollFrame = rAF(step);
     };
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -260,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (hasRunningCounter) {
-            counterAnimationFrame = requestAnimationFrame(animateCounters);
+            counterAnimationFrame = rAF(animateCounters);
         } else {
             pendingCounters.clear();
             counterAnimationFrame = null;
@@ -275,26 +277,38 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         if (counterAnimationFrame === null && pendingCounters.size > 0) {
-            counterAnimationFrame = requestAnimationFrame(animateCounters);
+            counterAnimationFrame = rAF(animateCounters);
         }
     };
 
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            const counter = entry.target;
+    if ('IntersectionObserver' in window) {
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const counter = entry.target;
+                if (!Number.isNaN(parseInt(counter.getAttribute('data-count'), 10))) {
+                    pendingCounters.add(counter);
+                    counter.removeAttribute('data-counter-start');
+                }
+                counterObserver.unobserve(counter);
+            });
+            if (pendingCounters.size > 0 && counterStartTimer === null) {
+                scheduleCounterAnimation();
+            }
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+    } else {
+        document.querySelectorAll('[data-count]').forEach(counter => {
             if (!Number.isNaN(parseInt(counter.getAttribute('data-count'), 10))) {
                 pendingCounters.add(counter);
                 counter.removeAttribute('data-counter-start');
             }
-            counterObserver.unobserve(counter);
         });
         if (pendingCounters.size > 0 && counterStartTimer === null) {
             scheduleCounterAnimation();
         }
-    }, { threshold: 0.5 });
-
-    document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+    }
 
     // Simple and reliable reveal animation
     const revealElements = document.querySelectorAll('.reveal, .reveal-fade-up');
@@ -380,12 +394,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const eased = easeOutCubic(progress);
                 track.scrollLeft = startScrollLeft + distance * eased;
                 if (progress < 1) {
-                    scrollAnimationFrame = requestAnimationFrame(step);
+                    scrollAnimationFrame = rAF(step);
                 } else {
                     scrollAnimationFrame = null;
                 }
             }
-            scrollAnimationFrame = requestAnimationFrame(step);
+            scrollAnimationFrame = rAF(step);
         }
 
         function goToSlide(index) {
@@ -426,7 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Auto-slide functionality
         let autoSlideTimer = null;
         const AUTO_SLIDE_INTERVAL = 5000; // 5 seconds
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const reduceMotion = typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         function startAutoSlide() {
             if (reduceMotion) return; // Respect user preference
@@ -481,7 +495,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Accordion Peminatan/Konsentrasi (tertutup default, keyboard accessible)
     const concHeaders = document.querySelectorAll('.concentration-card .conc-header');
     if (concHeaders.length) {
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const reduceMotion = typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const openConc = (card, header) => {
             const body = card.querySelector('.concentration-body-card');
             card.classList.add('open'); header.setAttribute('aria-expanded', 'true');
@@ -650,7 +664,7 @@ document.addEventListener('DOMContentLoaded', () => {
             window.history.pushState({ imageModalOpen: true }, '');
             window._imageModalHistoryPushed = true;
 
-            requestAnimationFrame(() => {
+            rAF(() => {
                 if (modalPanel) {
                     modalPanel.classList.remove('scale-95', 'opacity-0');
                     modalPanel.classList.add('scale-100', 'opacity-100');
@@ -717,7 +731,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const restoreModalScrollPosition = () => {
                 if (!savedScrollPosition) return;
                 window.scrollTo(savedScrollPosition.x, savedScrollPosition.y);
-                requestAnimationFrame(() => window.scrollTo(savedScrollPosition.x, savedScrollPosition.y));
+                rAF(() => window.scrollTo(savedScrollPosition.x, savedScrollPosition.y));
             };
             restoreModalScrollPosition();
 
