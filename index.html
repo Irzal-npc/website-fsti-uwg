@@ -380,7 +380,12 @@
                     window.addEventListener('resize', updateOriginalWidth, { passive: true });
                 }
 
-                // Galeri mengalir terus menerus (non-stop auto-scroll) tanpa berhenti/zoom saat dikursor/disentuh
+                // Expose pause/resume for external control (e.g., modal)
+                window.galleryScroll = {
+                    pause: () => { paused = true; },
+                    resume: () => { paused = false; },
+                    isPaused: () => paused
+                };
 
                 animId = requestAnimationFrame(animate);
             })();

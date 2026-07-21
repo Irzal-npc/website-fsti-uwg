@@ -571,6 +571,11 @@ document.addEventListener('DOMContentLoaded', () => {
             clearTimeout(imageModal._closeTimer);
             window._imageModalClosing = false;
 
+            // Pause gallery auto-scroll when modal opens
+            if (window.galleryScroll && typeof window.galleryScroll.pause === 'function') {
+                window.galleryScroll.pause();
+            }
+
             // Simpan posisi halaman dan elemen fokus sebelum modal dibuka.
             // Gambar tidak otomatis menerima fokus saat diklik, sehingga elemen aktif
             // bisa saja masih berupa tombol/tautan jauh di halaman (mis. kartu Dekan).
@@ -618,6 +623,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (imageModal.getAttribute('aria-hidden') === 'true' && !imageModal.classList.contains('flex')) return;
             if (window._imageModalClosing) return;
             window._imageModalClosing = true;
+
+            // Resume gallery auto-scroll when modal closes
+            if (window.galleryScroll && typeof window.galleryScroll.resume === 'function') {
+                window.galleryScroll.resume();
+            }
 
             if (modalPanel) {
                 modalPanel.classList.remove('scale-100', 'opacity-100');
