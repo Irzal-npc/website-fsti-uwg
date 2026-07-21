@@ -540,6 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 'kegiatan': 'Kegiatan',
                 'prestasi': 'Prestasi',
                 'dosen': 'Dosen',
+                'dekan': 'Dekan',
                 'alumni': 'Alumni',
                 'prodi': 'Program Studi',
                 'testimoni': 'Alumni',
