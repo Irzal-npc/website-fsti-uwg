@@ -181,7 +181,7 @@
             </div>
         </div>
     </section>
-    <!-- Tabel Agregat Kerjasama -->
+    <!-- Grid Kartu Mitra Kerja Sama -->
     <section class="relative py-16 md:py-20 bg-[#FFF9F2] overflow-hidden">
         <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
             <div class="absolute -top-24 -right-24 w-80 h-80 bg-[#F18602] rounded-full blur-[120px] opacity-[0.08]"></div>
@@ -232,7 +232,7 @@
                         </div>
                         <div class="relative flex-1 sm:min-w-[190px]">
                             <i data-lucide="arrow-down-up" class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
-                            <select id="mitra-sort" class="w-full appearance-none pl-11 pr-9 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#F18602] focus:outline-none text-sm text-[#1A1026] bg-white cursor-pointer" aria-label="Urutkan tabel">
+                            <select id="mitra-sort" class="w-full appearance-none pl-11 pr-9 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#F18602] focus:outline-none text-sm text-[#1A1026] bg-white cursor-pointer" aria-label="Urutkan daftar mitra">
                                 <option value="mitra-asc" selected>Nama Mitra: A–Z</option>
                                 <option value="mitra-desc">Nama Mitra: Z–A</option>
                                 <option value="jenis-asc">Jenis Mitra: A–Z</option>
@@ -251,26 +251,9 @@
                 
             </div>
 
-            <!-- Kartu Tabel -->
-            <div id="mitra-card-wrap" class="bg-white border border-gray-200 rounded-[20px] overflow-hidden reveal reveal-fade-up">
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse min-w-[980px]">
-                        <caption class="sr-only">Tabel daftar seluruh kerjasama Fakultas Sains dan Teknologi Informasi UWG Malang</caption>
-                        <thead>
-                            <tr class="bg-[#5B2A7E] text-white">
-                                <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider whitespace-nowrap w-12">No</th>
-                                <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider">Mitra</th>
-                                <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider">Jenis Mitra</th>
-                                <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider">Bentuk</th>
-                                <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider">Ruang Lingkup</th>
-                                <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider">Periode</th>
-                                <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider">Status</th>
-                                <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider text-center">Tautan</th>
-                            </tr>
-                        </thead>
-                        <tbody id="mitra-tbody"></tbody>
-                    </table>
-                </div>
+            <!-- Grid Kartu Mitra -->
+            <div id="mitra-card-wrap" class="reveal reveal-fade-up">
+                <div id="mitra-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"></div>
             </div>
 
             <!-- Empty state -->
@@ -372,10 +355,10 @@
         var $ = function (id) { return document.getElementById(id); };
         var els = {
             search: $('mitra-search'), jenis: $('mitra-jenis'), sort: $('mitra-sort'), reset: $('mitra-reset'),
-            tbody: $('mitra-tbody'), count: $('mitra-count'), empty: $('mitra-empty'), cardWrap: $('mitra-card-wrap'),
+            grid: $('mitra-grid'), count: $('mitra-count'), empty: $('mitra-empty'), cardWrap: $('mitra-card-wrap'),
             statMitra: $('stat-total-mitra'), statDN: $('stat-total-dn'), statLN: $('stat-total-ln')
         };
-        if (!els.tbody) return;
+        if (!els.grid) return;
 
         // Statistik ringkas (otomatis dari data)
         var isLN = function (k) { return String(k.negara || '').toLowerCase().indexOf('indonesia') === -1; };
@@ -410,11 +393,21 @@
             }).sort(comparator);
         }
 
-        function logoCell(k) {
-            if (k.logo) {
-                return '<img src="' + U.esc(k.logo) + '" alt="Logo ' + U.esc(k.mitra) + '" data-modal="true" data-modal-image="' + U.esc(k.logo) + '" data-modal-caption="Logo ' + U.esc(k.mitra) + '" data-modal-desc="' + U.esc(k.mitra) + ' — ' + U.esc(k.jenis || '') + ' (' + U.esc(k.negara || '') + ')" data-group="mitra" class="w-14 h-14 flex-shrink-0 object-contain bg-white border border-gray-200 rounded-xl p-1.5 cursor-pointer hover:ring-2 hover:ring-[#F18602]/40 transition-all" width="56" height="56" loading="lazy" fetchpriority="low" decoding="async">';
-            }
-            return '<span class="w-14 h-14 flex-shrink-0 bg-[#FFF9F2] border border-gray-200 rounded-xl flex items-center justify-center" aria-hidden="true"><i data-lucide="building-2" class="w-5 h-5 text-[#5B2A7E]"></i></span>';
+        function logoBlock(k) {
+            var inner = k.logo
+                ? '<img src="' + U.esc(k.logo) + '" alt="Logo ' + U.esc(k.mitra) + '" data-modal="true" data-modal-image="' + U.esc(k.logo) + '" data-modal-caption="Logo ' + U.esc(k.mitra) + '" data-modal-desc="' + U.esc(k.mitra) + ' — ' + U.esc(k.jenis || '') + ' (' + U.esc(k.negara || '') + ')" data-group="mitra" class="max-w-full max-h-full object-contain cursor-pointer hover:scale-[1.05] transition-transform" width="160" height="64" loading="lazy" fetchpriority="low" decoding="async">'
+                : '<i data-lucide="building-2" class="w-8 h-8 text-[#5B2A7E]" aria-hidden="true"></i>';
+            return '<div class="w-full h-24 rounded-2xl border-2 border-gray-100 ' + (k.logo ? 'bg-white' : 'bg-[#FFF9F2]') + ' flex items-center justify-center p-4 mb-4">' + inner + '</div>';
+        }
+
+        function jenisPill(k) {
+            return '<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-purple-50 border border-purple-200 text-[11px] font-bold text-[#5B2A7E]">' + U.esc(k.jenis || '—') + '</span>';
+        }
+
+        function lingkupPill(k) {
+            var ln = isLN(k);
+            var cls = ln ? 'bg-[#FFF9F2] border-[#F18602]/30 text-[#D97200]' : 'bg-slate-50 border-slate-200 text-slate-600';
+            return '<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border text-[11px] font-bold whitespace-nowrap ' + cls + '"><i data-lucide="' + (ln ? 'globe' : 'landmark') + '" class="w-3 h-3"></i>' + (ln ? 'Luar Negeri' : 'Dalam Negeri') + '</span>';
         }
 
         function statusPill(k) {
@@ -427,27 +420,32 @@
                 + U.esc(k.status || '—') + '</span>';
         }
 
-        function rowHtml(k, idx) {
-            var linkCell = k.link
-                ? '<a href="' + U.esc(k.link) + '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-9 h-9 rounded-xl border-2 border-gray-200 text-[#5B2A7E] hover:border-[#F18602] hover:text-[#D97200] hover:bg-[#FFF9F2] transition-colors" aria-label="Buka situs resmi ' + U.esc(k.mitra) + '" title="Buka situs resmi"><i data-lucide="external-link" class="w-4 h-4"></i></a>'
-                : '<span class="text-gray-400 text-xs">—</span>';
-            return '<tr class="border-b border-gray-100 last:border-0 hover:bg-[#FFF9F2]/60 transition-colors">'
-                + '<td class="py-3.5 px-4 text-xs text-gray-400 font-semibold align-middle whitespace-nowrap">' + (idx + 1) + '</td>'
-                + '<td class="py-3.5 px-4 align-middle min-w-[250px]"><div class="flex items-center gap-3">' + logoCell(k) + '<div class="min-w-0"><span class="font-semibold text-[#1A1026] leading-snug text-sm block">' + U.esc(k.mitra) + '</span><span class="text-xs text-gray-500">' + U.esc(k.negara || '—') + '</span></div></div></td>'
-                + '<td class="py-3.5 px-4 align-middle min-w-[170px]"><span class="inline-flex items-center px-2.5 py-1 rounded-full bg-purple-50 border border-purple-200 text-[11px] font-bold text-[#5B2A7E]">' + U.esc(k.jenis || '—') + '</span></td>'
-                + '<td class="py-3.5 px-4 align-middle whitespace-nowrap"><span class="text-sm font-semibold text-[#1A1026]">' + U.esc(k.bentuk || '—') + '</span></td>'
-                + '<td class="py-3.5 px-4 align-middle min-w-[220px]"><span class="text-sm text-gray-600 leading-relaxed">' + U.esc(k.bidang || '—') + '</span></td>'
-                + '<td class="py-3.5 px-4 align-middle whitespace-nowrap"><span class="text-sm text-gray-600">' + U.esc(k.periode || '—') + '</span></td>'
-                + '<td class="py-3.5 px-4 align-middle">' + statusPill(k) + '</td>'
-                + '<td class="py-3.5 px-4 align-middle text-center">' + linkCell + '</td>'
-                + '</tr>';
+        function cardHtml(k) {
+            var linkBtn = k.link
+                ? '<a href="' + U.esc(k.link) + '" target="_blank" rel="noopener noreferrer" class="absolute top-3 right-3 z-10 inline-flex items-center justify-center w-9 h-9 rounded-xl border-2 border-gray-200 bg-white text-[#5B2A7E] hover:border-[#F18602] hover:text-[#D97200] hover:bg-[#FFF9F2] transition-colors" aria-label="Buka situs resmi ' + U.esc(k.mitra) + '" title="Buka situs resmi"><i data-lucide="external-link" class="w-4 h-4"></i></a>'
+                : '';
+            var bentukPill = k.bentuk
+                ? '<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white border border-[#F18602]/40 text-[11px] font-bold text-[#D97200] whitespace-nowrap"><i data-lucide="file-check-2" class="w-3 h-3"></i>' + U.esc(k.bentuk) + '</span>'
+                : '';
+            var periodeSpan = k.periode
+                ? '<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gray-50 border border-gray-200 text-[11px] font-semibold text-gray-500 whitespace-nowrap"><i data-lucide="calendar" class="w-3 h-3"></i>' + U.esc(k.periode) + '</span>'
+                : '';
+            return '<article class="relative bg-white border border-gray-200 rounded-[20px] p-5 flex flex-col items-center text-center hover:border-[#F18602]/60 hover:shadow-xl hover:shadow-orange-100/40 hover:-translate-y-1 transition-all duration-300">'
+                + linkBtn
+                + logoBlock(k)
+                + '<div class="flex flex-wrap justify-center gap-1.5 mb-3">' + jenisPill(k) + lingkupPill(k) + '</div>'
+                + '<h3 class="text-base font-extrabold text-[#1A1026] leading-snug">' + U.esc(k.mitra) + '</h3>'
+                + '<p class="mt-1 inline-flex items-center gap-1.5 text-xs text-gray-500"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#F18602]"></i>' + U.esc(k.negara || '—') + '</p>'
+                + '<p class="mt-3 mb-4 text-xs text-gray-600 leading-relaxed">' + U.esc(k.bidang || '—') + '</p>'
+                + '<div class="w-full mt-auto pt-4 border-t border-gray-100 flex flex-wrap items-center justify-center gap-1.5">' + bentukPill + periodeSpan + statusPill(k) + '</div>'
+                + '</article>';
         }
 
         function render() {
             var list = filtered();
             var html = '';
-            list.forEach(function (k, i) { html += rowHtml(k, i); });
-            els.tbody.innerHTML = html;
+            list.forEach(function (k) { html += cardHtml(k); });
+            els.grid.innerHTML = html;
             if (els.count) {
                 els.count.innerHTML = list.length === 0
                     ? 'Tidak ada entri yang cocok.'

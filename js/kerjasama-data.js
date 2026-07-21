@@ -1,6 +1,6 @@
 /**
  * FSTI UWG Malang - Pangkalan Data Kerjasama Fakultas (v1)
- * Dirender oleh halaman kerjasama.html (Tabel Agregat Kerjasama).
+ * Dirender oleh halaman kerjasama.html (Grid Kartu Mitra).
  *
  * CARA PEMBARUAN (oleh pengelola fakultas):
  * 1. Tambahkan/edit objek di dalam array di bawah ini.

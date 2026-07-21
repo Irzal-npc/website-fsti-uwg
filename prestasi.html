@@ -181,7 +181,7 @@
             </div>
         </div>
     </section>
-    <!-- Tabel Agregat Prestasi -->
+    <!-- Grid Kartu Prestasi Fakultas -->
     <section class="relative py-16 md:py-20 bg-[#FFF9F2] overflow-hidden">
         <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
             <div class="absolute -top-24 -right-24 w-80 h-80 bg-[#F18602] rounded-full blur-[120px] opacity-[0.08]"></div>
@@ -237,7 +237,7 @@
                         </div>
                         <div class="relative flex-1 sm:min-w-[190px]">
                             <i data-lucide="arrow-down-up" class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
-                            <select id="prestasi-sort" class="w-full appearance-none pl-11 pr-9 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#F18602] focus:outline-none text-sm text-[#1A1026] bg-white cursor-pointer" aria-label="Urutkan tabel">
+                            <select id="prestasi-sort" class="w-full appearance-none pl-11 pr-9 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#F18602] focus:outline-none text-sm text-[#1A1026] bg-white cursor-pointer" aria-label="Urutkan daftar prestasi">
                                 <option value="tahun-desc" selected>Tahun: Terbaru dulu</option>
                                 <option value="tahun-asc">Tahun: Terlama dulu</option>
                                 <option value="nama-asc">Nama Prestasi: A–Z</option>
@@ -261,27 +261,9 @@
                 
             </div>
 
-            <!-- Kartu Tabel -->
-            <div id="prestasi-card-wrap" class="bg-white border border-gray-200 rounded-[20px] overflow-hidden reveal reveal-fade-up">
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse min-w-[980px]">
-                        <caption class="sr-only">Tabel daftar prestasi akademik dan non-akademik di bawah Fakultas Sains dan Teknologi Informasi UWG Malang</caption>
-                        <thead>
-                            <tr class="bg-[#5B2A7E] text-white">
-                                <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider whitespace-nowrap w-12">No</th>
-                                <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider text-center">Dokumentasi</th>
-                                <th scope="col" id="prestasi-th-tahun" class="py-4 px-4 text-xs font-bold uppercase tracking-wider whitespace-nowrap" aria-sort="descending">
-                                    <button type="button" id="prestasi-th-tahun-btn" class="inline-flex items-center gap-1 font-bold uppercase tracking-wider text-xs text-white hover:text-[#F18602] transition-colors cursor-pointer" aria-label="Urutkan berdasarkan tahun">Tahun <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i></button>
-                                </th>
-                                <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider">Prestasi</th>
-                                <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider">Kategori</th>
-                                <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider">Tingkat</th>
-                                <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider">Peraih</th>
-                            </tr>
-                        </thead>
-                        <tbody id="prestasi-tbody"></tbody>
-                    </table>
-                </div>
+            <!-- Grid Kartu Prestasi -->
+            <div id="prestasi-card-wrap" class="reveal reveal-fade-up">
+                <div id="prestasi-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-6"></div>
             </div>
 
             <!-- Empty state -->
@@ -384,11 +366,10 @@
         var els = {
             search: $('prestasi-search'), tingkat: $('prestasi-tingkat'), sort: $('prestasi-sort'), reset: $('prestasi-reset'),
             chips: document.querySelectorAll('#prestasi-filters .filter-chip'),
-            tbody: $('prestasi-tbody'), count: $('prestasi-count'), empty: $('prestasi-empty'), cardWrap: $('prestasi-card-wrap'),
-            statTotal: $('stat-total-prestasi'), statAk: $('stat-total-akademik'), statNon: $('stat-total-nonakademik'), statInt: $('stat-total-internasional'),
-            thTahun: $('prestasi-th-tahun'), thTahunBtn: $('prestasi-th-tahun-btn')
+            grid: $('prestasi-grid'), count: $('prestasi-count'), empty: $('prestasi-empty'), cardWrap: $('prestasi-card-wrap'),
+            statTotal: $('stat-total-prestasi'), statAk: $('stat-total-akademik'), statNon: $('stat-total-nonakademik'), statInt: $('stat-total-internasional')
         };
-        if (!els.tbody) return;
+        if (!els.grid) return;
 
         function yearOf(p) {
             var t = parseInt(p.tahun, 10);
@@ -441,11 +422,15 @@
             return t;
         }
 
-        function fotoCell(p) {
-            if (p.foto) {
-                return '<img src="' + U.esc(p.foto) + '" alt="Dokumentasi: ' + U.esc(p.nama) + '" data-modal="true" data-modal-image="' + U.esc(p.foto) + '" data-modal-caption="' + U.esc(p.nama) + '" data-modal-desc="' + U.esc(ringkasan(p)) + '" data-group="prestasi" class="w-16 h-12 object-cover rounded-lg border border-gray-200 cursor-pointer hover:ring-2 hover:ring-[#F18602]/40 transition-all" width="64" height="48" loading="lazy" fetchpriority="low" decoding="async">';
-            }
-            return '<span class="inline-flex w-16 h-12 bg-[#FFF9F2] border border-gray-200 rounded-lg items-center justify-center" aria-hidden="true"><i data-lucide="trophy" class="w-5 h-5 text-[#F18602]"></i></span>';
+        function tahunBadge(p) {
+            return '<span class="absolute top-3 left-3 inline-flex items-center px-2.5 py-1 rounded-lg bg-white/95 border border-[#F18602]/30 text-xs font-extrabold text-[#D97200] shadow-sm">' + U.esc(p.tahun || '—') + '</span>';
+        }
+
+        function fotoBlock(p) {
+            var inner = p.foto
+                ? '<img src="' + U.esc(p.foto) + '" alt="Dokumentasi: ' + U.esc(p.nama) + '" data-modal="true" data-modal-image="' + U.esc(p.foto) + '" data-modal-caption="' + U.esc(p.nama) + '" data-modal-desc="' + U.esc(ringkasan(p)) + '" data-group="prestasi" class="w-full h-full object-cover cursor-pointer hover:scale-105 transition-transform duration-500" width="400" height="300" loading="lazy" fetchpriority="low" decoding="async">'
+                : '<div class="w-full h-full bg-gradient-to-br from-[#5B2A7E] to-[#3D1A55] flex items-center justify-center"><i data-lucide="trophy" class="w-12 h-12 text-[#F18602]" aria-hidden="true"></i></div>';
+            return '<div class="relative h-44 sm:h-48 overflow-hidden bg-[#1A1026]">' + inner + tahunBadge(p) + '</div>';
         }
 
         function kategoriPill(p) {
@@ -457,32 +442,31 @@
             return '<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[11px] font-bold whitespace-nowrap ' + cls + '"><i data-lucide="' + icon + '" class="w-3 h-3"></i>' + U.esc(p.kategori || '—') + '</span>';
         }
 
-        function rowHtml(p, idx) {
-            return '<tr class="border-b border-gray-100 last:border-0 hover:bg-[#FFF9F2]/60 transition-colors">'
-                + '<td class="py-3.5 px-4 text-xs text-gray-400 font-semibold align-middle whitespace-nowrap">' + (idx + 1) + '</td>'
-                + '<td class="py-3.5 px-4 align-middle text-center">' + fotoCell(p) + '</td>'
-                + '<td class="py-3.5 px-4 align-middle whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-1 rounded-lg bg-[#FFF9F2] border border-[#F18602]/30 text-xs font-extrabold text-[#D97200]">' + U.esc(p.tahun || '—') + '</span></td>'
-                + '<td class="py-3.5 px-4 align-middle min-w-[260px]"><span class="font-semibold text-[#1A1026] leading-snug text-sm block">' + U.esc(p.nama) + '</span>' + (p.penyelenggara ? '<span class="block mt-1 text-xs text-gray-500 leading-relaxed">' + U.esc(p.penyelenggara) + '</span>' : '') + '</td>'
-                + '<td class="py-3.5 px-4 align-middle whitespace-nowrap">' + kategoriPill(p) + '</td>'
-                + '<td class="py-3.5 px-4 align-middle whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-1 rounded-full bg-purple-50 border border-purple-200 text-[11px] font-bold text-[#5B2A7E]">' + U.esc(p.tingkat || '—') + '</span></td>'
-                + '<td class="py-3.5 px-4 align-middle min-w-[200px]"><span class="text-sm text-[#1A1026] font-medium leading-snug block">' + U.esc(p.peraih || '—') + '</span>' + (p.asal ? '<span class="block mt-1 text-xs text-gray-500">' + U.esc(p.asal) + '</span>' : '') + '</td>'
-                + '</tr>';
+        function tingkatPill(p) {
+            return '<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-purple-50 border border-purple-200 text-[11px] font-bold text-[#5B2A7E] whitespace-nowrap"><i data-lucide="medal" class="w-3 h-3"></i>' + U.esc(p.tingkat || '—') + '</span>';
         }
 
-        function updateTahunHeader() {
-            var sorted = state.sort === 'tahun-desc' || state.sort === 'tahun-asc';
-            if (els.thTahun) els.thTahun.setAttribute('aria-sort', sorted ? (state.sort === 'tahun-desc' ? 'descending' : 'ascending') : 'none');
-            if (els.thTahunBtn) {
-                var icon = state.sort === 'tahun-asc' ? 'chevron-up' : (state.sort === 'tahun-desc' ? 'chevron-down' : 'chevrons-up-down');
-                els.thTahunBtn.innerHTML = 'Tahun <i data-lucide="' + icon + '" class="w-3.5 h-3.5"></i>';
-            }
+        function cardHtml(p) {
+            var peraih = '<p class="flex items-start gap-2 text-xs leading-relaxed"><i data-lucide="user-round" class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-[#F18602]" aria-hidden="true"></i>'
+                + '<span><span class="font-semibold text-[#1A1026]">' + U.esc(p.peraih || '—') + '</span>'
+                + (p.asal ? '<span class="block text-gray-500">' + U.esc(p.asal) + '</span>' : '') + '</span></p>';
+            var penyelenggara = p.penyelenggara
+                ? '<p class="flex items-start gap-2 text-xs text-gray-500 leading-relaxed"><i data-lucide="landmark" class="w-3.5 h-3.5 mt-0.5 flex-shrink-0" aria-hidden="true"></i><span>' + U.esc(p.penyelenggara) + '</span></p>'
+                : '';
+            return '<article class="bg-white border border-gray-200 rounded-[20px] overflow-hidden flex flex-col hover:border-[#F18602]/60 hover:shadow-xl hover:shadow-orange-100/40 hover:-translate-y-1 transition-all duration-300">'
+                + fotoBlock(p)
+                + '<div class="p-5 flex flex-col flex-1">'
+                + '<div class="flex flex-wrap gap-1.5 mb-2.5">' + kategoriPill(p) + tingkatPill(p) + '</div>'
+                + '<h3 class="text-sm md:text-[15px] font-extrabold text-[#1A1026] leading-snug mb-3">' + U.esc(p.nama) + '</h3>'
+                + '<div class="mt-auto pt-3 border-t border-gray-100 space-y-1.5">' + peraih + penyelenggara + '</div>'
+                + '</div></article>';
         }
 
         function render() {
             var list = filtered();
             var html = '';
-            list.forEach(function (p, i) { html += rowHtml(p, i); });
-            els.tbody.innerHTML = html;
+            list.forEach(function (p) { html += cardHtml(p); });
+            els.grid.innerHTML = html;
             if (els.count) {
                 els.count.innerHTML = list.length === 0
                     ? 'Tidak ada entri yang cocok.'
@@ -491,7 +475,6 @@
             var isEmpty = list.length === 0;
             if (els.empty) els.empty.classList.toggle('hidden', !isEmpty);
             if (els.cardWrap) els.cardWrap.classList.toggle('hidden', isEmpty);
-            updateTahunHeader();
             if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
         }
 
@@ -516,11 +499,6 @@
         if (els.search) els.search.addEventListener('input', function () { state.q = this.value; render(); });
         if (els.tingkat) els.tingkat.addEventListener('change', function () { state.tingkat = this.value; render(); });
         if (els.sort) els.sort.addEventListener('change', function () { state.sort = this.value; render(); });
-        if (els.thTahunBtn) els.thTahunBtn.addEventListener('click', function () {
-            state.sort = (state.sort === 'tahun-desc') ? 'tahun-asc' : 'tahun-desc';
-            if (els.sort) els.sort.value = state.sort === 'nama-asc' ? 'tahun-desc' : state.sort;
-            render();
-        });
         if (els.reset) els.reset.addEventListener('click', function () {
             state.q = ''; state.kategori = ''; state.tingkat = ''; state.sort = 'tahun-desc';
             if (els.search) els.search.value = '';

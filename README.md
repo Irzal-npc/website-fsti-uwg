@@ -89,8 +89,8 @@ Website ini menyajikan informasi lengkap mengenai:
 | **Direktori Dosen** | `direktori-dosen.html` | Direktori interaktif pengajar/peneliti FSTI dilengkapi pencarian RAM instan, filter jenis & database karya ilmiah, serta modal biodata lengkap. |
 | **Penelitian Dosen** | `penelitian.html` | Tabel agregat seluruh karya penelitian dosen FSTI dalam satu halaman; filter nama dosen, sorting tahun (klik kolom/pilihan), muat bertahap, dan tombol ikon salin sitasi per baris. |
 | **Pengabdian Masyarakat** | `pengabdian.html` | Tabel agregat seluruh karya pengabdian kepada masyarakat dosen FSTI dalam satu halaman; fitur filter, sorting, dan salin sitasi serupa halaman Penelitian. |
-| **Kerjasama Fakultas** | `kerjasama.html` | Tabel daftar seluruh kerjasama fakultas (industri, perguruan tinggi dalam/luar negeri, lembaga pendidikan) lengkap dengan logo mitra, filter jenis, pencarian, dan tombol salin ringkasan. |
-| **Prestasi Fakultas** | `prestasi.html` | Tabel daftar prestasi di bawah fakultas — akademik & non-akademik — dengan filter kategori, filter tingkat (lokal→internasional), sorting tahun, foto dokumentasi, dan tombol salin ringkasan. |
+| **Kerjasama Fakultas** | `kerjasama.html` | Grid kartu seluruh mitra kerjasama fakultas (industri, perguruan tinggi dalam/luar negeri, lembaga pendidikan) dengan logo mitra, badge jenis & ruang lingkup, status dokumen, tautan situs resmi, filter jenis, pencarian, dan sorting nama. |
+| **Prestasi Fakultas** | `prestasi.html` | Grid kartu prestasi di bawah fakultas — akademik & non-akademik — dengan foto dokumentasi (lightbox), badge tahun/kategori/tingkat (lokal→internasional), chip filter kategori, filter tingkat, pencarian, dan sorting tahun. |
 | **Direktori Alumni** | `alumni.html` | Direktori lulusan FSTI dari berbagai angkatan/instansi dilengkapi pencarian RAM instan, filter prodi, dan modal cerita testimoni. |
 | **Penerimaan Mahasiswa Baru** | `pmb.html` | Informasi jalur pendaftaran, 4 langkah alur SPMB, jadwal kelas (Reguler A / Karyawan B / Transfer D3 / RPL), rincian biaya, dan 3 program beasiswa. |
 | **Pusat Unduhan & Dokumen** | `pusat-unduhan.html` | Pustaka dokumen resmi fakultas; Pedoman Skripsi & Pedoman PKL berstatus *Segera Hadir* sembari menunggu finalisasi dokumen resmi. |
@@ -106,7 +106,7 @@ Website ini menyajikan informasi lengkap mengenai:
 project-fsti-rapi/
 ├── index.html, tentang.html, direktori-dosen.html, alumni.html, pmb.html, pusat-unduhan.html
 ├── penelitian.html, pengabdian.html          # Tabel agregat karya dosen (Penelitian / Pengabdian)
-├── kerjasama.html, prestasi.html             # Tabel kerjasama Fakultas & daftar prestasi
+├── kerjasama.html, prestasi.html             # Grid kartu mitra kerjasama Fakultas & daftar prestasi
 ├── README.md                                 # Dokumentasi & panduan arsitektur project
 ├── CHANGELOG.md                              # Log resmi riwayat pembaruan & revisi kode
 ├── prodi/
@@ -277,7 +277,7 @@ Website ini menggunakan arsitektur penyimpanan data langsung di dalam memori Jav
 
 ### Cara Memperbarui Data Kerjasama / Prestasi:
 1. Buka berkas `js/kerjasama-data.js` atau `js/prestasi-data.js` (struktur kolom dijelaskan di komentar kepala masing-masing berkas).
-2. Tambahkan/edit objek pada array, lalu simpan. Tabel di halaman terkait, statistik ringkas, serta opsi filter otomatis menyesuaikan isi data.
+2. Tambahkan/edit objek pada array, lalu simpan. Grid kartu di halaman terkait, statistik ringkas, serta opsi filter otomatis menyesuaikan isi data.
 
 ---
 

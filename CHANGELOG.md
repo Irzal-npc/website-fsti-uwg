@@ -4,6 +4,21 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-21] - Tampilan Kerjasama & Prestasi Diubah dari Tabel menjadi Grid Kartu
+
+#### Diubah
+- **`kerjasama.html`**: Tabel 8 kolom diganti menjadi **grid kartu mitra** (1/2/3 kolom responsif). Setiap kartu memuat: logo mitra besar (klik → lightbox), badge jenis mitra & ruang lingkup (Dalam/Luar Negeri — otomatis dari negara), nama mitra, negara, ruang lingkup bidang kerja sama, serta baris meta (bentuk dokumen, periode bila tersedia, pill status Aktif/Berakhir) dan tombol tautan situs resmi. Pencarian, filter jenis, sorting nama, statistik ringkas (10 mitra / 3 DN / 7 LN), dan *empty state* dipertahankan.
+- **`prestasi.html`**: Tabel diganti menjadi **grid kartu prestasi** dengan sampul foto dokumentasi yang dapat diklik (lightbox tetap berfungsi), badge tahun di atas foto, badge kategori (Akademik/Non-Akademik) & tingkat, nama prestasi, peraih + asal, dan penyelenggara. Chip filter kategori, filter tingkat, sorting tahun, statistik ringkas, dan *empty state* dipertahankan. (Sorting kini cukup via dropdown — tombol sortir di kepala kolom tabel turut dihapus bersama tabelnya.)
+- Rationale: permintaan tabel dari fakultas hanya untuk halaman Penelitian & Pengabdian (ratusan entri); Kerjasama (10 mitra) & Prestasi (3 entri) lebih komunikatif sebagai kartu visual.
+- `README.md`, komentar kepala `js/kerjasama-data.js` & `js/prestasi-data.js` disesuaikan (format data tidak berubah).
+- `service-worker.js`: bump cache ke `v2026.14`.
+
+#### Diverifikasi
+- Parser HTML: 13/13 halaman valid (tag seimbang, tanpa ID ganda); `node --check` lolos untuk skrip inline kedua halaman; 54 ikon Lucide terpakai tervalidasi tersedia di bundel lokal.
+- Uji DOM headless: 27/27 skenario lolos (jumlah kartu, statistik, filter jenis/tingkat/chip kategori, pencarian, sorting nama & tahun, *empty state*, reset, tidak ada tombol salin).
+
+---
+
 ### [2026-07-21] - Penyesuaian Lintas Halaman: Tautan Silang + Sinkronisasi 10 Mitra (UKM)
 
 #### Ditambahkan (Tautan Silang)

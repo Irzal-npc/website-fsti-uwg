@@ -1,6 +1,6 @@
 /**
  * FSTI UWG Malang - Pangkalan Data Prestasi Fakultas (v1)
- * Dirender oleh halaman prestasi.html (Tabel Agregat Prestasi Akademik & Non-Akademik).
+ * Dirender oleh halaman prestasi.html (Grid Kartu Prestasi Akademik & Non-Akademik).
  *
  * CARA PEMBARUAN (oleh pengelola fakultas):
  * 1. Tambahkan/edit objek di dalam array di bawah ini.
