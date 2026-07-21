@@ -166,7 +166,7 @@
         </div>
     </header>
     <!-- Internal Page Hero -->
-    <section id="main-content" tabindex="-1" class="internal-hero relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#1A1026]">
+    <section id="main-content" role="main" tabindex="-1" class="internal-hero relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#1A1026]">
         <div class="absolute inset-0 z-0 pointer-events-none">
             <div class="absolute inset-0 bg-[#5B2A7E]"></div>
             <div class="absolute inset-0 opacity-[0.12]" style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 40px 40px;"></div>
@@ -191,7 +191,7 @@
         <div class="relative container mx-auto px-6 max-w-6xl">
             <!-- Judul seksi terpusat (standar README: eyebrow → H2 → garis) -->
             <div class="text-center reveal mb-10">
-                <span class="inline-block text-[#D97200] text-xs font-bold uppercase tracking-[0.2em] mb-3">Kemitraan</span>
+                <span class="inline-block text-[#C2410C] text-xs font-bold uppercase tracking-[0.2em] mb-3">Kemitraan</span>
                 <h2 class="text-[#5B2A7E] text-3xl md:text-4xl font-extrabold mb-4">Daftar Kerjasama Fakultas</h2>
                 <div class="w-20 h-1.5 bg-[#F18602] mx-auto rounded-full"></div>
             </div>
@@ -406,7 +406,7 @@
 
         function lingkupPill(k) {
             var ln = isLN(k);
-            var cls = ln ? 'bg-[#FFF9F2] border-[#F18602]/30 text-[#D97200]' : 'bg-slate-50 border-slate-200 text-slate-600';
+            var cls = ln ? 'bg-[#FFF9F2] border-[#F18602]/30 text-[#C2410C]' : 'bg-slate-50 border-slate-200 text-slate-600';
             return '<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border text-[11px] font-bold whitespace-nowrap ' + cls + '"><i data-lucide="' + (ln ? 'globe' : 'landmark') + '" class="w-3 h-3"></i>' + (ln ? 'Luar Negeri' : 'Dalam Negeri') + '</span>';
         }
 
@@ -425,7 +425,7 @@
                 ? '<a href="' + U.esc(k.link) + '" target="_blank" rel="noopener noreferrer" class="absolute top-3 right-3 z-10 inline-flex items-center justify-center w-9 h-9 rounded-xl border-2 border-gray-200 bg-white text-[#5B2A7E] hover:border-[#F18602] hover:text-[#D97200] hover:bg-[#FFF9F2] transition-colors" aria-label="Buka situs resmi ' + U.esc(k.mitra) + '" title="Buka situs resmi"><i data-lucide="external-link" class="w-4 h-4"></i></a>'
                 : '';
             var bentukPill = k.bentuk
-                ? '<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white border border-[#F18602]/40 text-[11px] font-bold text-[#D97200] whitespace-nowrap"><i data-lucide="file-check-2" class="w-3 h-3"></i>' + U.esc(k.bentuk) + '</span>'
+                ? '<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white border border-[#F18602]/40 text-[11px] font-bold text-[#C2410C] whitespace-nowrap"><i data-lucide="file-check-2" class="w-3 h-3"></i>' + U.esc(k.bentuk) + '</span>'
                 : '';
             var periodeSpan = k.periode
                 ? '<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gray-50 border border-gray-200 text-[11px] font-semibold text-gray-500 whitespace-nowrap"><i data-lucide="calendar" class="w-3 h-3"></i>' + U.esc(k.periode) + '</span>'

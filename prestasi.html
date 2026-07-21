@@ -166,7 +166,7 @@
         </div>
     </header>
     <!-- Internal Page Hero -->
-    <section id="main-content" tabindex="-1" class="internal-hero relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#1A1026]">
+    <section id="main-content" role="main" tabindex="-1" class="internal-hero relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#1A1026]">
         <div class="absolute inset-0 z-0 pointer-events-none">
             <div class="absolute inset-0 bg-[#5B2A7E]"></div>
             <div class="absolute inset-0 opacity-[0.12]" style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 40px 40px;"></div>
@@ -191,7 +191,7 @@
         <div class="relative container mx-auto px-6 max-w-6xl">
             <!-- Judul seksi terpusat (standar README: eyebrow → H2 → garis) -->
             <div class="text-center reveal mb-10">
-                <span class="inline-block text-[#D97200] text-xs font-bold uppercase tracking-[0.2em] mb-3">Pencapaian</span>
+                <span class="inline-block text-[#C2410C] text-xs font-bold uppercase tracking-[0.2em] mb-3">Pencapaian</span>
                 <h2 class="text-[#5B2A7E] text-3xl md:text-4xl font-extrabold mb-4">Daftar Prestasi Fakultas</h2>
                 <div class="w-20 h-1.5 bg-[#F18602] mx-auto rounded-full"></div>
             </div>
@@ -250,7 +250,7 @@
                     </div>
                 </div>
                 <div id="prestasi-filters" class="flex flex-wrap gap-2">
-                    <button type="button" data-filter="" class="filter-chip px-4 py-2 rounded-full border-2 text-sm font-semibold transition-colors border-[#F18602] bg-[#FFF9F2] text-[#D97200]">Semua</button>
+                    <button type="button" data-filter="" class="filter-chip px-4 py-2 rounded-full border-2 text-sm font-semibold transition-colors border-[#F18602] bg-[#FFF9F2] text-[#C2410C]">Semua</button>
                     <button type="button" data-filter="Akademik" class="filter-chip px-4 py-2 rounded-full border-2 text-sm font-semibold transition-colors border-gray-200 text-gray-600 hover:border-[#F18602]">Akademik</button>
                     <button type="button" data-filter="Non-Akademik" class="filter-chip px-4 py-2 rounded-full border-2 text-sm font-semibold transition-colors border-gray-200 text-gray-600 hover:border-[#F18602]">Non-Akademik</button>
                 </div>
@@ -424,7 +424,7 @@
         }
 
         function tahunBadge(p) {
-            return '<span class="absolute top-3 left-3 inline-flex items-center px-2.5 py-1 rounded-lg bg-white/95 border border-[#F18602]/30 text-xs font-extrabold text-[#D97200] shadow-sm">' + U.esc(p.tahun || '—') + '</span>';
+            return '<span class="absolute top-3 left-3 inline-flex items-center px-2.5 py-1 rounded-lg bg-white/95 border border-[#F18602]/30 text-xs font-extrabold text-[#C2410C] shadow-sm">' + U.esc(p.tahun || '—') + '</span>';
         }
 
         function fotoBlock(p) {
@@ -438,7 +438,7 @@
             var ak = isAk(p);
             var cls = ak
                 ? 'bg-purple-50 border-purple-200 text-[#5B2A7E]'
-                : 'bg-[#FFF9F2] border-[#F18602]/30 text-[#D97200]';
+                : 'bg-[#FFF9F2] border-[#F18602]/30 text-[#C2410C]';
             var icon = ak ? 'graduation-cap' : 'sparkles';
             return '<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[11px] font-bold whitespace-nowrap ' + cls + '"><i data-lucide="' + icon + '" class="w-3 h-3"></i>' + U.esc(p.kategori || '—') + '</span>';
         }
@@ -489,7 +489,7 @@
                 var on = c.getAttribute('data-filter') === state.kategori;
                 c.classList.toggle('border-[#F18602]', on);
                 c.classList.toggle('bg-[#FFF9F2]', on);
-                c.classList.toggle('text-[#D97200]', on);
+                c.classList.toggle('text-[#C2410C]', on);
                 c.classList.toggle('border-gray-200', !on);
                 c.classList.toggle('text-gray-600', !on);
             });
@@ -526,7 +526,7 @@
             <div class="flex items-center gap-3 px-4 py-3 sm:px-5 sm:py-3.5 bg-white border-b border-gray-200 flex-shrink-0">
                 <!-- Kiri: Badge + Judul -->
                 <div class="flex-1 min-w-0 flex items-center gap-2.5">
-                    <span id="modal-category" class="inline-flex flex-shrink-0 items-center px-2 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#D97200] bg-[#FFF9F2] border border-[#F18602]/30 rounded-full leading-none">Foto</span>
+                    <span id="modal-category" class="inline-flex flex-shrink-0 items-center px-2 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#C2410C] bg-[#FFF9F2] border border-[#F18602]/30 rounded-full leading-none">Foto</span>
                     <h3 id="modal-caption" class="text-sm sm:text-base md:text-lg font-extrabold text-[#1A1026] leading-snug break-words min-w-0"></h3>
                 </div>
                 <!-- Kanan: Tombol Silang (pasti tidak bertabrakan karena berada di kolom terpisah) -->

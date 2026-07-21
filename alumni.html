@@ -164,7 +164,7 @@
             <a href="pmb.html" class="block py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602] border-t border-gray-100">PMB</a>
         </div>
     </header>
-    <section id="main-content" tabindex="-1" class="relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#1A1026]">
+    <section id="main-content" role="main" tabindex="-1" class="relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#1A1026]">
         <div class="absolute inset-0 z-0 pointer-events-none">
             <div class="absolute inset-0 bg-[#5B2A7E]"></div>
             <div class="absolute inset-0 opacity-[0.12]" style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 40px 40px;"></div>
@@ -189,7 +189,7 @@
         <div class="relative container mx-auto px-6 max-w-6xl">
             <!-- Judul seksi terpusat -->
             <div class="text-center reveal mb-10">
-                <span class="inline-block text-[#D97200] text-xs font-bold uppercase tracking-[0.2em] mb-3">Alumni</span>
+                <span class="inline-block text-[#C2410C] text-xs font-bold uppercase tracking-[0.2em] mb-3">Alumni</span>
                 <h2 class="text-[#5B2A7E] text-3xl md:text-4xl font-extrabold mb-4">Cerita &amp; Testimoni Alumni</h2>
                 <div class="w-20 h-1.5 bg-[#F18602] mx-auto rounded-full"></div>
             </div>
@@ -230,7 +230,7 @@
                     <div class="h-1.5 bg-gradient-to-r from-[#F18602] to-[#5B2A7E]"></div>
                     <div class="px-5 sm:px-6 py-4 flex items-start justify-between gap-3">
                         <div class="min-w-0">
-                            <p class="text-[11px] font-bold uppercase tracking-widest text-[#D97200] mb-1">Profil Alumni</p>
+                            <p class="text-[11px] font-bold uppercase tracking-widest text-[#C2410C] mb-1">Profil Alumni</p>
                             <h3 id="alumni-modal-title" class="font-bold text-[#1A1026] text-lg leading-snug"></h3>
                         </div>
                         <button type="button" id="alumni-modal-close" class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#F18602] hover:text-[#F18602] transition-colors" aria-label="Tutup">
@@ -273,7 +273,7 @@
             const shortTesti = esc(shortText(d.testimoni || 'Belum ada testimoni.', 160));
             const jabatan = shortText(d.jabatan || 'Alumni FSTI', 58);
             const instansi = shortText(d.instansi || (d.tahunLulus ? `Lulusan ${d.tahunLulus}` : 'FSTI UWG Malang'), 58);
-            const lulusBadge = d.tahunLulus ? `<span class="mt-3 inline-flex self-center rounded-full bg-[#FFF9F2] border border-orange-100 px-3 py-1 text-[11px] font-bold text-[#D97200]">Lulus ${esc(d.tahunLulus)}</span>` : '';
+            const lulusBadge = d.tahunLulus ? `<span class="mt-3 inline-flex self-center rounded-full bg-[#FFF9F2] border border-orange-100 px-3 py-1 text-[11px] font-bold text-[#C2410C]">Lulus ${esc(d.tahunLulus)}</span>` : '';
             return `
             <article class="testimonial-card alumni-testimonial-card bg-white p-8 rounded-[28px] border border-gray-200 h-full flex flex-col" data-name="${esc(d.name.toLowerCase())}" data-jabatan="${esc((d.jabatan+' '+d.instansi).toLowerCase())}">
                 <div class="testimonial-identity">
@@ -356,7 +356,7 @@
                             <h3 class="font-extrabold text-[#1A1026] text-lg leading-snug">${esc(d.name)}</h3>
                             <p class="text-sm font-bold text-[#5B2A7E] mt-1">${esc(jabatanText)}</p>
                             ${instansiText ? `<p class="text-xs text-gray-500 mt-0.5">${esc(instansiText)}</p>` : ''}
-                            ${d.tahunLulus ? `<span class="mt-2.5 inline-flex items-center px-3 py-1 rounded-full bg-white border border-orange-100 text-[11px] font-bold text-[#D97200]">Lulus ${esc(d.tahunLulus)}</span>` : ''}
+                            ${d.tahunLulus ? `<span class="mt-2.5 inline-flex items-center px-3 py-1 rounded-full bg-white border border-orange-100 text-[11px] font-bold text-[#C2410C]">Lulus ${esc(d.tahunLulus)}</span>` : ''}
                         </div>
                     </div>
                 </section>
@@ -533,7 +533,7 @@
             <div class="flex items-center gap-3 px-4 py-3 sm:px-5 sm:py-3.5 bg-white border-b border-gray-200 flex-shrink-0">
                 <!-- Kiri: Badge + Judul -->
                 <div class="flex-1 min-w-0 flex items-center gap-2.5">
-                    <span id="modal-category" class="inline-flex flex-shrink-0 items-center px-2 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#D97200] bg-[#FFF9F2] border border-[#F18602]/30 rounded-full leading-none">Foto</span>
+                    <span id="modal-category" class="inline-flex flex-shrink-0 items-center px-2 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#C2410C] bg-[#FFF9F2] border border-[#F18602]/30 rounded-full leading-none">Foto</span>
                     <h3 id="modal-caption" class="text-sm sm:text-base md:text-lg font-extrabold text-[#1A1026] leading-snug break-words min-w-0"></h3>
                 </div>
                 <!-- Kanan: Tombol Silang -->
