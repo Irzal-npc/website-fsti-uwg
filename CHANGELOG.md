@@ -4,6 +4,19 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-21] - Revisi Navigasi: Kerjasama & Prestasi Masuk Dropdown Akademik
+
+#### Diubah
+- **Menu utama**: Item **Kerjasama** dan **Prestasi** dipindahkan dari menu tingkat atas menjadi item di dalam **dropdown Akademik** (setelah "Pusat Unduhan & Dokumen") di seluruh 13 halaman, sesuai arahan terbaru. Menu tingkat atas kini: Beranda · Tentang Kami▾ · Program Studi▾ · Akademik▾ · Penelitian · Pengabdian · Alumni · PMB. Halaman Penelitian & Pengabdian tetap sebagai menu tingkat atas.
+- **Menu mobile**: Kedua item dipindahkan ke dalam akordeon **Akademik** di seluruh 13 halaman.
+- **State aktif**: Halaman `kerjasama.html` / `prestasi.html` kini menandai tombol dropdown **Akademik** dengan aksen oranye + `aria-current="page"` pada item dropdown/akordeon masing-masing (konsisten dengan pola `pusat-unduhan.html`).
+
+#### Diverifikasi
+- Setiap halaman memiliki tepat 3 referensi per slug baru (dropdown desktop + akordeon mobile + footer); tidak ada sisa item tingkat atas.
+- Pemeriksa struktur tag HTML: 13/13 halaman valid tanpa tag tak seimbang dan tanpa ID duplikat.
+
+---
+
 ### [2026-07-21] - Menu Baru: Halaman Penelitian, Pengabdian, Kerjasama & Prestasi (Tabel Agregat)
 
 #### Ditambahkan (4 Halaman Baru)
