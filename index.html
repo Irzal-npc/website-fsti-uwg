@@ -523,7 +523,16 @@
         <div class="container mx-auto px-6 max-w-6xl">
             <div class="text-center mb-12 reveal"><span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#D97200] mb-3">Alumni</span><h2 class="text-3xl md:text-5xl font-extrabold text-[#5B2A7E] mb-6">Cerita Mereka yang Bertumbuh Bersama FSTI</h2><div class="w-20 h-1.5 bg-[#F18602] mx-auto rounded-full mb-8"></div><p class="text-gray-600 max-w-2xl mx-auto text-lg">Alumni FSTI tersebar di berbagai sektor — industri, pendidikan, dan riset — menerapkan ilmu yang diperoleh untuk terus berkarya.</p></div>
             <div class="relative reveal" id="testimonial-carousel-container" role="region" aria-roledescription="carousel" aria-label="Testimoni Alumni FSTI"><!-- Scroll Track -->
-                <div id="testimonial-track" class="flex gap-4 overflow-x-auto scroll-snap-x mandatory pb-4 scrollbar-hide testimonial-track" style="-webkit-overflow-scrolling: touch;">
+                <!-- Tombol Navigasi Prev/Next -->
+                <div class="testimonial-nav flex justify-between items-center mb-4">
+                    <button id="btn-prev" type="button" class="w-10 h-10 rounded-full bg-white border border-gray-200 text-[#F18602] hover:bg-[#F18602] hover:text-white hover:border-[#F18602] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F18602] focus-visible:ring-offset-2 transition-all duration-200 flex items-center justify-center" aria-label="Testimoni sebelumnya" aria-controls="testimonial-track">
+                        <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                    </button>
+                    <button id="btn-next" type="button" class="w-10 h-10 rounded-full bg-white border border-gray-200 text-[#F18602] hover:bg-[#F18602] hover:text-white hover:border-[#F18602] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F18602] focus-visible:ring-offset-2 transition-all duration-200 flex items-center justify-center" aria-label="Testimoni berikutnya" aria-controls="testimonial-track">
+                        <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+                <div id="testimonial-track" tabindex="0" class="flex gap-4 overflow-x-auto scroll-snap-x mandatory pb-4 scrollbar-hide testimonial-track focus:outline-none" style="-webkit-overflow-scrolling: touch;">
                     <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4 testimonial-slide" role="group" aria-roledescription="slide" aria-label="Testimoni 1 dari 6">
                         <div class="testimonial-card bg-white p-8 rounded-[28px] border border-gray-200 h-full flex flex-col">
                             <div class="testimonial-identity">

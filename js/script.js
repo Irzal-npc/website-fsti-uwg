@@ -286,20 +286,36 @@ document.addEventListener('DOMContentLoaded', () => {
         const slides = Array.from(track.querySelectorAll('[role="group"][aria-roledescription="slide"]'));
         const totalSlides = slides.length;
         let currentIndex = 0;
+        let visible = 1;
+        let dots = [];
+        let resizeTimer = null;
 
-        // Create pagination dots based on visible slides per viewport
-        const visible = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
-        const totalDots = Math.ceil(totalSlides / visible);
-        for (let i = 0; i < totalDots; i++) {
-            const btn = document.createElement('button');
-            btn.setAttribute('role', 'tab');
-            btn.setAttribute('aria-label', `Testimoni ${i + 1} dari ${totalDots}`);
-            btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
-            btn.addEventListener('click', () => goToSlide(i * visible));
-            pagination.appendChild(btn);
-        }
+        // Hitung jumlah slide yang terlihat berdasarkan lebar viewport
+        const getVisibleCount = () => {
+            return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+        };
 
-        const dots = Array.from(pagination.querySelectorAll('button'));
+        // Buat ulang pagination dots saat jumlah visible berubah (resize)
+        const rebuildDots = () => {
+            // Hapus dots lama
+            pagination.innerHTML = '';
+            visible = getVisibleCount();
+            const totalDots = Math.ceil(totalSlides / visible);
+            for (let i = 0; i < totalDots; i++) {
+                const btn = document.createElement('button');
+                btn.setAttribute('role', 'tab');
+                btn.setAttribute('aria-label', `Testimoni ${i + 1} dari ${totalDots}`);
+                btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+                btn.addEventListener('click', () => goToSlide(i * visible));
+                pagination.appendChild(btn);
+            }
+            dots = Array.from(pagination.querySelectorAll('button'));
+            // Perbarui dot yang aktif berdasarkan currentIndex
+            updateDots(Math.floor(currentIndex / visible));
+        };
+
+        // Buat dots pertama kali
+        rebuildDots();
 
         function updateDots(index) {
             dots.forEach((dot, i) => {
@@ -329,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (btnNext) btnNext.addEventListener('click', () => goToSlide(currentIndex + 1));
         if (btnPrev) btnPrev.addEventListener('click', () => goToSlide(currentIndex - 1));
 
-        // Keyboard navigation
+        // Keyboard navigation — track harus fokus untuk menangkap keydown
         track.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight') {
                 e.preventDefault();
@@ -359,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (currentIndex !== closestIndex) {
                 currentIndex = closestIndex;
-                updateDots(currentIndex);
+                updateDots(Math.floor(currentIndex / visible));
             }
         }
 
@@ -373,6 +389,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 isScrolling = true;
             }
         }, { passive: true });
+
+        // 🔄 Responsive: rebuild dots & sync state saat ukuran viewport berubah
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                const oldVisible = visible;
+                rebuildDots();
+                // Jika visible berubah, pastikan currentIndex tetap valid
+                // dan dot yang aktif sudah benar
+                if (visible !== oldVisible) {
+                    syncDots();
+                }
+            }, 250);
+        });
     }
     // Accordion Peminatan/Konsentrasi (tertutup default, keyboard accessible)
     const concHeaders = document.querySelectorAll('.concentration-card .conc-header');

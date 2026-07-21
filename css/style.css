@@ -821,6 +821,12 @@ button:focus-visible .detail-arrow {
     outline-offset: 3px;
 }
 
+/* Focus ring for keyboard accessibility on track (keyboard nav) */
+#testimonial-track:focus-visible {
+    outline: 2px solid rgba(241, 134, 2, .3);
+    outline-offset: 2px;
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
     .testimonial-track {
