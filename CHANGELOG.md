@@ -4,6 +4,23 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-21] - Penyesuaian Lintas Halaman: Tautan Silang + Sinkronisasi 10 Mitra (UKM)
+
+#### Ditambahkan (Tautan Silang)
+- **`index.html`**: Tombol CTA "Lihat Semua Prestasi Fakultas" di akhir seksi Sorotan Prestasi (→ `prestasi.html`) dan "Lihat Semua Kerjasama Fakultas" di akhir seksi Mitra Kerja Sama (→ `kerjasama.html`) — menautkan konten ringkas Beranda dengan halaman penuh barunya.
+- **`direktori-dosen.html`**: Baris tautan silang ke tabel agregat `penelitian.html` & `pengabdian.html` tepat sebelum grid dosen.
+- **`tentang.html`**: Frasa "kerjasama kemitraan" pada butir Misi fakultas kini tertaut ke `kerjasama.html`.
+
+#### Diperbaiki (Sinkronisasi Angka Mitra — 10 di semua tempat)
+- **Identifikasi mitra ke-10**: File logo `assets/images/mitra/utm-malaysia.webp` terverifikasi sebagai lambang **Universiti Kebangsaan Malaysia (UKM)** (perisai 4 kuadran: harimau, atom, roda gigi + jangka, bunga raya + buku terbuka — sesuai deskripsi lambang resmi di ukm.my), bukan logo UTM kedua.
+- File logo direname menjadi `ukm.webp`; `alt` tile di `index.html` dikoreksi menjadi "Universiti Kebangsaan Malaysia".
+- `js/kerjasama-data.js`: UKM ditambahkan sebagai mitra ke-10 (id dinomor ulang 1–10). Statistik halaman Kerjasama kini otomatis sinkron: **10 mitra (7 luar negeri, 3 dalam negeri)** — sama dengan angka "10 Mitra Kerja Sama" di Beranda.
+
+#### Diverifikasi
+- Uji DOM headless: 45/45 skenario lolos; seluruh referensi file logo valid.
+
+---
+
 ### [2026-07-21] - Pedoman PKL & Skripsi Berstatus "Segera Hadir" + Penghapusan PDF
 
 #### Diubah

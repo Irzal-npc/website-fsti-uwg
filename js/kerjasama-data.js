@@ -20,7 +20,9 @@
  *   link    : URL situs resmi mitra (opsional, kosongkan bila tidak ada)
  *
  * CATATAN: daftar awal diselaraskan dengan 10 slot logo mitra pada seksi "Mitra Kerja Sama"
- * di halaman Beranda (logo UTM tampil dua kali di galeri beranda; di sini dicatat satu kali).
+ * di halaman Beranda. (Riwayat: file logo `ukm.webp` sempat salah bernama `utm-malaysia.webp`
+ * sehingga UTM tampak ganda; telah diidentifikasi sebagai lambang Universiti Kebangsaan
+ * Malaysia per lambang resmi di ukm.my.)
  * Rincian nomor dokumen, tanggal penandatanganan, dan periode wajib dilengkapi oleh fakultas
  * sesuai arsip dokumen kerja sama resmi.
  */
@@ -87,6 +89,18 @@ window.FSTI_KERJASAMA = [
  },
  {
   "id": 6,
+  "mitra": "Universiti Kebangsaan Malaysia (UKM)",
+  "jenis": "Perguruan Tinggi (Luar Negeri)",
+  "negara": "Malaysia",
+  "bentuk": "MoU",
+  "bidang": "Pendidikan, penelitian, dan pengabdian kepada masyarakat",
+  "periode": "",
+  "status": "Aktif",
+  "logo": "assets/images/mitra/ukm.webp",
+  "link": "https://www.ukm.my"
+ },
+ {
+  "id": 7,
   "mitra": "NVIDIA Deep Learning Institute (DLI)",
   "jenis": "Industri",
   "negara": "Amerika Serikat (Program Global)",
@@ -98,7 +112,7 @@ window.FSTI_KERJASAMA = [
   "link": "https://www.nvidia.com/en-us/training/"
  },
  {
-  "id": 7,
+  "id": 8,
   "mitra": "Naratel",
   "jenis": "Industri",
   "negara": "Indonesia",
@@ -110,7 +124,7 @@ window.FSTI_KERJASAMA = [
   "link": ""
  },
  {
-  "id": 8,
+  "id": 9,
   "mitra": "PT Zadabana",
   "jenis": "Industri",
   "negara": "Indonesia",
@@ -122,7 +136,7 @@ window.FSTI_KERJASAMA = [
   "link": ""
  },
  {
-  "id": 9,
+  "id": 10,
   "mitra": "Pondok Pesantren Al Firdaus",
   "jenis": "Lembaga Pendidikan",
   "negara": "Indonesia",
