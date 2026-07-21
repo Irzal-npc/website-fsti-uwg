@@ -4,6 +4,18 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-21] - Logo Mitra Tanpa Lightbox
+
+#### Diubah
+- **`kerjasama.html`**: logo mitra pada kartu tidak lagi dapat diklik untuk diperbesar (atribut `data-modal-*` dihapus) — menyelaraskan perilaku dengan tile logo mitra di Beranda. Blok markup modal gambar (`#image-modal`) ikut dilepas dari halaman ini karena sudah tidak ada elemen yang memakainya (halaman lain yang membutuhkan — Prestasi, Beranda, dll. — tidak terpengaruh).
+- `README.md`: klaim lightbox pada logo mitra di fitur butir 6 & tabel halaman dihapus.
+- `service-worker.js`: bump cache ke `v2026.16`.
+
+#### Diverifikasi
+- Parser HTML: 13/13 halaman valid; `node --check` skrip inline lolos; uji DOM headless 27/27 lolos (dengan asersi baru: `kerjasama.html` bebas `data-modal`, `prestasi.html` tetap memiliki lightbox foto).
+
+---
+
 ### [2026-07-21] - Penyegaran README Menyeluruh + Penyelarasan Kartu ke Standar Desain Statis
 
 #### Diubah (README.md — sinkron dengan kondisi web terbaru)

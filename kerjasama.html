@@ -395,7 +395,7 @@
 
         function logoBlock(k) {
             var inner = k.logo
-                ? '<img src="' + U.esc(k.logo) + '" alt="Logo ' + U.esc(k.mitra) + '" data-modal="true" data-modal-image="' + U.esc(k.logo) + '" data-modal-caption="Logo ' + U.esc(k.mitra) + '" data-modal-desc="' + U.esc(k.mitra) + ' — ' + U.esc(k.jenis || '') + ' (' + U.esc(k.negara || '') + ')" data-group="mitra" class="max-w-full max-h-full object-contain cursor-pointer hover:ring-2 hover:ring-[#F18602]/40 transition-shadow" width="160" height="64" loading="lazy" fetchpriority="low" decoding="async">'
+                ? '<img src="' + U.esc(k.logo) + '" alt="Logo ' + U.esc(k.mitra) + '" class="max-w-full max-h-full object-contain" width="160" height="64" loading="lazy" fetchpriority="low" decoding="async">'
                 : '<i data-lucide="building-2" class="w-8 h-8 text-[#5B2A7E]" aria-hidden="true"></i>';
             return '<div class="w-full h-24 rounded-2xl border-2 border-gray-100 ' + (k.logo ? 'bg-white' : 'bg-[#FFF9F2]') + ' flex items-center justify-center p-4 mb-4">' + inner + '</div>';
         }
@@ -471,36 +471,6 @@
         render();
     })();
     </script>
-
-    <!-- Image Modal (Lightbox global untuk foto/logo data-modal="true") -->
-    <div id="image-modal" class="fixed inset-0 z-[999999] hidden items-center justify-center p-3 sm:p-5 bg-[#1A1026]/75 backdrop-blur-sm transition-opacity duration-300" aria-hidden="true">
-        <div id="image-modal-panel" class="modal-content relative bg-white rounded-[28px] border-2 border-gray-200 shadow-2xl w-full max-w-[880px] max-h-[92vh] sm:max-h-[88vh] flex flex-col overflow-hidden my-auto transform transition-all duration-300 scale-95 opacity-0">
-
-            <!-- Modal Header Top Bar (Rapi: badge diringkas, tombol silang tidak bertabrakan) -->
-            <div class="flex items-center gap-3 px-4 py-3 sm:px-5 sm:py-3.5 bg-white border-b border-gray-200 flex-shrink-0">
-                <!-- Kiri: Badge + Judul -->
-                <div class="flex-1 min-w-0 flex items-center gap-2.5">
-                    <span id="modal-category" class="inline-flex flex-shrink-0 items-center px-2 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#D97200] bg-[#FFF9F2] border border-[#F18602]/30 rounded-full leading-none">Foto</span>
-                    <h3 id="modal-caption" class="text-sm sm:text-base md:text-lg font-extrabold text-[#1A1026] leading-snug break-words min-w-0"></h3>
-                </div>
-                <!-- Kanan: Tombol Silang (pasti tidak bertabrakan karena berada di kolom terpisah) -->
-                <button id="modal-close" type="button" class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#F18602] hover:text-[#F18602] transition-colors" aria-label="Tutup modal">
-                    <i data-lucide="x" class="w-5 h-5"></i>
-                </button>
-            </div>
-
-            <!-- Area Foto Display -->
-            <div id="modal-image-area" class="relative w-full p-0 bg-[#FFF9F2] flex items-center justify-center overflow-hidden">
-                <img id="modal-image" class="max-w-full w-auto object-contain mx-auto transition-opacity duration-200" alt="Gambar detail" style="max-height:58vh;">
-            </div>
-
-            <!-- Caption & Description -->
-            <div id="modal-desc-area" class="px-5 py-3.5 sm:px-6 sm:py-4 bg-white border-t border-gray-200 overflow-y-auto max-h-[120px] flex-shrink-0">
-                <p id="modal-desc" class="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans"></p>
-            </div>
-
-        </div>
-    </div>
 
 </body>
 </html>
