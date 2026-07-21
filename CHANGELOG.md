@@ -4,6 +4,23 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-21] - Hapus Tombol Salin di Halaman Kerjasama & Prestasi
+
+#### Dihapus
+- Kolom "Salin" beserta tombol ikon copy per baris di `kerjasama.html` dan `prestasi.html` — tombol salin memang hanya diminta untuk tabel Penelitian & Pengabdian, sehingga dua halaman ini dikembalikan ke tabel murni.
+
+#### Diubah
+- `kerjasama.html`: fungsi `ringkasan()` ikut dihapus (hanya dipakai tombol salin). `prestasi.html`: fungsi `ringkasan()` dipertahankan karena masih dipakai sebagai deskripsi lightbox foto dokumentasi.
+- `service-worker.js`: bump cache ke `v2026.12` agar pengunjung menerima versi terbaru.
+
+#### Tetap
+- Tombol ikon salin di `penelitian.html` & `pengabdian.html` (via `js/karya-agregat.js`) tidak berubah — tetap aktif sesuai permintaan.
+
+#### Diverifikasi
+- Uji DOM headless: 45/45 skenario lolos; kedua halaman valid tanpa tag tak seimbang & tanpa ID duplikat.
+
+---
+
 ### [2026-07-21] - Revisi Navigasi: Kerjasama & Prestasi Masuk Dropdown Akademik
 
 #### Diubah

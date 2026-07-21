@@ -248,10 +248,7 @@
 
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
                 <p id="mitra-count" class="text-sm text-gray-500" aria-live="polite"></p>
-                <p class="inline-flex items-center gap-2 text-xs text-gray-500">
-                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-lg border-2 border-gray-200 bg-white text-[#5B2A7E]"><i data-lucide="copy" class="w-3 h-3"></i></span>
-                    Klik ikon salin di kolom paling kanan untuk menyalin ringkasan.
-                </p>
+                
             </div>
 
             <!-- Kartu Tabel -->
@@ -269,7 +266,6 @@
                                 <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider">Periode</th>
                                 <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider">Status</th>
                                 <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider text-center">Tautan</th>
-                                <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider text-center">Salin</th>
                             </tr>
                         </thead>
                         <tbody id="mitra-tbody"></tbody>
@@ -414,15 +410,6 @@
             }).sort(comparator);
         }
 
-        function ringkasan(k) {
-            var t = k.mitra + ' — ' + (k.bentuk || 'Kerja sama') + ' (' + (k.jenis || '-') + ', ' + (k.negara || '-') + ').';
-            if (k.bidang) t += ' Ruang lingkup: ' + k.bidang + '.';
-            if (k.periode) t += ' Periode: ' + k.periode + '.';
-            if (k.status) t += ' Status: ' + k.status + '.';
-            if (k.link) t += ' ' + k.link;
-            return t;
-        }
-
         function logoCell(k) {
             if (k.logo) {
                 return '<img src="' + U.esc(k.logo) + '" alt="Logo ' + U.esc(k.mitra) + '" data-modal="true" data-modal-image="' + U.esc(k.logo) + '" data-modal-caption="Logo ' + U.esc(k.mitra) + '" data-modal-desc="' + U.esc(k.mitra) + ' — ' + U.esc(k.jenis || '') + ' (' + U.esc(k.negara || '') + ')" data-group="mitra" class="w-14 h-14 flex-shrink-0 object-contain bg-white border border-gray-200 rounded-xl p-1.5 cursor-pointer hover:ring-2 hover:ring-[#F18602]/40 transition-all" width="56" height="56" loading="lazy" fetchpriority="low" decoding="async">';
@@ -444,7 +431,6 @@
             var linkCell = k.link
                 ? '<a href="' + U.esc(k.link) + '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-9 h-9 rounded-xl border-2 border-gray-200 text-[#5B2A7E] hover:border-[#F18602] hover:text-[#D97200] hover:bg-[#FFF9F2] transition-colors" aria-label="Buka situs resmi ' + U.esc(k.mitra) + '" title="Buka situs resmi"><i data-lucide="external-link" class="w-4 h-4"></i></a>'
                 : '<span class="text-gray-400 text-xs">—</span>';
-            var copyCell = '<button type="button" data-copy-text="' + U.esc(ringkasan(k)) + '" class="inline-flex items-center justify-center w-9 h-9 rounded-xl border-2 border-gray-200 text-[#5B2A7E] hover:border-[#F18602] hover:text-[#D97200] hover:bg-[#FFF9F2] transition-colors cursor-pointer" aria-label="Salin ringkasan kerja sama: ' + U.esc(k.mitra) + '" title="Salin ringkasan"><i data-lucide="copy" class="w-4 h-4"></i></button>';
             return '<tr class="border-b border-gray-100 last:border-0 hover:bg-[#FFF9F2]/60 transition-colors">'
                 + '<td class="py-3.5 px-4 text-xs text-gray-400 font-semibold align-middle whitespace-nowrap">' + (idx + 1) + '</td>'
                 + '<td class="py-3.5 px-4 align-middle min-w-[250px]"><div class="flex items-center gap-3">' + logoCell(k) + '<div class="min-w-0"><span class="font-semibold text-[#1A1026] leading-snug text-sm block">' + U.esc(k.mitra) + '</span><span class="text-xs text-gray-500">' + U.esc(k.negara || '—') + '</span></div></div></td>'
@@ -454,7 +440,6 @@
                 + '<td class="py-3.5 px-4 align-middle whitespace-nowrap"><span class="text-sm text-gray-600">' + U.esc(k.periode || '—') + '</span></td>'
                 + '<td class="py-3.5 px-4 align-middle">' + statusPill(k) + '</td>'
                 + '<td class="py-3.5 px-4 align-middle text-center">' + linkCell + '</td>'
-                + '<td class="py-3.5 px-4 align-middle text-center">' + copyCell + '</td>'
                 + '</tr>';
         }
 

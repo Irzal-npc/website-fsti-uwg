@@ -258,10 +258,7 @@
 
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
                 <p id="prestasi-count" class="text-sm text-gray-500" aria-live="polite"></p>
-                <p class="inline-flex items-center gap-2 text-xs text-gray-500">
-                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-lg border-2 border-gray-200 bg-white text-[#5B2A7E]"><i data-lucide="copy" class="w-3 h-3"></i></span>
-                    Klik ikon salin di kolom paling kanan untuk menyalin ringkasan.
-                </p>
+                
             </div>
 
             <!-- Kartu Tabel -->
@@ -280,7 +277,6 @@
                                 <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider">Kategori</th>
                                 <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider">Tingkat</th>
                                 <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider">Peraih</th>
-                                <th scope="col" class="py-4 px-4 text-xs font-bold uppercase tracking-wider text-center">Salin</th>
                             </tr>
                         </thead>
                         <tbody id="prestasi-tbody"></tbody>
@@ -462,7 +458,6 @@
         }
 
         function rowHtml(p, idx) {
-            var copyCell = '<button type="button" data-copy-text="' + U.esc(ringkasan(p)) + '" class="inline-flex items-center justify-center w-9 h-9 rounded-xl border-2 border-gray-200 text-[#5B2A7E] hover:border-[#F18602] hover:text-[#D97200] hover:bg-[#FFF9F2] transition-colors cursor-pointer" aria-label="Salin ringkasan prestasi: ' + U.esc(p.nama) + '" title="Salin ringkasan"><i data-lucide="copy" class="w-4 h-4"></i></button>';
             return '<tr class="border-b border-gray-100 last:border-0 hover:bg-[#FFF9F2]/60 transition-colors">'
                 + '<td class="py-3.5 px-4 text-xs text-gray-400 font-semibold align-middle whitespace-nowrap">' + (idx + 1) + '</td>'
                 + '<td class="py-3.5 px-4 align-middle text-center">' + fotoCell(p) + '</td>'
@@ -471,7 +466,6 @@
                 + '<td class="py-3.5 px-4 align-middle whitespace-nowrap">' + kategoriPill(p) + '</td>'
                 + '<td class="py-3.5 px-4 align-middle whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-1 rounded-full bg-purple-50 border border-purple-200 text-[11px] font-bold text-[#5B2A7E]">' + U.esc(p.tingkat || '—') + '</span></td>'
                 + '<td class="py-3.5 px-4 align-middle min-w-[200px]"><span class="text-sm text-[#1A1026] font-medium leading-snug block">' + U.esc(p.peraih || '—') + '</span>' + (p.asal ? '<span class="block mt-1 text-xs text-gray-500">' + U.esc(p.asal) + '</span>' : '') + '</td>'
-                + '<td class="py-3.5 px-4 align-middle text-center">' + copyCell + '</td>'
                 + '</tr>';
         }
 
