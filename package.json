@@ -1,0 +1,13 @@
+{
+  "name": "website-fsti-uwg",
+  "version": "2026.21.0",
+  "private": true,
+  "description": "Website resmi FSTI Universitas Widya Gama Malang (static PWA).",
+  "scripts": {
+    "build:css": "tailwindcss -c tailwind.config.js -i css/tailwind-input.css -o css/tailwind.css --minify",
+    "watch:css": "tailwindcss -c tailwind.config.js -i css/tailwind-input.css -o css/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

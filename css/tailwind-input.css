@@ -1,0 +1,8 @@
+/*
+ * Tailwind CSS input — Website FSTI UWG Malang
+ * Di-build menjadi css/tailwind.css (self-hosted, pengganti CDN).
+ * Perintah: npm run build:css
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

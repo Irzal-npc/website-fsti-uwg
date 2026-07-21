@@ -1,0 +1,5 @@
+# Dependensi Node (toolchain build Tailwind) — jangan ikut version control
+node_modules/
+
+# Artefak scratch/audit (di luar repo utama)
+*.log
