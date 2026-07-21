@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
         revealElements.forEach(el => el.classList.add('active'));
     }
 
-    // Testimonial Carousel — CSS Scroll Snap + Minimal JS
+    // Testimonial Carousel — Button & Pagination Only (No Swipe)
     const track = document.getElementById('testimonial-track');
     const btnPrev = document.getElementById('btn-prev');
     const btnNext = document.getElementById('btn-next');
@@ -286,25 +286,64 @@ document.addEventListener('DOMContentLoaded', () => {
         const slides = Array.from(track.querySelectorAll('[role="group"][aria-roledescription="slide"]'));
         const totalSlides = slides.length;
         let currentIndex = 0;
+        let visible = 1;
+        let totalDots = 1;
+        let dots = [];
 
-        // Create pagination dots based on visible slides per viewport
-        const visible = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
-        const totalDots = Math.ceil(totalSlides / visible);
-        for (let i = 0; i < totalDots; i++) {
-            const btn = document.createElement('button');
-            btn.setAttribute('role', 'tab');
-            btn.setAttribute('aria-label', `Testimoni ${i + 1} dari ${totalDots}`);
-            btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
-            btn.addEventListener('click', () => goToSlide(i * visible));
-            pagination.appendChild(btn);
-        });
+        // Calculate visible slides per viewport
+        function calculateVisible() {
+            return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+        }
 
-        const dots = Array.from(pagination.querySelectorAll('button'));
+        // Create pagination dots
+        function createDots() {
+            pagination.innerHTML = '';
+            visible = calculateVisible();
+            totalDots = Math.ceil(totalSlides / visible);
+            dots = [];
+            for (let i = 0; i < totalDots; i++) {
+                const btn = document.createElement('button');
+                btn.setAttribute('role', 'tab');
+                btn.setAttribute('aria-label', `Testimoni ${i + 1} dari ${totalDots}`);
+                btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+                btn.addEventListener('click', () => goToSlide(i * visible));
+                pagination.appendChild(btn);
+                dots.push(btn);
+            }
+        }
 
-        function updateDots(index) {
+        function updateDots(dotIndex) {
             dots.forEach((dot, i) => {
-                dot.setAttribute('aria-selected', i === index ? 'true' : 'false');
+                dot.setAttribute('aria-selected', i === dotIndex ? 'true' : 'false');
             });
+        }
+
+        // Custom smooth scroll with easing for premium feel
+        let scrollAnimationFrame = null;
+        function animateScrollTo(targetScrollLeft) {
+            if (scrollAnimationFrame !== null) {
+                cancelAnimationFrame(scrollAnimationFrame);
+                scrollAnimationFrame = null;
+            }
+            const startScrollLeft = track.scrollLeft;
+            const distance = targetScrollLeft - startScrollLeft;
+            const duration = 500; // ms
+            let startTime = null;
+
+            const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                const eased = easeOutCubic(progress);
+                track.scrollLeft = startScrollLeft + distance * eased;
+                if (progress < 1) {
+                    scrollAnimationFrame = requestAnimationFrame(step);
+                } else {
+                    scrollAnimationFrame = null;
+                }
+            }
+            scrollAnimationFrame = requestAnimationFrame(step);
         }
 
         function goToSlide(index) {
@@ -319,59 +358,82 @@ document.addEventListener('DOMContentLoaded', () => {
                 const trackCenter = trackRect.left + trackRect.width / 2;
                 const offset = slideCenter - trackCenter;
                 const targetScrollLeft = track.scrollLeft + offset;
-                
-                track.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+                animateScrollTo(targetScrollLeft);
             }
             updateDots(Math.floor(index / visible));
         }
 
-        // Navigation tetap tersedia lewat swipe, scroll, keyboard, dan pagination dots.
-        if (btnNext) btnNext.addEventListener('click', () => goToSlide(currentIndex + 1));
-        if (btnPrev) btnPrev.addEventListener('click', () => goToSlide(currentIndex - 1));
+        // Initial creation
+        createDots();
 
-        // Keyboard navigation
+        // Navigation via prev/next buttons - move by page (same as dots)
+        if (btnNext) btnNext.addEventListener('click', () => goToSlide(currentIndex + visible));
+        if (btnPrev) btnPrev.addEventListener('click', () => goToSlide(currentIndex - visible));
+
+        // Keyboard navigation - move by page (same as dots/buttons)
         track.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight') {
                 e.preventDefault();
-                goToSlide(currentIndex + 1);
+                goToSlide(currentIndex + visible);
             } else if (e.key === 'ArrowLeft') {
                 e.preventDefault();
-                goToSlide(currentIndex - 1);
+                goToSlide(currentIndex - visible);
             }
         });
 
-        // Sync dots on manual scroll / swipe or smooth scroll using requestAnimationFrame for accuracy & performance
-        function syncDots() {
-            const trackRect = track.getBoundingClientRect();
-            const trackCenter = trackRect.left + trackRect.width / 2;
-            let closestIndex = currentIndex;
-            let minDistance = Infinity;
+        // Auto-slide functionality
+        let autoSlideTimer = null;
+        const AUTO_SLIDE_INTERVAL = 5000; // 5 seconds
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-            slides.forEach((slide, index) => {
-                const slideRect = slide.getBoundingClientRect();
-                const slideCenter = slideRect.left + slideRect.width / 2;
-                const distance = Math.abs(slideCenter - trackCenter);
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    closestIndex = index;
-                }
-            });
+        function startAutoSlide() {
+            if (reduceMotion) return; // Respect user preference
+            stopAutoSlide();
+            autoSlideTimer = setInterval(() => {
+                goToSlide(currentIndex + visible);
+            }, AUTO_SLIDE_INTERVAL);
+        }
 
-            if (currentIndex !== closestIndex) {
-                currentIndex = closestIndex;
-                updateDots(currentIndex);
+        function stopAutoSlide() {
+            if (autoSlideTimer !== null) {
+                clearInterval(autoSlideTimer);
+                autoSlideTimer = null;
             }
         }
 
-        let isScrolling = false;
-        track.addEventListener('scroll', () => {
-            if (!isScrolling) {
-                window.requestAnimationFrame(() => {
-                    syncDots();
-                    isScrolling = false;
-                });
-                isScrolling = true;
+        // Pause on hover/focus
+        const carouselContainer = document.getElementById('testimonial-carousel-container');
+        if (carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', stopAutoSlide);
+            carouselContainer.addEventListener('focusin', stopAutoSlide);
+            carouselContainer.addEventListener('mouseleave', startAutoSlide);
+            carouselContainer.addEventListener('focusout', startAutoSlide);
+        }
+
+        // Pause on button/dot interaction
+        [btnPrev, btnNext, pagination].forEach(el => {
+            if (el) {
+                el.addEventListener('mousedown', stopAutoSlide);
+                el.addEventListener('focus', stopAutoSlide);
+                el.addEventListener('blur', startAutoSlide);
             }
+        });
+
+        // Start auto-slide
+        startAutoSlide();
+
+        // Recreate dots on resize (responsive)
+        let resizeTimer = null;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                const newVisible = calculateVisible();
+                if (newVisible !== visible) {
+                    createDots();
+                    // Adjust current index to stay on same visual page
+                    goToSlide(Math.floor(currentIndex / visible) * visible);
+                }
+            }, 150);
         }, { passive: true });
     }
     // Accordion Peminatan/Konsentrasi (tertutup default, keyboard accessible)
@@ -509,6 +571,11 @@ document.addEventListener('DOMContentLoaded', () => {
             clearTimeout(imageModal._closeTimer);
             window._imageModalClosing = false;
 
+            // Pause gallery auto-scroll when modal opens
+            if (window.galleryScroll && typeof window.galleryScroll.pause === 'function') {
+                window.galleryScroll.pause();
+            }
+
             // Simpan posisi halaman dan elemen fokus sebelum modal dibuka.
             // Gambar tidak otomatis menerima fokus saat diklik, sehingga elemen aktif
             // bisa saja masih berupa tombol/tautan jauh di halaman (mis. kartu Dekan).
@@ -556,6 +623,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (imageModal.getAttribute('aria-hidden') === 'true' && !imageModal.classList.contains('flex')) return;
             if (window._imageModalClosing) return;
             window._imageModalClosing = true;
+
+            // Resume gallery auto-scroll when modal closes
+            if (window.galleryScroll && typeof window.galleryScroll.resume === 'function') {
+                window.galleryScroll.resume();
+            }
 
             if (modalPanel) {
                 modalPanel.classList.remove('scale-100', 'opacity-100');

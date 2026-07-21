@@ -763,10 +763,10 @@ button:focus-visible .detail-arrow {
    TESTIMONIAL CAROUSEL — CSS Scroll Snap (Native Smooth)
    ========================================================================== */
 .testimonial-track {
-    /* Tetap mengunci ke card terdekat, tetapi proximity memberi ruang untuk
-       swipe/drag yang lebih natural dan tidak terasa seperti dipaksa berhenti. */
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
+    /* Programmatic scroll only (via prev/next buttons & dots).
+       Prevents interference with page vertical scroll. */
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
     scroll-padding-left: 50%;
     scroll-padding-right: 50%;
 }
