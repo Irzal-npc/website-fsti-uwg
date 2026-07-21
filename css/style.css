@@ -773,9 +773,7 @@ button:focus-visible .detail-arrow {
 
 .testimonial-slide {
     scroll-snap-align: center;
-    /* Boleh melewati beberapa card saat swipe cepat; snap tetap terjadi saat
-       posisi scroll sudah dekat dengan card berikutnya. */
-    scroll-snap-stop: normal;
+    scroll-snap-stop: always;
 }
 
 .scrollbar-hide {
