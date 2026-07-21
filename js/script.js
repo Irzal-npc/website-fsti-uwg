@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
         revealElements.forEach(el => el.classList.add('active'));
     }
 
-    // Testimonial Carousel — CSS Scroll Snap + Minimal JS
+    // Testimonial Carousel — Button & Pagination Only (No Swipe)
     const track = document.getElementById('testimonial-track');
     const btnPrev = document.getElementById('btn-prev');
     const btnNext = document.getElementById('btn-next');
@@ -286,24 +286,35 @@ document.addEventListener('DOMContentLoaded', () => {
         const slides = Array.from(track.querySelectorAll('[role="group"][aria-roledescription="slide"]'));
         const totalSlides = slides.length;
         let currentIndex = 0;
+        let visible = 1;
+        let totalDots = 1;
+        let dots = [];
 
-        // Create pagination dots based on visible slides per viewport
-        const visible = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
-        const totalDots = Math.ceil(totalSlides / visible);
-        for (let i = 0; i < totalDots; i++) {
-            const btn = document.createElement('button');
-            btn.setAttribute('role', 'tab');
-            btn.setAttribute('aria-label', `Testimoni ${i + 1} dari ${totalDots}`);
-            btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
-            btn.addEventListener('click', () => goToSlide(i * visible));
-            pagination.appendChild(btn);
-        });
+        // Calculate visible slides per viewport
+        function calculateVisible() {
+            return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+        }
 
-        const dots = Array.from(pagination.querySelectorAll('button'));
+        // Create pagination dots
+        function createDots() {
+            pagination.innerHTML = '';
+            visible = calculateVisible();
+            totalDots = Math.ceil(totalSlides / visible);
+            dots = [];
+            for (let i = 0; i < totalDots; i++) {
+                const btn = document.createElement('button');
+                btn.setAttribute('role', 'tab');
+                btn.setAttribute('aria-label', `Testimoni ${i + 1} dari ${totalDots}`);
+                btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+                btn.addEventListener('click', () => goToSlide(i * visible));
+                pagination.appendChild(btn);
+                dots.push(btn);
+            }
+        }
 
-        function updateDots(index) {
+        function updateDots(dotIndex) {
             dots.forEach((dot, i) => {
-                dot.setAttribute('aria-selected', i === index ? 'true' : 'false');
+                dot.setAttribute('aria-selected', i === dotIndex ? 'true' : 'false');
             });
         }
 
@@ -319,13 +330,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const trackCenter = trackRect.left + trackRect.width / 2;
                 const offset = slideCenter - trackCenter;
                 const targetScrollLeft = track.scrollLeft + offset;
-                
                 track.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
             }
             updateDots(Math.floor(index / visible));
         }
 
-        // Navigation tetap tersedia lewat swipe, scroll, keyboard, dan pagination dots.
+        // Initial creation
+        createDots();
+
+        // Navigation via prev/next buttons only (no swipe)
         if (btnNext) btnNext.addEventListener('click', () => goToSlide(currentIndex + 1));
         if (btnPrev) btnPrev.addEventListener('click', () => goToSlide(currentIndex - 1));
 
@@ -340,38 +353,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Sync dots on manual scroll / swipe or smooth scroll using requestAnimationFrame for accuracy & performance
-        function syncDots() {
-            const trackRect = track.getBoundingClientRect();
-            const trackCenter = trackRect.left + trackRect.width / 2;
-            let closestIndex = currentIndex;
-            let minDistance = Infinity;
-
-            slides.forEach((slide, index) => {
-                const slideRect = slide.getBoundingClientRect();
-                const slideCenter = slideRect.left + slideRect.width / 2;
-                const distance = Math.abs(slideCenter - trackCenter);
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    closestIndex = index;
+        // Recreate dots on resize (responsive)
+        let resizeTimer = null;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                const newVisible = calculateVisible();
+                if (newVisible !== visible) {
+                    createDots();
+                    // Adjust current index to stay on same visual page
+                    goToSlide(Math.floor(currentIndex / visible) * visible);
                 }
-            });
-
-            if (currentIndex !== closestIndex) {
-                currentIndex = closestIndex;
-                updateDots(currentIndex);
-            }
-        }
-
-        let isScrolling = false;
-        track.addEventListener('scroll', () => {
-            if (!isScrolling) {
-                window.requestAnimationFrame(() => {
-                    syncDots();
-                    isScrolling = false;
-                });
-                isScrolling = true;
-            }
+            }, 150);
         }, { passive: true });
     }
     // Accordion Peminatan/Konsentrasi (tertutup default, keyboard accessible)
