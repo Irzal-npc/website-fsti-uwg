@@ -4,6 +4,18 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-21] - Tombol "Lihat Semua Cerita Alumni" Diseragamkan
+
+#### Diubah
+- **`index.html`**: tombol CTA akhir "Lihat Semua Cerita Alumni" kini memakai gaya **outline ungu** (border + teks `#5B2A7E`, hover blok ungu gelap `#3D1A55`) lengkap dengan panah `detail-arrow` — identik dengan tombol "Lihat Semua Prestasi Fakultas" dan "Lihat Semua Kerjasama Fakultas" (standar Tombol Kedua sesuai Panduan Desain butir 5). Wrapper diseragamkan (`text-center mt-12 reveal reveal-fade-up`).
+- **`css/style.css`**: blok override `.home-page .cta-alumni` (blok ungu solid tanpa ikon) dan `body .cta-alumni:active` dihapus karena kelas `cta-alumni` sudah tidak dipakai di mana pun.
+- `service-worker.js`: bump cache ke `v2026.17`.
+
+#### Diverifikasi
+- Tidak ada sisa referensi `cta-alumni` di HTML/CSS/JS; kurung kurawal CSS seimbang; parser HTML: 13/13 halaman valid; ketiga tombol "Lihat Semua …" di Beranda kini berbagi kelas yang sama persis.
+
+---
+
 ### [2026-07-21] - Logo Mitra Tanpa Lightbox
 
 #### Diubah
