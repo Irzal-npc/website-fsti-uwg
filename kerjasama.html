@@ -17,25 +17,24 @@
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#5B2A7E">
-
-<link rel="stylesheet" href="css/tailwind.css">
+    <link rel="stylesheet" href="css/tailwind.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-white overflow-x-hidden">
     <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
-<div id="fsti-asset-guard" class="fixed inset-0 z-[99999] bg-white flex items-center justify-center transition-opacity duration-300">
-    <div id="fsti-guard-loader" class="flex flex-col items-center gap-4">
-        <div class="w-10 h-10 border-4 border-orange-100 border-t-[#F18602] rounded-full animate-spin"></div>
-    </div>
-    <div id="fsti-guard-error" class="hidden text-center p-8 max-w-md mx-auto">
-        <div class="w-12 h-12 rounded-full bg-red-50 text-red-500 flex items-center justify-center mx-auto mb-5">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+    <div id="fsti-asset-guard" class="fixed inset-0 z-[99999] bg-white flex items-center justify-center transition-opacity duration-300">
+        <div id="fsti-guard-loader" class="flex flex-col items-center gap-4">
+            <div class="w-10 h-10 border-4 border-orange-100 border-t-[#F18602] rounded-full animate-spin"></div>
         </div>
-        <h3 class="text-xl font-bold text-[#1A1026] mb-2 font-sans">Sistem Tidak Tersedia</h3>
-        <p class="text-sm text-gray-500 leading-relaxed font-sans">Mohon maaf, halaman tidak dapat dimuat saat ini. Silakan coba kembali beberapa saat lagi.</p>
+        <div id="fsti-guard-error" class="hidden text-center p-8 max-w-md mx-auto">
+            <div class="w-12 h-12 rounded-full bg-red-50 text-red-500 flex items-center justify-center mx-auto mb-5">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-[#1A1026] mb-2 font-sans">Sistem Tidak Tersedia</h3>
+            <p class="text-sm text-gray-500 leading-relaxed font-sans">Mohon maaf, halaman tidak dapat dimuat saat ini. Silakan coba kembali beberapa saat lagi.</p>
+        </div>
     </div>
-</div>
-<script src="js/asset-guard.js"></script>
+    <script src="js/asset-guard.js"></script>
 
     <!-- Header / Navigation -->
     <header class="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-100 border-t-4 border-t-[#F18602]">
@@ -43,36 +42,24 @@
             <a href="index.html" class="flex items-center p-2">
                 <img src="assets/images/logo-final.webp" alt="Logo UWG FSTI" class="h-7 sm:h-8 md:h-10 w-auto" width="160" height="40" loading="eager" fetchpriority="high" decoding="async">
             </a>
-
-            <!-- Desktop Menu -->
             <div class="hidden lg:flex space-x-4 xl:space-x-6 items-center font-medium text-fsti-purple text-sm xl:text-base">
                 <a href="index.html" class="py-5 hover:text-[#F18602] transition-colors">Beranda</a>
-
                 <div class="relative group">
-                    <button type="button" class="flex items-center py-5 hover:text-[#F18602] transition-colors">
-                        Tentang Kami
-                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
-                    </button>
+                    <button type="button" class="flex items-center py-5 hover:text-[#F18602] transition-colors">Tentang Kami<i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i></button>
                     <div class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                         <div class="bg-white border-2 border-gray-200 rounded-xl shadow-lg py-2 min-w-[240px]">
                             <a href="tentang.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">Profil Fakultas</a>
                             <a href="tentang.html#sejarah" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Sejarah</a>
                             <a href="tentang.html#visi-misi" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Visi, Misi & Tujuan</a>
                             <a href="tentang.html#struktur" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Struktur Organisasi</a>
-
                             <a href="tentang.html#pimpinan" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Kepemimpinan Fakultas</a>
-
                             <a href="tentang.html#fasilitas" class="block px-4 py-2.5 text-sm text-gray-500 hover:bg-[#FFF9F2] hover:text-[#D97200]">— Fasilitas Fakultas</a>
                             <a href="direktori-dosen.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200] border-t border-gray-100 mt-1 pt-2">Direktori Dosen & Peneliti</a>
                         </div>
                     </div>
                 </div>
-
                 <div class="relative group">
-                    <button type="button" class="flex items-center py-5 hover:text-[#F18602] transition-colors">
-                        Program Studi
-                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
-                    </button>
+                    <button type="button" class="flex items-center py-5 hover:text-[#F18602] transition-colors">Program Studi<i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i></button>
                     <div class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                         <div class="bg-white border-2 border-gray-200 rounded-xl shadow-lg py-2 min-w-[280px]">
                             <a href="prodi/teknik-informatika.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">S1 Teknik Informatika</a>
@@ -81,12 +68,8 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="relative group">
-                    <button type="button" class="flex items-center py-5 hover:text-[#F18602] transition-colors">
-                        <span class="text-fsti-orange">Akademik</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
-                    </button>
+                    <button type="button" class="flex items-center py-5 hover:text-[#F18602] transition-colors"><span class="text-fsti-orange">Akademik</span><i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i></button>
                     <div class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                         <div class="bg-white border-2 border-gray-200 rounded-xl shadow-lg py-2 min-w-[240px]">
                             <a href="pusat-unduhan.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">Pusat Unduhan & Dokumen</a>
@@ -95,76 +78,53 @@
                         </div>
                     </div>
                 </div>
-
                 <a href="penelitian.html" class="py-5 hover:text-[#F18602] transition-colors">Penelitian</a>
-
                 <a href="pengabdian.html" class="py-5 hover:text-[#F18602] transition-colors">Pengabdian</a>
-
                 <a href="alumni.html" class="py-5 hover:text-[#F18602] transition-colors">Alumni</a>
-
                 <a href="pmb.html" class="py-5 hover:text-[#F18602] transition-colors">PMB</a>
             </div>
-
             <button id="menu-btn" type="button" class="lg:hidden text-fsti-purple p-2 rounded-xl hover:bg-[#FFF9F2] hover:text-[#F18602] active:scale-[0.92] transition-all duration-200" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu">
                 <i data-lucide="menu" class="w-8 h-8"></i>
             </button>
         </nav>
-
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 px-4 py-3 max-h-[80vh] overflow-y-auto">
             <a href="index.html" class="block py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]">Beranda</a>
-
             <div class="border-t border-gray-100">
-                <button type="button" class="mobile-acc-btn w-full flex items-center justify-between py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]" data-acc="m-tentang">
-                    <span>Tentang Kami</span>
-                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
-                </button>
+                <button type="button" class="mobile-acc-btn w-full flex items-center justify-between py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]" data-acc="m-tentang"><span>Tentang Kami</span><i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i></button>
                 <div id="m-tentang" class="hidden pl-4 pb-2 space-y-1">
                     <a href="tentang.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">Profil Fakultas</a>
                     <a href="tentang.html#sejarah" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Sejarah</a>
                     <a href="tentang.html#visi-misi" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Visi, Misi & Tujuan</a>
                     <a href="tentang.html#struktur" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Struktur Organisasi</a>
-
                     <a href="tentang.html#pimpinan" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Kepemimpinan Fakultas</a>
-
                     <a href="tentang.html#fasilitas" class="block py-2 text-sm text-gray-500 hover:text-[#F18602] pl-2">— Fasilitas Fakultas</a>
                     <a href="direktori-dosen.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">Direktori Dosen & Peneliti</a>
                 </div>
             </div>
-
             <div class="border-t border-gray-100">
-                <button type="button" class="mobile-acc-btn w-full flex items-center justify-between py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]" data-acc="m-prodi">
-                    <span>Program Studi</span>
-                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
-                </button>
+                <button type="button" class="mobile-acc-btn w-full flex items-center justify-between py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]" data-acc="m-prodi"><span>Program Studi</span><i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i></button>
                 <div id="m-prodi" class="hidden pl-4 pb-2 space-y-1">
                     <a href="prodi/teknik-informatika.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">S1 Teknik Informatika</a>
                     <a href="prodi/sistem-teknologi-informasi.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">S1 Sistem dan Teknologi Informasi</a>
                     <a href="prodi/bisnis-digital.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">S1 Bisnis Digital</a>
                 </div>
             </div>
-
             <div class="border-t border-gray-100">
-                <button type="button" class="mobile-acc-btn w-full flex items-center justify-between py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]" data-acc="m-akademik">
-                    <span>Akademik</span>
-                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
-                </button>
+                <button type="button" class="mobile-acc-btn w-full flex items-center justify-between py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602]" data-acc="m-akademik"><span>Akademik</span><i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i></button>
                 <div id="m-akademik" class="hidden pl-4 pb-2 space-y-1">
                     <a href="pusat-unduhan.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">Pusat Unduhan & Dokumen</a>
                     <a href="kerjasama.html" class="block py-2 text-sm text-fsti-orange font-bold" aria-current="page">Kerjasama</a>
                     <a href="prestasi.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">Prestasi</a>
                 </div>
             </div>
-
             <a href="penelitian.html" class="block py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602] border-t border-gray-100">Penelitian</a>
-
             <a href="pengabdian.html" class="block py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602] border-t border-gray-100">Pengabdian</a>
-
             <a href="alumni.html" class="block py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602] border-t border-gray-100">Alumni</a>
-
             <a href="pmb.html" class="block py-3 px-2 font-medium text-fsti-purple hover:text-[#F18602] border-t border-gray-100">PMB</a>
         </div>
     </header>
+
     <!-- Internal Page Hero -->
     <section id="main-content" role="main" tabindex="-1" class="internal-hero relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#1A1026]">
         <div class="absolute inset-0 z-0 pointer-events-none">
@@ -178,11 +138,12 @@
             <div class="max-w-4xl mx-auto text-center reveal">
                 <span class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#F18602] mb-4">FSTI UWG Malang</span>
                 <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-5 tracking-tight leading-tight">Kerjasama FSTI</h1>
-                <p class="text-sm sm:text-base md:text-lg text-white/75 max-w-2xl mx-auto font-normal leading-relaxed">Daftar kemitraan FSTI Universitas Widya Gama Malang dengan industri, perguruan tinggi, instansi pemerintah, dan komunitas.</p>
+                <p class="text-sm sm:text-base md:text-lg text-white/75 max-w-2xl mx-auto font-normal leading-relaxed">Jaringan kemitraan strategis dengan industri, perguruan tinggi nasional & internasional, serta lembaga pendidikan untuk pembelajaran, magang, riset, dan pengabdian.</p>
             </div>
         </div>
     </section>
-    <!-- Grid Kartu Mitra Kerja Sama -->
+
+    <!-- Daftar Kerjasama -->
     <section class="relative py-16 md:py-20 bg-[#FFF9F2] overflow-hidden">
         <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
             <div class="absolute -top-24 -right-24 w-80 h-80 bg-[#F18602] rounded-full blur-[120px] opacity-[0.08]"></div>
@@ -190,91 +151,44 @@
             <div class="absolute inset-0 opacity-[0.05]" style="background-image: radial-gradient(#F18602 1.5px, transparent 1.5px); background-size: 28px 28px;"></div>
         </div>
         <div class="relative container mx-auto px-6 max-w-6xl">
-            <!-- Judul seksi terpusat (standar README: eyebrow → H2 → garis) -->
             <div class="text-center reveal mb-10">
-                <span class="inline-block text-[#C2410C] text-xs font-bold uppercase tracking-[0.2em] mb-3">Kemitraan</span>
-                <h2 class="text-[#5B2A7E] text-3xl md:text-4xl font-extrabold mb-4">Daftar Kerjasama Fakultas</h2>
+                <span class="inline-block text-[#C2410C] text-xs font-bold uppercase tracking-[0.2em] mb-3">Kemitraan Strategis</span>
+                <h2 class="text-[#5B2A7E] text-3xl md:text-4xl font-extrabold mb-4">Daftar Mitra Kerjasama</h2>
                 <div class="w-20 h-1.5 bg-[#F18602] mx-auto rounded-full"></div>
+                <p class="mt-4 text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">Mitra aktif yang mendukung tridharma perguruan tinggi — mulai dari magang industri, kuliah pakar, joint research, hingga program sertifikasi global.</p>
             </div>
 
-            <!-- Statistik ringkas (otomatis dari data) -->
-            <div class="flex flex-wrap justify-center gap-2 mb-8 reveal reveal-fade-up">
-                <span class="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-[20px] px-4 py-2">
-                    <i data-lucide="handshake" class="w-4 h-4 text-[#F18602]"></i>
-                    <span id="stat-total-mitra" class="text-sm font-extrabold text-[#1A1026]">0</span>
-                    <span class="text-xs text-gray-500 font-medium">Mitra Kerja Sama</span>
-                </span>
-                <span class="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-[20px] px-4 py-2">
-                    <i data-lucide="landmark" class="w-4 h-4 text-[#5B2A7E]"></i>
-                    <span id="stat-total-dn" class="text-sm font-extrabold text-[#1A1026]">0</span>
-                    <span class="text-xs text-gray-500 font-medium">Dalam Negeri</span>
-                </span>
-                <span class="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-[20px] px-4 py-2">
-                    <i data-lucide="globe" class="w-4 h-4 text-[#F18602]"></i>
-                    <span id="stat-total-ln" class="text-sm font-extrabold text-[#1A1026]">0</span>
-                    <span class="text-xs text-gray-500 font-medium">Luar Negeri</span>
-                </span>
-            </div>
-
-            <!-- Search + Filters -->
-            <div class="bg-white border border-gray-200 rounded-[20px] p-4 md:p-5 mb-8 reveal reveal-fade-up">
-                <div class="flex flex-col lg:flex-row lg:items-center gap-4">
-                    <div class="relative flex-1">
-                        <i data-lucide="search" class="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                        <input id="mitra-search" type="search" placeholder="Cari nama mitra, bidang, atau bentuk kerja sama…" class="w-full pl-12 pr-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#F18602] focus:outline-none text-sm text-[#1A1026]" />
-                    </div>
-                    <div class="flex flex-col sm:flex-row gap-3 lg:gap-4">
-                        <div class="relative flex-1 sm:min-w-[230px]">
-                            <i data-lucide="building-2" class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
-                            <select id="mitra-jenis" class="w-full appearance-none pl-11 pr-9 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#F18602] focus:outline-none text-sm text-[#1A1026] bg-white cursor-pointer" aria-label="Filter berdasarkan jenis mitra">
-                                <option value="">Semua Jenis Mitra</option>
-                            </select>
-                            <i data-lucide="chevron-down" class="w-4 h-4 absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
-                        </div>
-                        <div class="relative flex-1 sm:min-w-[190px]">
-                            <i data-lucide="arrow-down-up" class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
-                            <select id="mitra-sort" class="w-full appearance-none pl-11 pr-9 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#F18602] focus:outline-none text-sm text-[#1A1026] bg-white cursor-pointer" aria-label="Urutkan daftar mitra">
-                                <option value="mitra-asc" selected>Nama Mitra: A–Z</option>
-                                <option value="mitra-desc">Nama Mitra: Z–A</option>
-                                <option value="jenis-asc">Jenis Mitra: A–Z</option>
-                            </select>
-                            <i data-lucide="chevron-down" class="w-4 h-4 absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
-                        </div>
-                        <button id="mitra-reset" type="button" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl border-2 border-gray-200 text-sm font-bold text-[#5B2A7E] hover:border-[#F18602] hover:text-[#D97200] hover:bg-[#FFF9F2] transition-colors cursor-pointer">
-                            <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Reset
-                        </button>
-                    </div>
+            <!-- Search Bar saja -->
+            <div class="bg-white border-2 border-gray-200 rounded-[28px] p-4 md:p-5 mb-8 reveal reveal-fade-up shadow-sm">
+                <div class="relative w-full">
+                    <i data-lucide="search" class="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    <input id="mitra-search" type="search" placeholder="Cari nama mitra, jenis, atau negara…" class="w-full pl-12 pr-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#F18602] focus:outline-none text-sm text-[#1A1026] placeholder:text-gray-400" />
                 </div>
             </div>
 
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
                 <p id="mitra-count" class="text-sm text-gray-500" aria-live="polite"></p>
-                
             </div>
 
-            <!-- Grid Kartu Mitra -->
             <div id="mitra-card-wrap" class="reveal reveal-fade-up">
-                <div id="mitra-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
+                <div id="mitra-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"></div>
             </div>
 
-            <!-- Empty state -->
-            <div id="mitra-empty" class="hidden text-center py-16 px-6 bg-white border-2 border-dashed border-[#F18602]/40 rounded-[28px]">
+            <div id="mitra-empty" class="hidden text-center py-16 px-6 bg-white border-2 border-dashed border-[#F18602]/40 rounded-[28px] reveal">
                 <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[#FFF9F2] border border-[#F18602]/30 flex items-center justify-center">
-                    <i data-lucide="search" class="w-8 h-8 text-[#F18602]"></i>
+                    <i data-lucide="search-x" class="w-8 h-8 text-[#F18602]"></i>
                 </div>
-                <p class="text-[#1A1026] font-bold mb-1">Tidak ada kerjasama yang cocok</p>
-                <p class="text-gray-500 text-sm">Coba kata kunci lain, atau pilih jenis mitra berbeda untuk melihat semua entri.</p>
+                <p class="text-[#1A1026] font-bold mb-1">Tidak ada mitra yang cocok</p>
+                <p class="text-gray-500 text-sm max-w-md mx-auto">Coba ubah kata kunci, pilih jenis mitra lain, atau klik filter <span class="font-semibold">Semua</span> untuk menampilkan kembali seluruh daftar.</p>
             </div>
 
-            <p class="mt-8 text-center text-xs text-gray-400 leading-relaxed max-w-2xl mx-auto">Data kemitraan diperbarui berkala oleh pengelola fakultas mengacu pada arsip dokumen kerja sama (MoU/MoA/IA) resmi.</p>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer class="bg-[#1A1026] text-white pt-20 pb-10">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                <!-- Kolom 1: Profil -->
                 <div class="space-y-6">
                     <div class="bg-white p-3 rounded-xl inline-block shadow-sm">
                         <img src="assets/images/logo-final.webp" alt="Logo final" class="h-7 md:h-9 w-auto" width="160" height="40" loading="eager" fetchpriority="high" decoding="async">
@@ -295,7 +209,6 @@
                         </a>
                     </div>
                 </div>
-                <!-- Kolom 2: Prodi & PMB -->
                 <div>
                     <h3 class="font-bold text-lg mb-6 text-[#F97316] border-b-2 border-[#F97316]/20 pb-2">Program</h3>
                     <ul class="space-y-4 text-purple-100/80 text-sm">
@@ -313,7 +226,6 @@
                         </li>
                     </ul>
                 </div>
-                <!-- Kolom 3: Layanan -->
                 <div>
                     <h3 class="font-bold text-lg mb-6 text-[#F97316] border-b-2 border-[#F97316]/20 pb-2">Layanan</h3>
                     <ul class="space-y-4 text-purple-100/80 text-sm">
@@ -327,7 +239,6 @@
                         <li><a href="prestasi.html" class="hover:text-[#F97316] transition-colors">Prestasi</a></li>
                     </ul>
                 </div>
-                <!-- Kolom 4: Sosmed -->
                 <div>
                     <h3 class="font-bold text-lg mb-6 text-[#F97316] border-b-2 border-[#F97316]/20 pb-2">Media Sosial</h3>
                     <div class="flex space-x-4">
@@ -355,83 +266,85 @@
 
         var $ = function (id) { return document.getElementById(id); };
         var els = {
-            search: $('mitra-search'), jenis: $('mitra-jenis'), sort: $('mitra-sort'), reset: $('mitra-reset'),
-            grid: $('mitra-grid'), count: $('mitra-count'), empty: $('mitra-empty'), cardWrap: $('mitra-card-wrap'),
-            statMitra: $('stat-total-mitra'), statDN: $('stat-total-dn'), statLN: $('stat-total-ln')
+            search: $('mitra-search'),
+            grid: $('mitra-grid'),
+            count: $('mitra-count'),
+            empty: $('mitra-empty'),
+            cardWrap: $('mitra-card-wrap')
         };
         if (!els.grid) return;
 
-        // Statistik ringkas (otomatis dari data)
-        var isLN = function (k) { return String(k.negara || '').toLowerCase().indexOf('indonesia') === -1; };
-        if (els.statMitra) els.statMitra.textContent = data.length.toLocaleString('id-ID');
-        if (els.statDN) els.statDN.textContent = data.filter(function (k) { return !isLN(k); }).length.toLocaleString('id-ID');
-        if (els.statLN) els.statLN.textContent = data.filter(isLN).length.toLocaleString('id-ID');
-
-        // Dropdown jenis mitra (dibangun dinamis dari data)
-        var jenisSet = [];
-        data.forEach(function (k) { if (k.jenis && jenisSet.indexOf(k.jenis) === -1) jenisSet.push(k.jenis); });
-        jenisSet.sort(function (a, b) { return a.localeCompare(b, 'id'); });
-        if (els.jenis) {
-            els.jenis.innerHTML = '<option value="">Semua Jenis Mitra (' + jenisSet.length + ')</option>' +
-                jenisSet.map(function (j) { return '<option value="' + U.esc(j) + '">' + U.esc(j) + '</option>'; }).join('');
+        function isIndonesia(k) {
+            return String(k.negara || '').toLowerCase().indexOf('indonesia') !== -1;
         }
 
         var collator = new Intl.Collator('id', { sensitivity: 'base' });
-        var state = { q: '', jenis: '', sort: 'mitra-asc' };
-
-        function comparator(a, b) {
-            if (state.sort === 'mitra-desc') return collator.compare(b.mitra, a.mitra);
-            if (state.sort === 'jenis-asc') return collator.compare(a.jenis, b.jenis) || collator.compare(a.mitra, b.mitra);
-            return collator.compare(a.mitra, b.mitra);
-        }
+        var state = { q: '' };
 
         function filtered() {
             var q = state.q.trim().toLowerCase();
             return data.filter(function (k) {
-                if (state.jenis && k.jenis !== state.jenis) return false;
                 if (!q) return true;
-                return (String(k.mitra) + ' ' + String(k.jenis) + ' ' + String(k.bentuk) + ' ' + String(k.bidang) + ' ' + String(k.negara)).toLowerCase().indexOf(q) !== -1;
-            }).sort(comparator);
+                var hay = (String(k.mitra) + ' ' + String(k.jenis) + ' ' + String(k.negara)).toLowerCase();
+                return hay.indexOf(q) !== -1;
+            }).sort(function(a,b){ return collator.compare(a.mitra, b.mitra); });
         }
 
         function logoBlock(k) {
-            var linkIcon = k.link
-                ? '<a href="' + U.esc(k.link) + '" target="_blank" rel="noopener noreferrer" class="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 flex items-center justify-center hover:bg-[#F18602] hover:border-[#F18602] hover:text-white text-gray-500 transition-all shadow-sm" aria-label="Kunjungi website ' + U.esc(k.mitra) + '"><i data-lucide="external-link" class="w-3.5 h-3.5"></i></a>'
-                : '';
-            var logo = k.logo
-                ? '<img src="' + U.esc(k.logo) + '" alt="Logo ' + U.esc(k.mitra) + '" class="max-w-[85%] max-h-[85%] object-contain">'
-                : '<i data-lucide="building-2" class="w-12 h-12 text-[#5B2A7E]"></i>';
-            return '<div class="relative bg-white rounded-2xl border border-gray-200 p-6 flex flex-col items-center justify-center" style="min-height:140px;">'
-                + linkIcon
-                + logo
-                + '</div>';
+            var img = k.logo
+                ? '<img src=\"' + U.esc(k.logo) + '\" alt=\"Logo ' + U.esc(k.mitra) + '\" class=\"max-w-[78%] max-h-[72px] w-auto h-auto object-contain\" loading=\"lazy\" decoding=\"async\">'
+                : '<div class=\"w-14 h-14 rounded-2xl bg-[#FFF9F2] border border-[#F18602]/20 flex items-center justify-center text-[#F18602]\"><i data-lucide=\"building-2\" class=\"w-7 h-7\"></i></div>';
+            return '<div class=\"bg-[#FFF9F2]/70 border-b-2 border-gray-100 p-6 flex items-center justify-center aspect-[16/10] overflow-hidden\">' + img + '</div>';
+        }
+
+        function jenisPill(k) {
+            var j = String(k.jenis || '');
+            var isPTLocal = j.toLowerCase().indexOf('perguruan tinggi') !== -1;
+            var cls = isPTLocal ? 'bg-purple-50 border-purple-100 text-[#5B2A7E]' : (j.toLowerCase().indexOf('industri') !== -1 ? 'bg-[#FFF9F2] border-orange-100 text-[#C2410C]' : 'bg-gray-50 border-gray-200 text-gray-600');
+            var icon = isPTLocal ? 'graduation-cap' : (j.toLowerCase().indexOf('industri') !== -1 ? 'factory' : 'layers');
+            return '<span class=\"inline-flex items-center gap-1 px-2.5 py-1 rounded-full border text-[11px] font-bold ' + cls + '\"><i data-lucide=\"' + icon + '\" class=\"w-3 h-3\"></i>' + U.esc(j || '—') + '</span>';
+        }
+
+        function negaraPill(k) {
+            var indo = isIndonesia(k);
+            var cls = indo ? 'bg-white border-gray-200 text-gray-600' : 'bg-purple-50 border-purple-100 text-[#5B2A7E]';
+            var icon = indo ? 'map-pin' : 'globe';
+            return '<span class=\"inline-flex items-center gap-1 px-2.5 py-1 rounded-full border text-[11px] font-bold ' + cls + '\"><i data-lucide=\"' + icon + '\" class=\"w-3 h-3 text-[#F18602]\"></i>' + U.esc(k.negara || '—') + '</span>';
+        }
+
+        function linkWeb(k) {
+            if (!k.link) {
+                return '<span class=\"inline-flex items-center gap-1.5 text-xs text-gray-400\"><i data-lucide=\"link-2-off\" class=\"w-3.5 h-3.5\"></i>Tautan tidak tersedia</span>';
+            }
+            var domain = k.link;
+            try {
+                var u = new URL(k.link);
+                domain = u.hostname.replace(/^www\./, '');
+            } catch(e) {}
+            return '<a href=\"' + U.esc(k.link) + '\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"inline-flex items-center gap-1.5 text-xs font-bold text-[#5B2A7E] hover:text-[#F18602] transition-colors max-w-full\"><i data-lucide=\"external-link\" class=\"w-3.5 h-3.5 flex-shrink-0 text-[#F18602]\"></i><span class=\"truncate\">' + U.esc(domain) + '</span></a>';
         }
 
         function cardHtml(k) {
-            var statusBadge = String(k.status || '').toLowerCase() === 'aktif'
-                ? '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-green-100 text-green-700"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>Aktif</span>'
-                : '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-gray-100 text-gray-500"><span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>' + U.esc(k.status || '—') + '</span>';
-            
-            return '<div class="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-lg hover:border-[#F18602]/30 transition-all duration-300 flex flex-col">'
+            return '<article class=\"bg-white border-2 border-gray-200 rounded-[28px] overflow-hidden flex flex-col h-full\">'
                 + logoBlock(k)
-                + '<div class="p-4 flex flex-col gap-2 flex-1">'
-                + '<h3 class="text-sm font-bold text-[#1A1026] leading-snug line-clamp-2">' + U.esc(k.mitra) + '</h3>'
-                + '<div class="flex items-center gap-1 text-xs text-gray-500"><i data-lucide="map-pin" class="w-3 h-3 text-[#F18602]"></i>' + U.esc(k.negara || '—') + '</div>'
-                + '<div class="flex flex-wrap items-center gap-1.5 mt-auto pt-2 border-t border-gray-100">'
-                + '<span class="text-[10px] font-semibold text-[#5B2A7E] bg-purple-50 px-2 py-0.5 rounded-full">' + U.esc(k.jenis || '—') + '</span>'
-                + statusBadge
-                + '</div></div></div>';
+                + '<div class=\"p-5 flex flex-col flex-1\">'
+                + '<h3 class=\"text-sm md:text-[15px] font-extrabold text-[#1A1026] leading-snug line-clamp-2 min-h-[2.8em] mb-3\">' + U.esc(k.mitra) + '</h3>'
+                + '<div class=\"flex flex-wrap gap-1.5 mb-3\">' + jenisPill(k) + negaraPill(k) + '</div>'
+                + '<div class=\"mt-auto pt-3 border-t border-gray-100 flex items-center\">' + linkWeb(k) + '</div>'
+                + '</div></article>';
         }
 
         function render() {
             var list = filtered();
             var html = '';
-            list.forEach(function (k) { html += cardHtml(k); });
+            list.forEach(function(k){ html += cardHtml(k); });
             els.grid.innerHTML = html;
             if (els.count) {
-                els.count.innerHTML = list.length === 0
-                    ? 'Tidak ada entri yang cocok.'
-                    : 'Menampilkan <strong class="text-[#1A1026]">' + list.length.toLocaleString('id-ID') + '</strong> mitra kerja sama' + (state.jenis ? ' — <strong class="text-[#1A1026]">' + U.esc(state.jenis) + '</strong>' : '') + '.';
+                if (list.length === 0) {
+                    els.count.textContent = 'Tidak ada mitra yang cocok.';
+                } else {
+                    els.count.innerHTML = 'Menampilkan <strong class=\"text-[#1A1026]\">' + list.length.toLocaleString('id-ID') + '</strong> mitra.';
+                }
             }
             var isEmpty = list.length === 0;
             if (els.empty) els.empty.classList.toggle('hidden', !isEmpty);
@@ -439,20 +352,10 @@
             if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
         }
 
-        if (els.search) els.search.addEventListener('input', function () { state.q = this.value; render(); });
-        if (els.jenis) els.jenis.addEventListener('change', function () { state.jenis = this.value; render(); });
-        if (els.sort) els.sort.addEventListener('change', function () { state.sort = this.value; render(); });
-        if (els.reset) els.reset.addEventListener('click', function () {
-            state.q = ''; state.jenis = ''; state.sort = 'mitra-asc';
-            if (els.search) els.search.value = '';
-            if (els.jenis) els.jenis.value = '';
-            if (els.sort) els.sort.value = 'mitra-asc';
-            render();
-        });
+        if (els.search) els.search.addEventListener('input', function(){ state.q = this.value; render(); });
 
         render();
     })();
     </script>
-
 </body>
 </html>
