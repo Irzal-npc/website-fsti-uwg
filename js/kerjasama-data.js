@@ -125,7 +125,7 @@ window.FSTI_KERJASAMA = [
  },
  {
   "id": 9,
-  "mitra": "PT Zadabana",
+  "mitra": "PT Zaada Bana Engineering",
   "jenis": "Industri",
   "negara": "Indonesia",
   "bentuk": "MoU",
@@ -137,7 +137,7 @@ window.FSTI_KERJASAMA = [
  },
  {
   "id": 10,
-  "mitra": "Pondok Pesantren Al Firdaus",
+  "mitra": "Pondok Modern Babussalam Al Firdaus",
   "jenis": "Lembaga Pendidikan",
   "negara": "Indonesia",
   "bentuk": "MoU",
