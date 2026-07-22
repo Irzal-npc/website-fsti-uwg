@@ -4,6 +4,109 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-22] - Kartu Mitra Disederhanakan
+
+#### Diubah
+- `kerjasama.html`: informasi pada kartu mitra disederhanakan sesuai arahan — kini hanya menampilkan **logo mitra**, **jenis mitra**, **ruang lingkup wilayah** (Dalam/Luar Negeri), **nama mitra**, dan **negara**.
+- Informasi bidang kerja sama, bentuk dokumen, periode, status, dan ikon tautan resmi tidak lagi ditampilkan di kartu agar tampilan lebih ringkas.
+
+#### Pendukung
+- `README.md`: dokumentasi halaman Kerjasama disesuaikan dengan format kartu ringkas.
+- `service-worker.js`: bump cache `v2026.27 → v2026.28`.
+
+#### Diverifikasi
+- Skrip inline `kerjasama.html` lolos pemeriksaan sintaks; struktur HTML halaman Kerjasama tetap seimbang.
+
+---
+
+### [2026-07-22] - Modal Detail Mitra Dihapus
+
+#### Diubah
+- `kerjasama.html`: modal detail mitra dihapus dan tampilan kartu mitra dikembalikan seperti sebelumnya — informasi detail tampil langsung di kartu.
+- Kartu mitra kembali memuat logo, badge jenis & ruang lingkup, nama, negara, ruang lingkup kerja sama, bentuk dokumen/periode/status, serta ikon tautan situs resmi bila URL tersedia.
+
+#### Pendukung
+- `css/style.css`: aturan animasi khusus `#mitra-modal` dihapus karena modal tidak lagi digunakan.
+- `README.md`: dokumentasi halaman Kerjasama disesuaikan kembali ke pola grid kartu visual tanpa modal.
+- `service-worker.js`: bump cache `v2026.26 → v2026.27`.
+
+#### Diverifikasi
+- `kerjasama.html` tidak lagi memiliki `#mitra-modal` maupun tombol `data-mitra-id`; skrip inline halaman Kerjasama tetap lolos pemeriksaan sintaks dan struktur HTML tetap seimbang.
+
+---
+
+### [2026-07-22] - Logo 5 Mitra Baru Dikompres dan Dipasang
+
+#### Ditambahkan
+- `assets/images/mitra/fti-unmer-malang.webp`
+- `assets/images/mitra/unmerpas.webp`
+- `assets/images/mitra/itb-yadika.webp`
+- `assets/images/mitra/stimata.webp`
+- `assets/images/mitra/sentosa-foundation.webp`
+
+#### Diubah
+- `js/kerjasama-data.js`: kelima entri mitra baru kini memakai logo WebP terkompresi.
+- `index.html`: galeri mitra bergerak di Beranda kini menampilkan logo untuk kelima mitra baru, bukan placeholder teks.
+- `README.md`: struktur aset mitra diperbarui menjadi 15 logo WebP; versi Service Worker dokumentatif diselaraskan.
+- `service-worker.js`: bump cache `v2026.25 → v2026.26`.
+
+#### Optimasi
+- Logo dikompres ke WebP dengan ukuran kecil (sekitar 9–14 KB per file) agar ringan untuk galeri bergerak dan kartu/modal mitra.
+
+#### Diverifikasi
+- Seluruh path logo baru valid; `window.FSTI_KERJASAMA` tetap 15 entri dan semua entri kini memiliki logo.
+
+---
+
+### [2026-07-22] - Detail Mitra Halaman Kerjasama Dipindah ke Modal
+
+#### Diubah
+- `kerjasama.html`: kartu mitra pada halaman Kerjasama dibuat lebih ringkas — hanya menampilkan logo/placeholder, nama mitra, negara, badge jenis, badge ruang lingkup, dan tombol **Lihat detail**.
+- Informasi detail mitra (nama lengkap, jenis, negara, bentuk dokumen, periode, status, ruang lingkup kerja sama, serta tautan resmi bila tersedia) kini tampil di **modal detail mitra**.
+- Tautan situs resmi dipindahkan ke dalam modal agar kartu utama tidak terlalu padat.
+
+#### Pendukung
+- `css/style.css`: menambahkan animasi fade + scale lembut untuk modal detail mitra.
+- `README.md`: dokumentasi halaman Kerjasama diperbarui sesuai pola kartu ringkas + modal detail.
+- `service-worker.js`: bump cache `v2026.24 → v2026.25`.
+
+#### Diverifikasi
+- Skrip inline `kerjasama.html` lolos pemeriksaan sintaks; struktur HTML halaman Kerjasama tetap seimbang; kartu hasil render memuat tombol `data-mitra-id` dan detail `bidang` tidak lagi tampil langsung di kartu.
+
+---
+
+### [2026-07-22] - Galeri Mitra Beranda Bergerak Tanpa Modal
+
+#### Diubah
+- `index.html`: seksi **Mitra Kerja Sama** di Beranda diubah dari grid statis menjadi galeri horizontal bergerak otomatis satu baris, mengikuti pola galeri kegiatan.
+- Galeri mitra tetap **tanpa modal/lightbox**; logo/placeholder hanya tampil sebagai tile visual, sementara tile yang memiliki URL tetap dapat dibuka melalui tautan eksternal.
+- Kloning item untuk loop diberi `aria-hidden` dan `tabindex="-1"` agar tidak menggandakan fokus keyboard/screen reader.
+
+#### Pendukung
+- `README.md`: panduan reveal/konten Beranda diperbarui dari grid logo mitra menjadi galeri logo mitra bergerak.
+- `service-worker.js`: bump cache `v2026.23 → v2026.24`.
+
+#### Diverifikasi
+- HTML Beranda tetap seimbang; skrip inline galeri mitra lolos pemeriksaan sintaks; tidak ada atribut `data-modal` pada seksi mitra.
+
+---
+
+### [2026-07-22] - Penambahan 5 Mitra Kerja Sama Dalam Negeri
+
+#### Ditambahkan
+- `js/kerjasama-data.js`: menambahkan 5 mitra baru sesuai arahan: Fakultas Teknologi Informasi - Universitas Merdeka Malang, Fakultas Teknologi Informasi - ITB Yadika Pasuruan, Universitas Merdeka Pasuruan, STMIK PPKIA Pradnya Paramita Malang, dan Sentosa Foundation.
+- Tautan resmi/Instagram ditambahkan untuk ITB Yadika Pasuruan, Universitas Merdeka Pasuruan, STMIK PPKIA Pradnya Paramita Malang, dan Sentosa Foundation. Entri tanpa logo memakai placeholder visual bawaan kartu.
+
+#### Diubah
+- `index.html`: statistik Beranda diperbarui menjadi **15 Mitra Kerja Sama** dan 5 tile mitra baru ditambahkan pada seksi Mitra Kerja Sama.
+- `README.md`: dokumentasi jumlah mitra diperbarui menjadi **15 mitra** (7 luar negeri, 8 dalam negeri).
+- `service-worker.js`: bump cache `v2026.22 → v2026.23` agar pembaruan data/beranda segera diterima pengguna PWA.
+
+#### Diverifikasi
+- `node --check` lolos untuk `js/kerjasama-data.js` dan `service-worker.js`; HTML Beranda tetap seimbang dan 15 tile mitra tampil di markup.
+
+---
+
 ### [2026-07-22] - Rename Prodi Informatika menjadi Teknik Informatika
 
 #### Latar Belakang

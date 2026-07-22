@@ -422,23 +422,11 @@
         }
 
         function cardHtml(k) {
-            var linkBtn = k.link
-                ? '<a href="' + U.esc(k.link) + '" target="_blank" rel="noopener noreferrer" class="absolute top-3 right-3 z-10 inline-flex items-center justify-center w-9 h-9 rounded-xl border-2 border-gray-200 bg-white text-[#5B2A7E] hover:border-[#F18602] hover:text-[#D97200] hover:bg-[#FFF9F2] transition-colors" aria-label="Buka situs resmi ' + U.esc(k.mitra) + '" title="Buka situs resmi"><i data-lucide="external-link" class="w-4 h-4"></i></a>'
-                : '';
-            var bentukPill = k.bentuk
-                ? '<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white border border-[#F18602]/40 text-[11px] font-bold text-[#C2410C] whitespace-nowrap"><i data-lucide="file-check-2" class="w-3 h-3"></i>' + U.esc(k.bentuk) + '</span>'
-                : '';
-            var periodeSpan = k.periode
-                ? '<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gray-50 border border-gray-200 text-[11px] font-semibold text-gray-500 whitespace-nowrap"><i data-lucide="calendar" class="w-3 h-3"></i>' + U.esc(k.periode) + '</span>'
-                : '';
             return '<article class="relative bg-white border border-gray-200 rounded-[28px] p-5 flex flex-col items-center text-center">'
-                + linkBtn
                 + logoBlock(k)
                 + '<div class="flex flex-wrap justify-center gap-1.5 mb-3">' + jenisPill(k) + lingkupPill(k) + '</div>'
                 + '<h3 class="text-base font-extrabold text-[#1A1026] leading-snug">' + U.esc(k.mitra) + '</h3>'
-                + '<p class="mt-1 inline-flex items-center gap-1.5 text-xs text-gray-500"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#F18602]"></i>' + U.esc(k.negara || '—') + '</p>'
-                + '<p class="mt-3 mb-4 text-xs text-gray-600 leading-relaxed">' + U.esc(k.bidang || '—') + '</p>'
-                + '<div class="w-full mt-auto pt-4 border-t border-gray-100 flex flex-wrap items-center justify-center gap-1.5">' + bentukPill + periodeSpan + statusPill(k) + '</div>'
+                + '<p class="mt-2 inline-flex items-center justify-center gap-1.5 text-xs text-gray-500"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#F18602]"></i>' + U.esc(k.negara || '—') + '</p>'
                 + '</article>';
         }
 
