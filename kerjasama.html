@@ -396,9 +396,9 @@
 
         function logoBlock(k) {
             var inner = k.logo
-                ? '<img src="' + U.esc(k.logo) + '" alt="Logo ' + U.esc(k.mitra) + '" class="max-w-full max-h-full object-contain" width="180" height="72" loading="lazy" fetchpriority="low" decoding="async">'
-                : '<i data-lucide="building-2" class="w-10 h-10 text-[#5B2A7E]" aria-hidden="true"></i>';
-            return '<div class="w-full h-28 rounded-2xl border-2 border-gray-100 ' + (k.logo ? 'bg-white' : 'bg-[#FFF9F2]') + ' flex items-center justify-center p-3 mb-4">' + inner + '</div>';
+                ? '<img src="' + U.esc(k.logo) + '" alt="Logo ' + U.esc(k.mitra) + '" class="max-w-full max-h-full object-contain" width="140" height="56" loading="lazy" fetchpriority="low" decoding="async">'
+                : '<i data-lucide="building-2" class="w-8 h-8 text-[#5B2A7E]" aria-hidden="true"></i>';
+            return '<div class="w-full h-20 rounded-xl border-2 border-gray-100 ' + (k.logo ? 'bg-white' : 'bg-[#FFF9F2]') + ' flex items-center justify-center p-2 mb-4">' + inner + '</div>';
         }
 
         function jenisPill(k) {
