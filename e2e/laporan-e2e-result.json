@@ -1,0 +1,762 @@
+{
+  "meta": {
+    "date": "2026-07-22T18:18:18.788Z",
+    "total": 52,
+    "pass": 52,
+    "fail": 0,
+    "warn": 0,
+    "passRate": "100.00"
+  },
+  "scenarios": [
+    {
+      "name": "1. UI/UX & Responsivitas Visual",
+      "results": [
+        {
+          "scenario": "UI/UX & Responsivitas Visual",
+          "testName": "Viewport 320px - No Overflow",
+          "status": "PASS",
+          "details": "Elements checked: 470, Overflow: NONE. grid-cols-1 ditemukan (mobile base): YES; grid-cols-2 pada breakpoint tablet ditemukan: YES; grid-cols-3 pada breakpoint desktop ditemukan: YES; overflow-x-hidden pada body (anti overflow global): YES | preventRule: true",
+          "timestamp": "2026-07-22T18:18:10.337Z"
+        },
+        {
+          "scenario": "UI/UX & Responsivitas Visual",
+          "testName": "Viewport 480px - No Overflow",
+          "status": "PASS",
+          "details": "Elements checked: 470, Overflow: NONE. grid-cols-1 ditemukan (mobile base): YES; grid-cols-2 pada breakpoint tablet ditemukan: YES; grid-cols-3 pada breakpoint desktop ditemukan: YES; overflow-x-hidden pada body (anti overflow global): YES | preventRule: true",
+          "timestamp": "2026-07-22T18:18:10.428Z"
+        },
+        {
+          "scenario": "UI/UX & Responsivitas Visual",
+          "testName": "Viewport 768px - No Overflow",
+          "status": "PASS",
+          "details": "Elements checked: 470, Overflow: NONE. grid-cols-1 ditemukan (mobile base): YES; grid-cols-2 pada breakpoint tablet ditemukan: YES; grid-cols-3 pada breakpoint desktop ditemukan: YES; overflow-x-hidden pada body (anti overflow global): YES | preventRule: true",
+          "timestamp": "2026-07-22T18:18:10.482Z"
+        },
+        {
+          "scenario": "UI/UX & Responsivitas Visual",
+          "testName": "Viewport 1024px - No Overflow",
+          "status": "PASS",
+          "details": "Elements checked: 470, Overflow: NONE. grid-cols-1 ditemukan (mobile base): YES; grid-cols-2 pada breakpoint tablet ditemukan: YES; grid-cols-3 pada breakpoint desktop ditemukan: YES; overflow-x-hidden pada body (anti overflow global): YES | preventRule: true",
+          "timestamp": "2026-07-22T18:18:10.558Z"
+        },
+        {
+          "scenario": "UI/UX & Responsivitas Visual",
+          "testName": "Viewport 1280px - No Overflow",
+          "status": "PASS",
+          "details": "Elements checked: 470, Overflow: NONE. grid-cols-1 ditemukan (mobile base): YES; grid-cols-2 pada breakpoint tablet ditemukan: YES; grid-cols-3 pada breakpoint desktop ditemukan: YES; overflow-x-hidden pada body (anti overflow global): YES | preventRule: true",
+          "timestamp": "2026-07-22T18:18:10.624Z"
+        },
+        {
+          "scenario": "UI/UX & Responsivitas Visual",
+          "testName": "Viewport 1440px - No Overflow",
+          "status": "PASS",
+          "details": "Elements checked: 470, Overflow: NONE. grid-cols-1 ditemukan (mobile base): YES; grid-cols-2 pada breakpoint tablet ditemukan: YES; grid-cols-3 pada breakpoint desktop ditemukan: YES; overflow-x-hidden pada body (anti overflow global): YES | preventRule: true",
+          "timestamp": "2026-07-22T18:18:10.676Z"
+        },
+        {
+          "scenario": "UI/UX & Responsivitas Visual",
+          "testName": "Tailwind Grid Adaptasi 1→2→3",
+          "status": "PASS",
+          "details": "grid-cols-1 ditemukan (mobile base): YES | grid-cols-2 pada breakpoint tablet ditemukan: YES | grid-cols-3 pada breakpoint desktop ditemukan: YES | overflow-x-hidden pada body (anti overflow global): YES | overflowPreventRule=true",
+          "timestamp": "2026-07-22T18:18:10.676Z"
+        },
+        {
+          "scenario": "UI/UX & Responsivitas Visual",
+          "testName": "Hover Premium Statis - No translateY / No Shadow",
+          "status": "PASS",
+          "details": "hasTranslateY=false, hasShadowOnHover=false, programHoverBlockFound=true, dosenHoverBlockFound=true",
+          "timestamp": "2026-07-22T18:18:10.676Z"
+        },
+        {
+          "scenario": "UI/UX & Responsivitas Visual",
+          "testName": "Simulasi Event Hover JSDOM - Transform Tidak Berubah",
+          "status": "PASS",
+          "details": "before=, after=",
+          "timestamp": "2026-07-22T18:18:10.754Z"
+        },
+        {
+          "scenario": "UI/UX & Responsivitas Visual",
+          "testName": "CTA Active Transform scale-[0.98]",
+          "status": "PASS",
+          "details": "ctaClassFound=true, scaleRuleFound=true, occurrences=9",
+          "timestamp": "2026-07-22T18:18:10.754Z"
+        },
+        {
+          "scenario": "UI/UX & Responsivitas Visual",
+          "testName": "Simulasi Active CTA - Tactile Response",
+          "status": "PASS",
+          "details": "CTA text=Kenali Lebih Dekat, activeRulePresent=true, activeBlocksSnippet=\n    background-color: #b85f00 !important;\n    border-color: #b85f00 !important;\n    color: #fff !important;\n \n    backg",
+          "timestamp": "2026-07-22T18:18:10.809Z"
+        }
+      ]
+    },
+    {
+      "name": "2. Navigasi Riwayat (Proteksi Modal)",
+      "results": [
+        {
+          "scenario": "Navigasi Riwayat - Proteksi Modal",
+          "testName": "Navigasi direktori-dosen.html & Render Grid",
+          "status": "PASS",
+          "details": "Grid cards rendered: 14, count text: Menampilkan 14 dari 14 dosen",
+          "timestamp": "2026-07-22T18:18:12.232Z"
+        },
+        {
+          "scenario": "Navigasi Riwayat - Proteksi Modal",
+          "testName": "Simulasi Klik Buka Modal Profil Detail",
+          "status": "PASS",
+          "details": "visible=true, aria-hidden=false, bodyOverflowHidden=true, openClass=true",
+          "timestamp": "2026-07-22T18:18:12.961Z"
+        },
+        {
+          "scenario": "Navigasi Riwayat - Proteksi Modal",
+          "testName": "Verifikasi Focus Trap (fokus di dalam modal)",
+          "status": "PASS",
+          "details": "activeElement=BUTTON#dosen-modal-close, focusInsideModal=true, focusIsClose=true",
+          "timestamp": "2026-07-22T18:18:12.961Z"
+        },
+        {
+          "scenario": "Navigasi Riwayat - Proteksi Modal",
+          "testName": "Verifikasi aria-hidden pada modal & background",
+          "status": "PASS",
+          "details": "modal aria-hidden=false, mainContent exists=true, logicFound=true",
+          "timestamp": "2026-07-22T18:18:12.961Z"
+        },
+        {
+          "scenario": "Navigasi Riwayat - Proteksi Modal",
+          "testName": "A11y Modal - role=dialog, aria-modal=true, labelledby",
+          "status": "PASS",
+          "details": "roleDialog=true, ariaModal=true, labelledBy=true",
+          "timestamp": "2026-07-22T18:18:12.961Z"
+        },
+        {
+          "scenario": "Navigasi Riwayat - Proteksi Modal",
+          "testName": "Simulasi PopState (Back Button) - Modal Menutup Tanpa Reload",
+          "status": "PASS",
+          "details": "historyPushed=true, closedAfterPop=true, reload=false, urlBefore=http://localhost/direktori-dosen.html, urlAfter=http://localhost/direktori-dosen.html",
+          "timestamp": "2026-07-22T18:18:13.464Z"
+        },
+        {
+          "scenario": "Navigasi Riwayat - Proteksi Modal",
+          "testName": "Transisi Halus Modal (opacity .25s + scale)",
+          "status": "PASS",
+          "details": "smoothTransitionFound=true",
+          "timestamp": "2026-07-22T18:18:13.464Z"
+        },
+        {
+          "scenario": "Navigasi Riwayat - Proteksi Modal",
+          "testName": "Static Check - history.pushState untuk Modal",
+          "status": "PASS",
+          "details": "pushStateFound=true",
+          "timestamp": "2026-07-22T18:18:13.464Z"
+        },
+        {
+          "scenario": "Navigasi Riwayat - Proteksi Modal",
+          "testName": "Static Check - popstate listener untuk Back",
+          "status": "PASS",
+          "details": "popstateListener=true",
+          "timestamp": "2026-07-22T18:18:13.465Z"
+        },
+        {
+          "scenario": "Navigasi Riwayat - Proteksi Modal",
+          "testName": "Static Check - history.back() menutup modal",
+          "status": "PASS",
+          "details": "backHandling=true",
+          "timestamp": "2026-07-22T18:18:13.465Z"
+        }
+      ]
+    },
+    {
+      "name": "3. Statistika & Agregasi Data",
+      "results": [
+        {
+          "scenario": "Statistika & Agregasi Data",
+          "testName": "Statistik Otomatis - Total Entri Penelitian",
+          "status": "PASS",
+          "details": "entri=617, dosen=12, tahun=2003 – 2026",
+          "timestamp": "2026-07-22T18:18:14.782Z"
+        },
+        {
+          "scenario": "Statistika & Agregasi Data",
+          "testName": "Render Awal Tabel Agregat",
+          "status": "PASS",
+          "details": "rows=60, countText=Menampilkan 60 dari 617 entri penelitian dari seluruh dosen FSTI.",
+          "timestamp": "2026-07-22T18:18:14.783Z"
+        },
+        {
+          "scenario": "Statistika & Agregasi Data",
+          "testName": "In-Memory Filter Dropdown Dosen - Instant Filtering",
+          "status": "PASS",
+          "details": "selected=Affi Nizar Suksmawati, S.Kom., M.Cs., before=60, after=14, countText=Menampilkan 14 dari 14 entri penelitian oleh Affi Nizar Suksmawati, S.Kom., M.Cs.., allContain=true",
+          "timestamp": "2026-07-22T18:18:15.225Z"
+        },
+        {
+          "scenario": "Statistika & Agregasi Data",
+          "testName": "Sorting Default Tahun Terbaru → Terlama",
+          "status": "PASS",
+          "details": "first5=2026,2026,2026,2026,2026, isDesc=true",
+          "timestamp": "2026-07-22T18:18:15.927Z"
+        },
+        {
+          "scenario": "Statistika & Agregasi Data",
+          "testName": "Sorting Toggle Tahun Terlama → Terbaru (asc)",
+          "status": "PASS",
+          "details": "first5=2003,2008,2010,2010,2010, isAsc=true",
+          "timestamp": "2026-07-22T18:18:16.458Z"
+        },
+        {
+          "scenario": "Statistika & Agregasi Data",
+          "testName": "Sorting Validasi Presisi Terbaru→Terlama (desc)",
+          "status": "PASS",
+          "details": "first5=2026,2026,2026,2026,2026, isDesc=true",
+          "timestamp": "2026-07-22T18:18:16.981Z"
+        },
+        {
+          "scenario": "Statistika & Agregasi Data",
+          "testName": "A11y aria-sort pada Header Tahun",
+          "status": "PASS",
+          "details": "aria-sort=descending",
+          "timestamp": "2026-07-22T18:18:16.982Z"
+        },
+        {
+          "scenario": "Statistika & Agregasi Data",
+          "testName": "Klik Salin Sitasi - Toast Notification Muncul",
+          "status": "PASS",
+          "details": "toastExists=true, visible=true, text=Tersalin ke clipboard",
+          "timestamp": "2026-07-22T18:18:17.489Z"
+        },
+        {
+          "scenario": "Statistika & Agregasi Data",
+          "testName": "Feedback Visual Salin - Icon Check & Class fsti-copy-ok",
+          "status": "PASS",
+          "details": "hasCheck=true, innerHTML=<i data-lucide=\"check\" class=\"w-4 h-4\"></i>",
+          "timestamp": "2026-07-22T18:18:17.489Z"
+        },
+        {
+          "scenario": "Statistika & Agregasi Data",
+          "testName": "Static Check - In-Memory Filter Engine",
+          "status": "PASS",
+          "details": "filterLogic=true",
+          "timestamp": "2026-07-22T18:18:17.489Z"
+        },
+        {
+          "scenario": "Statistika & Agregasi Data",
+          "testName": "Static Check - Sorting Algorithm Tahun",
+          "status": "PASS",
+          "details": "sorting=true",
+          "timestamp": "2026-07-22T18:18:17.490Z"
+        },
+        {
+          "scenario": "Statistika & Agregasi Data",
+          "testName": "Static Check - Salin + Toast Feedback",
+          "status": "PASS",
+          "details": "copy=true",
+          "timestamp": "2026-07-22T18:18:17.490Z"
+        },
+        {
+          "scenario": "Statistika & Agregasi Data",
+          "testName": "Static Check - Search Instant (input event)",
+          "status": "PASS",
+          "details": "instant=true",
+          "timestamp": "2026-07-22T18:18:17.490Z"
+        }
+      ]
+    },
+    {
+      "name": "4. Mode Luring & AssetGuard",
+      "results": [
+        {
+          "scenario": "Mode Luring & AssetGuard",
+          "testName": "Service Worker - CACHE_NAME Exists",
+          "status": "PASS",
+          "details": "found=true",
+          "timestamp": "2026-07-22T18:18:17.491Z"
+        },
+        {
+          "scenario": "Mode Luring & AssetGuard",
+          "testName": "Service Worker - CORE_ASSETS Pre-cache List",
+          "status": "PASS",
+          "details": "includes style.css=true, includes index.html=true, total 33 assets",
+          "timestamp": "2026-07-22T18:18:17.491Z"
+        },
+        {
+          "scenario": "Mode Luring & AssetGuard",
+          "testName": "Service Worker - Install Event Pre-cache",
+          "status": "PASS",
+          "details": "install+addAll=true",
+          "timestamp": "2026-07-22T18:18:17.491Z"
+        },
+        {
+          "scenario": "Mode Luring & AssetGuard",
+          "testName": "Service Worker - Activate Clean Old Cache",
+          "status": "PASS",
+          "details": "activate=true",
+          "timestamp": "2026-07-22T18:18:17.491Z"
+        },
+        {
+          "scenario": "Mode Luring & AssetGuard",
+          "testName": "Service Worker - Fetch Cache-First Strategy",
+          "status": "PASS",
+          "details": "fetch=true, cacheFirst=true",
+          "timestamp": "2026-07-22T18:18:17.491Z"
+        },
+        {
+          "scenario": "Mode Luring & AssetGuard",
+          "testName": "Service Worker - Offline Fallback HTML",
+          "status": "PASS",
+          "details": "fallback=true",
+          "timestamp": "2026-07-22T18:18:17.491Z"
+        },
+        {
+          "scenario": "Mode Luring & AssetGuard",
+          "testName": "PWA Manifest - Valid & Themecolor",
+          "status": "PASS",
+          "details": "name=FSTI Universitas Widya Gama Malang, theme=#5B2A7E",
+          "timestamp": "2026-07-22T18:18:17.491Z"
+        },
+        {
+          "scenario": "Mode Luring & AssetGuard",
+          "testName": "Simulasi Offline - CacheStorage Load index.html",
+          "status": "PASS",
+          "details": "cachedResponseExists=true, status=200",
+          "timestamp": "2026-07-22T18:18:17.538Z"
+        },
+        {
+          "scenario": "Mode Luring & AssetGuard",
+          "testName": "Service Worker - Agent Dapat Di-Registrasi Saat Online",
+          "status": "PASS",
+          "details": "registerFn=true, online=false",
+          "timestamp": "2026-07-22T18:18:17.539Z"
+        },
+        {
+          "scenario": "Mode Luring & AssetGuard",
+          "testName": "AssetGuard - Guard Loader Element Present",
+          "status": "PASS",
+          "details": "loader=true",
+          "timestamp": "2026-07-22T18:18:17.539Z"
+        },
+        {
+          "scenario": "Mode Luring & AssetGuard",
+          "testName": "AssetGuard - Error Box \"Sistem Tidak Tersedia\"",
+          "status": "PASS",
+          "details": "errorBox=true",
+          "timestamp": "2026-07-22T18:18:17.539Z"
+        },
+        {
+          "scenario": "Mode Luring & AssetGuard",
+          "testName": "AssetGuard - Script Imported",
+          "status": "PASS",
+          "details": "scriptTag=true",
+          "timestamp": "2026-07-22T18:18:17.539Z"
+        },
+        {
+          "scenario": "Mode Luring & AssetGuard",
+          "testName": "AssetGuard - Fail-Closed Logic untuk CSS 404",
+          "status": "PASS",
+          "details": "logicFound=true",
+          "timestamp": "2026-07-22T18:18:17.539Z"
+        },
+        {
+          "scenario": "Mode Luring & AssetGuard",
+          "testName": "AssetGuard - No Path Leak (Fail-Closed Secure)",
+          "status": "PASS",
+          "details": "pathLeak=false, genericMessage=true",
+          "timestamp": "2026-07-22T18:18:17.539Z"
+        },
+        {
+          "scenario": "Mode Luring & AssetGuard",
+          "testName": "Simulasi Blokir style.css 404 - Fail-Closed Triggered",
+          "status": "PASS",
+          "details": "errorVisible=true, loaderHidden=true, guardOpacity=1, guardDisplay=flex",
+          "timestamp": "2026-07-22T18:18:18.786Z"
+        },
+        {
+          "scenario": "Mode Luring & AssetGuard",
+          "testName": "Fail-Closed UI - Pesan \"Sistem Tidak Tersedia\"",
+          "status": "PASS",
+          "details": "text= Sistem Tidak Tersedia Mohon maaf",
+          "timestamp": "2026-07-22T18:18:18.786Z"
+        },
+        {
+          "scenario": "Mode Luring & AssetGuard",
+          "testName": "Fail-Closed - Layar Terkunci (Lock Screen)",
+          "status": "PASS",
+          "details": "locked=true",
+          "timestamp": "2026-07-22T18:18:18.786Z"
+        },
+        {
+          "scenario": "Mode Luring & AssetGuard",
+          "testName": "AssetGuard - Overlay High z-index & Transition",
+          "status": "PASS",
+          "details": "transition=true, z99999=true",
+          "timestamp": "2026-07-22T18:18:18.786Z"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "scenario": "UI/UX & Responsivitas Visual",
+      "testName": "Viewport 320px - No Overflow",
+      "status": "PASS",
+      "details": "Elements checked: 470, Overflow: NONE. grid-cols-1 ditemukan (mobile base): YES; grid-cols-2 pada breakpoint tablet ditemukan: YES; grid-cols-3 pada breakpoint desktop ditemukan: YES; overflow-x-hidden pada body (anti overflow global): YES | preventRule: true",
+      "timestamp": "2026-07-22T18:18:10.337Z"
+    },
+    {
+      "scenario": "UI/UX & Responsivitas Visual",
+      "testName": "Viewport 480px - No Overflow",
+      "status": "PASS",
+      "details": "Elements checked: 470, Overflow: NONE. grid-cols-1 ditemukan (mobile base): YES; grid-cols-2 pada breakpoint tablet ditemukan: YES; grid-cols-3 pada breakpoint desktop ditemukan: YES; overflow-x-hidden pada body (anti overflow global): YES | preventRule: true",
+      "timestamp": "2026-07-22T18:18:10.428Z"
+    },
+    {
+      "scenario": "UI/UX & Responsivitas Visual",
+      "testName": "Viewport 768px - No Overflow",
+      "status": "PASS",
+      "details": "Elements checked: 470, Overflow: NONE. grid-cols-1 ditemukan (mobile base): YES; grid-cols-2 pada breakpoint tablet ditemukan: YES; grid-cols-3 pada breakpoint desktop ditemukan: YES; overflow-x-hidden pada body (anti overflow global): YES | preventRule: true",
+      "timestamp": "2026-07-22T18:18:10.482Z"
+    },
+    {
+      "scenario": "UI/UX & Responsivitas Visual",
+      "testName": "Viewport 1024px - No Overflow",
+      "status": "PASS",
+      "details": "Elements checked: 470, Overflow: NONE. grid-cols-1 ditemukan (mobile base): YES; grid-cols-2 pada breakpoint tablet ditemukan: YES; grid-cols-3 pada breakpoint desktop ditemukan: YES; overflow-x-hidden pada body (anti overflow global): YES | preventRule: true",
+      "timestamp": "2026-07-22T18:18:10.558Z"
+    },
+    {
+      "scenario": "UI/UX & Responsivitas Visual",
+      "testName": "Viewport 1280px - No Overflow",
+      "status": "PASS",
+      "details": "Elements checked: 470, Overflow: NONE. grid-cols-1 ditemukan (mobile base): YES; grid-cols-2 pada breakpoint tablet ditemukan: YES; grid-cols-3 pada breakpoint desktop ditemukan: YES; overflow-x-hidden pada body (anti overflow global): YES | preventRule: true",
+      "timestamp": "2026-07-22T18:18:10.624Z"
+    },
+    {
+      "scenario": "UI/UX & Responsivitas Visual",
+      "testName": "Viewport 1440px - No Overflow",
+      "status": "PASS",
+      "details": "Elements checked: 470, Overflow: NONE. grid-cols-1 ditemukan (mobile base): YES; grid-cols-2 pada breakpoint tablet ditemukan: YES; grid-cols-3 pada breakpoint desktop ditemukan: YES; overflow-x-hidden pada body (anti overflow global): YES | preventRule: true",
+      "timestamp": "2026-07-22T18:18:10.676Z"
+    },
+    {
+      "scenario": "UI/UX & Responsivitas Visual",
+      "testName": "Tailwind Grid Adaptasi 1→2→3",
+      "status": "PASS",
+      "details": "grid-cols-1 ditemukan (mobile base): YES | grid-cols-2 pada breakpoint tablet ditemukan: YES | grid-cols-3 pada breakpoint desktop ditemukan: YES | overflow-x-hidden pada body (anti overflow global): YES | overflowPreventRule=true",
+      "timestamp": "2026-07-22T18:18:10.676Z"
+    },
+    {
+      "scenario": "UI/UX & Responsivitas Visual",
+      "testName": "Hover Premium Statis - No translateY / No Shadow",
+      "status": "PASS",
+      "details": "hasTranslateY=false, hasShadowOnHover=false, programHoverBlockFound=true, dosenHoverBlockFound=true",
+      "timestamp": "2026-07-22T18:18:10.676Z"
+    },
+    {
+      "scenario": "UI/UX & Responsivitas Visual",
+      "testName": "Simulasi Event Hover JSDOM - Transform Tidak Berubah",
+      "status": "PASS",
+      "details": "before=, after=",
+      "timestamp": "2026-07-22T18:18:10.754Z"
+    },
+    {
+      "scenario": "UI/UX & Responsivitas Visual",
+      "testName": "CTA Active Transform scale-[0.98]",
+      "status": "PASS",
+      "details": "ctaClassFound=true, scaleRuleFound=true, occurrences=9",
+      "timestamp": "2026-07-22T18:18:10.754Z"
+    },
+    {
+      "scenario": "UI/UX & Responsivitas Visual",
+      "testName": "Simulasi Active CTA - Tactile Response",
+      "status": "PASS",
+      "details": "CTA text=Kenali Lebih Dekat, activeRulePresent=true, activeBlocksSnippet=\n    background-color: #b85f00 !important;\n    border-color: #b85f00 !important;\n    color: #fff !important;\n \n    backg",
+      "timestamp": "2026-07-22T18:18:10.809Z"
+    },
+    {
+      "scenario": "Navigasi Riwayat - Proteksi Modal",
+      "testName": "Navigasi direktori-dosen.html & Render Grid",
+      "status": "PASS",
+      "details": "Grid cards rendered: 14, count text: Menampilkan 14 dari 14 dosen",
+      "timestamp": "2026-07-22T18:18:12.232Z"
+    },
+    {
+      "scenario": "Navigasi Riwayat - Proteksi Modal",
+      "testName": "Simulasi Klik Buka Modal Profil Detail",
+      "status": "PASS",
+      "details": "visible=true, aria-hidden=false, bodyOverflowHidden=true, openClass=true",
+      "timestamp": "2026-07-22T18:18:12.961Z"
+    },
+    {
+      "scenario": "Navigasi Riwayat - Proteksi Modal",
+      "testName": "Verifikasi Focus Trap (fokus di dalam modal)",
+      "status": "PASS",
+      "details": "activeElement=BUTTON#dosen-modal-close, focusInsideModal=true, focusIsClose=true",
+      "timestamp": "2026-07-22T18:18:12.961Z"
+    },
+    {
+      "scenario": "Navigasi Riwayat - Proteksi Modal",
+      "testName": "Verifikasi aria-hidden pada modal & background",
+      "status": "PASS",
+      "details": "modal aria-hidden=false, mainContent exists=true, logicFound=true",
+      "timestamp": "2026-07-22T18:18:12.961Z"
+    },
+    {
+      "scenario": "Navigasi Riwayat - Proteksi Modal",
+      "testName": "A11y Modal - role=dialog, aria-modal=true, labelledby",
+      "status": "PASS",
+      "details": "roleDialog=true, ariaModal=true, labelledBy=true",
+      "timestamp": "2026-07-22T18:18:12.961Z"
+    },
+    {
+      "scenario": "Navigasi Riwayat - Proteksi Modal",
+      "testName": "Simulasi PopState (Back Button) - Modal Menutup Tanpa Reload",
+      "status": "PASS",
+      "details": "historyPushed=true, closedAfterPop=true, reload=false, urlBefore=http://localhost/direktori-dosen.html, urlAfter=http://localhost/direktori-dosen.html",
+      "timestamp": "2026-07-22T18:18:13.464Z"
+    },
+    {
+      "scenario": "Navigasi Riwayat - Proteksi Modal",
+      "testName": "Transisi Halus Modal (opacity .25s + scale)",
+      "status": "PASS",
+      "details": "smoothTransitionFound=true",
+      "timestamp": "2026-07-22T18:18:13.464Z"
+    },
+    {
+      "scenario": "Navigasi Riwayat - Proteksi Modal",
+      "testName": "Static Check - history.pushState untuk Modal",
+      "status": "PASS",
+      "details": "pushStateFound=true",
+      "timestamp": "2026-07-22T18:18:13.464Z"
+    },
+    {
+      "scenario": "Navigasi Riwayat - Proteksi Modal",
+      "testName": "Static Check - popstate listener untuk Back",
+      "status": "PASS",
+      "details": "popstateListener=true",
+      "timestamp": "2026-07-22T18:18:13.465Z"
+    },
+    {
+      "scenario": "Navigasi Riwayat - Proteksi Modal",
+      "testName": "Static Check - history.back() menutup modal",
+      "status": "PASS",
+      "details": "backHandling=true",
+      "timestamp": "2026-07-22T18:18:13.465Z"
+    },
+    {
+      "scenario": "Statistika & Agregasi Data",
+      "testName": "Statistik Otomatis - Total Entri Penelitian",
+      "status": "PASS",
+      "details": "entri=617, dosen=12, tahun=2003 – 2026",
+      "timestamp": "2026-07-22T18:18:14.782Z"
+    },
+    {
+      "scenario": "Statistika & Agregasi Data",
+      "testName": "Render Awal Tabel Agregat",
+      "status": "PASS",
+      "details": "rows=60, countText=Menampilkan 60 dari 617 entri penelitian dari seluruh dosen FSTI.",
+      "timestamp": "2026-07-22T18:18:14.783Z"
+    },
+    {
+      "scenario": "Statistika & Agregasi Data",
+      "testName": "In-Memory Filter Dropdown Dosen - Instant Filtering",
+      "status": "PASS",
+      "details": "selected=Affi Nizar Suksmawati, S.Kom., M.Cs., before=60, after=14, countText=Menampilkan 14 dari 14 entri penelitian oleh Affi Nizar Suksmawati, S.Kom., M.Cs.., allContain=true",
+      "timestamp": "2026-07-22T18:18:15.225Z"
+    },
+    {
+      "scenario": "Statistika & Agregasi Data",
+      "testName": "Sorting Default Tahun Terbaru → Terlama",
+      "status": "PASS",
+      "details": "first5=2026,2026,2026,2026,2026, isDesc=true",
+      "timestamp": "2026-07-22T18:18:15.927Z"
+    },
+    {
+      "scenario": "Statistika & Agregasi Data",
+      "testName": "Sorting Toggle Tahun Terlama → Terbaru (asc)",
+      "status": "PASS",
+      "details": "first5=2003,2008,2010,2010,2010, isAsc=true",
+      "timestamp": "2026-07-22T18:18:16.458Z"
+    },
+    {
+      "scenario": "Statistika & Agregasi Data",
+      "testName": "Sorting Validasi Presisi Terbaru→Terlama (desc)",
+      "status": "PASS",
+      "details": "first5=2026,2026,2026,2026,2026, isDesc=true",
+      "timestamp": "2026-07-22T18:18:16.981Z"
+    },
+    {
+      "scenario": "Statistika & Agregasi Data",
+      "testName": "A11y aria-sort pada Header Tahun",
+      "status": "PASS",
+      "details": "aria-sort=descending",
+      "timestamp": "2026-07-22T18:18:16.982Z"
+    },
+    {
+      "scenario": "Statistika & Agregasi Data",
+      "testName": "Klik Salin Sitasi - Toast Notification Muncul",
+      "status": "PASS",
+      "details": "toastExists=true, visible=true, text=Tersalin ke clipboard",
+      "timestamp": "2026-07-22T18:18:17.489Z"
+    },
+    {
+      "scenario": "Statistika & Agregasi Data",
+      "testName": "Feedback Visual Salin - Icon Check & Class fsti-copy-ok",
+      "status": "PASS",
+      "details": "hasCheck=true, innerHTML=<i data-lucide=\"check\" class=\"w-4 h-4\"></i>",
+      "timestamp": "2026-07-22T18:18:17.489Z"
+    },
+    {
+      "scenario": "Statistika & Agregasi Data",
+      "testName": "Static Check - In-Memory Filter Engine",
+      "status": "PASS",
+      "details": "filterLogic=true",
+      "timestamp": "2026-07-22T18:18:17.489Z"
+    },
+    {
+      "scenario": "Statistika & Agregasi Data",
+      "testName": "Static Check - Sorting Algorithm Tahun",
+      "status": "PASS",
+      "details": "sorting=true",
+      "timestamp": "2026-07-22T18:18:17.490Z"
+    },
+    {
+      "scenario": "Statistika & Agregasi Data",
+      "testName": "Static Check - Salin + Toast Feedback",
+      "status": "PASS",
+      "details": "copy=true",
+      "timestamp": "2026-07-22T18:18:17.490Z"
+    },
+    {
+      "scenario": "Statistika & Agregasi Data",
+      "testName": "Static Check - Search Instant (input event)",
+      "status": "PASS",
+      "details": "instant=true",
+      "timestamp": "2026-07-22T18:18:17.490Z"
+    },
+    {
+      "scenario": "Mode Luring & AssetGuard",
+      "testName": "Service Worker - CACHE_NAME Exists",
+      "status": "PASS",
+      "details": "found=true",
+      "timestamp": "2026-07-22T18:18:17.491Z"
+    },
+    {
+      "scenario": "Mode Luring & AssetGuard",
+      "testName": "Service Worker - CORE_ASSETS Pre-cache List",
+      "status": "PASS",
+      "details": "includes style.css=true, includes index.html=true, total 33 assets",
+      "timestamp": "2026-07-22T18:18:17.491Z"
+    },
+    {
+      "scenario": "Mode Luring & AssetGuard",
+      "testName": "Service Worker - Install Event Pre-cache",
+      "status": "PASS",
+      "details": "install+addAll=true",
+      "timestamp": "2026-07-22T18:18:17.491Z"
+    },
+    {
+      "scenario": "Mode Luring & AssetGuard",
+      "testName": "Service Worker - Activate Clean Old Cache",
+      "status": "PASS",
+      "details": "activate=true",
+      "timestamp": "2026-07-22T18:18:17.491Z"
+    },
+    {
+      "scenario": "Mode Luring & AssetGuard",
+      "testName": "Service Worker - Fetch Cache-First Strategy",
+      "status": "PASS",
+      "details": "fetch=true, cacheFirst=true",
+      "timestamp": "2026-07-22T18:18:17.491Z"
+    },
+    {
+      "scenario": "Mode Luring & AssetGuard",
+      "testName": "Service Worker - Offline Fallback HTML",
+      "status": "PASS",
+      "details": "fallback=true",
+      "timestamp": "2026-07-22T18:18:17.491Z"
+    },
+    {
+      "scenario": "Mode Luring & AssetGuard",
+      "testName": "PWA Manifest - Valid & Themecolor",
+      "status": "PASS",
+      "details": "name=FSTI Universitas Widya Gama Malang, theme=#5B2A7E",
+      "timestamp": "2026-07-22T18:18:17.491Z"
+    },
+    {
+      "scenario": "Mode Luring & AssetGuard",
+      "testName": "Simulasi Offline - CacheStorage Load index.html",
+      "status": "PASS",
+      "details": "cachedResponseExists=true, status=200",
+      "timestamp": "2026-07-22T18:18:17.538Z"
+    },
+    {
+      "scenario": "Mode Luring & AssetGuard",
+      "testName": "Service Worker - Agent Dapat Di-Registrasi Saat Online",
+      "status": "PASS",
+      "details": "registerFn=true, online=false",
+      "timestamp": "2026-07-22T18:18:17.539Z"
+    },
+    {
+      "scenario": "Mode Luring & AssetGuard",
+      "testName": "AssetGuard - Guard Loader Element Present",
+      "status": "PASS",
+      "details": "loader=true",
+      "timestamp": "2026-07-22T18:18:17.539Z"
+    },
+    {
+      "scenario": "Mode Luring & AssetGuard",
+      "testName": "AssetGuard - Error Box \"Sistem Tidak Tersedia\"",
+      "status": "PASS",
+      "details": "errorBox=true",
+      "timestamp": "2026-07-22T18:18:17.539Z"
+    },
+    {
+      "scenario": "Mode Luring & AssetGuard",
+      "testName": "AssetGuard - Script Imported",
+      "status": "PASS",
+      "details": "scriptTag=true",
+      "timestamp": "2026-07-22T18:18:17.539Z"
+    },
+    {
+      "scenario": "Mode Luring & AssetGuard",
+      "testName": "AssetGuard - Fail-Closed Logic untuk CSS 404",
+      "status": "PASS",
+      "details": "logicFound=true",
+      "timestamp": "2026-07-22T18:18:17.539Z"
+    },
+    {
+      "scenario": "Mode Luring & AssetGuard",
+      "testName": "AssetGuard - No Path Leak (Fail-Closed Secure)",
+      "status": "PASS",
+      "details": "pathLeak=false, genericMessage=true",
+      "timestamp": "2026-07-22T18:18:17.539Z"
+    },
+    {
+      "scenario": "Mode Luring & AssetGuard",
+      "testName": "Simulasi Blokir style.css 404 - Fail-Closed Triggered",
+      "status": "PASS",
+      "details": "errorVisible=true, loaderHidden=true, guardOpacity=1, guardDisplay=flex",
+      "timestamp": "2026-07-22T18:18:18.786Z"
+    },
+    {
+      "scenario": "Mode Luring & AssetGuard",
+      "testName": "Fail-Closed UI - Pesan \"Sistem Tidak Tersedia\"",
+      "status": "PASS",
+      "details": "text= Sistem Tidak Tersedia Mohon maaf",
+      "timestamp": "2026-07-22T18:18:18.786Z"
+    },
+    {
+      "scenario": "Mode Luring & AssetGuard",
+      "testName": "Fail-Closed - Layar Terkunci (Lock Screen)",
+      "status": "PASS",
+      "details": "locked=true",
+      "timestamp": "2026-07-22T18:18:18.786Z"
+    },
+    {
+      "scenario": "Mode Luring & AssetGuard",
+      "testName": "AssetGuard - Overlay High z-index & Transition",
+      "status": "PASS",
+      "details": "transition=true, z99999=true",
+      "timestamp": "2026-07-22T18:18:18.786Z"
+    }
+  ]
+}
