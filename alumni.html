@@ -330,6 +330,14 @@
 
         function openModal(d){
             window._lastTriggerBtn = document.activeElement;
+            // Simpan posisi scroll halaman sebelum modal dibuka agar dapat
+            // dipulihkan saat modal ditutup (mencegah halaman melompat ke atas
+            // akibat history.back() + scroll restoration browser).
+            window._alumniModalScrollPosition = {
+                x: window.scrollX || window.pageXOffset || 0,
+                y: window.scrollY || window.pageYOffset || 0
+            };
+            window._alumniModalClosing = false;
             // Tambahkan satu riwayat sementara: tombol Back browser menutup modal
             // terlebih dahulu, bukan langsung meninggalkan halaman alumni.
             if (!window._alumniModalHistoryPushed) {
@@ -430,12 +438,40 @@
             }
             modal.setAttribute('aria-hidden', 'true');
             document.body.classList.remove('overflow-hidden');
+
+            // Pulihkan posisi scroll halaman ke posisi sebelum modal dibuka.
+            // Dipanggil beberapa kali (sinkron, setelah rAF, dan setelah
+            // history.back()) untuk melawan race condition scroll restoration
+            // browser — pola yang sama dengan image modal di script.js.
+            const savedScroll = window._alumniModalScrollPosition;
+            const restoreScroll = () => {
+                if (!savedScroll) return;
+                try {
+                    window.scrollTo(savedScroll.x, savedScroll.y);
+                    requestAnimationFrame(() => {
+                        try { window.scrollTo(savedScroll.x, savedScroll.y); } catch (err) {}
+                    });
+                } catch (err) {}
+            };
+            restoreScroll();
+
             clearTimeout(modal._closeTimer);
-            modal._closeTimer = setTimeout(() => { modal.classList.add('hidden'); const p = document.getElementById('alumni-modal-panel'); if (p) p.scrollTop = 0; if (modal) modal.scrollTop = 0; }, 260);
+            modal._closeTimer = setTimeout(() => {
+                modal.classList.add('hidden');
+                const p = document.getElementById('alumni-modal-panel');
+                if (p) p.scrollTop = 0;
+                if (modal) modal.scrollTop = 0;
+                window._alumniModalClosing = false;
+                restoreScroll();
+            }, 260);
             
             if (window._alumniModalHistoryPushed && !fromPopstate) {
                 window._alumniModalHistoryPushed = false;
+                // Tandai sedang menutup agar handler popstate global di script.js
+                // melewati event ini dan tidak menjalankan scrollTo(0,0).
+                window._alumniModalClosing = true;
                 try { history.back(); } catch(err){}
+                setTimeout(restoreScroll, 0);
             } else {
                 window._alumniModalHistoryPushed = false;
             }

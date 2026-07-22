@@ -72,6 +72,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalEl = document.getElementById('image-modal');
         if (modalEl && !modalEl.classList.contains('hidden')) return;
 
+        // Lewati scroll-to-top saat modal detail dosen/alumni sedang terbuka atau
+        // baru saja ditutup. history.back() yang mereka panggil saat ditutup juga
+        // memicu popstate; tanpa guard ini handler akan menjalankan scrollTo(0,0)
+        // sehingga halaman selalu melompat ke awal setiap kali modal dosen/alumni
+        // ditutup. Sama seperti image modal, posisi scroll dipulihkan secara manual
+        // oleh masing-masing modal (lihat _dosenModalScrollPosition/_alumniModalScrollPosition).
+        if (window._dosenModalClosing || window._alumniModalClosing) return;
+        const dosenModalEl = document.getElementById('dosen-modal');
+        if (dosenModalEl && !dosenModalEl.classList.contains('hidden')) return;
+        const alumniModalEl = document.getElementById('alumni-modal');
+        if (alumniModalEl && !alumniModalEl.classList.contains('hidden')) return;
+
         if (window.location.hash) {
             const target = document.querySelector(window.location.hash);
             if (target && typeof smoothScrollTo === 'function') {
