@@ -43,7 +43,7 @@ Website ini menyajikan informasi lengkap mengenai:
 - Program studi unggulan S1 Teknik Informatika, S1 Sistem dan Teknologi Informasi (SISTEKIN), dan S1 Bisnis Digital (BISDIG).
 - Direktori interaktif dosen dan peneliti beserta publikasi ilmiah, NUPTK, dan tautan pangkalan data (*SINTA, Google Scholar, ORCID, Scopus*).
 - **Tabel agregat Penelitian dan Pengabdian kepada Masyarakat** seluruh dosen FSTI dalam satu halaman masing-masing (600+ entri penelitian, 100+ entri pengabdian) dengan filter nama dosen, sorting tahun, dan tombol salin sitasi.
-- **Direktori Kerjasama Fakultas** (10 mitra: perguruan tinggi luar negeri, industri, dan lembaga pendidikan) dalam susunan kartu logo visual.
+- **Direktori Kerjasama Fakultas** (15 mitra: perguruan tinggi luar/dalam negeri, industri, lembaga pendidikan, dan yayasan) dalam susunan kartu visual.
 - **Galeri Prestasi Fakultas** — baik akademik maupun non-akademik — dari tingkat lokal hingga internasional.
 - Direktori interaktif dan cerita inspiratif lulusan/alumni FSTI dari berbagai industri.
 - Panduan, jalur, kelas (*Reguler A / Karyawan B / Transfer D3*), dan beasiswa Penerimaan Mahasiswa Baru (PMB).
@@ -60,7 +60,7 @@ Website ini menyajikan informasi lengkap mengenai:
 
 ### 2. Sistem Preloader Cerdas & Keamanan Aset (*AssetGuard / Fail-Closed Guard*)
 - **Sensor Validasi Real-Time (`js/asset-guard.js`)**: Setiap kali halaman dibuka, sistem memverifikasi integritas `style.css`, `lucide.min.js`, `script.js`, data global JS (`alumniData` / `dosenData`, serta `FSTI_KERJASAMA` / `FSTI_PRESTASI` pada halaman Kerjasama & Prestasi), dan gambar utama (Logo).
-- **Progressive Web App (`service-worker.js` & `manifest.json`)**: Dilengkapi mesin *Cache-First Service Worker v2026.21* yang menyimpan seluruh berkas HTML, CSS (termasuk `tailwind.css` hasil build lokal), JS, font, dan gambar WebP ke dalam *Cache Storage* peramban. Website dapat di-install sebagai aplikasi desktop/mobile dan bekerja 100% offline di dalam mode pesawat.
+- **Progressive Web App (`service-worker.js` & `manifest.json`)**: Dilengkapi mesin *Cache-First Service Worker v2026.28* yang menyimpan seluruh berkas HTML, CSS (termasuk `tailwind.css` hasil build lokal), JS, font, dan gambar WebP ke dalam *Cache Storage* peramban. Website dapat di-install sebagai aplikasi desktop/mobile dan bekerja 100% offline di dalam mode pesawat.
 - **Zero Layout Shift & Native Lazy Loading**: Seluruh gambar dipasangi atribut `width`, `height`, `loading="lazy"`, dan `decoding="async"`, menjamin stabilitas tata letak (CLS = 0.00) dan skor performa 100/100 di Google PageSpeed Insights.
 - **Mekanisme *Fail-Closed* Elegan**: Jika seluruh aset terverifikasi utuh, layar penahan memudar halus (`opacity: 0`). Jika ada satu saja aset yang rusak/hilang (`404 Not Found`), sistem langsung mengunci layar dengan pesan error putih bersih bergaya FSTI (**"Sistem Tidak Tersedia"**) tanpa membocorkan struktur path server atau keterangan teknis.
 
@@ -83,7 +83,7 @@ Website ini menyajikan informasi lengkap mengenai:
 
 ### 6. Halaman Agregat Akademik: Penelitian, Pengabdian, Kerjasama & Prestasi
 - **Mesin Tabel Agregat (`js/karya-agregat.js` + `js/util-tabel.js`)**: Halaman `penelitian.html` dan `pengabdian.html` mengagregasi otomatis ratusan karya seluruh dosen dari `js/dosen-data.js` (kolom `jenis`) menjadi satu tabel per halaman — 617 entri penelitian (2003–2026) dan 108 entri pengabdian (2010–2026). Dilengkapi pencarian, filter nama dosen (dropdown dibangun dinamis dari data), sorting tahun (klik kepala kolom/dropdown), pemuatan bertahap 60 baris, dan tombol ikon **salin sitasi** per baris (Clipboard API + fallback `execCommand`, umpan balik ikon & toast).
-- **Direktori Kartu Mitra (`kerjasama.html`)**: Kesepuluh mitra fakultas (7 luar negeri, 3 dalam negeri — sinkron dengan statistik Beranda) tampil sebagai grid kartu logo dengan badge jenis & ruang lingkup (otomatis dari negara), bentuk dokumen, status, tautan situs resmi, pencarian, filter jenis, dan sorting nama.
+- **Direktori Kartu Mitra (`kerjasama.html`)**: Kelima belas mitra fakultas (7 luar negeri, 8 dalam negeri — sinkron dengan statistik Beranda) tampil sebagai grid kartu ringkas berisi logo mitra, badge jenis, badge ruang lingkup wilayah (Dalam/Luar Negeri otomatis dari negara), nama mitra, dan negara; dilengkapi pencarian, filter jenis, dan sorting nama.
 - **Galeri Kartu Prestasi (`prestasi.html`)**: Prestasi di bawah fakultas baik **Akademik maupun Non-Akademik** tampil sebagai arsip kartu horizontal — foto dokumentasi (badge tahun, terhubung *lightbox* global), narasi keterangan per prestasi (kolom `keterangan`), dan tautan sumber berita resmi (kolom `sumber`, cth: berita resmi widyagama.ac.id) — dilengkapi badge kategori & tingkat (Lokal → Internasional), chip filter kategori, filter tingkat, sorting tahun, dan statistik otomatis. Susunannya sengaja dibedakan dari seksi "Sorotan Prestasi" di Beranda yang bersifat ringkas.
 - **Data Terpisah & Mudah Dirawat**: Kerjasama dan Prestasi dikelola lewat `js/kerjasama-data.js` (`window.FSTI_KERJASAMA`) dan `js/prestasi-data.js` (`window.FSTI_PRESTASI`); statistik ringkas, opsi filter, dan jumlah entri di seluruh halaman menyesuaikan isi data secara otomatis tanpa perlu menyunting HTML.
 
@@ -98,7 +98,7 @@ Website ini menyajikan informasi lengkap mengenai:
 | **Direktori Dosen** | `direktori-dosen.html` | Direktori interaktif 14 pengajar/peneliti FSTI dilengkapi pencarian RAM instan, filter jenis & database karya ilmiah, serta modal biodata lengkap. |
 | **Penelitian Dosen** | `penelitian.html` | Tabel agregat 617 karya penelitian (2003–2026) seluruh dosen FSTI dalam satu halaman; filter nama dosen, sorting tahun (klik kolom/pilihan), muat bertahap, dan tombol ikon salin sitasi per baris. |
 | **Pengabdian Masyarakat** | `pengabdian.html` | Tabel agregat 108 karya pengabdian kepada masyarakat (2010–2026) seluruh dosen FSTI dalam satu halaman; fitur filter, sorting, dan salin sitasi serupa halaman Penelitian. |
-| **Kerjasama Fakultas** | `kerjasama.html` | Grid kartu 10 mitra kerjasama fakultas (7 perguruan tinggi luar negeri & program global, 3 mitra dalam negeri) dengan logo mitra, badge jenis & ruang lingkup, status dokumen, tautan situs resmi, filter jenis, pencarian, dan sorting nama. |
+| **Kerjasama Fakultas** | `kerjasama.html` | Grid kartu ringkas 15 mitra kerjasama fakultas (7 perguruan tinggi luar negeri & program global, 8 mitra dalam negeri) berisi logo, jenis mitra, ruang lingkup wilayah, nama mitra, dan negara; dilengkapi filter jenis, pencarian, dan sorting nama. |
 | **Prestasi Fakultas** | `prestasi.html` | Arsip prestasi di bawah fakultas — akademik & non-akademik — dalam kartu horizontal: foto dokumentasi (lightbox), narasi keterangan tiap prestasi, tautan sumber berita resmi, chip filter kategori, filter tingkat, pencarian, dan sorting tahun. Sengaja dibedakan dari seksi "Sorotan Prestasi" Beranda yang ringkas. |
 | **Direktori Alumni** | `alumni.html` | Direktori 15 lulusan FSTI dari berbagai angkatan/instansi dilengkapi pencarian RAM instan, filter prodi, dan modal cerita testimoni. |
 | **Penerimaan Mahasiswa Baru** | `pmb.html` | Informasi jalur pendaftaran, 4 langkah alur SPMB, jadwal kelas (Reguler A / Karyawan B / Transfer D3 / RPL), rincian biaya, dan 3 program beasiswa. |
@@ -152,7 +152,7 @@ project-fsti-rapi/
         ├── alumni/                           # 15 foto profil alumni (.webp)
         ├── fasilitas/                        # 7 foto laboratorium & ruang kelas (.webp)
         ├── kegiatan/                         # 12 foto kegiatan akademik & prestasi (.webp)
-        └── mitra/                            # 10 logo mitra universitas & perusahaan (.webp)
+        └── mitra/                            # 15 logo mitra universitas, perusahaan, lembaga pendidikan, dan yayasan (.webp)
 ```
 
 ---
@@ -205,7 +205,7 @@ Guna menjaga konsistensi visual, interaksi, fungsionalitas, dan bahasa di seluru
   * **Halaman Beranda**:
     * *Hero Section*: Seluruh teks sambutan & tombol CTA utama.
     * *Sekilas Fakultas*: Blok Dean's Quote & Blok Statistik.
-    * *Section Program, Prestasi, Testimoni, Mitra*: Pada masing-masing **Judul Seksi** (*Section Header*) DAN **Grid Konten Utama** (grid kartu, slider testimoni, grid logo mitra, tombol CTA bawah).
+    * *Section Program, Prestasi, Testimoni, Mitra*: Pada masing-masing **Judul Seksi** (*Section Header*) DAN **Konten Utama** (grid kartu, slider testimoni, galeri logo mitra bergerak, tombol CTA bawah).
     * *Final CTA*: Seluruh isi box banner gabungan.
   * **Halaman Lainnya (Aturan Umum)**:
     * *Hero / Banner Atas*: Seluruh judul halaman dalam satu container.

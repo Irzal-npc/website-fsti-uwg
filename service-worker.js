@@ -1,8 +1,8 @@
 /**
  * FSTI UWG Malang - Progressive Web App (PWA) Service Worker
- * Cache-First & Network-Fallback Offline Cache Engine v2026.22
+ * Cache-First & Network-Fallback Offline Cache Engine v2026.28
  */
-const CACHE_NAME = 'fsti-uwg-cache-v2026.22';
+const CACHE_NAME = 'fsti-uwg-cache-v2026.28';
 
 const CORE_ASSETS = [
     './index.html',

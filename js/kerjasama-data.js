@@ -19,7 +19,7 @@
  *   logo    : path logo mitra (.webp) di assets/images/mitra/ — kosongkan ('') bila tidak ada
  *   link    : URL situs resmi mitra (opsional, kosongkan bila tidak ada)
  *
- * CATATAN: daftar awal diselaraskan dengan 10 slot logo mitra pada seksi "Mitra Kerja Sama"
+ * CATATAN: daftar awal diselaraskan dengan seksi "Mitra Kerja Sama"
  * di halaman Beranda. (Riwayat: file logo `ukm.webp` sempat salah bernama `utm-malaysia.webp`
  * sehingga UTM tampak ganda; telah diidentifikasi sebagai lambang Universiti Kebangsaan
  * Malaysia per lambang resmi di ukm.my.)
@@ -146,5 +146,65 @@ window.FSTI_KERJASAMA = [
   "status": "Aktif",
   "logo": "assets/images/mitra/ponpes-al-firdaus.webp",
   "link": ""
+ },
+ {
+  "id": 11,
+  "mitra": "Fakultas Teknologi Informasi - Universitas Merdeka Malang",
+  "jenis": "Perguruan Tinggi (Dalam Negeri)",
+  "negara": "Indonesia",
+  "bentuk": "",
+  "bidang": "Pendidikan, penelitian, pengabdian kepada masyarakat, dan pengembangan kompetensi",
+  "periode": "",
+  "status": "Aktif",
+  "logo": "assets/images/mitra/fti-unmer-malang.webp",
+  "link": ""
+ },
+ {
+  "id": 12,
+  "mitra": "Fakultas Teknologi Informasi - ITB Yadika Pasuruan",
+  "jenis": "Perguruan Tinggi (Dalam Negeri)",
+  "negara": "Indonesia",
+  "bentuk": "",
+  "bidang": "Pendidikan, penelitian, pengabdian kepada masyarakat, dan pengembangan kompetensi",
+  "periode": "",
+  "status": "Aktif",
+  "logo": "assets/images/mitra/itb-yadika.webp",
+  "link": "https://itbyadika.ac.id/profil-fakultas-teknologi-dan-informatika-fti/"
+ },
+ {
+  "id": 13,
+  "mitra": "Universitas Merdeka Pasuruan",
+  "jenis": "Perguruan Tinggi (Dalam Negeri)",
+  "negara": "Indonesia",
+  "bentuk": "",
+  "bidang": "Pendidikan, penelitian, pengabdian kepada masyarakat, dan pengembangan kompetensi",
+  "periode": "",
+  "status": "Aktif",
+  "logo": "assets/images/mitra/unmerpas.webp",
+  "link": "https://unmerpas.ac.id/"
+ },
+ {
+  "id": 14,
+  "mitra": "STMIK PPKIA Pradnya Paramita Malang",
+  "jenis": "Perguruan Tinggi (Dalam Negeri)",
+  "negara": "Indonesia",
+  "bentuk": "",
+  "bidang": "Pendidikan, penelitian, pengabdian kepada masyarakat, dan pengembangan kompetensi",
+  "periode": "",
+  "status": "Aktif",
+  "logo": "assets/images/mitra/stimata.webp",
+  "link": "https://stimata.ac.id/id/"
+ },
+ {
+  "id": 15,
+  "mitra": "Sentosa Foundation",
+  "jenis": "Lembaga Sosial/Yayasan",
+  "negara": "Indonesia",
+  "bentuk": "",
+  "bidang": "Pengabdian kepada masyarakat, pemberdayaan komunitas, dan kegiatan sosial",
+  "periode": "",
+  "status": "Aktif",
+  "logo": "assets/images/mitra/sentosa-foundation.webp",
+  "link": "https://www.instagram.com/sentosafoundation"
  }
 ];
