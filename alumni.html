@@ -229,12 +229,14 @@
             <div id="alumni-modal-panel" role="dialog" aria-modal="true" aria-labelledby="alumni-modal-title" class="w-full sm:max-w-2xl max-h-[92vh] overflow-y-auto bg-white rounded-t-[28px] sm:rounded-[28px] border-2 border-gray-200 shadow-2xl">
                 <div class="sticky top-0 z-10 bg-white border-b border-gray-100 rounded-t-[28px] overflow-hidden">
                     <div class="h-1.5 bg-gradient-to-r from-[#F18602] to-[#5B2A7E]"></div>
-                    <div class="px-5 sm:px-6 py-4 flex items-start justify-between gap-3">
-                        <div class="min-w-0">
-                            <p class="text-[11px] font-bold uppercase tracking-widest text-[#C2410C] mb-1">Profil Alumni</p>
-                            <h3 id="alumni-modal-title" class="font-bold text-[#1A1026] text-lg leading-snug"></h3>
+                    <div class="flex items-center gap-3 px-4 py-3 sm:px-5 sm:py-3.5 bg-white border-b border-gray-200 flex-shrink-0">
+                        <!-- Kiri: Badge + Judul -->
+                        <div class="flex-1 min-w-0 flex items-center gap-2.5">
+                            <span class="inline-flex flex-shrink-0 items-center px-2 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#C2410C] bg-[#FFF9F2] border border-[#F18602]/30 rounded-full leading-none">Profil Alumni</span>
+                            <h3 id="alumni-modal-title" class="text-sm sm:text-base md:text-lg font-extrabold text-[#1A1026] leading-snug break-words min-w-0"></h3>
                         </div>
-                        <button type="button" id="alumni-modal-close" class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#F18602] hover:text-[#F18602] transition-colors" aria-label="Tutup">
+                        <!-- Kanan: Tombol Silang (konsisten dengan image-modal) -->
+                        <button type="button" id="alumni-modal-close" class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#F18602] hover:text-[#F18602] transition-colors" aria-label="Tutup modal">
                             <i data-lucide="x" class="w-5 h-5"></i>
                         </button>
                     </div>
@@ -410,6 +412,10 @@
             });
             // Fokus awal berada di tombol tutup agar Escape/fokus keyboard konsisten.
             modalClose.focus();
+            // Pastikan icon Lucide (termasuk X di tombol close) ter-render
+            if (window.lucide) {
+                try { lucide.createIcons(); } catch (err) {}
+            }
         }
 
         function closeModal(fromPopstate = false){
