@@ -836,3 +836,24 @@ img[data-modal="true"]:active {
     border-color: #4ADE80 !important;
     color: #15803D !important;
 }
+
+/* ==========================================================================
+   LOGO MITRA — penyesuaian tampilan logo bentuk kotak/agak persegi
+   --------------------------------------------------------------------------
+   Pada strip "Mitra Kerja Sama", kartu logo berukuran tetap (h-20 / md:h-24)
+   dengan padding p-4, sehingga gambar dibatasi max-h-full (48px mobile /
+   64px desktop). Logo berbentuk persegi (mis. STIMATA, ITB Yadika, TATI,
+   Sentosa Foundation) tampil terlalu kecil di dalam kartu tersebut.
+
+   Class ini memberi tinggi tampil sedikit lebih besar (tanpa melebihi
+   tinggi kartu) supaya logo persegi tidak terlihat mungil, sekaligus tetap
+   rata tinggi dengan logo lain. Dipakai bersama `max-w-full object-contain`.
+   ========================================================================== */
+.mitra-logo-square {
+    max-height: 3.5rem;        /* 56px — seluler (kartu h-20 = 80px) */
+}
+@media (min-width: 768px) {
+    .mitra-logo-square {
+        max-height: 5rem;      /* 80px — desktop (kartu md:h-24 = 96px) */
+    }
+}
