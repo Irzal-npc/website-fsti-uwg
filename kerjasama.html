@@ -254,7 +254,7 @@
 
             <!-- Grid Kartu Mitra -->
             <div id="mitra-card-wrap" class="reveal reveal-fade-up">
-                <div id="mitra-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 md:gap-6"></div>
+                <div id="mitra-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6"></div>
             </div>
 
             <!-- Empty state -->
@@ -396,12 +396,12 @@
 
         function logoBlock(k) {
             var inner = k.logo
-                ? '<img src="' + U.esc(k.logo) + '" alt="Logo ' + U.esc(k.mitra) + '" class="max-w-full max-h-full object-contain" width="220" height="90" loading="lazy" fetchpriority="low" decoding="async">'
-                : '<i data-lucide="building-2" class="w-14 h-14 text-[#5B2A7E]" aria-hidden="true"></i>';
+                ? '<img src="' + U.esc(k.logo) + '" alt="Logo ' + U.esc(k.mitra) + '" class="max-w-full max-h-full object-contain" width="180" height="72" loading="lazy" fetchpriority="low" decoding="async">'
+                : '<i data-lucide="building-2" class="w-12 h-12 text-[#5B2A7E]" aria-hidden="true"></i>';
             var linkBtn = k.link
-                ? '<a href="' + U.esc(k.link) + '" target="_blank" rel="noopener noreferrer" style="position:absolute;top:6px;right:6px;width:20px;height:20px;border-radius:50%;background:#F18602;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,0.1);" aria-label="Buka situs resmi ' + U.esc(k.mitra) + '"><i data-lucide="external-link" style="width:12px;height:12px;color:white;"></i></a>'
+                ? '<a href="' + U.esc(k.link) + '" target="_blank" rel="noopener noreferrer" style="position:absolute;top:6px;right:6px;width:22px;height:22px;border-radius:50%;background:#F18602;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,0.15);z-index:10;" aria-label="Buka situs resmi ' + U.esc(k.mitra) + '"><i data-lucide="external-link" style="width:11px;height:11px;color:white;"></i></a>'
                 : '';
-            var containerClass = 'w-full h-28 rounded-xl border border-gray-100 ' + (k.logo ? 'bg-white' : 'bg-[#FFF9F2]') + ' flex items-center justify-center p-3 mb-4 relative overflow-hidden';
+            var containerClass = 'w-full aspect-[4/3] rounded-xl border-2 border-gray-200 ' + (k.logo ? 'bg-white' : 'bg-[#FFF9F2]') + ' flex items-center justify-center p-4 relative overflow-hidden';
             var container = '<div class="' + containerClass + '">' + linkBtn + inner + '</div>';
             return container;
         }
@@ -427,13 +427,14 @@
         }
 
         function cardHtml(k) {
-            return '<article class="bg-white border-2 border-gray-200 rounded-xl p-5 flex flex-col items-center text-center hover:border-[#F18602]/40 hover:shadow-md transition-all duration-300">'
+            return '<article class="bg-white border-2 border-gray-200 rounded-xl overflow-hidden flex flex-col hover:border-[#F18602]/50 hover:shadow-lg transition-all duration-300">'
                 + logoBlock(k)
-                + '<h3 class="text-base font-extrabold text-[#1A1026] leading-snug mb-2 line-clamp-2">' + U.esc(k.mitra) + '</h3>'
+                + '<div class="p-4 flex flex-col items-center text-center flex-1">'
+                + '<h3 class="text-sm font-extrabold text-[#1A1026] leading-snug mb-2 line-clamp-2">' + U.esc(k.mitra) + '</h3>'
                 + '<p class="flex items-center justify-center gap-1 text-xs text-gray-400 mb-3"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#F18602]"></i>' + U.esc(k.negara || '—') + '</p>'
                 + '<div class="flex flex-wrap justify-center gap-1.5 mb-3">' + jenisPill(k) + lingkupPill(k) + '</div>'
                 + '<div class="mt-auto">' + statusPill(k) + '</div>'
-                + '</article>';
+                + '</div></article>';
         }
 
         function render() {
