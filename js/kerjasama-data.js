@@ -121,7 +121,7 @@ window.FSTI_KERJASAMA = [
   "periode": "",
   "status": "Aktif",
   "logo": "assets/images/mitra/naratel.webp",
-  "link": ""
+  "link": "https://naratel.net.id"
  },
  {
   "id": 9,
@@ -145,7 +145,7 @@ window.FSTI_KERJASAMA = [
   "periode": "",
   "status": "Aktif",
   "logo": "assets/images/mitra/ponpes-al-firdaus.webp",
-  "link": ""
+  "link": "https://al-firdaus.sch.id"
  },
  {
   "id": 11,
@@ -157,7 +157,7 @@ window.FSTI_KERJASAMA = [
   "periode": "",
   "status": "Aktif",
   "logo": "assets/images/mitra/fti-unmer-malang.webp",
-  "link": ""
+  "link": "https://fti.unmer.ac.id"
  },
  {
   "id": 12,
