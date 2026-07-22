@@ -198,6 +198,9 @@ h1, h2, h3, h4, h5, h6 {
 /* Hide scrollbar for galeri auto-scroll */
 #galeri-scroll::-webkit-scrollbar { display: none; }
 
+/* Hide scrollbar for mitra auto-scroll */
+#mitra-scroll::-webkit-scrollbar { display: none; }
+
 /* Perbaikan khusus beranda: header mobile dan lebar viewport */
 html,
 body {

@@ -121,11 +121,11 @@ window.FSTI_KERJASAMA = [
   "periode": "",
   "status": "Aktif",
   "logo": "assets/images/mitra/naratel.webp",
-  "link": ""
+  "link": "https://kaptennaratel.com/"
  },
  {
   "id": 9,
-  "mitra": "PT Zadabana",
+  "mitra": "PT Zaada Bana Engineering",
   "jenis": "Industri",
   "negara": "Indonesia",
   "bentuk": "MoU",
@@ -133,11 +133,11 @@ window.FSTI_KERJASAMA = [
   "periode": "",
   "status": "Aktif",
   "logo": "assets/images/mitra/pt-zadabana.webp",
-  "link": ""
+  "link": "https://id.linkedin.com/company/zaadacorp"
  },
  {
   "id": 10,
-  "mitra": "Pondok Pesantren Al Firdaus",
+  "mitra": "Pondok Modern Babussalam Al Firdaus",
   "jenis": "Lembaga Pendidikan",
   "negara": "Indonesia",
   "bentuk": "MoU",
@@ -145,7 +145,7 @@ window.FSTI_KERJASAMA = [
   "periode": "",
   "status": "Aktif",
   "logo": "assets/images/mitra/ponpes-al-firdaus.webp",
-  "link": ""
+  "link": "https://babussalamalfirdaus.ponpes.id/"
  },
  {
   "id": 11,
@@ -157,7 +157,7 @@ window.FSTI_KERJASAMA = [
   "periode": "",
   "status": "Aktif",
   "logo": "assets/images/mitra/fti-unmer-malang.webp",
-  "link": ""
+  "link": "https://fti.unmer.ac.id"
  },
  {
   "id": 12,
