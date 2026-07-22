@@ -121,7 +121,7 @@ window.FSTI_KERJASAMA = [
   "periode": "",
   "status": "Aktif",
   "logo": "assets/images/mitra/naratel.webp",
-  "link": "https://naratel.net.id"
+  "link": "https://kaptennaratel.com/"
  },
  {
   "id": 9,
@@ -133,7 +133,7 @@ window.FSTI_KERJASAMA = [
   "periode": "",
   "status": "Aktif",
   "logo": "assets/images/mitra/pt-zadabana.webp",
-  "link": ""
+  "link": "https://id.linkedin.com/company/zaadacorp"
  },
  {
   "id": 10,
@@ -145,7 +145,7 @@ window.FSTI_KERJASAMA = [
   "periode": "",
   "status": "Aktif",
   "logo": "assets/images/mitra/ponpes-al-firdaus.webp",
-  "link": "https://al-firdaus.sch.id"
+  "link": "https://babussalamalfirdaus.ponpes.id/"
  },
  {
   "id": 11,
