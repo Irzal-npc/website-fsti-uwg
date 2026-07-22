@@ -74,7 +74,7 @@
                     </button>
                     <div class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                         <div class="bg-white border-2 border-gray-200 rounded-xl shadow-lg py-2 min-w-[280px]">
-                            <a href="prodi/informatika.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">S1 Informatika</a>
+                            <a href="prodi/teknik-informatika.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">S1 Teknik Informatika</a>
                             <a href="prodi/sistem-teknologi-informasi.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">S1 Sistem dan Teknologi Informasi</a>
                             <a href="prodi/bisnis-digital.html" class="block px-4 py-2.5 text-sm text-[#1A1026] hover:bg-[#FFF9F2] hover:text-[#D97200]">S1 Bisnis Digital</a>
                         </div>
@@ -137,7 +137,7 @@
                     <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
                 </button>
                 <div id="m-prodi" class="hidden pl-4 pb-2 space-y-1">
-                    <a href="prodi/informatika.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">S1 Informatika</a>
+                    <a href="prodi/teknik-informatika.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">S1 Teknik Informatika</a>
                     <a href="prodi/sistem-teknologi-informasi.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">S1 Sistem dan Teknologi Informasi</a>
                     <a href="prodi/bisnis-digital.html" class="block py-2 text-sm text-gray-600 hover:text-[#F18602]">S1 Bisnis Digital</a>
                 </div>
@@ -268,7 +268,7 @@
         function cardHtml(d){
             const inisial = (d.name||'A').split(',')[0].trim().split(/\s+/).slice(0,2).map(w=>w.charAt(0)).join('').toUpperCase();
             const fotoHtml = d.foto
-                ? `<img src="${esc(d.foto)}" alt="${esc(d.name)}" data-modal="true" data-modal-image="${esc(d.foto)}" data-modal-caption="${esc(d.name)}" data-modal-desc="${esc(d.jabatan || 'Alumni FSTI')} di ${esc(d.instansi || 'FSTI UWG')} - Alumni S1 Informatika FSTI UWG" data-group="alumni" class="w-14 h-14 rounded-full border-2 border-[#F18602] p-0.5 object-cover cursor-pointer hover:opacity-90 transition-all" width="56" height="56" loading="lazy" fetchpriority="low" decoding="async">`
+                ? `<img src="${esc(d.foto)}" alt="${esc(d.name)}" data-modal="true" data-modal-image="${esc(d.foto)}" data-modal-caption="${esc(d.name)}" data-modal-desc="${esc(d.jabatan || 'Alumni FSTI')} di ${esc(d.instansi || 'FSTI UWG')} - Alumni S1 Teknik Informatika FSTI UWG" data-group="alumni" class="w-14 h-14 rounded-full border-2 border-[#F18602] p-0.5 object-cover cursor-pointer hover:opacity-90 transition-all" width="56" height="56" loading="lazy" fetchpriority="low" decoding="async">`
                 : `<div class="w-14 h-14 rounded-full border-2 border-[#F18602] p-0.5 flex items-center justify-center bg-[#FFF9F2]"><span class="font-extrabold text-[#5B2A7E] text-sm">${esc(inisial)}</span></div>`;
             const shortTesti = esc(shortText(d.testimoni || 'Belum ada testimoni.', 160));
             const jabatan = shortText(d.jabatan || 'Alumni FSTI', 58);
@@ -338,7 +338,7 @@
             if (panel) panel.scrollTop = 0;
             if (modal) modal.scrollTop = 0;
             const fotoHtml = d.foto
-                ? `<img src="${esc(d.foto)}" alt="${esc(d.name)}" data-modal="true" data-modal-image="${esc(d.foto)}" data-modal-caption="${esc(d.name)}" data-modal-desc="${esc(d.jabatan || 'Alumni FSTI')} di ${esc(d.instansi || 'FSTI UWG')} - Alumni S1 Informatika FSTI UWG" data-group="alumni" class="w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0 rounded-full border-2 border-[#F18602] p-0.5 object-cover cursor-pointer hover:opacity-90 transition-all" width="120" height="120" loading="lazy" fetchpriority="low" decoding="async">`
+                ? `<img src="${esc(d.foto)}" alt="${esc(d.name)}" data-modal="true" data-modal-image="${esc(d.foto)}" data-modal-caption="${esc(d.name)}" data-modal-desc="${esc(d.jabatan || 'Alumni FSTI')} di ${esc(d.instansi || 'FSTI UWG')} - Alumni S1 Teknik Informatika FSTI UWG" data-group="alumni" class="w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0 rounded-full border-2 border-[#F18602] p-0.5 object-cover cursor-pointer hover:opacity-90 transition-all" width="120" height="120" loading="lazy" fetchpriority="low" decoding="async">`
                 : `<div class="w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0 rounded-full border-2 border-[#F18602] p-0.5 bg-[#FFF9F2] flex items-center justify-center"><span class="font-extrabold text-[#5B2A7E] text-xl">${esc((d.name||'A').split(',')[0].trim().split(/\s+/).slice(0,2).map(w=>w.charAt(0)).join('').toUpperCase())}</span></div>`;
             const jabatanText = d.jabatan || 'Alumni FSTI';
             const instansiText = d.instansi || '';
@@ -480,7 +480,7 @@
                 <div>
                     <h3 class="font-bold text-lg mb-6 text-[#F97316] border-b-2 border-[#F97316]/20 pb-2">Program</h3>
                     <ul class="space-y-4 text-purple-100/80 text-sm">
-                        <li><a href="prodi/informatika.html" class="hover:text-[#F97316] transition-colors">S1 Informatika</a></li>
+                        <li><a href="prodi/teknik-informatika.html" class="hover:text-[#F97316] transition-colors">S1 Teknik Informatika</a></li>
                         <li><a href="prodi/sistem-teknologi-informasi.html" class="hover:text-[#F97316] transition-colors">S1 Sistem dan Teknologi Informasi</a></li>
                         <li><a href="prodi/bisnis-digital.html" class="hover:text-[#F97316] transition-colors">S1 Bisnis Digital</a></li>
                         <li>

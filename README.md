@@ -40,7 +40,7 @@ Project ini merupakan repositori resmi website portal publik **Fakultas Sains da
 
 Website ini menyajikan informasi lengkap mengenai:
 - Profil, sejarah, visi, misi, dan struktur organisasi fakultas.
-- Program studi unggulan S1 Informatika, S1 Sistem dan Teknologi Informasi (SISTEKIN), dan S1 Bisnis Digital (BISDIG).
+- Program studi unggulan S1 Teknik Informatika, S1 Sistem dan Teknologi Informasi (SISTEKIN), dan S1 Bisnis Digital (BISDIG).
 - Direktori interaktif dosen dan peneliti beserta publikasi ilmiah, NUPTK, dan tautan pangkalan data (*SINTA, Google Scholar, ORCID, Scopus*).
 - **Tabel agregat Penelitian dan Pengabdian kepada Masyarakat** seluruh dosen FSTI dalam satu halaman masing-masing (600+ entri penelitian, 100+ entri pengabdian) dengan filter nama dosen, sorting tahun, dan tombol salin sitasi.
 - **Direktori Kerjasama Fakultas** (10 mitra: perguruan tinggi luar negeri, industri, dan lembaga pendidikan) dalam susunan kartu logo visual.
@@ -103,7 +103,7 @@ Website ini menyajikan informasi lengkap mengenai:
 | **Direktori Alumni** | `alumni.html` | Direktori 15 lulusan FSTI dari berbagai angkatan/instansi dilengkapi pencarian RAM instan, filter prodi, dan modal cerita testimoni. |
 | **Penerimaan Mahasiswa Baru** | `pmb.html` | Informasi jalur pendaftaran, 4 langkah alur SPMB, jadwal kelas (Reguler A / Karyawan B / Transfer D3 / RPL), rincian biaya, dan 3 program beasiswa. |
 | **Pusat Unduhan & Dokumen** | `pusat-unduhan.html` | Pustaka dokumen resmi fakultas; Pedoman Skripsi & Pedoman PKL berstatus *Segera Hadir* sembari menunggu finalisasi dokumen resmi. |
-| **S1 Informatika** | `prodi/informatika.html` | Profil prodi berakreditasi Baik Sekali; fokus *Intelligent System*, 3 peminatan, sebaran mata kuliah, prospek karier, dan fasilitas lab jaringan/komputer. |
+| **S1 Teknik Informatika** | `prodi/teknik-informatika.html` | Profil prodi berakreditasi Baik Sekali; fokus *Intelligent System*, 3 peminatan, sebaran mata kuliah, prospek karier, dan fasilitas lab jaringan/komputer. |
 | **S1 Sistem dan Teknologi Informasi** | `prodi/sistem-teknologi-informasi.html` | Profil prodi SISTEKIN; fokus sistem cerdas berbasis AI, IoT, multimedia, UX, gamifikasi, mata kuliah unggulan, dan prospek karier. |
 | **S1 Bisnis Digital** | `prodi/bisnis-digital.html` | Profil prodi BISDIG; fokus *Technology-Driven Digital Business*, 4 peminatan/konsentrasi, mata kuliah inovasi startup, dan prospek karier global. |
 
@@ -119,7 +119,7 @@ project-fsti-rapi/
 ├── README.md                                 # Dokumentasi & panduan arsitektur project
 ├── CHANGELOG.md                              # Log resmi riwayat pembaruan & revisi kode
 ├── prodi/
-│   ├── informatika.html               # Halaman S1 Informatika
+│   ├── teknik-informatika.html               # Halaman S1 Teknik Informatika
 │   ├── sistem-teknologi-informasi.html       # Halaman S1 Sistem dan Teknologi Informasi
 │   └── bisnis-digital.html                   # Halaman S1 Bisnis Digital
 ├── css/
@@ -266,7 +266,7 @@ Setiap awal seksi informasi besar wajib diawali dengan struktur judul seksi teng
 * **Header Navigasi**: Wajib menggunakan struktur navigasi yang sama persis di semua halaman, baik mode Desktop maupun urutan Mobile, dengan susunan lengkap sebagai berikut:
   * **Beranda** (tautan langsung).
   * **Tentang Kami ▾** (dropdown): Profil Fakultas — beserta sub-tautan Sejarah, Visi Misi & Tujuan, Struktur Organisasi, Kepemimpinan Fakultas, Fasilitas Fakultas — serta Direktori Dosen & Peneliti.
-  * **Program Studi ▾** (dropdown): S1 Informatika, S1 Sistem dan Teknologi Informasi, S1 Bisnis Digital.
+  * **Program Studi ▾** (dropdown): S1 Teknik Informatika, S1 Sistem dan Teknologi Informasi, S1 Bisnis Digital.
   * **Akademik ▾** (dropdown): Pusat Unduhan & Dokumen, **Kerjasama**, **Prestasi**.
   * **Penelitian** (tautan langsung) dan **Pengabdian** (tautan langsung).
   * **Alumni** (tautan langsung).

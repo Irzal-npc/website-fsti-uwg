@@ -4,7 +4,28 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
-### [2026-07-22] - Perbaikan Aksesibilitas & SEO (Menindaklanjuti Audit UI/UX)
+### [2026-07-22] - Rename Prodi Informatika menjadi Teknik Informatika
+
+#### Latar Belakang
+Program studi **S1 Informatika** kembali memakai nomenklatur **S1 Teknik Informatika** di seluruh website, termasuk penggantian nama file halaman prodi.
+
+#### Diubah
+- **Rename halaman**: `prodi/informatika.html` → `prodi/teknik-informatika.html` (riwayat git terjaga via `git mv`); seluruh tautan internal di 13 halaman diperbarui (menu *Program Studi*, footer, kartu prodi di `index.html`).
+- **Teks tampilan**: "S1 Informatika" → "S1 Teknik Informatika", "Program Studi Informatika" → "Program Studi Teknik Informatika", "Prodi/Kaprodi Informatika" → "…Teknik Informatika" pada 13 HTML, `README.md`, dan berkas data (`js/alumni-data.js`, `js/dosen-data.js`, `js/prestasi-data.js`) termasuk testimoni alumni, jabatan kaprodi/dosen homebase, `prodiLabel`, dan keterangan prestasi.
+- **Meta & SEO**: `title`, `description`, `og:title/description`, `twitter:title/description` halaman prodi serta meta `index.html` disesuaikan.
+- `service-worker.js`: precache `./prodi/teknik-informatika.html` + bump cache `v2026.21 → v2026.22`.
+
+#### Dipertahankan (sengaja tidak diubah)
+- "**Himpunan Mahasiswa Informatika**" (HMIF/MUSTIKA) — nama resmi organisasi kemahasiswaan.
+- "Dosen Informatika di **UIN Maulana Malik Ibrahim Malang**" & "Dosen Program Studi Informatika (UIN)" — nomenklatur prodi kampus lain; termasuk "S2 Informatika" pada testimoni (jenjang di kampus lain).
+- Judul publikasi ilmiah "*…(Studi Kasus Di Prodi Informatika Univ Widyagama)*" — judul terbit dipertahankan verbatim.
+
+#### Diverifikasi
+- 0 tautan internal rusak (cek otomatis seluruh `href *.html` di 13 halaman); 0 sisa string `informatika.html` lama; tidak ada duplikasi "Teknik Teknik".
+- `node --check` lolos untuk `alumni-data.js`, `dosen-data.js`, `prestasi-data.js`, `service-worker.js`.
+- Sisa kata "Informatika" non-"Teknik Informatika" hanya pada 4 pengecualian di atas.
+
+---
 
 #### Latar Belakang
 Dilakukan audit UI/UX programatik menyeluruh (struktural, runtime via jsdom, aksesibilitas, design-system, PWA, dan keamanan) pada seluruh 13 halaman. Hasil: **0 error runtime**, **semua fitur interaktif berfungsi (74 uji fitur lolos)**, situs 100% self-hosted tanpa kredensial/pola berisiko. Audit menyisakan sejumlah item aksesibilitas & SEO yang kemudian dituntaskan pada revisi ini.
