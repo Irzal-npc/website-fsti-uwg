@@ -4,7 +4,7 @@
 ### Fakultas Sains dan Teknologi Informasi — Universitas Widya Gama Malang
 
 [![Build Status](https://img.shields.io/badge/Build-Passed-success?style=for-the-badge&logo=github)](https://github.com)
-[![Version](https://img.shields.io/badge/Version-2026.21-orange?style=for-the-badge)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/Version-2026.28-orange?style=for-the-badge)](CHANGELOG.md)
 [![Accessibility](https://img.shields.io/badge/Accessibility-WCAG%202.1%20AA%2FAAA-blue?style=for-the-badge)](CHANGELOG.md)
 [![Architecture](https://img.shields.io/badge/Architecture-Static%20PWA%20%7C%20Offline--Ready-purple?style=for-the-badge)](service-worker.js)
 [![PageSpeed](https://img.shields.io/badge/PageSpeed-100%2F100%20Zero%20CLS-00C853?style=for-the-badge)](CHANGELOG.md)
@@ -56,7 +56,7 @@ Website ini menyajikan informasi lengkap mengenai:
 ### 1. 100% Self-Hosted & Aset Lokal Mandiri (*Zero External Dependencies*)
 - **Tipografi Lokal (`assets/fonts/`)**: Menggunakan font super ringan `.woff2` (*Inter* dan *Plus Jakarta Sans*) dengan `font-display: swap` yang dimuat secara lokal lewat `@font-face`. Tidak membutuhkan koneksi CDN Google Fonts, menghasilkan waktu muat *First Contentful Paint* di bawah 0.5 detik.
 - **Pustaka Ikon Lokal (`js/lucide.min.js`)**: Seluruh 55+ ikon antarmuka ditenagai oleh mesin ikon lokal Lucide (`data-lucide="..."`) yang dikombinasikan dengan *Inline SVG* murni (khusus ikon merek seperti TikTok), membuat web bekerja 100% *offline-ready*.
-- **Next-Gen Imagery (`assets/images/`)**: Seluruh 60+ foto dosen, alumni, fasilitas, kegiatan, logo, dan mitra telah dikompresi dalam format `.webp` beresolusi tinggi.
+- **Next-Gen Imagery (`assets/images/`)**: Tersedia 67 aset visual lokal (foto dosen, alumni, fasilitas, kegiatan, identitas, dan logo mitra); aset foto/logo utama menggunakan format `.webp` yang ringan dan beresolusi tinggi.
 
 ### 2. Sistem Preloader Cerdas & Keamanan Aset (*AssetGuard / Fail-Closed Guard*)
 - **Sensor Validasi Real-Time (`js/asset-guard.js`)**: Setiap kali halaman dibuka, sistem memverifikasi integritas `style.css`, `lucide.min.js`, `script.js`, data global JS (`alumniData` / `dosenData`, serta `FSTI_KERJASAMA` / `FSTI_PRESTASI` pada halaman Kerjasama & Prestasi), dan gambar utama (Logo).
@@ -99,7 +99,7 @@ Website ini menyajikan informasi lengkap mengenai:
 | **Penelitian Dosen** | `penelitian.html` | Tabel agregat 617 karya penelitian (2003–2026) seluruh dosen FSTI dalam satu halaman; filter nama dosen, sorting tahun (klik kolom/pilihan), muat bertahap, dan tombol ikon salin sitasi per baris. |
 | **Pengabdian Masyarakat** | `pengabdian.html` | Tabel agregat 108 karya pengabdian kepada masyarakat (2010–2026) seluruh dosen FSTI dalam satu halaman; fitur filter, sorting, dan salin sitasi serupa halaman Penelitian. |
 | **Kerjasama Fakultas** | `kerjasama.html` | Grid kartu ringkas 15 mitra kerjasama fakultas (7 perguruan tinggi luar negeri & program global, 8 mitra dalam negeri) berisi logo, jenis mitra, ruang lingkup wilayah, nama mitra, dan negara; dilengkapi filter jenis, pencarian, dan sorting nama. |
-| **Prestasi Fakultas** | `prestasi.html` | Arsip prestasi di bawah fakultas — akademik & non-akademik — dalam kartu horizontal: foto dokumentasi (lightbox), narasi keterangan tiap prestasi, tautan sumber berita resmi, chip filter kategori, filter tingkat, pencarian, dan sorting tahun. Sengaja dibedakan dari seksi "Sorotan Prestasi" Beranda yang ringkas. |
+| **Prestasi Fakultas** | `prestasi.html` | Arsip 3 prestasi fakultas — akademik & non-akademik — dalam kartu horizontal: foto dokumentasi (lightbox), narasi keterangan tiap prestasi, tautan sumber berita resmi, chip filter kategori, filter tingkat, pencarian, dan sorting tahun. Sengaja dibedakan dari seksi "Sorotan Prestasi" Beranda yang ringkas. |
 | **Direktori Alumni** | `alumni.html` | Direktori 15 lulusan FSTI dari berbagai angkatan/instansi dilengkapi pencarian RAM instan, filter prodi, dan modal cerita testimoni. |
 | **Penerimaan Mahasiswa Baru** | `pmb.html` | Informasi jalur pendaftaran, 4 langkah alur SPMB, jadwal kelas (Reguler A / Karyawan B / Transfer D3 / RPL), rincian biaya, dan 3 program beasiswa. |
 | **Pusat Unduhan & Dokumen** | `pusat-unduhan.html` | Pustaka dokumen resmi fakultas; Pedoman Skripsi & Pedoman PKL berstatus *Segera Hadir* sembari menunggu finalisasi dokumen resmi. |

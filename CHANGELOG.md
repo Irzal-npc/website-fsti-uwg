@@ -4,6 +4,19 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-22] - Penyegaran Dokumentasi Proyek
+
+#### Diubah
+- `README.md`: badge versi diselaraskan ke **2026.28**, mengikuti cache aktif pada `service-worker.js`.
+- `README.md`: inventaris aset visual diperbarui menjadi **67 aset lokal** dan deskripsinya diperjelas agar mencakup foto, identitas, serta logo mitra.
+- `README.md`: tabel halaman kini mencatat jumlah aktual **3 prestasi** pada arsip Prestasi Fakultas.
+
+#### Diverifikasi
+- Jumlah data aktif terkonfirmasi dari berkas sumber: 14 dosen, 15 alumni, 15 mitra, 3 prestasi, 617 penelitian, dan 108 pengabdian masyarakat.
+- `service-worker.js` menggunakan cache `fsti-uwg-cache-v2026.28`; folder `assets/images/` berisi 67 aset visual lokal.
+
+---
+
 ### [2026-07-22] - Kartu Mitra Disederhanakan
 
 #### Diubah
