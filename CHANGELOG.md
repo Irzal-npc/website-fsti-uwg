@@ -4,6 +4,19 @@ Semua catatan revisi, perbaikan, dan pemeliharaan website dicatat secara ringkas
 
 ---
 
+### [2026-07-23] - Pembaruan README Mengikuti Kondisi Web Terbaru
+
+#### Diubah
+- `README.md`: struktur folder diperbarui menyeluruh — nama root diselaraskan ke `website-fsti-uwg`, serta kini mencantumkan `manifest.json`, `service-worker.js`, `package.json`/`tailwind.config.js`, `css/tailwind-input.css` & `css/tailwind.css`, `favicon.webp`, folder `e2e/`, dan folder `referensi-data/`.
+- `README.md`: deskripsi PMB diselaraskan dengan `pmb.html` — kelas kini tercatat sebagai *Reguler A / Karyawan B / Transfer & Alih Jenjang / RPL* (menggantikan "Transfer D3"), beserta jadwal 3 gelombang dan 3 beasiswa (KIP-Kuliah, Unggul Mulia, SPP 1–2 Smt).
+- `README.md`: keterangan Pusat Unduhan diperjelas — Buku KPT TI 2023 diunduh dari halaman prodi S1 Teknik Informatika (bukan dari `pusat-unduhan.html`); Pedoman Skripsi & PKL tetap *Segera Hadir*.
+- `README.md`: menambahkan seksi baru **"Pengujian Kualitas (E2E QA) & Referensi Data"** yang mendokumentasikan folder `e2e/` (52 kasus uji, 100% lulus) dan folder `referensi-data/` (12 berkas dokumentasi konten), berikut badge E2E QA di header dan entri daftar isi.
+
+#### Diverifikasi
+- Angka README dicek ulang terhadap berkas sumber: 14 dosen, 15 alumni, 15 mitra (7 luar negeri / 8 dalam negeri), 3 prestasi, 617 penelitian (2003–2026), 108 pengabdian (2010–2026), 67 aset visual lokal, dan cache Service Worker `v2026.28`.
+
+---
+
 ### [2026-07-22] - Penyegaran Dokumentasi Proyek
 
 #### Diubah

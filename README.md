@@ -8,6 +8,7 @@
 [![Accessibility](https://img.shields.io/badge/Accessibility-WCAG%202.1%20AA%2FAAA-blue?style=for-the-badge)](CHANGELOG.md)
 [![Architecture](https://img.shields.io/badge/Architecture-Static%20PWA%20%7C%20Offline--Ready-purple?style=for-the-badge)](service-worker.js)
 [![PageSpeed](https://img.shields.io/badge/PageSpeed-100%2F100%20Zero%20CLS-00C853?style=for-the-badge)](CHANGELOG.md)
+[![E2E QA](https://img.shields.io/badge/E2E%20QA-52%2F52%20PASS%20(100%25)-00C853?style=for-the-badge)](e2e/LAPORAN-E2E-QA-FSTI-UWG.md)
 [![Assets](https://img.shields.io/badge/Assets-100%25%20Self--Hosted%20Lokal-00C853?style=for-the-badge)](assets/)
 [![License](https://img.shields.io/badge/License-Proprietary%20FSTI%20UWG-1A1026?style=for-the-badge)](README.md)
 
@@ -29,6 +30,7 @@
 - [Panduan Konsistensi Desain & Konten (*Design & Content Guidelines*)](#-panduan-konsistensi-desain--konten-design--content-guidelines)
 - [Pemeliharaan & Pembaruan Data](#-pemeliharaan--pembaruan-data)
 - [Cara Menjalankan Project (*Deployment*)](#-cara-menjalankan-project-deployment)
+- [Pengujian Kualitas (E2E QA) & Referensi Data](#-pengujian-kualitas-e2e-qa--referensi-data)
 - [Catatan Rilis & Riwayat Revisi](#-catatan-rilis--riwayat-revisi)
 - [Lisensi](#-lisensi)
 
@@ -46,8 +48,8 @@ Website ini menyajikan informasi lengkap mengenai:
 - **Direktori Kerjasama Fakultas** (15 mitra: perguruan tinggi luar/dalam negeri, industri, lembaga pendidikan, dan yayasan) dalam susunan kartu visual.
 - **Galeri Prestasi Fakultas** — baik akademik maupun non-akademik — dari tingkat lokal hingga internasional.
 - Direktori interaktif dan cerita inspiratif lulusan/alumni FSTI dari berbagai industri.
-- Panduan, jalur, kelas (*Reguler A / Karyawan B / Transfer D3*), dan beasiswa Penerimaan Mahasiswa Baru (PMB).
-- Pusat unduhan dokumen resmi fakultas (Buku KPT Teknik Informatika 2023 tersedia; Pedoman Skripsi & Pedoman PKL berstatus *Segera Hadir* sembari menunggu finalisasi dokumen resmi).
+- Panduan, jalur, kelas (*Reguler A / Karyawan B / Transfer & Alih Jenjang / RPL — Rekognisi Pembelajaran Lampau*), dan beasiswa Penerimaan Mahasiswa Baru (PMB).
+- Pusat unduhan dokumen resmi fakultas (Pedoman Skripsi & Pedoman PKL berstatus *Segera Hadir* sembari menunggu finalisasi dokumen resmi; Buku KPT Teknik Informatika 2023 dapat diunduh langsung dari halaman prodi S1 Teknik Informatika).
 
 ---
 
@@ -101,9 +103,9 @@ Website ini menyajikan informasi lengkap mengenai:
 | **Kerjasama Fakultas** | `kerjasama.html` | Grid kartu ringkas 15 mitra kerjasama fakultas (7 perguruan tinggi luar negeri & program global, 8 mitra dalam negeri) berisi logo, jenis mitra, ruang lingkup wilayah, nama mitra, dan negara; dilengkapi filter jenis, pencarian, dan sorting nama. |
 | **Prestasi Fakultas** | `prestasi.html` | Arsip 3 prestasi fakultas — akademik & non-akademik — dalam kartu horizontal: foto dokumentasi (lightbox), narasi keterangan tiap prestasi, tautan sumber berita resmi, chip filter kategori, filter tingkat, pencarian, dan sorting tahun. Sengaja dibedakan dari seksi "Sorotan Prestasi" Beranda yang ringkas. |
 | **Direktori Alumni** | `alumni.html` | Direktori 15 lulusan FSTI dari berbagai angkatan/instansi dilengkapi pencarian RAM instan, filter prodi, dan modal cerita testimoni. |
-| **Penerimaan Mahasiswa Baru** | `pmb.html` | Informasi jalur pendaftaran, 4 langkah alur SPMB, jadwal kelas (Reguler A / Karyawan B / Transfer D3 / RPL), rincian biaya, dan 3 program beasiswa. |
+| **Penerimaan Mahasiswa Baru** | `pmb.html` | Informasi jalur pendaftaran, 4 langkah alur SPMB, jadwal 3 gelombang, kelas (Reguler A / Karyawan B / Transfer & Alih Jenjang / RPL), rincian biaya, dan 3 program beasiswa (KIP-Kuliah, Unggul Mulia, SPP 1–2 Smt). |
 | **Pusat Unduhan & Dokumen** | `pusat-unduhan.html` | Pustaka dokumen resmi fakultas; Pedoman Skripsi & Pedoman PKL berstatus *Segera Hadir* sembari menunggu finalisasi dokumen resmi. |
-| **S1 Teknik Informatika** | `prodi/teknik-informatika.html` | Profil prodi berakreditasi Baik Sekali; fokus *Intelligent System*, 3 peminatan, sebaran mata kuliah, prospek karier, dan fasilitas lab jaringan/komputer. |
+| **S1 Teknik Informatika** | `prodi/teknik-informatika.html` | Profil prodi berakreditasi Baik Sekali; fokus *Intelligent System*, 3 peminatan, sebaran mata kuliah, prospek karier, fasilitas lab jaringan/komputer, dan unduhan Buku KPT 2023 (PDF). |
 | **S1 Sistem dan Teknologi Informasi** | `prodi/sistem-teknologi-informasi.html` | Profil prodi SISTEKIN; fokus sistem cerdas berbasis AI, IoT, multimedia, UX, gamifikasi, mata kuliah unggulan, dan prospek karier. |
 | **S1 Bisnis Digital** | `prodi/bisnis-digital.html` | Profil prodi BISDIG; fokus *Technology-Driven Digital Business*, 4 peminatan/konsentrasi, mata kuliah inovasi startup, dan prospek karier global. |
 
@@ -112,25 +114,30 @@ Website ini menyajikan informasi lengkap mengenai:
 ## 📂 Struktur Folder
 
 ```text
-project-fsti-rapi/
+website-fsti-uwg/
 ├── index.html, tentang.html, direktori-dosen.html, alumni.html, pmb.html, pusat-unduhan.html
 ├── penelitian.html, pengabdian.html          # Tabel agregat karya dosen (Penelitian / Pengabdian)
 ├── kerjasama.html, prestasi.html             # Grid kartu mitra kerjasama Fakultas & daftar prestasi
+├── manifest.json                             # Manifes PWA (nama aplikasi, ikon, theme color)
+├── service-worker.js                         # Mesin Cache-First PWA (cache v2026.28)
+├── package.json, tailwind.config.js          # Toolchain build Tailwind lokal (npm run build:css)
 ├── README.md                                 # Dokumentasi & panduan arsitektur project
 ├── CHANGELOG.md                              # Log resmi riwayat pembaruan & revisi kode
 ├── prodi/
-│   ├── teknik-informatika.html               # Halaman S1 Teknik Informatika
+│   ├── teknik-informatika.html               # Halaman S1 Teknik Informatika (+ unduhan Buku KPT 2023)
 │   ├── sistem-teknologi-informasi.html       # Halaman S1 Sistem dan Teknologi Informasi
 │   └── bisnis-digital.html                   # Halaman S1 Bisnis Digital
 ├── css/
-│   └── style.css                             # Style terpusat, @font-face lokal, & aturan taktil
+│   ├── style.css                             # Style terpusat, @font-face lokal, & aturan taktil
+│   ├── tailwind-input.css                    # Sumber input build Tailwind (jangan diedit hasilnya)
+│   └── tailwind.css                          # Hasil build Tailwind lokal (minified, self-hosted)
 ├── js/
 │   ├── asset-guard.js                        # Sensor preloader & fail-closed guard
 │   ├── lucide.min.js                         # Pustaka ikon lokal mandiri (Offline Lucide)
 │   ├── script.js                             # Mesin interaksi, carousel a11y, & scroll history
-│   ├── alumni-data.js                        # Pangkalan data 15+ alumni (window.FSTI_ALUMNI)
-│   ├── dosen-data.js                         # Pangkalan data 14+ dosen & karya (window.FSTI_DOSEN)
-│   ├── kerjasama-data.js                     # Pangkalan data kerjasama fakultas (window.FSTI_KERJASAMA)
+│   ├── alumni-data.js                        # Pangkalan data 15 alumni (window.FSTI_ALUMNI)
+│   ├── dosen-data.js                         # Pangkalan data 14 dosen & 725 karya (window.FSTI_DOSEN)
+│   ├── kerjasama-data.js                     # Pangkalan data 15 mitra kerjasama (window.FSTI_KERJASAMA)
 │   ├── prestasi-data.js                      # Pangkalan data prestasi fakultas (window.FSTI_PRESTASI)
 │   ├── util-tabel.js                         # Util tabel agregat: esc, toast, & salin-clipboard
 │   └── karya-agregat.js                      # Mesin tabel agregat karya (dipakai Penelitian & Pengabdian)
@@ -138,6 +145,11 @@ project-fsti-rapi/
 │   ├── biodata-dosen.csv                     # Arsip CSV biodata dosen
 │   ├── alumni.csv                            # Arsip CSV data alumni
 │   └── Karya-Ilmiah-dosen-FSTI-clean.csv     # Arsip CSV publikasi ilmiah dosen
+├── e2e/                                      # Laporan & skenario pengujian E2E QA (52 kasus, 100% lulus)
+│   ├── LAPORAN-E2E-QA-FSTI-UWG.md            # Laporan lengkap pengujian E2E 4 skenario
+│   ├── runner.js, utils.js                   # Runner pengujian berbasis JSDOM
+│   └── scenario-1..4-*.js                    # Skenario UI/UX, navigasi modal, statistik, offline
+├── referensi-data/                           # Dokumentasi referensi konten website (12 berkas .md)
 └── assets/
     ├── fonts/
     │   ├── inter-latin.woff2                 # Font lokal Inter (Regular, Medium, SemiBold)
@@ -145,7 +157,7 @@ project-fsti-rapi/
     ├── docs/
     │   └── buku-kpt-teknik-informatika-2023.pdf # Dokumen PDF Kurikulum Pendidikan Tinggi TI
     └── images/
-        ├── favicon.png                       # Ikon tab browser resmi FSTI
+        ├── favicon.png, favicon.webp         # Ikon tab browser resmi FSTI (halaman memakai favicon.png)
         ├── logo-final.webp                   # Logo utama FSTI UWG Malang (.webp)
         ├── org-p8-0.webp                     # Bagan struktur organisasi fakultas (.webp)
         ├── dosen/                            # 14 foto profil dosen (.webp)
@@ -303,7 +315,7 @@ Website ini menggunakan arsitektur penyimpanan data langsung di dalam memori Jav
 Karena website ini merupakan **Statis Modern (Pure HTML5 + CSS3 + Vanilla JS)** yang mandiri, Anda dapat menjalankannya di lingkungan lokal maupun mengunggahnya ke server *hosting* manapun tanpa memerlukan konfigurasi Node.js, PHP, Python, atau MySQL.
 
 ### Opsi 1: Menjalankan di Komputer Lokal (*Development*)
-1. Pastikan seluruh folder project (`project-fsti-rapi`) tersimpan rapi di komputer Anda.
+1. Pastikan seluruh folder project (`website-fsti-uwg`) tersimpan rapi di komputer Anda.
 2. **Cara Tercepat:** Klik dua kali (*double click*) pada berkas **`index.html`** untuk membukanya langsung di browser (Chrome/Safari/Firefox/Edge).
 3. **Cara Direkomendasikan (Visual Studio Code):**
    * Buka folder project di dalam **Visual Studio Code**.
@@ -325,6 +337,22 @@ npm run build:css    # membangun ulang css/tailwind.css (minified)
 ```
 
 > ⚠️ **Jangan mengedit `css/tailwind.css` secara manual** — berkas ini adalah hasil build dan akan ditimpa. Sumber konfigurasi ada di `tailwind.config.js` dengan input `css/tailwind-input.css`. Pastikan `content` di `tailwind.config.js` tetap mencakup `*.html`, `prodi/*.html`, **dan `js/*.js`** agar kelas yang dirakit JavaScript (tabel karya, kartu direktori, toast, dsb.) ikut ter-generate.
+
+---
+
+## 🧪 Pengujian Kualitas (E2E QA) & Referensi Data
+
+### Folder `e2e/` — Laporan & Skenario Pengujian End-to-End
+Repositori menyertakan rangkaian pengujian E2E otomatis berbasis **JSDOM + analisis kode statis** dengan hasil terakhir **52 kasus uji, 100% lulus (52 PASS / 0 FAIL / 0 WARN)**, mencakup 4 skenario kritis:
+1. **UI/UX & Responsivitas Visual** — validasi grid adaptif dan anti-overflow pada 6 viewport (320px–1440px).
+2. **Navigasi Riwayat (Proteksi Modal)** — verifikasi `history.pushState` / `popstate` untuk modal Dosen & Alumni.
+3. **Statistika & Agregasi Data** — konsistensi jumlah data (dosen, alumni, mitra, prestasi, karya) di seluruh halaman.
+4. **Mode Luring & AssetGuard** — integritas Service Worker PWA dan mekanisme *fail-closed*.
+
+Laporan lengkap tersedia di [`e2e/LAPORAN-E2E-QA-FSTI-UWG.md`](e2e/LAPORAN-E2E-QA-FSTI-UWG.md) beserta metrik CSV dan hasil JSON.
+
+### Folder `referensi-data/` — Dokumentasi Konten Website
+Berisi **12 berkas markdown** hasil ekstraksi data lengkap website (profil fakultas, program studi, direktori dosen, penelitian, pengabdian, alumni, prestasi, kerjasama, PMB, dokumen unduhan, struktur website, dan kontak/tautan) sebagai **sumber referensi tunggal** untuk pengembangan konten ke depan. Lihat indeksnya di [`referensi-data/README.md`](referensi-data/README.md).
 
 ---
 
